@@ -189,7 +189,7 @@ Public Class frmCadProdutos
     Private Sub MostrarDados()
         Dim index As Integer = Me.grd2.FocusedRowHandle
         intCodigoProduto = Me.grd2.GetRowCellValue(index, colCodigo)
-        Me.txtCodigoInterno.Text = Me.grd2.GetRowCellDisplayText(index, Me.colCodigo)
+        Me.txtCodigoInterno.Text = Me.grd2.GetRowCellDisplayText(index, Me.colCodigoInterno)
         Me.cboCodBarra.Text = Me.grd2.GetRowCellDisplayText(index, Me.colCodBarra)
         Me.txtProduto.Text = Me.grd2.GetRowCellDisplayText(index, Me.colProduto)
         Me.cboSetor.Text = Me.grd2.GetRowCellDisplayText(index, Me.colSetor)

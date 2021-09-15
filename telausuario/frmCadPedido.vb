@@ -1176,7 +1176,8 @@ Public Class frmCadPedido
                         Next
                         SomarTotalProdutoServico()
                         If dblValorTotalServicoSemDesc = FormatNumber(0, 3) Then
-                            txtPorcentagem.Text = FormatNumber(0, 3)
+                            Me.txtPorcentagem.Text = FormatNumber(0, 3)
+                            Me.txtValorDistribuido.Text = FormatNumber(0, 3)
                             Exit Sub
                         End If
 
