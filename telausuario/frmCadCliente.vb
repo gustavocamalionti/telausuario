@@ -3,13 +3,19 @@ Imports telausuario.clsFuncao
 Public Class frmCadCliente
     Dim bolStatusAlteracao As Boolean
     Dim intCodigo As Integer
+    
+    Private Sub frmCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Limpar()
+        AtualizarGrid()
+    End Sub
+
     Private Sub AtualizarGrid()
         CarregarDados("select Codigo, Nome, Fantasia, CPF, RGIE, Sexo, Status, Cep, Estado, Cidade, Endereco, Numero, Complemento, Bairro, Telefone, Email, Contato, Inativo, Observacao from Cliente", grdClientesCad)
     End Sub
-    Private Sub AtualizarCampo()
-        CarregarDados("select count(*) from Cliente", grdClientesCad)
-    End Sub
-    Private Sub LimparDados()
+    Private Sub Limpar()
+        bolStatusAlteracao = False
+        intCodigo = 0
+
         Me.tabClientes.SelectedTabPageIndex = 0
         Me.grd1.ClearColumnsFilter()
 
@@ -21,9 +27,7 @@ Public Class frmCadCliente
         Me.dtNascim.ResetText()
         Me.cboSexo.SelectedIndex = -1
         Me.cboStatus.SelectedIndex = -1
-
         Me.tabEndereco.SelectedTabPageIndex = 0
-
         Me.txtClienteCep.ResetText()
         Me.cboClienteUf.SelectedIndex = -1
         Me.cboClienteCidade.SelectedIndex = -1
@@ -31,20 +35,26 @@ Public Class frmCadCliente
         Me.txtClienteNum.ResetText()
         Me.txtClienteComp.ResetText()
         Me.cboClienteBairro.SelectedIndex = -1
-
         Me.txtTelefone1.ResetText()
         Me.txtTelefone2.ResetText()
         Me.txtEmail.ResetText()
         Me.txtTelefone3.ResetText()
         Me.txtContato.ResetText()
-
         Me.chkInativo.Checked = False
         Me.chkPendencia.Checked = False
-        bolStatusAlteracao = False
         Me.memObservacoes.ResetText()
-
         Me.cboAniverMes.SelectedIndex = -1
 
+    End Sub
+
+    Private Sub Alterar()
+        Atualizar("update Cliente set Nome = '" & Me.txtNomeRazao.Text & "', Fantasia = '" & Me.txtFantasia.Text & "', " & _
+                  "CPF = '" & Me.txtCpfCnpj.Text & "', RGIE = '" & Me.txtRgIe.Text & "', Sexo = '" & Me.cboSexo.Text & "', " & _
+                  "Status ='" & Me.cboStatus.Text & "', Cep = '" & Me.txtClienteCep.Text & "', Estado = '" & Me.cboClienteUf.Text & "', " & _
+                  "Cidade = '" & Me.cboClienteCidade.Text & "', Endereco = '" & Me.txtClienteEndereco.Text & "', Numero = '" & Me.txtClienteNum.Text & "', " & _
+                  "Complemento = '" & Me.txtClienteComp.Text & "', Bairro = '" & Me.cboClienteBairro.Text & "', Telefone = '" & Me.txtTelefone1.Text & "', " & _
+                  "Email = '" & Me.txtEmail.Text & "', Contato = '" & Me.txtContato.Text & "', Inativo = '" & Me.chkInativo.Checked & "', " & _
+                  "Observacao = '" & Me.memObservacoes.Text & "'  where Codigo = " & intCodigo & ";")
     End Sub
 
     Private Sub InserirDados()
@@ -55,24 +65,16 @@ Public Class frmCadCliente
                 "'" & Me.txtClienteEndereco.Text & "', '" & Me.txtClienteNum.Text & "', '" & Me.txtClienteComp.Text & "', " & _
                 "'" & Me.cboClienteBairro.Text & "', '" & Me.txtTelefone1.Text & "', '" & Me.txtEmail.Text & "', '" & Me.txtContato.Text & "', " & _
                 "'" & Me.chkInativo.Checked & "', '" & Me.memObservacoes.Text & "');")
-        Me.AtualizarGrid()
-        Me.LimparDados()
+        AtualizarGrid()
+        Limpar()
     End Sub
 
     Private Sub DeletarDados()
         Dim Index As Integer = Me.grd1.FocusedRowHandle
         Dim intCodigo As String = Me.grd1.GetRowCellValue(Index, colCodigo)
         Deletar("delete Cliente where Codigo = " & intCodigo & ";")
-        LimparDados()
-    End Sub
-    Private Sub AtualizarDados()
-        Atualizar("update Cliente set Nome = '" & Me.txtNomeRazao.Text & "', Fantasia = '" & Me.txtFantasia.Text & "', " & _
-                  "CPF = '" & Me.txtCpfCnpj.Text & "', RGIE = '" & Me.txtRgIe.Text & "', Sexo = '" & Me.cboSexo.Text & "', " & _
-                  "Status ='" & Me.cboStatus.Text & "', Cep = '" & Me.txtClienteCep.Text & "', Estado = '" & Me.cboClienteUf.Text & "', " & _
-                  "Cidade = '" & Me.cboClienteCidade.Text & "', Endereco = '" & Me.txtClienteEndereco.Text & "', Numero = '" & Me.txtClienteNum.Text & "', " & _
-                  "Complemento = '" & Me.txtClienteComp.Text & "', Bairro = '" & Me.cboClienteBairro.Text & "', Telefone = '" & Me.txtTelefone1.Text & "', " & _
-                  "Email = '" & Me.txtEmail.Text & "', Contato = '" & Me.txtContato.Text & "', Inativo = '" & Me.chkInativo.Checked & "', " & _
-                  "Observacao = '" & Me.memObservacoes.Text & "'  where Codigo = " & intCodigo & ";")
+        AtualizarGrid()
+        Limpar()
     End Sub
 
     Private Sub MostrarDados()
@@ -100,14 +102,6 @@ Public Class frmCadCliente
         Me.memObservacoes.Text = Me.grd1.GetRowCellDisplayText(Index, Me.colObservacao)
     End Sub
 
-    Private Sub frmCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.AtualizarGrid()
-        bolStatusAlteracao = False
-        intCodigo = 0
-        Me.grd1.ClearColumnsFilter()
-
-
-    End Sub
 
     Private Sub btnExclui_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnExclui.ItemClick
         If bolStatusAlteracao = True Then
@@ -129,12 +123,12 @@ Public Class frmCadCliente
         Else
             If bolStatusAlteracao = True Then
                 If intCodigo = "1" Then
-                    LimparDados()
+                    Limpar()
                     MsgBox("Não é possível atualizar o registro 'CONSUMIDOR.", MsgBoxStyle.Exclamation)
                     bolStatusAlteracao = False
                     Exit Sub
                 End If
-                AtualizarDados()
+                Alterar()
                 AtualizarGrid()
                 bolStatusAlteracao = False
                 MsgBox("Alteração Realizada.", MsgBoxStyle.Information)
@@ -144,16 +138,16 @@ Public Class frmCadCliente
 
                 Dim contador As DataTable = CarregarDataTable("select count(*) from Cliente")
                 txtClientesCadastrados.Text = contador.Rows.Item(0).Item(0)
-                'Evitando Registros Duplicados - Á FAZER 
+
             End If
-            LimparDados()
+            Limpar()
         End If
     End Sub
 
     Private Sub btnLimpar_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnLimpar.ItemClick
         Dim ResultLimparCampo As DialogResult = MsgBox("Deseja Limpar Todos os Campos?", MsgBoxStyle.YesNo)
         If ResultLimparCampo = DialogResult.Yes Then
-            Me.LimparDados()
+            Me.Limpar()
             bolStatusAlteracao = False
         End If
 
@@ -170,23 +164,20 @@ Public Class frmCadCliente
 
     End Sub
 
-    Private Sub txtClientesCadastrados_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtClientesCadastrados.KeyPress
-        e.Handled = True
+    Private Sub btnFechar_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnFechar.ItemClick
+        Me.Close()
     End Sub
 
-    Private Sub txtClientesCadastrados_TabIndexChanged(sender As Object, e As EventArgs) Handles txtClientesCadastrados.TabIndexChanged
-
+    Private Sub btnBuscaCep_Click(sender As Object, e As EventArgs) Handles btnBuscaCep.Click
+        Dim ht As Hashtable = BuscaCep(Me.txtClienteCep.Text)
+        Me.txtClienteEndereco.Text = ht("tipologradouro") & " " & ht("logradouro")
+        Me.cboClienteUf.Text = ht("UF")
+        Me.cboClienteCidade.Text = ht("cidade")
+        Me.cboClienteBairro.Text = ht("bairro")
     End Sub
 
     Private Sub txtClientesCadastrados_VisibleChanged(sender As Object, e As EventArgs) Handles txtClientesCadastrados.VisibleChanged
         cfgContador(txtClientesCadastrados, grd1)
-    End Sub
-
-    Private Sub grdClientesCad_Click(sender As Object, e As EventArgs) Handles grdClientesCad.Click
-    End Sub
-
-    Private Sub btnFechar_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnFechar.ItemClick
-        Me.Close()
     End Sub
 
     Private Sub txtCpfCnpj_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCpfCnpj.KeyPress
@@ -243,14 +234,6 @@ Public Class frmCadCliente
 
     End Sub
 
-    Private Sub btnBuscaCep_Click(sender As Object, e As EventArgs) Handles btnBuscaCep.Click
-        Dim ht As Hashtable = BuscaCep(Me.txtClienteCep.Text)
-        Me.txtClienteEndereco.Text = ht("tipologradouro") & " " & ht("logradouro")
-        Me.cboClienteUf.Text = ht("UF")
-        Me.cboClienteCidade.Text = ht("cidade")
-        Me.cboClienteBairro.Text = ht("bairro")
-    End Sub
-
     Private Sub txtClienteCep_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtClienteCep.KeyPress
         'Aceitar apenas Números 
         If Char.IsNumber(e.KeyChar) = False Then
@@ -268,17 +251,6 @@ Public Class frmCadCliente
             Me.txtClienteCep.Text = Me.txtClienteCep.Text & "-"
             Me.txtClienteCep.SelectionStart = Me.txtClienteCep.Text.Length
         End If
-    End Sub
-
-    Private Sub txtTelefone1_KeyPress(sender As Object, e As KeyPressEventArgs)
-
-    End Sub
-    Private Sub txtTelefone3_KeyPress(sender As Object, e As KeyPressEventArgs)
-
-    End Sub
-
-    Private Sub txtTelefone2_KeyPress(sender As Object, e As KeyPressEventArgs)
-
     End Sub
 
     Private Sub txtCpfCnpj_Leave(sender As Object, e As EventArgs) Handles txtCpfCnpj.Leave
@@ -397,12 +369,6 @@ Public Class frmCadCliente
     '    bolStatusAlteracao = True
     'End Sub
 
-    Private Sub txtClienteCep_EditValueChanged(sender As Object, e As EventArgs) Handles txtClienteCep.EditValueChanged
-
-    End Sub
-
-
-
     Private Sub AlterarGrid_DoubleClick(sender As Object, e As EventArgs) Handles AlterarGrid.DoubleClick
         MostrarDados()
         bolStatusAlteracao = True
@@ -424,14 +390,6 @@ Public Class frmCadCliente
             e.Handled = False
             Exit Sub
         End If
-    End Sub
-
-    Private Sub txtTelefone1_EditValueChanged(sender As Object, e As EventArgs) Handles txtTelefone1.EditValueChanged
-
-    End Sub
-
-    Private Sub txtFantasia_EditValueChanged(sender As Object, e As EventArgs) Handles txtFantasia.EditValueChanged
-
     End Sub
 
     Private Sub txtFantasia_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtFantasia.KeyPress, txtTelefone3.KeyPress, txtTelefone2.KeyPress, txtTelefone1.KeyPress, txtRgIe.KeyPress, txtEmail.KeyPress, txtContato.KeyPress, txtClienteNum.KeyPress, txtClienteEndereco.KeyPress, txtClienteComp.KeyPress, memObservacoes.KeyPress, cboClienteCidade.KeyPress, cboClienteBairro.KeyPress

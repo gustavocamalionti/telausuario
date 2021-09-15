@@ -3,13 +3,12 @@ Public Class frmCadProdutos
     Dim bolStatusAlteracao As Boolean
     Dim intCodigoProduto As Integer
     Dim dblResultado As Double
-    Private Sub AtualizarGrid()
+
+    Private Sub frmCadProdutos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Limpar()
+        AtualizarGrid()
 
         If Me.Tag = "ConsultarProdutoRemover" Then
-            CarregarDados("select P.Codigo, P.CodigoInterno, P.Produto, P.Setor, P.Grupo, P.Fornecedor, P.Familia, P.UnidMed, P.Tipo " & _
-                      "from Produtos as P left join Qtde as Q on Q.CodProd = P.Codigo order by P.Produto;", grdProdCadastrados)
-
-
             Me.grdQtde.Visible = False
             Me.colAlterarPreco.Visible = False
             Me.colLocacao.Visible = False
@@ -36,15 +35,9 @@ Public Class frmCadProdutos
             Me.colqtdeMaxima1.Visible = False
             Me.colCodProd1.Visible = False
             Me.colTamanho1.Visible = False
+            Me.grd2.OptionsView.ColumnAutoWidth = True
 
         Else
-            CarregarDados("select P.Codigo, P.CodigoInterno, P.CodFor, P.CodBarra, P.Produto, P.Setor, P.Grupo, P.Fornecedor, P.Familia, P.UnidMed, P.Tipo, " & _
-                      "P.Locacao, P.Comissao, P.Custo, P.Venda, ((select case when sum(qtd) is null then 0 else sum(qtd) end from Entradanf " & _
-                      "where entradanf.codprod = P.codigo) - (select case when sum(qtd) is null then 0 else sum(qtd) end from Pedido " & _
-                      "where Pedido.codprod = P.codigo) + (select case when sum(qtd) is null then 0 else sum(qtd) end from AjusteQtde " & _
-                      "where AjusteQtde.codprod = P.codigo)) as Qtd,  P.Desconto, P.Observacao, P.AlterarPreco, P.Duplicar, P.TribPadrao, " & _
-                      "P.Inativo, Q.Tamanho, Q.Cor, Q.Lote from Produtos as P left join Qtde as Q on Q.CodProd = P.Codigo;", grdProdCadastrados)
-
             Me.txtCodigoInterno.Visible = True
             Me.grdQtde.Visible = True
             Me.colAlterarPreco.Visible = True
@@ -72,44 +65,70 @@ Public Class frmCadProdutos
             Me.colqtdeMaxima1.Visible = True
             Me.colCodProd1.Visible = True
             Me.colTamanho1.Visible = True
+            Me.grd2.OptionsView.ColumnAutoWidth = False
         End If
 
     End Sub
-    Private Sub InserirDados()
 
-        Inserir("insert into Produtos (CodigoInterno, CodFor, CodBarra, Produto, Setor, Grupo, Fornecedor, Familia, UnidMed, Tipo, Locacao, Comissao, " & _
-                "Custo, Venda, Desconto, Observacao, AlterarPreco, Duplicar, TribPadrao, Inativo) values ('" & Me.txtCodigoInterno.Text & "', '" & Me.txtCodFor.Text & "', " & _
-                "'" & Me.cboCodBarra.Text & "', '" & Me.txtProduto.Text & "', '" & Me.cboSetor.Text & "', '" & Me.cboGrupo.Text & "', " & _
-                "'" & Me.cboFornecedor.Text & "', '" & Me.cboFamilia.Text & "','" & Me.cboUniMed.Text & "', '" & Me.cboTipo.Text & "', " & _
-                "'" & Me.txtLocacao.Text & "', '" & Me.txtComissao.Text & "', '" & Me.txtCusto.Text & "', '" & Me.txtVenda.Text & "', " & _
-                "'" & Me.txtDesconto.Text & "', '" & Me.memObservacao.Text & "', '" & Me.chkAlterarPreco.Checked & "', " & _
-                "'" & Me.chkDuplicar.Checked & "', '" & Me.chkTribPadrao.Checked & "', '" & Me.chkInativo.Checked & "');")
+    Private Sub AtualizarGrid()
+        If Me.Tag = "ConsultarProdutoRemover" Then
+            CarregarDados("select P.Codigo, P.CodigoInterno, P.Produto, P.Setor, P.Grupo, P.Fornecedor, P.Familia, P.UnidMed, P.Tipo " & _
+                      "from Produtos as P left join Qtde as Q on Q.CodProd = P.Codigo order by P.Produto;", grdProdCadastrados)
 
-        Dim dtUltimoInsert As DataTable = CarregarDataTable("select max(Codigo) as 'Ultimo Codigo' from Produtos;")
-        Inserir("insert into Qtde (CodProd, Tamanho, Qtd,  Lote, EmFalta, Acabou, CodConfig, DataFim, Cor) values " & _
-                "(" & dtUltimoInsert.Rows.Item(0).Item("Ultimo Codigo") & ", '" & Me.tbQtd.Rows.Item(0).Item("Tamanho") & "', " & _
-                "" & (Me.tbQtd.Rows.Item(0).Item("Qtd").ToString).Replace(",", ".") & ", '" & Me.tbQtd.Rows.Item(0).Item("Lote") & "', " & _
-                "'" & Me.tbQtd.Rows.Item(0).Item("EmFalta") & "', '" & Me.tbQtd.Rows.Item(0).Item("Acabou") & "', " & _
-                "'" & Me.tbQtd.Rows.Item(0).Item("CodConfig") & "', '" & Me.tbQtd.Rows.Item(0).Item("DataFim") & "', " & _
-                "'" & Me.tbQtd.Rows.Item(0).Item("Cor") & "')")
-
-        Inserir("insert into AjusteQtde (CodProd, Qtd, Data, Username) values(" & dtUltimoInsert.Rows.Item(0).Item("Ultimo Codigo") & ", " & _
-                " " & grd3.GetRowCellValue(0, "Qtd").ToString.Replace(",", ".") & ", getdate(), '" & Environment.MachineName.ToString & "' );")
-
-        Me.AtualizarGrid()
-        Me.LimparDados()
-    End Sub
-
-    Private Sub CalculoEntradaSaidaAjuste()
-        Dim dtSomaAjuste As DataTable = CarregarDataTable("select (select case when sum(qtd) is null then 0 else sum(qtd) end from AjusteQtde where AjusteQtde.codprod = P.codigo) from Produtos as P where Codigo = " & Me.intCodigoProduto & ";")
-        Dim dtSomaEntrada As DataTable = CarregarDataTable("select (select case when sum(qtd) is null then 0 else sum(qtd) end from EntradaNf where entradanf.codprod = P.codigo) from Produtos as P where Codigo = " & Me.intCodigoProduto & ";")
-        Dim dtSomaSaida As DataTable = CarregarDataTable("select (select case when sum(qtd) is null then 0 else sum(qtd) end from Pedido where Pedido.codprod = P.codigo) from Produtos as P where Codigo = " & Me.intCodigoProduto & ";")
-
-
-        dblResultado = dtSomaEntrada.Rows.Item(0).Item(0) - dtSomaSaida.Rows.Item(0).Item(0) + dtSomaAjuste.Rows.Item(0).Item(0)
+        Else
+            CarregarDados("select P.Codigo, P.CodigoInterno, P.CodFor, P.CodBarra, P.Produto, P.Setor, P.Grupo, P.Fornecedor, P.Familia, P.UnidMed, P.Tipo, " & _
+                      "P.Locacao, P.Comissao, P.Custo, P.Venda, ((select case when sum(qtd) is null then 0 else sum(qtd) end from Entradanf " & _
+                      "where entradanf.codprod = P.codigo) - (select case when sum(qtd) is null then 0 else sum(qtd) end from Pedido " & _
+                      "where Pedido.codprod = P.codigo) + (select case when sum(qtd) is null then 0 else sum(qtd) end from AjusteQtde " & _
+                      "where AjusteQtde.codprod = P.codigo)) as Qtd,  P.Desconto, P.Observacao, P.AlterarPreco, P.Duplicar, P.TribPadrao, " & _
+                      "P.Inativo, Q.Tamanho, Q.Cor, Q.Lote from Produtos as P left join Qtde as Q on Q.CodProd = P.Codigo;", grdProdCadastrados)
+        End If
 
     End Sub
-    Private Sub AtualizarDados()
+
+    Private Sub Limpar()
+
+        Me.tbQtd.Rows.Clear()
+        Me.tbQtd.Rows.Add()
+        Me.tbQtd.Rows.Item(0).Item("Tamanho") = ""
+        Me.tbQtd.Rows.Item(0).Item("Cor") = ""
+        Me.tbQtd.Rows.Item(0).Item("Qtd") = ""
+        Me.tbQtd.Rows.Item(0).Item("Lote") = ""
+
+        bolStatusAlteracao = False
+        intCodigoProduto = 0
+        dblResultado = 0
+
+        Me.tabInicial.SelectedTabPageIndex = 0
+        Me.grd2.ClearColumnsFilter()
+        Me.grd3.ClearColumnsFilter()
+
+        Me.txtCodigoInterno.ResetText()
+        Me.chkCodigo.Checked = False
+        Me.txtCodFor.ResetText()
+        Me.cboCodBarra.SelectedIndex = 0
+        Me.txtProduto.ResetText()
+        Me.cboSetor.SelectedIndex = 0
+        Me.cboGrupo.SelectedIndex = 0
+        Me.cboFornecedor.SelectedIndex = 0
+        Me.cboFamilia.SelectedIndex = 0
+        Me.cboUniMed.SelectedIndex = 0
+        Me.cboTipo.SelectedIndex = 0
+        Me.txtLocacao.ResetText()
+        Me.txtComissao.ResetText()
+        Me.txtCusto.ResetText()
+        Me.txtVenda.ResetText()
+        Me.txtVendaPorc.ResetText()
+        Me.txtDesconto.ResetText()
+        Me.txtDescontoPorc.ResetText()
+        Me.memObservacao.ResetText()
+        Me.chkDuplicar.Checked = False
+        Me.chkAlterarPreco.Checked = False
+        Me.chkTribPadrao.Checked = False
+
+    End Sub
+
+    Private Sub Alterar()
         CalculoEntradaSaidaAjuste()
         Dim parQtde As Double = Me.grd3.GetRowCellValue(0, "Qtd")
 
@@ -138,54 +157,6 @@ Public Class frmCadProdutos
         AtualizarGrid()
     End Sub
 
-    Private Sub DeletarDados()
-        Dim Index As Integer = Me.grd2.FocusedRowHandle
-        intCodigoProduto = Me.grd2.GetRowCellValue(Index, colCodigo)
-        Deletar("delete Qtde where CodProd = " & intCodigoProduto & ";")
-        Deletar("delete EntradaNf where CodProd = " & intCodigoProduto & ";")
-        Deletar("delete Pedido where CodProd = " & intCodigoProduto & ";")
-        Deletar("delete AjusteQtde where CodProd = " & intCodigoProduto & ";")
-        Deletar("delete Produtos where Codigo = " & intCodigoProduto & ";")
-        LimparDados()
-        AtualizarGrid()
-    End Sub
-
-    Private Sub LimparDados()
-        Me.tabInicial.SelectedTabPageIndex = 0
-
-        Me.txtCodigoInterno.ResetText()
-        Me.chkCodigo.Checked = False
-        Me.txtCodFor.ResetText()
-        Me.cboCodBarra.SelectedIndex = 0
-        Me.txtProduto.ResetText()
-        Me.cboSetor.SelectedIndex = 0
-        Me.cboGrupo.SelectedIndex = 0
-        Me.cboFornecedor.SelectedIndex = 0
-        Me.cboFamilia.SelectedIndex = 0
-        Me.cboUniMed.SelectedIndex = 0
-        Me.cboTipo.SelectedIndex = 0
-        Me.txtLocacao.ResetText()
-        Me.txtComissao.ResetText()
-        Me.txtCusto.ResetText()
-        Me.txtVenda.ResetText()
-        Me.txtVendaPorc.ResetText()
-        Me.txtDesconto.ResetText()
-        Me.txtDescontoPorc.ResetText()
-        Me.memObservacao.ResetText()
-        Me.chkDuplicar.Checked = False
-        Me.chkAlterarPreco.Checked = False
-        Me.chkTribPadrao.Checked = False
-
-        Me.tbQtd.Rows.Clear()
-        Me.tbQtd.Rows.Add()
-
-        Dim bolStatusAlteracao = False
-        Dim intCodigoProduto = 0
-        Dim dblResultado = 0
-        Me.grd2.ClearColumnsFilter()
-        Me.grd3.ClearColumnsFilter()
-
-    End Sub
     Private Sub MostrarDados()
         Dim index As Integer = Me.grd2.FocusedRowHandle
         intCodigoProduto = Me.grd2.GetRowCellValue(index, colCodigo)
@@ -231,27 +202,49 @@ Public Class frmCadProdutos
 
     End Sub
 
+    Private Sub InserirDados()
+        Inserir("insert into Produtos (CodigoInterno, CodFor, CodBarra, Produto, Setor, Grupo, Fornecedor, Familia, UnidMed, Tipo, Locacao, Comissao, " & _
+                "Custo, Venda, Desconto, Observacao, AlterarPreco, Duplicar, TribPadrao, Inativo) values ('" & Me.txtCodigoInterno.Text & "', '" & Me.txtCodFor.Text & "', " & _
+                "'" & Me.cboCodBarra.Text & "', '" & Me.txtProduto.Text & "', '" & Me.cboSetor.Text & "', '" & Me.cboGrupo.Text & "', " & _
+                "'" & Me.cboFornecedor.Text & "', '" & Me.cboFamilia.Text & "','" & Me.cboUniMed.Text & "', '" & Me.cboTipo.Text & "', " & _
+                "'" & Me.txtLocacao.Text & "', '" & Me.txtComissao.Text & "', '" & Me.txtCusto.Text & "', '" & Me.txtVenda.Text & "', " & _
+                "'" & Me.txtDesconto.Text & "', '" & Me.memObservacao.Text & "', '" & Me.chkAlterarPreco.Checked & "', " & _
+                "'" & Me.chkDuplicar.Checked & "', '" & Me.chkTribPadrao.Checked & "', '" & Me.chkInativo.Checked & "');")
+
+        Dim dtUltimoInsert As DataTable = CarregarDataTable("select max(Codigo) as 'Ultimo Codigo' from Produtos;")
+        Inserir("insert into Qtde (CodProd, Tamanho, Qtd,  Lote, EmFalta, Acabou, CodConfig, DataFim, Cor) values " & _
+                "(" & dtUltimoInsert.Rows.Item(0).Item("Ultimo Codigo") & ", '" & Me.tbQtd.Rows.Item(0).Item("Tamanho") & "', " & _
+                "" & (Me.tbQtd.Rows.Item(0).Item("Qtd").ToString).Replace(",", ".") & ", '" & Me.tbQtd.Rows.Item(0).Item("Lote") & "', " & _
+                "'" & Me.tbQtd.Rows.Item(0).Item("EmFalta") & "', '" & Me.tbQtd.Rows.Item(0).Item("Acabou") & "', " & _
+                "'" & Me.tbQtd.Rows.Item(0).Item("CodConfig") & "', '" & Me.tbQtd.Rows.Item(0).Item("DataFim") & "', " & _
+                "'" & Me.tbQtd.Rows.Item(0).Item("Cor") & "')")
+
+        Inserir("insert into AjusteQtde (CodProd, Qtd, Data, Username) values(" & dtUltimoInsert.Rows.Item(0).Item("Ultimo Codigo") & ", " & _
+                " " & grd3.GetRowCellValue(0, "Qtd").ToString.Replace(",", ".") & ", getdate(), '" & Environment.MachineName.ToString & "' );")
+
+        AtualizarGrid()
+        Limpar()
+    End Sub
+
+    Private Sub DeletarDados()
+        Dim Index As Integer = Me.grd2.FocusedRowHandle
+        intCodigoProduto = Me.grd2.GetRowCellValue(Index, colCodigo)
+        Deletar("delete Qtde where CodProd = " & intCodigoProduto & ";")
+        Deletar("delete EntradaNf where CodProd = " & intCodigoProduto & ";")
+        Deletar("delete Pedido where CodProd = " & intCodigoProduto & ";")
+        Deletar("delete AjusteQtde where CodProd = " & intCodigoProduto & ";")
+        Deletar("delete Produtos where Codigo = " & intCodigoProduto & ";")
+        Limpar()
+        AtualizarGrid()
+    End Sub
+
+    Private Sub CalculoEntradaSaidaAjuste()
+        Dim dtSomaAjuste As DataTable = CarregarDataTable("select (select case when sum(qtd) is null then 0 else sum(qtd) end from AjusteQtde where AjusteQtde.codprod = P.codigo) from Produtos as P where Codigo = " & Me.intCodigoProduto & ";")
+        Dim dtSomaEntrada As DataTable = CarregarDataTable("select (select case when sum(qtd) is null then 0 else sum(qtd) end from EntradaNf where entradanf.codprod = P.codigo) from Produtos as P where Codigo = " & Me.intCodigoProduto & ";")
+        Dim dtSomaSaida As DataTable = CarregarDataTable("select (select case when sum(qtd) is null then 0 else sum(qtd) end from Pedido where Pedido.codprod = P.codigo) from Produtos as P where Codigo = " & Me.intCodigoProduto & ";")
 
 
-    Private Sub frmCadProdutos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If Me.tbQtd.Rows.Count = 0 Then
-            Me.tbQtd.Rows.Add()
-            Me.tbQtd.Rows.Item(0).Item("Tamanho") = ""
-            Me.tbQtd.Rows.Item(0).Item("Cor") = ""
-            Me.tbQtd.Rows.Item(0).Item("Qtd") = ""
-            Me.tbQtd.Rows.Item(0).Item("Lote") = ""
-        End If
-
-        Dim bolStatusAlteracao = False
-        Dim intCodigoProduto = 0
-        Dim dblResultado = 0
-        Me.grd2.ClearColumnsFilter()
-        Me.grd3.ClearColumnsFilter()
-
-
-        Me.AtualizarGrid()
-
-
+        dblResultado = dtSomaEntrada.Rows.Item(0).Item(0) - dtSomaSaida.Rows.Item(0).Item(0) + dtSomaAjuste.Rows.Item(0).Item(0)
 
     End Sub
 
@@ -281,11 +274,42 @@ Public Class frmCadProdutos
                 MsgBox("Registro adicionado com sucesso!", MsgBoxStyle.Information)
 
             Else
-                AtualizarDados()
+                Alterar()
                 bolStatusAlteracao = False
                 MsgBox("Obrigado " & Environment.MachineName & " ! " & Me.txtProduto.Text & " Foi atualizado.", MsgBoxStyle.Information)
-                LimparDados()
+                Limpar()
             End If
+        End If
+        cfgContador(txtProdCadastrados, grd2)
+    End Sub
+
+    Private Sub btnLimpar_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnLimpar.ItemClick
+        Dim ResultLimparCampo As DialogResult = MsgBox("Deseja Limpar Todos os Campos?", MsgBoxStyle.YesNo)
+        If ResultLimparCampo = DialogResult.Yes Then
+            Me.Limpar()
+            bolStatusAlteracao = False
+        End If
+    End Sub
+
+    Private Sub btnAlterar_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnAlterar.ItemClick
+        MostrarDados()
+        bolStatusAlteracao = True
+    End Sub
+
+    Private Sub btnFechar_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnFechar.ItemClick
+        If MessageBox.Show("Deseja voltar para o menu de navegação? ", My.Application.Info.Title, MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.Yes Then
+            Me.Close()
+        End If
+    End Sub
+
+    Private Sub btnExcluir_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnExcluir.ItemClick
+        If bolStatusAlteracao = True Then
+            DeletarDados()
+            bolStatusAlteracao = False
+            MsgBox("Registro Excluído.", MsgBoxStyle.Information)
+
+        Else
+            MsgBox("Falha! Selecione um registro e clique em Alterar.", MsgBoxStyle.Exclamation)
         End If
         cfgContador(txtProdCadastrados, grd2)
     End Sub
@@ -316,37 +340,6 @@ Public Class frmCadProdutos
             Exit Sub
         End If
 
-    End Sub
-
-    Private Sub btnLimpar_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnLimpar.ItemClick
-        Dim ResultLimparCampo As DialogResult = MsgBox("Deseja Limpar Todos os Campos?", MsgBoxStyle.YesNo)
-        If ResultLimparCampo = DialogResult.Yes Then
-            Me.LimparDados()
-            bolStatusAlteracao = False
-        End If
-    End Sub
-
-    Private Sub btnAlterar_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnAlterar.ItemClick
-        MostrarDados()
-        bolStatusAlteracao = True
-    End Sub
-
-    Private Sub btnFechar_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnFechar.ItemClick
-        If MessageBox.Show("Deseja voltar para o menu de navegação? ", My.Application.Info.Title, MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.Yes Then
-            Me.Close()
-        End If
-    End Sub
-
-    Private Sub btnExcluir_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnExcluir.ItemClick
-        If bolStatusAlteracao = True Then
-            DeletarDados()
-            bolStatusAlteracao = False
-            MsgBox("Registro Excluído.", MsgBoxStyle.Information)
-
-        Else
-            MsgBox("Falha! Selecione um registro e clique em Alterar.", MsgBoxStyle.Exclamation)
-        End If
-        cfgContador(txtProdCadastrados, grd2)
     End Sub
 
     Private Sub chkCodigo_CheckedChanged(sender As Object, e As EventArgs) Handles chkCodigo.CheckedChanged
@@ -416,6 +409,35 @@ Public Class frmCadProdutos
         Else
             Me.chkDuplicar.Checked = False
         End If
+    End Sub
+
+    Private Sub btnCalcular_Click(sender As Object, e As EventArgs) Handles btnCalcular.Click
+        Dim intSomaVenda As Double
+        Dim intSomaCusto As Double
+        Dim i As Integer
+
+        For i = 0 To (grd2.RowCount - 1)
+            If Me.grd2.GetRowCellValue(i, colQtd) <> 0 Then
+                intSomaVenda = intSomaVenda + Me.grd2.GetRowCellValue(i, colVenda) * Me.grd2.GetRowCellValue(i, colQtd)
+                intSomaCusto = intSomaCusto + Me.grd2.GetRowCellValue(i, colCusto) * Me.grd2.GetRowCellValue(i, colQtd)
+            End If
+
+        Next
+
+        If Me.cboCustoVenda.Text = "Valor Venda" Then
+            Me.txtCapitalEstoque.Text = FormatNumber(intSomaVenda, 3)
+
+        ElseIf Me.cboCustoVenda.Text = "Valor Custo" Then
+            Me.txtCapitalEstoque.Text = FormatNumber(intSomaCusto, 3)
+        End If
+
+        Dim intSomaQtd As Double
+        Dim t As Integer
+
+        For t = 0 To (grd2.RowCount - 1)
+            intSomaQtd = intSomaQtd + Me.grd2.GetRowCellValue(t, colQtd)
+        Next
+        Me.txtQtdTotal.Text = intSomaQtd
     End Sub
 
     Private Sub lblAlterarPreco_MouseHover(sender As Object, e As EventArgs) Handles lblAlterarPreco.MouseHover
@@ -491,35 +513,6 @@ Public Class frmCadProdutos
         If Char.IsNumber(e.KeyChar) = False And e.KeyChar <> vbBack Then
             e.Handled = True
         End If
-    End Sub
-
-    Private Sub btnCalcular_Click(sender As Object, e As EventArgs) Handles btnCalcular.Click
-        Dim intSomaVenda As Double
-        Dim intSomaCusto As Double
-        Dim i As Integer
-
-        For i = 0 To (grd2.RowCount - 1)
-            If Me.grd2.GetRowCellValue(i, colQtd) <> 0 Then
-                intSomaVenda = intSomaVenda + Me.grd2.GetRowCellValue(i, colVenda) * Me.grd2.GetRowCellValue(i, colQtd)
-                intSomaCusto = intSomaCusto + Me.grd2.GetRowCellValue(i, colCusto) * Me.grd2.GetRowCellValue(i, colQtd)
-            End If
-
-        Next
-
-        If Me.cboCustoVenda.Text = "Valor Venda" Then
-            Me.txtCapitalEstoque.Text = FormatNumber(intSomaVenda, 3)
-
-        ElseIf Me.cboCustoVenda.Text = "Valor Custo" Then
-            Me.txtCapitalEstoque.Text = FormatNumber(intSomaCusto, 3)
-        End If
-
-        Dim intSomaQtd As Double
-        Dim t As Integer
-
-        For t = 0 To (grd2.RowCount - 1)
-            intSomaQtd = intSomaQtd + Me.grd2.GetRowCellValue(t, colQtd)
-        Next
-        Me.txtQtdTotal.Text = intSomaQtd
     End Sub
 
     Private Sub txtVenda_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtVenda.KeyPress

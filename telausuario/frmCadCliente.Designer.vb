@@ -545,9 +545,12 @@ Partial Class frmCadCliente
         Me.txtClientesCadastrados.Name = "txtClientesCadastrados"
         Me.txtClientesCadastrados.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 13.0!)
         Me.txtClientesCadastrados.Properties.Appearance.Options.UseFont = True
+        Me.txtClientesCadastrados.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.White
+        Me.txtClientesCadastrados.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.txtClientesCadastrados.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple
         Me.txtClientesCadastrados.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtClientesCadastrados.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.txtClientesCadastrados.Properties.ReadOnly = True
         Me.txtClientesCadastrados.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.txtClientesCadastrados.Size = New System.Drawing.Size(147, 28)
         Me.txtClientesCadastrados.TabIndex = 80

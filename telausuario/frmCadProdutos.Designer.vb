@@ -660,7 +660,7 @@ Partial Class frmCadProdutos
         Me.colTamanho.Name = "colTamanho"
         Me.colTamanho.Visible = True
         Me.colTamanho.VisibleIndex = 0
-        Me.colTamanho.Width = 20
+        Me.colTamanho.Width = 79
         '
         'colqtdeMaxima
         '
@@ -681,7 +681,7 @@ Partial Class frmCadProdutos
         Me.colLote.Name = "colLote"
         Me.colLote.Visible = True
         Me.colLote.VisibleIndex = 1
-        Me.colLote.Width = 105
+        Me.colLote.Width = 85
         '
         'colValorCusto
         '
@@ -711,7 +711,7 @@ Partial Class frmCadProdutos
         Me.colQtd.Name = "colQtd"
         Me.colQtd.Visible = True
         Me.colQtd.VisibleIndex = 2
-        Me.colQtd.Width = 105
+        Me.colQtd.Width = 85
         '
         'txtAlterarGridNumero
         '
@@ -765,7 +765,7 @@ Partial Class frmCadProdutos
         Me.colCor.Name = "colCor"
         Me.colCor.Visible = True
         Me.colCor.VisibleIndex = 3
-        Me.colCor.Width = 107
+        Me.colCor.Width = 88
         '
         'GridView1
         '
