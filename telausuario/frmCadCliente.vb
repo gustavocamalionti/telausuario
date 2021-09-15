@@ -270,14 +270,14 @@ Public Class frmCadCliente
         End If
     End Sub
 
-    Private Sub txtTelefone1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtTelefone1.KeyPress
+    Private Sub txtTelefone1_KeyPress(sender As Object, e As KeyPressEventArgs)
 
     End Sub
-    Private Sub txtTelefone3_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtTelefone3.KeyPress
+    Private Sub txtTelefone3_KeyPress(sender As Object, e As KeyPressEventArgs)
 
     End Sub
 
-    Private Sub txtTelefone2_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtTelefone2.KeyPress
+    Private Sub txtTelefone2_KeyPress(sender As Object, e As KeyPressEventArgs)
 
     End Sub
 
@@ -434,9 +434,10 @@ Public Class frmCadCliente
 
     End Sub
 
-    Private Sub txtFantasia_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtFantasia.KeyPress
+    Private Sub txtFantasia_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtFantasia.KeyPress, txtTelefone3.KeyPress, txtTelefone2.KeyPress, txtTelefone1.KeyPress, txtRgIe.KeyPress, txtEmail.KeyPress, txtContato.KeyPress, txtClienteNum.KeyPress, txtClienteEndereco.KeyPress, txtClienteComp.KeyPress, memObservacoes.KeyPress, cboClienteCidade.KeyPress, cboClienteBairro.KeyPress
         If e.KeyChar = "'" Then
             e.Handled = True
         End If
     End Sub
+
 End Class

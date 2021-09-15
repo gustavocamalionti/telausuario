@@ -595,10 +595,14 @@ Public Class frmCadProdutos
 
     End Sub
 
-    Private Sub memObservacao_KeyPress(sender As Object, e As KeyPressEventArgs) Handles memObservacao.KeyPress
+    Private Sub memObservacao_KeyPress(sender As Object, e As KeyPressEventArgs) Handles memObservacao.KeyPress, txtProduto.KeyPress, txtLocacao.KeyPress, txtAlterarGridQtde.KeyPress, cboUniMed.KeyPress, cboTipo.KeyPress, cboSetor.KeyPress, cboGrupo.KeyPress, cboFornecedor.KeyPress, cboFamilia.KeyPress, cboCustoVenda.KeyPress, cboCodBarra.KeyPress
         If e.KeyChar = "'" Then
             e.Handled = True
         End If
+
+    End Sub
+
+    Private Sub txtCusto_EditValueChanged(sender As Object, e As EventArgs) Handles txtCusto.EditValueChanged
 
     End Sub
 End Class

@@ -749,6 +749,10 @@ Public Class frmCadPedido
         cfgLeaveNumVirgulas(txtAddQtd)
     End Sub
 
+    Private Sub txtDescontoPorc_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtDescontoPorc.KeyPress
+        cfgPressNumVirgulas(txtDesconto, e)
+    End Sub
+
     Private Sub txtDescontoPorc_Leave(sender As Object, e As EventArgs) Handles txtDescontoPorc.Leave
         Dim ProdutoSelect As DataTable = CarregarDataTable("select * from Produtos where Codigo = " & CodigoProduto & "")
         If ProdutoSelect.Rows.Count > 0 Then
@@ -766,6 +770,10 @@ Public Class frmCadPedido
         cfgLeaveNumVirgulas(txtDescontoPorc)
     End Sub
 
+    Private Sub txtDesconto_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtDesconto.KeyPress
+        cfgPressNumVirgulas(txtDesconto, e)
+    End Sub
+
     Private Sub txtDesconto_Leave(sender As Object, e As EventArgs) Handles txtDesconto.Leave
         Dim ProdutoSelect As DataTable = CarregarDataTable("select * from Produtos where Codigo = " & CodigoProduto & "")
         If ProdutoSelect.Rows.Count > 0 Then
@@ -781,6 +789,10 @@ Public Class frmCadPedido
 
 
         cfgLeaveNumVirgulas(txtDescontoPorc)
+    End Sub
+
+    Private Sub txtPreco_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPreco.KeyPress
+        cfgPressNumVirgulas(txtPreco, e)
     End Sub
 
     Private Sub txtPreco_Leave(sender As Object, e As EventArgs) Handles txtPreco.Leave
@@ -1643,6 +1655,28 @@ Public Class frmCadPedido
     End Sub
 
     Private Sub txtPorcentagem_MouseClick(sender As Object, e As MouseEventArgs) Handles txtPorcentagem.MouseClick
+
+    End Sub
+
+    Private Sub memObservacoes_EditValueChanged(sender As Object, e As EventArgs) Handles memObservacoes.EditValueChanged
+
+    End Sub
+
+    Private Sub memObservacoes_KeyPress(sender As Object, e As KeyPressEventArgs) Handles memObservacoes.KeyPress, txtRemoverCodigo.KeyPress, cboVendedor.KeyPress, cboStatusNano.KeyPress, cboNossoStatus.KeyPress, txtNivelComb.KeyPress, txtMotor.KeyPress, txtModelo.KeyPress, txtKmSaida.KeyPress, txtKmEntrada.KeyPress, txtDataSaida.KeyPress, txtDataEntrada.KeyPress, txtCor.KeyPress, txtAno.KeyPress, memDefeitosVeiculo.KeyPress, ComboBoxEdit2.KeyPress
+        If e.KeyChar = "'" Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub txtDesconto_EditValueChanged(sender As Object, e As EventArgs) Handles txtDesconto.EditValueChanged
+
+    End Sub
+
+    Private Sub txtDescontoPorc_EditValueChanged(sender As Object, e As EventArgs) Handles txtDescontoPorc.EditValueChanged
+
+    End Sub
+
+    Private Sub txtPreco_EditValueChanged(sender As Object, e As EventArgs) Handles txtPreco.EditValueChanged
 
     End Sub
 End Class
