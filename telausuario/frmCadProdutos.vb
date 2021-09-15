@@ -591,4 +591,14 @@ Public Class frmCadProdutos
         Me.txtVendaPorc.BackColor = Color.FromArgb(255, 255, 192)
     End Sub
 
+    Private Sub memObservacao_EditValueChanged(sender As Object, e As EventArgs) Handles memObservacao.EditValueChanged
+
+    End Sub
+
+    Private Sub memObservacao_KeyPress(sender As Object, e As KeyPressEventArgs) Handles memObservacao.KeyPress
+        If e.KeyChar = "'" Then
+            e.Handled = True
+        End If
+
+    End Sub
 End Class

@@ -429,4 +429,14 @@ Public Class frmCadCliente
     Private Sub txtTelefone1_EditValueChanged(sender As Object, e As EventArgs) Handles txtTelefone1.EditValueChanged
 
     End Sub
+
+    Private Sub txtFantasia_EditValueChanged(sender As Object, e As EventArgs) Handles txtFantasia.EditValueChanged
+
+    End Sub
+
+    Private Sub txtFantasia_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtFantasia.KeyPress
+        If e.KeyChar = "'" Then
+            e.Handled = True
+        End If
+    End Sub
 End Class

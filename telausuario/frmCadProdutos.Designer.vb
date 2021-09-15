@@ -23,7 +23,7 @@ Partial Class frmCadProdutos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim GridLevelNode2 As DevExpress.XtraGrid.GridLevelNode = New DevExpress.XtraGrid.GridLevelNode()
+        Dim GridLevelNode1 As DevExpress.XtraGrid.GridLevelNode = New DevExpress.XtraGrid.GridLevelNode()
         Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
         Me.btnSalvar = New DevExpress.XtraBars.Bar()
         Me.btnExcluir = New DevExpress.XtraBars.BarButtonItem()
@@ -412,22 +412,22 @@ Partial Class frmCadProdutos
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 625)
-        Me.barDockControlBottom.Size = New System.Drawing.Size(1008, 41)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 623)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(1008, 43)
         '
         'barDockControlLeft
         '
         Me.barDockControlLeft.CausesValidation = False
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
         Me.barDockControlLeft.Location = New System.Drawing.Point(0, 0)
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 625)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 623)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
         Me.barDockControlRight.Location = New System.Drawing.Point(1008, 0)
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 625)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 623)
         '
         'RepositoryItemButtonEdit1
         '
@@ -530,8 +530,8 @@ Partial Class frmCadProdutos
         Me.grdQtde.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.grdQtde.DataMember = "tbQtd"
         Me.grdQtde.DataSource = Me.dsQuantidade
-        GridLevelNode2.RelationName = "Level1"
-        Me.grdQtde.LevelTree.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode2})
+        GridLevelNode1.RelationName = "Level1"
+        Me.grdQtde.LevelTree.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode1})
         Me.grdQtde.Location = New System.Drawing.Point(5, 5)
         Me.grdQtde.MainView = Me.grd3
         Me.grdQtde.MenuManager = Me.BarManager1
@@ -1297,7 +1297,7 @@ Partial Class frmCadProdutos
         Me.PanelControl1.Controls.Add(Me.txtProdCadastrados)
         Me.PanelControl1.Controls.Add(Me.lblProdCadastrados)
         Me.PanelControl1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PanelControl1.Location = New System.Drawing.Point(0, 581)
+        Me.PanelControl1.Location = New System.Drawing.Point(0, 579)
         Me.PanelControl1.Name = "PanelControl1"
         Me.PanelControl1.Size = New System.Drawing.Size(1008, 44)
         Me.PanelControl1.TabIndex = 2
