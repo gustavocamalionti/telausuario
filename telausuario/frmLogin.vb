@@ -22,7 +22,8 @@ Public Class frmLogin
             MsgBox("Login feito com sucesso!", MsgBoxStyle.Information)
             Me.txtLogin.ResetText()
             Me.txtSenha.ResetText()
-            frmMenu.Show()
+            Hide()
+            frmMenu.ShowDialog()
         End If
 
     End Sub
@@ -95,8 +96,8 @@ Public Class frmLogin
                 MsgBox("Login feito com sucesso!", MsgBoxStyle.Information)
                 Me.txtLogin.ResetText()
                 Me.txtSenha.ResetText()
-                frmMenu.Show()
-
+                Hide()
+                frmMenu.ShowDialog()
             End If
         End If
 
