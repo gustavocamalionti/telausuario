@@ -10,7 +10,6 @@ Public Class frmCadPedido
     Dim dblFrete As Double = Format(0, 3)
     Dim vetDelete As New List(Of String)
 
-
     Private Sub frmCadPedido_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Limpar()
         Me.txtDescontoPorc.Text = FormatNumber(0, 3)
