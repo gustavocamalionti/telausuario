@@ -113,6 +113,6 @@ Public Class frmLogin
     End Sub
 
     Private Sub txtSenha_Leave(sender As Object, e As EventArgs) Handles txtSenha.Leave
-        txtLogin.Text.Trim()
+        txtSenha.Text.Trim()
     End Sub
 End Class

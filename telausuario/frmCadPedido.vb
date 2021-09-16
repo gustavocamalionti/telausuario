@@ -221,7 +221,7 @@ Public Class frmCadPedido
         Me.txtPreco.Text = FormatNumber(0, 3)
         Me.txtRemoverCodigo.ResetText()
         Me.txtRemoverProduto.ResetText()
-        Me.txtRemoverQtd.Text = FormatNumber(0, 3)
+        Me.txtRemoverQtd.Text = 0
 
     End Sub
 
@@ -569,7 +569,7 @@ Public Class frmCadPedido
 
                     Next
 
-                    Atualizar("update TotalConsig set Data = getdate(), Total = " & Me.txtTotalGeral.Text.Replace(".", "").Replace(",", ".") & ", Descricao = '" & Me.memObservacoes.Text & "', Custo = " & dblSomaCusto.ToString.Replace(".", "").Replace(",", ".") & ", Desconto = " & Me.txtTotalDesconto.Text.ToString.Replace(".", "").Replace(",", ".") & "")
+                    Atualizar("update TotalConsig set DataSaida = , Data = getdate(), Total = " & Me.txtTotalGeral.Text.Replace(".", "").Replace(",", ".") & ", Descricao = '" & Me.memObservacoes.Text & "', Custo = " & dblSomaCusto.ToString.Replace(".", "").Replace(",", ".") & ", Desconto = " & Me.txtTotalDesconto.Text.ToString.Replace(".", "").Replace(",", ".") & "")
                     Limpar()
                     Exit Sub
 
@@ -776,16 +776,7 @@ Public Class frmCadPedido
         End If
     End Sub
     Private Sub txtAlterarGrid_Click(sender As Object, e As EventArgs) Handles txtAlterarGrid.Click
-        indexPedidoAtual = Me.grd1.FocusedRowHandle
-        CodigoProduto = Me.grd1.GetRowCellValue(indexPedidoAtual, colCodProd)
 
-        Dim dtProdutoSelect As DataTable = CarregarDataTable("select * from Produtos where Codigo = " & CodigoProduto & "")
-
-        If dtProdutoSelect.Rows.Count > 0 Then
-            Me.txtRemoverCodigo.Text = dtProdutoSelect.Rows.Item(0).Item("CodigoInterno")
-            Me.txtRemoverProduto.Text = tbPedidoAtual.Rows.Item(indexPedidoAtual).Item("Produto")
-            Me.txtRemoverQtd.Text = FormatNumber(1, 3)
-        End If
     End Sub
 
     Private Sub txtAlterarGrid_DoubleClick(sender As Object, e As EventArgs) Handles txtAlterarGrid.DoubleClick
@@ -1577,13 +1568,13 @@ Public Class frmCadPedido
         End If
     End Sub
 
-    Private Sub memObservacoes_KeyPress(sender As Object, e As KeyPressEventArgs) Handles memObservacoes.KeyPress, txtRemoverCodigo.KeyPress, cboVendedor.KeyPress, cboStatusNano.KeyPress, cboNossoStatus.KeyPress, txtNivelComb.KeyPress, txtMotor.KeyPress, txtModelo.KeyPress, txtKmSaida.KeyPress, txtKmEntrada.KeyPress, txtDataSaida.KeyPress, txtDataEntrada.KeyPress, txtCor.KeyPress, txtAno.KeyPress, memDefeitosVeiculo.KeyPress, ComboBoxEdit2.KeyPress
+    Private Sub memObservacoes_KeyPress(sender As Object, e As KeyPressEventArgs) Handles memObservacoes.KeyPress, txtRemoverCodigo.KeyPress, cboVendedor.KeyPress, cboStatusNano.KeyPress, cboNossoStatus.KeyPress, txtNivelComb.KeyPress, txtMotor.KeyPress, txtModelo.KeyPress, txtKmSaida.KeyPress, txtKmEntrada.KeyPress, txtCor.KeyPress, txtAno.KeyPress, memDefeitosVeiculo.KeyPress, ComboBoxEdit2.KeyPress
         If e.KeyChar = "'" Then
             e.Handled = True
         End If
     End Sub
 
-    Private Sub txtDataEntrada_EditValueChanged(sender As Object, e As EventArgs) Handles txtDataEntrada.EditValueChanged
+    Private Sub txtDataEntrada_EditValueChanged(sender As Object, e As EventArgs)
 
     End Sub
 
@@ -1605,5 +1596,16 @@ Public Class frmCadPedido
 
     Private Sub btnRemoverPesquisarGrid_EditValueChanged(sender As Object, e As EventArgs) Handles btnRemoverPesquisarGrid.EditValueChanged
 
+    End Sub
+
+    Private Sub tabRemoverProdutos_Paint(sender As Object, e As PaintEventArgs) Handles tabRemoverProdutos.Paint
+
+    End Sub
+
+    Private Sub tabAddRemover_Click(sender As Object, e As EventArgs) Handles tabAddRemover.Click
+    End Sub
+
+    Private Sub tabAddRemover_SelectedPageChanged(sender As Object, e As DevExpress.XtraTab.TabPageChangedEventArgs) Handles tabAddRemover.SelectedPageChanged
+        LimparProdutos()
     End Sub
 End Class

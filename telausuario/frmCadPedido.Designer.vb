@@ -24,10 +24,10 @@ Partial Class frmCadPedido
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim SerializableAppearanceObject6 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject5 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject3 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject4 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim StyleFormatCondition3 As DevExpress.XtraGrid.StyleFormatCondition = New DevExpress.XtraGrid.StyleFormatCondition()
         Dim StyleFormatCondition4 As DevExpress.XtraGrid.StyleFormatCondition = New DevExpress.XtraGrid.StyleFormatCondition()
         Me.colTipo = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -111,8 +111,6 @@ Partial Class frmCadPedido
         Me.txtEmail = New DevExpress.XtraEditors.TextEdit()
         Me.txtKmSaida = New DevExpress.XtraEditors.TextEdit()
         Me.txtKmEntrada = New DevExpress.XtraEditors.TextEdit()
-        Me.txtDataSaida = New DevExpress.XtraEditors.TextEdit()
-        Me.txtDataEntrada = New DevExpress.XtraEditors.TextEdit()
         Me.txtAno = New DevExpress.XtraEditors.TextEdit()
         Me.txtMotor = New DevExpress.XtraEditors.TextEdit()
         Me.txtCelular = New DevExpress.XtraEditors.TextEdit()
@@ -270,6 +268,8 @@ Partial Class frmCadPedido
         Me.BarDockControl2 = New DevExpress.XtraBars.BarDockControl()
         Me.BarDockControl3 = New DevExpress.XtraBars.BarDockControl()
         Me.BarDockControl4 = New DevExpress.XtraBars.BarDockControl()
+        Me.dtDataEntrada = New DevExpress.XtraEditors.DateEdit()
+        Me.dtDataSaida = New DevExpress.XtraEditors.DateEdit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pnlPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlPrincipal.SuspendLayout()
@@ -320,8 +320,6 @@ Partial Class frmCadPedido
         CType(Me.txtEmail.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtKmSaida.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtKmEntrada.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtDataSaida.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtDataEntrada.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtAno.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtMotor.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtCelular.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -382,6 +380,10 @@ Partial Class frmCadPedido
         CType(Me.tbTodosPedidos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grd3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BarManager2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtDataEntrada.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtDataEntrada.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtDataSaida.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtDataSaida.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'colTipo
@@ -708,7 +710,7 @@ Partial Class frmCadPedido
         Me.btnRemoverPesquisarGrid.Location = New System.Drawing.Point(165, 99)
         Me.btnRemoverPesquisarGrid.MenuManager = Me.BarManager1
         Me.btnRemoverPesquisarGrid.Name = "btnRemoverPesquisarGrid"
-        Me.btnRemoverPesquisarGrid.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Global.telausuario.My.Resources.Resources.Lupa_Azul_12x12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, "", Nothing, Nothing, True)})
+        Me.btnRemoverPesquisarGrid.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Global.telausuario.My.Resources.Resources.Lupa_Azul_12x12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, "", Nothing, Nothing, True)})
         Me.btnRemoverPesquisarGrid.Size = New System.Drawing.Size(20, 20)
         Me.btnRemoverPesquisarGrid.TabIndex = 24
         '
@@ -1208,6 +1210,8 @@ Partial Class frmCadPedido
         '
         'tabDados
         '
+        Me.tabDados.Controls.Add(Me.dtDataSaida)
+        Me.tabDados.Controls.Add(Me.dtDataEntrada)
         Me.tabDados.Controls.Add(Me.btnPesquisarNome)
         Me.tabDados.Controls.Add(Me.txtNome)
         Me.tabDados.Controls.Add(Me.txtCor)
@@ -1215,8 +1219,6 @@ Partial Class frmCadPedido
         Me.tabDados.Controls.Add(Me.txtEmail)
         Me.tabDados.Controls.Add(Me.txtKmSaida)
         Me.tabDados.Controls.Add(Me.txtKmEntrada)
-        Me.tabDados.Controls.Add(Me.txtDataSaida)
-        Me.tabDados.Controls.Add(Me.txtDataEntrada)
         Me.tabDados.Controls.Add(Me.txtAno)
         Me.tabDados.Controls.Add(Me.txtMotor)
         Me.tabDados.Controls.Add(Me.txtCelular)
@@ -1252,7 +1254,7 @@ Partial Class frmCadPedido
         Me.btnPesquisarNome.Location = New System.Drawing.Point(522, 12)
         Me.btnPesquisarNome.MenuManager = Me.BarManager1
         Me.btnPesquisarNome.Name = "btnPesquisarNome"
-        Me.btnPesquisarNome.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Global.telausuario.My.Resources.Resources.Lupa_Azul_12x12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject4, "", Nothing, Nothing, True)})
+        Me.btnPesquisarNome.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Global.telausuario.My.Resources.Resources.Lupa_Azul_12x12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, "", Nothing, Nothing, True)})
         Me.btnPesquisarNome.Size = New System.Drawing.Size(20, 20)
         Me.btnPesquisarNome.TabIndex = 1
         '
@@ -1363,38 +1365,6 @@ Partial Class frmCadPedido
         Me.txtKmEntrada.Size = New System.Drawing.Size(114, 20)
         Me.txtKmEntrada.TabIndex = 11
         Me.txtKmEntrada.Visible = False
-        '
-        'txtDataSaida
-        '
-        Me.txtDataSaida.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtDataSaida.EnterMoveNextControl = True
-        Me.txtDataSaida.Location = New System.Drawing.Point(867, 38)
-        Me.txtDataSaida.MenuManager = Me.BarManager1
-        Me.txtDataSaida.Name = "txtDataSaida"
-        Me.txtDataSaida.Properties.Appearance.Options.UseTextOptions = True
-        Me.txtDataSaida.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.txtDataSaida.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
-        Me.txtDataSaida.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtDataSaida.Properties.AppearanceFocused.Options.UseBackColor = True
-        Me.txtDataSaida.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtDataSaida.Size = New System.Drawing.Size(114, 20)
-        Me.txtDataSaida.TabIndex = 7
-        '
-        'txtDataEntrada
-        '
-        Me.txtDataEntrada.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtDataEntrada.EnterMoveNextControl = True
-        Me.txtDataEntrada.Location = New System.Drawing.Point(867, 12)
-        Me.txtDataEntrada.MenuManager = Me.BarManager1
-        Me.txtDataEntrada.Name = "txtDataEntrada"
-        Me.txtDataEntrada.Properties.Appearance.Options.UseTextOptions = True
-        Me.txtDataEntrada.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.txtDataEntrada.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
-        Me.txtDataEntrada.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtDataEntrada.Properties.AppearanceFocused.Options.UseBackColor = True
-        Me.txtDataEntrada.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtDataEntrada.Size = New System.Drawing.Size(114, 20)
-        Me.txtDataEntrada.TabIndex = 3
         '
         'txtAno
         '
@@ -2856,6 +2826,30 @@ Partial Class frmCadPedido
         Me.BarDockControl4.Location = New System.Drawing.Point(1008, 0)
         Me.BarDockControl4.Size = New System.Drawing.Size(0, 661)
         '
+        'dtDataEntrada
+        '
+        Me.dtDataEntrada.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dtDataEntrada.EditValue = Nothing
+        Me.dtDataEntrada.Location = New System.Drawing.Point(867, 12)
+        Me.dtDataEntrada.MenuManager = Me.BarManager1
+        Me.dtDataEntrada.Name = "dtDataEntrada"
+        Me.dtDataEntrada.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.dtDataEntrada.Properties.VistaTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
+        Me.dtDataEntrada.Size = New System.Drawing.Size(114, 20)
+        Me.dtDataEntrada.TabIndex = 115
+        '
+        'dtDataSaida
+        '
+        Me.dtDataSaida.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dtDataSaida.EditValue = Nothing
+        Me.dtDataSaida.Location = New System.Drawing.Point(867, 38)
+        Me.dtDataSaida.MenuManager = Me.BarManager1
+        Me.dtDataSaida.Name = "dtDataSaida"
+        Me.dtDataSaida.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.dtDataSaida.Properties.VistaTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
+        Me.dtDataSaida.Size = New System.Drawing.Size(114, 20)
+        Me.dtDataSaida.TabIndex = 116
+        '
         'frmCadPedido
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2932,8 +2926,6 @@ Partial Class frmCadPedido
         CType(Me.txtEmail.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtKmSaida.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtKmEntrada.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtDataSaida.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtDataEntrada.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtAno.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtMotor.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtCelular.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2997,6 +2989,10 @@ Partial Class frmCadPedido
         CType(Me.tbTodosPedidos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grd3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BarManager2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtDataEntrada.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtDataEntrada.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtDataSaida.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtDataSaida.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -3238,6 +3234,6 @@ Partial Class frmCadPedido
     Friend WithEvents colCusto As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents DataColumn20 As System.Data.DataColumn
     Friend WithEvents colCodOrdens As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents txtDataSaida As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents txtDataEntrada As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents dtDataSaida As DevExpress.XtraEditors.DateEdit
+    Friend WithEvents dtDataEntrada As DevExpress.XtraEditors.DateEdit
 End Class
