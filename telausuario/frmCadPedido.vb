@@ -411,7 +411,7 @@ Public Class frmCadPedido
                             LimparProdutos()
 
                         End If
-                        End If
+                    End If
 
                 Case False 'Adicionar produto em tbPedidoAtual
                     If Me.txtAddQtd.Text <= 0 Then
@@ -1356,7 +1356,7 @@ Public Class frmCadPedido
             Me.txtPorcentagem.Text = FormatNumber(0, 3)
             SomarTotalProdutoServico()
 
-            
+
         ElseIf Me.Tag = "ConsultarPedido" Then
             Select Case rdgDescontoAcrescimo.SelectedIndex
                 Case 0
