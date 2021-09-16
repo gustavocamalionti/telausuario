@@ -3,33 +3,18 @@ Imports DevExpress.XtraEditors
 Imports DevExpress.XtraEditors.Controls
 
 Public Class frmCadPedido
-    Dim dblSomaDesconto As Double = Format(0, 3)
-    Dim dblSomaGeral As Double = Format(0, 3)
-    Dim dblSomaVenda As Double = Format(0, 3)
-    Dim dblSomaServico As Double = Format(0, 3)
-    Dim dblFrete As Double = Format(0, 3)
+    Dim dblSomaDesconto As Double = FormatNumber(0, 3)
+    Dim dblSomaGeral As Double = FormatNumber(0, 3)
+    Dim dblSomaVenda As Double = FormatNumber(0, 3)
+    Dim dblSomaServico As Double = FormatNumber(0, 3)
+    Dim dblFrete As Double = FormatNumber(0, 3)
     Dim vetDelete As New List(Of String)
+    Dim bolStatusAlteracao As Boolean
+    Dim dblValorTotalGeralSemDesc As Double = FormatNumber(0, 3)
+    Dim dblValorTotalGeralComDesc As Double = FormatNumber(0, 3)
 
     Private Sub frmCadPedido_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Limpar()
-        Me.txtDescontoPorc.Text = FormatNumber(0, 3)
-        Me.txtDesconto.Text = FormatNumber(0, 3)
-        Me.txtAddQtd.Text = 0
-        Me.txtPreco.Text = FormatNumber(0, 3)
-
-        CodigoCliente = -1
-        CodigoProduto = -1
-        NomeProduto = ""
-        bolAlterarProdutoClickGrid = False
-        dblSomaDesconto = 0
-
-        Me.txtPorcentagem.Properties.ReadOnly = False
-        Me.txtValorDistribuido.Properties.ReadOnly = False
-        Me.txtValorFrete.Properties.ReadOnly = False
-
-        Me.tabClientesProdutos.SelectedTabPageIndex = 0
-        Me.tabDadosHistorico.SelectedTabPageIndex = 0
-        Me.tabAddRemover.SelectedTabPageIndex = 0
 
         If Me.Tag = "ConsultarPedido" Then
             Me.Text = "Consultar Pedido"
@@ -42,11 +27,9 @@ Public Class frmCadPedido
             Me.txtValorDistribuido.Properties.ReadOnly = True
             Me.txtValorFrete.Properties.ReadOnly = True
 
-
             Me.lblVendedor.Location = New Point(256, 14)
             Me.cboVendedor.Location = New Point(307, 11)
             Me.cboVendedor.Size = New Size(238, 20)
-
 
             btnExcluirItem.Visible = False
             Me.txtNome.Enabled = False
@@ -68,18 +51,14 @@ Public Class frmCadPedido
             Me.lblOrdem.Visible = False
             Me.txtOrdem.Visible = False
             Me.btnOrdem.Visible = False
-
             Me.txtPorcentagem.Properties.ReadOnly = False
             Me.txtValorDistribuido.Properties.ReadOnly = False
             Me.txtValorFrete.Properties.ReadOnly = False
-
-            btnExcluirItem.Visible = True
+            Me.btnExcluirItem.Visible = True
             Me.txtNome.Enabled = True
             Me.txtTelefone.Properties.ReadOnly = True
             Me.txtCpfCnpj.Properties.ReadOnly = True
-            btnPesquisarNome.Enabled = True
-
-
+            Me.btnPesquisarNome.Enabled = True
             Me.lblVendedor.Location = New Point(38, 14)
             Me.cboVendedor.Location = New Point(90, 11)
             Me.cboVendedor.Size = New Size(455, 20)
@@ -91,20 +70,16 @@ Public Class frmCadPedido
             Me.lblOrdem.Visible = True
             Me.txtOrdem.Visible = True
             Me.btnOrdem.Visible = True
-
             Me.txtNome.Enabled = False
             Me.txtNome.Properties.AppearanceDisabled.BackColor = Color.White
             Me.txtTelefone.Properties.ReadOnly = True
             Me.txtCpfCnpj.Properties.ReadOnly = True
-
-            btnExcluirItem.Visible = True
-            btnPesquisarNome.Enabled = False
-            btnPesquisarNome.Properties.AppearanceDisabled.BackColor = Color.White
-
+            Me.btnExcluirItem.Visible = True
+            Me.btnPesquisarNome.Enabled = False
+            Me.btnPesquisarNome.Properties.AppearanceDisabled.BackColor = Color.White
             Me.txtPorcentagem.Properties.ReadOnly = False
             Me.txtValorDistribuido.Properties.ReadOnly = False
             Me.txtValorFrete.Properties.ReadOnly = False
-
 
             Me.lblVendedor.Location = New Point(256, 14)
             Me.cboVendedor.Location = New Point(307, 11)
@@ -112,20 +87,6 @@ Public Class frmCadPedido
 
         End If
 
-
-    End Sub
-
-    Private Sub frmCadPedido_Leave(sender As Object, e As EventArgs) Handles Me.Leave
-        CodigoCliente = -1
-        CodigoProduto = -1
-        NomeProduto = ""
-        bolAlterarProdutoClickGrid = False
-
-        dblSomaDesconto = FormatNumber(0, 3)
-        Dim dblSomaGeral As Double = FormatNumber(0, 3)
-        Dim dblSomaVenda As Double = FormatNumber(0, 3)
-        Dim dblSomaServico As Double = FormatNumber(0, 3)
-        Dim dblFrete As Double = FormatNumber(0, 3)
 
     End Sub
 
@@ -190,6 +151,22 @@ Public Class frmCadPedido
 
     Private Sub Limpar()
 
+        bolStatusAlteracao = False
+        vetDelete.Clear()
+        CodigoProduto = -1
+        CodigoCliente = -1
+        NomeProduto = ""
+        dblSomaDesconto = FormatNumber(0, 3)
+        dblSomaGeral = FormatNumber(0, 3)
+        dblSomaVenda = FormatNumber(0, 3)
+        dblSomaServico = FormatNumber(0, 3)
+        dblFrete = FormatNumber(0, 3)
+        dblValorTotalGeralComDesc = FormatNumber(0, 3)
+        dblValorTotalGeralSemDesc = FormatNumber(0, 3)
+        Me.tabClientesProdutos.SelectedTabPageIndex = 0
+        Me.tabDadosHistorico.SelectedTabPageIndex = 0
+        Me.tabAddRemover.SelectedTabPageIndex = 0
+
         Me.txtNome.ResetText()
         Me.txtCpfCnpj.ResetText()
         Me.txtEmail.ResetText()
@@ -217,22 +194,9 @@ Public Class frmCadPedido
         Me.txtRemoverCodigo.ResetText()
         Me.txtRemoverProduto.ResetText()
         Me.txtRemoverQtd.ResetText()
-        bolAlterarProdutoClickGrid = False
-
         Me.grd1.ClearColumnsFilter()
-        vetDelete.Clear()
-        CodigoProduto = -1
-        dblSomaDesconto = 0
-        dblFrete = FormatNumber(0, 3)
-        dblSomaDesconto = FormatNumber(0, 3)
-        dblSomaGeral = FormatNumber(0, 3)
-        dblSomaServico = FormatNumber(0, 3)
-        dblSomaVenda = FormatNumber(0, 3)
-        dblValorTotalGeralComDesc = FormatNumber(0, 3)
-        dblValorTotalGeralSemDesc = FormatNumber(0, 3)
 
         Me.tbPedidoAtual.Rows.Clear()
-
         Me.txtTotalDesconto.ResetText()
         Me.txtTotalGeral.ResetText()
         Me.txtTotalProdutos.ResetText()
@@ -246,7 +210,7 @@ Public Class frmCadPedido
     Private Sub LimparProdutos()
 
         Me.grd1.ClearColumnsFilter()
-        bolAlterarProdutoClickGrid = False
+        bolStatusAlteracao = False
         CodigoProduto = -1
 
         Me.txtAddCodigoInterno.ResetText()
@@ -373,7 +337,7 @@ Public Class frmCadPedido
             Exit Sub
 
         Else
-            Select Case bolAlterarProdutoClickGrid
+            Select Case bolStatusAlteracao
                 Case True 'Atualizar produto em tbPedidoAtual)
                     If Me.txtAddQtd.Text <= 0 Then
                         MsgBox("Quantidade Insuficiente", MsgBoxStyle.Exclamation)
@@ -407,7 +371,7 @@ Public Class frmCadPedido
                             End If
 
                             SomarTotalProdutoServico()
-                            bolAlterarProdutoClickGrid = False
+                            bolStatusAlteracao = False
                             LimparProdutos()
 
                         End If
@@ -512,7 +476,7 @@ Public Class frmCadPedido
 
                             tbPedidoAtual.Rows.RemoveAt(i)
                             LimparProdutos()
-                            bolAlterarProdutoClickGrid = False
+                            bolStatusAlteracao = False
                             Exit Sub
 
 
@@ -709,7 +673,7 @@ Public Class frmCadPedido
 
                             tbPedidoAtual.Rows.RemoveAt(i)
                             LimparProdutos()
-                            bolAlterarProdutoClickGrid = False
+                            bolStatusAlteracao = False
                             Exit Sub
 
 
@@ -828,7 +792,7 @@ Public Class frmCadPedido
         indexPedidoAtual = Me.grd1.FocusedRowHandle
         CodigoProduto = Me.grd1.GetRowCellValue(indexPedidoAtual, colCodProd)
         If tabAddRemover.SelectedTabPageIndex = 0 And IsNumeric(CodigoProduto) Then 'ADD Produto
-            bolAlterarProdutoClickGrid = True
+            bolStatusAlteracao = True
             Me.txtAddProduto.Text = tbPedidoAtual.Rows.Item(indexPedidoAtual).Item("Produto")
             Me.txtAddQtd.Text = FormatNumber(1, 3)
             Me.txtDesconto.Text = FormatNumber(tbPedidoAtual.Rows.Item(indexPedidoAtual).Item("SemDesc") - tbPedidoAtual.Rows.Item(indexPedidoAtual).Item("ValorUnitario"), 3)

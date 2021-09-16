@@ -98,9 +98,9 @@ Public Class frmLogin
                 Me.txtSenha.ResetText()
                 Hide()
                 frmMenu.ShowDialog()
+                Close()
             End If
         End If
-
 
     End Sub
 End Class

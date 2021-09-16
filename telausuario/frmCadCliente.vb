@@ -3,7 +3,7 @@ Imports telausuario.clsFuncao
 Public Class frmCadCliente
     Dim bolStatusAlteracao As Boolean
     Dim intCodigo As Integer
-    
+
     Private Sub frmCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Limpar()
         AtualizarGrid()
@@ -118,7 +118,7 @@ Public Class frmCadCliente
 
     Private Sub btnSalvar_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnSalvar.ItemClick
 
-        If me.txtNomeRazao.Text = "" Then
+        If Me.txtNomeRazao.Text = "" Then
             MsgBox("O campo Nome/Razão é Obrigatório. Tente novamente.", MsgBoxStyle.Exclamation)
         Else
             If bolStatusAlteracao = True Then
