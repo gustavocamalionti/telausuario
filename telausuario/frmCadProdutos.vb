@@ -503,10 +503,11 @@ Public Class frmCadProdutos
     End Sub
 
     Private Sub txtDesconto_Leave(sender As Object, e As EventArgs) Handles txtDesconto.Leave
+        cfgLeaveNumVirgulas(txtDesconto)
         If Me.txtVenda.Text <> "" And Me.txtDesconto.Text <> "" Then
             Me.txtDescontoPorc.Text = FormatNumber(Me.txtDesconto.Text / (Me.txtVenda.Text) * 100, 3)
         End If
-        cfgLeaveNumVirgulas(txtDesconto)
+
     End Sub
 
     Private Sub txtQtde_KeyPress(sender As Object, e As KeyPressEventArgs)
@@ -520,10 +521,11 @@ Public Class frmCadProdutos
     End Sub
 
     Private Sub txtVenda_Leave(sender As Object, e As EventArgs) Handles txtVenda.Leave
+        cfgLeaveNumVirgulas(txtVenda)
         If Me.txtCusto.Text <> "" And Me.txtVenda.Text <> "" Then
             Me.txtVendaPorc.Text = FormatNumber(Me.txtVenda.Text * 100 / Me.txtCusto.Text - 100, 3)
         End If
-        cfgLeaveNumVirgulas(txtVenda)
+
     End Sub
 
     Private Sub txtVendaPorc_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtVendaPorc.KeyPress
@@ -531,6 +533,7 @@ Public Class frmCadProdutos
     End Sub
 
     Private Sub txtVendaPorc_Leave(sender As Object, e As EventArgs) Handles txtVendaPorc.Leave
+        cfgLeaveNumVirgulas(txtVendaPorc)
         If Me.txtCusto.Text <> "" And Me.txtVendaPorc.Text <> "" Then
             Me.txtVenda.Text = FormatNumber(Me.txtCusto.Text * (Me.txtVendaPorc.Text + 100) / 100, 3)
         End If
@@ -554,9 +557,13 @@ Public Class frmCadProdutos
     End Sub
 
     Private Sub txtAlterarGridNumero_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtAlterarGridNumero.KeyPress
-        If Char.IsNumber(e.KeyChar) = False And e.KeyChar <> vbBack And e.KeyChar <> "," Then
+
+        If e.KeyChar = "," Or e.KeyChar = "." Then
             e.Handled = True
-        Else
+        End If
+
+        If Char.IsNumber(e.KeyChar) = False And e.KeyChar <> vbBack Then
+            e.Handled = True
         End If
     End Sub
 
@@ -596,6 +603,14 @@ Public Class frmCadProdutos
     End Sub
 
     Private Sub txtCusto_EditValueChanged(sender As Object, e As EventArgs) Handles txtCusto.EditValueChanged
+
+    End Sub
+
+    Private Sub txtVenda_EditValueChanged(sender As Object, e As EventArgs) Handles txtVenda.EditValueChanged
+
+    End Sub
+
+    Private Sub txtDesconto_EditValueChanged(sender As Object, e As EventArgs) Handles txtDesconto.EditValueChanged
 
     End Sub
 End Class

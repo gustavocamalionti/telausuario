@@ -23,13 +23,13 @@ Partial Class frmCadPedido
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim SerializableAppearanceObject6 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject3 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject4 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject5 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim StyleFormatCondition1 As DevExpress.XtraGrid.StyleFormatCondition = New DevExpress.XtraGrid.StyleFormatCondition()
-        Dim StyleFormatCondition2 As DevExpress.XtraGrid.StyleFormatCondition = New DevExpress.XtraGrid.StyleFormatCondition()
+        Dim StyleFormatCondition3 As DevExpress.XtraGrid.StyleFormatCondition = New DevExpress.XtraGrid.StyleFormatCondition()
+        Dim StyleFormatCondition4 As DevExpress.XtraGrid.StyleFormatCondition = New DevExpress.XtraGrid.StyleFormatCondition()
         Me.colTipo = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
         Me.Bar3 = New DevExpress.XtraBars.Bar()
@@ -529,7 +529,7 @@ Partial Class frmCadPedido
         Me.btnOrdem.Location = New System.Drawing.Point(230, 11)
         Me.btnOrdem.MenuManager = Me.BarManager1
         Me.btnOrdem.Name = "btnOrdem"
-        Me.btnOrdem.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Global.telausuario.My.Resources.Resources.Lupa_Azul_12x12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, "", Nothing, Nothing, True)})
+        Me.btnOrdem.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Global.telausuario.My.Resources.Resources.Lupa_Azul_12x12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject6, "", Nothing, Nothing, True)})
         Me.btnOrdem.Size = New System.Drawing.Size(20, 20)
         Me.btnOrdem.TabIndex = 113
         Me.btnOrdem.Visible = False
@@ -708,7 +708,7 @@ Partial Class frmCadPedido
         Me.btnRemoverPesquisarGrid.Location = New System.Drawing.Point(165, 99)
         Me.btnRemoverPesquisarGrid.MenuManager = Me.BarManager1
         Me.btnRemoverPesquisarGrid.Name = "btnRemoverPesquisarGrid"
-        Me.btnRemoverPesquisarGrid.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Global.telausuario.My.Resources.Resources.Lupa_Azul_12x12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject2, "", Nothing, Nothing, True)})
+        Me.btnRemoverPesquisarGrid.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Global.telausuario.My.Resources.Resources.Lupa_Azul_12x12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, "", Nothing, Nothing, True)})
         Me.btnRemoverPesquisarGrid.Size = New System.Drawing.Size(20, 20)
         Me.btnRemoverPesquisarGrid.TabIndex = 24
         '
@@ -736,6 +736,7 @@ Partial Class frmCadPedido
         Me.txtRemoverQtd.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtRemoverQtd.Properties.AppearanceFocused.Options.UseBackColor = True
         Me.txtRemoverQtd.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtRemoverQtd.Properties.MaxLength = 10
         Me.txtRemoverQtd.Size = New System.Drawing.Size(118, 20)
         Me.txtRemoverQtd.TabIndex = 26
         '
@@ -848,6 +849,7 @@ Partial Class frmCadPedido
         Me.txtPreco.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtPreco.Properties.AppearanceFocused.Options.UseBackColor = True
         Me.txtPreco.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtPreco.Properties.MaxLength = 20
         Me.txtPreco.Size = New System.Drawing.Size(118, 20)
         Me.txtPreco.TabIndex = 162
         '
@@ -856,7 +858,7 @@ Partial Class frmCadPedido
         Me.btnAddPesquisarProduto.Location = New System.Drawing.Point(226, 62)
         Me.btnAddPesquisarProduto.MenuManager = Me.BarManager1
         Me.btnAddPesquisarProduto.Name = "btnAddPesquisarProduto"
-        Me.btnAddPesquisarProduto.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Global.telausuario.My.Resources.Resources.Lupa_Azul_12x12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject3, "", Nothing, Nothing, True)})
+        Me.btnAddPesquisarProduto.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Global.telausuario.My.Resources.Resources.Lupa_Azul_12x12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject2, "", Nothing, Nothing, True)})
         Me.btnAddPesquisarProduto.Size = New System.Drawing.Size(20, 20)
         Me.btnAddPesquisarProduto.TabIndex = 156
         '
@@ -880,7 +882,7 @@ Partial Class frmCadPedido
         Me.ButtonEdit1.Location = New System.Drawing.Point(332, 88)
         Me.ButtonEdit1.MenuManager = Me.BarManager1
         Me.ButtonEdit1.Name = "ButtonEdit1"
-        Me.ButtonEdit1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Global.telausuario.My.Resources.Resources.Lupa_Azul_12x12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject4, "", Nothing, Nothing, True)})
+        Me.ButtonEdit1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Global.telausuario.My.Resources.Resources.Lupa_Azul_12x12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject3, "", Nothing, Nothing, True)})
         Me.ButtonEdit1.Size = New System.Drawing.Size(21, 20)
         Me.ButtonEdit1.TabIndex = 154
         Me.ButtonEdit1.Visible = False
@@ -923,6 +925,7 @@ Partial Class frmCadPedido
         Me.txtAddQtd.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtAddQtd.Properties.AppearanceFocused.Options.UseBackColor = True
         Me.txtAddQtd.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtAddQtd.Properties.MaxLength = 10
         Me.txtAddQtd.Size = New System.Drawing.Size(118, 20)
         Me.txtAddQtd.TabIndex = 157
         '
@@ -993,6 +996,7 @@ Partial Class frmCadPedido
         Me.txtDescontoPorc.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtDescontoPorc.Properties.AppearanceFocused.Options.UseBackColor = True
         Me.txtDescontoPorc.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtDescontoPorc.Properties.MaxLength = 10
         Me.txtDescontoPorc.Size = New System.Drawing.Size(111, 20)
         Me.txtDescontoPorc.TabIndex = 161
         '
@@ -1009,6 +1013,7 @@ Partial Class frmCadPedido
         Me.txtDesconto.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtDesconto.Properties.AppearanceFocused.Options.UseBackColor = True
         Me.txtDesconto.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtDesconto.Properties.MaxLength = 10
         Me.txtDesconto.Size = New System.Drawing.Size(111, 20)
         Me.txtDesconto.TabIndex = 160
         '
@@ -1247,7 +1252,7 @@ Partial Class frmCadPedido
         Me.btnPesquisarNome.Location = New System.Drawing.Point(522, 12)
         Me.btnPesquisarNome.MenuManager = Me.BarManager1
         Me.btnPesquisarNome.Name = "btnPesquisarNome"
-        Me.btnPesquisarNome.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Global.telausuario.My.Resources.Resources.Lupa_Azul_12x12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, "", Nothing, Nothing, True)})
+        Me.btnPesquisarNome.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Global.telausuario.My.Resources.Resources.Lupa_Azul_12x12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject4, "", Nothing, Nothing, True)})
         Me.btnPesquisarNome.Size = New System.Drawing.Size(20, 20)
         Me.btnPesquisarNome.TabIndex = 1
         '
@@ -2405,24 +2410,24 @@ Partial Class frmCadPedido
         'grd1
         '
         Me.grd1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colProduto, Me.colQtde, Me.colCodFor, Me.colSemDesc, Me.colCodigoInterno, Me.colUm, Me.colExcluir, Me.colAut, Me.colValorUnitario, Me.colValorTotal, Me.colTipo, Me.colCodProd, Me.colDescComDistribuicao, Me.colDescSemDistribuicao, Me.colCodPedAut, Me.colCusto, Me.colCodOrdens})
-        StyleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        StyleFormatCondition1.Appearance.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        StyleFormatCondition1.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
-        StyleFormatCondition1.Appearance.Options.UseBackColor = True
-        StyleFormatCondition1.ApplyToRow = True
-        StyleFormatCondition1.Column = Me.colTipo
-        StyleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal
-        StyleFormatCondition1.Value1 = "VENDA"
-        StyleFormatCondition1.Value2 = ""
-        StyleFormatCondition2.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        StyleFormatCondition2.Appearance.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        StyleFormatCondition2.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
-        StyleFormatCondition2.Appearance.Options.UseBackColor = True
-        StyleFormatCondition2.ApplyToRow = True
-        StyleFormatCondition2.Column = Me.colTipo
-        StyleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal
-        StyleFormatCondition2.Value1 = "SERVIÇO"
-        Me.grd1.FormatConditions.AddRange(New DevExpress.XtraGrid.StyleFormatCondition() {StyleFormatCondition1, StyleFormatCondition2})
+        StyleFormatCondition3.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        StyleFormatCondition3.Appearance.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        StyleFormatCondition3.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
+        StyleFormatCondition3.Appearance.Options.UseBackColor = True
+        StyleFormatCondition3.ApplyToRow = True
+        StyleFormatCondition3.Column = Me.colTipo
+        StyleFormatCondition3.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal
+        StyleFormatCondition3.Value1 = "VENDA"
+        StyleFormatCondition3.Value2 = ""
+        StyleFormatCondition4.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        StyleFormatCondition4.Appearance.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        StyleFormatCondition4.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
+        StyleFormatCondition4.Appearance.Options.UseBackColor = True
+        StyleFormatCondition4.ApplyToRow = True
+        StyleFormatCondition4.Column = Me.colTipo
+        StyleFormatCondition4.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal
+        StyleFormatCondition4.Value1 = "SERVIÇO"
+        Me.grd1.FormatConditions.AddRange(New DevExpress.XtraGrid.StyleFormatCondition() {StyleFormatCondition3, StyleFormatCondition4})
         Me.grd1.GridControl = Me.grdPedidoAtual
         Me.grd1.Name = "grd1"
         '
@@ -3105,8 +3110,6 @@ Partial Class frmCadPedido
     Friend WithEvents txtEmail As DevExpress.XtraEditors.TextEdit
     Friend WithEvents txtKmSaida As DevExpress.XtraEditors.TextEdit
     Friend WithEvents txtKmEntrada As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents txtDataSaida As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents txtDataEntrada As DevExpress.XtraEditors.TextEdit
     Friend WithEvents txtAno As DevExpress.XtraEditors.TextEdit
     Friend WithEvents txtMotor As DevExpress.XtraEditors.TextEdit
     Friend WithEvents txtCelular As DevExpress.XtraEditors.TextEdit
@@ -3235,4 +3238,6 @@ Partial Class frmCadPedido
     Friend WithEvents colCusto As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents DataColumn20 As System.Data.DataColumn
     Friend WithEvents colCodOrdens As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents txtDataSaida As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtDataEntrada As DevExpress.XtraEditors.TextEdit
 End Class

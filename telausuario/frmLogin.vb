@@ -103,4 +103,16 @@ Public Class frmLogin
         End If
 
     End Sub
+
+    Private Sub txtLogin_EditValueChanged(sender As Object, e As EventArgs) Handles txtLogin.EditValueChanged
+
+    End Sub
+
+    Private Sub txtLogin_Leave(sender As Object, e As EventArgs) Handles txtLogin.Leave
+        txtLogin.Text.Trim()
+    End Sub
+
+    Private Sub txtSenha_Leave(sender As Object, e As EventArgs) Handles txtSenha.Leave
+        txtLogin.Text.Trim()
+    End Sub
 End Class

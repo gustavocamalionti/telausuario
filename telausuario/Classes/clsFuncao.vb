@@ -141,25 +141,53 @@ Public Class clsFuncao
         If campo.Text.Contains(",") = True Then
             If z.KeyChar = "," Then
                 z.Handled = True
+                Exit Function
             End If
         End If
+        If campo.Text.Contains("-") = True Then
+            If z.KeyChar = "-" Then
+                z.Handled = True
+                Exit Function
+            End If
 
-        If Char.IsNumber(z.KeyChar) = False And z.KeyChar <> vbBack And z.KeyChar <> "," Then
+        End If
+
+        If z.KeyChar = "-" And campo.Text.Length <> 0 Then
+            z.Handled = True
+            Exit Function
+        End If
+
+        If Char.IsNumber(z.KeyChar) = False And z.KeyChar <> vbBack And z.KeyChar <> "," And z.KeyChar <> "-" Then
             z.Handled = True
         End If
 
     End Function
     Public Shared Function cfgLeaveNumVirgulas(campo As DevExpress.XtraEditors.TextEdit)
         If campo.Text = "" Then
+            campo.Text = FormatNumber(0, 3)
             Exit Function
+        End If
 
-        ElseIf campo.Text.Substring(0, 1) = "," Then
-            campo.ResetText()
+
+        If campo.Text.Substring(0, 1) = "," Then
+            campo.Text = FormatNumber(0, 3)
             Exit Function
+        End If
 
-        ElseIf IsNumeric(campo.Text.Substring(0, 1)) = True Then
+        If campo.Text.Length >= 2 Then
+            If campo.Text.Substring(0, 1) = "-" And campo.Text.Substring(1, 1) = "," Then
+                campo.Text = FormatNumber(0, 3)
+                Exit Function
+            End If
+        End If
+        If IsNumeric(campo.Text.Substring(0, 1)) = True Then
+            If campo.Text.Contains("-") Then
+                campo.ResetText()
+                Exit Function
+            End If
             Dim dblAproximacao As Double = campo.Text
             campo.Text = FormatNumber(dblAproximacao, 3)
+            Exit Function
         End If
     End Function
 

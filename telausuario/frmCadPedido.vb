@@ -187,22 +187,22 @@ Public Class frmCadPedido
         Me.txtAddProduto.ResetText()
         Me.txtDescontoPorc.Text = FormatNumber(0, 3)
         Me.txtDesconto.Text = FormatNumber(0, 3)
-        Me.txtAddQtd.Text = 0
+        Me.txtAddQtd.Text = 1
         Me.txtPreco.Text = FormatNumber(0, 3)
         Me.txtValorFrete.Text = FormatNumber(0, 3)
 
         Me.txtRemoverCodigo.ResetText()
         Me.txtRemoverProduto.ResetText()
-        Me.txtRemoverQtd.ResetText()
+        Me.txtRemoverQtd.Text = 1
         Me.grd1.ClearColumnsFilter()
 
         Me.tbPedidoAtual.Rows.Clear()
-        Me.txtTotalDesconto.ResetText()
-        Me.txtTotalGeral.ResetText()
-        Me.txtTotalProdutos.ResetText()
-        Me.txtTotalServicos.ResetText()
-        Me.txtValorDistribuido.ResetText()
-        Me.txtPorcentagem.ResetText()
+        Me.txtTotalDesconto.Text = FormatNumber(0, 3)
+        Me.txtTotalGeral.Text = FormatNumber(0, 3)
+        Me.txtTotalProdutos.Text = FormatNumber(0, 3)
+        Me.txtTotalServicos.Text = FormatNumber(0, 3)
+        Me.txtValorDistribuido.Text = FormatNumber(0, 3)
+        Me.txtPorcentagem.Text = FormatNumber(0, 3)
 
     End Sub
 
@@ -426,7 +426,7 @@ Public Class frmCadPedido
         If dtProdutoSelect.Rows.Count > 0 Then
             Me.txtRemoverCodigo.Text = dtProdutoSelect.Rows.Item(0).Item("Codigo")
             Me.txtRemoverProduto.Text = dtProdutoSelect.Rows.Item(0).Item("Produto")
-            Me.txtRemoverQtd.Text = FormatNumber(1, 3)
+            Me.txtRemoverQtd.Text = 1
         End If
     End Sub
 
@@ -849,7 +849,13 @@ Public Class frmCadPedido
     End Sub
 
     Private Sub txtAddQtd_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtAddQtd.KeyPress
-        cfgPressNumVirgulas(txtAddQtd, e)
+        If e.KeyChar = "," Or e.KeyChar = "." Then
+            e.Handled = True
+        End If
+
+        If Char.IsNumber(e.KeyChar) = False And e.KeyChar <> vbBack Then
+            e.Handled = True
+        End If
     End Sub
     Private Sub txtAddQtd_Leave(sender As Object, e As EventArgs) Handles txtAddQtd.Leave
         If txtAddQtd.Text = "" Then
@@ -865,10 +871,11 @@ Public Class frmCadPedido
     End Sub
 
     Private Sub txtDescontoPorc_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtDescontoPorc.KeyPress
-        cfgPressNumVirgulas(txtDesconto, e)
+        cfgPressNumVirgulas(txtDescontoPorc, e)
     End Sub
 
     Private Sub txtDescontoPorc_Leave(sender As Object, e As EventArgs) Handles txtDescontoPorc.Leave
+        cfgLeaveNumVirgulas(txtDescontoPorc)
         Dim ProdutoSelect As DataTable = CarregarDataTable("select * from Produtos where Codigo = " & CodigoProduto & "")
         If ProdutoSelect.Rows.Count > 0 Then
             If txtDescontoPorc.Text = "" Then
@@ -881,8 +888,8 @@ Public Class frmCadPedido
             End If
         End If
 
-
         cfgLeaveNumVirgulas(txtDescontoPorc)
+        cfgLeaveNumVirgulas(txtDesconto)
     End Sub
 
     Private Sub txtDesconto_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtDesconto.KeyPress
@@ -890,6 +897,7 @@ Public Class frmCadPedido
     End Sub
 
     Private Sub txtDesconto_Leave(sender As Object, e As EventArgs) Handles txtDesconto.Leave
+        cfgLeaveNumVirgulas(txtDesconto)
         Dim ProdutoSelect As DataTable = CarregarDataTable("select * from Produtos where Codigo = " & CodigoProduto & "")
         If ProdutoSelect.Rows.Count > 0 Then
             If txtDesconto.Text = "" Then
@@ -902,7 +910,7 @@ Public Class frmCadPedido
             Me.txtPreco.Text = FormatNumber((ProdutoSelect.Rows.Item(0).Item("Venda")) - Me.txtDesconto.Text, 3)
         End If
 
-
+        cfgLeaveNumVirgulas(txtDesconto)
         cfgLeaveNumVirgulas(txtDescontoPorc)
     End Sub
 
@@ -926,7 +934,13 @@ Public Class frmCadPedido
     End Sub
 
     Private Sub txtRQtd_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtRemoverQtd.KeyPress
-        cfgPressNumVirgulas(txtRemoverQtd, e)
+        If e.KeyChar = "," Or e.KeyChar = "." Then
+            e.Handled = True
+        End If
+
+        If Char.IsNumber(e.KeyChar) = False And e.KeyChar <> vbBack Then
+            e.Handled = True
+        End If
     End Sub
 
     Private Sub txtAddCodigo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtAddCodigoInterno.KeyPress
@@ -1569,4 +1583,27 @@ Public Class frmCadPedido
         End If
     End Sub
 
+    Private Sub txtDataEntrada_EditValueChanged(sender As Object, e As EventArgs) Handles txtDataEntrada.EditValueChanged
+
+    End Sub
+
+    Private Sub txtDesconto_EditValueChanged(sender As Object, e As EventArgs) Handles txtDesconto.EditValueChanged
+
+    End Sub
+
+    Private Sub txtAddQtd_EditValueChanged(sender As Object, e As EventArgs) Handles txtAddQtd.EditValueChanged
+
+    End Sub
+
+    Private Sub txtDescontoPorc_EditValueChanged(sender As Object, e As EventArgs) Handles txtDescontoPorc.EditValueChanged
+
+    End Sub
+
+    Private Sub txtRemoverQtd_EditValueChanged(sender As Object, e As EventArgs) Handles txtRemoverQtd.EditValueChanged
+        
+    End Sub
+
+    Private Sub btnRemoverPesquisarGrid_EditValueChanged(sender As Object, e As EventArgs) Handles btnRemoverPesquisarGrid.EditValueChanged
+
+    End Sub
 End Class
