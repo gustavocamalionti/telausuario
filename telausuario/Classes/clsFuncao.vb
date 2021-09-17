@@ -168,7 +168,6 @@ Public Class clsFuncao
             Exit Function
         End If
 
-
         If campo.Text.Substring(0, 1) = "," Then
             campo.Text = FormatNumber(0, 3)
             Exit Function

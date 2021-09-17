@@ -570,7 +570,7 @@ Public Class frmCadProdutos
 
     Private Sub txtVenda_Leave(sender As Object, e As EventArgs) Handles txtVenda.Leave
         cfgLeaveNumVirgulas(txtVenda)
-        If Me.txtCusto.Text <> "" And Me.txtVenda.Text <> "" Then
+        If Me.txtCusto.Text <> "" And Me.txtVenda.Text <> "" And Me.txtCusto.Text <> FormatNumber(0, 3) And Me.txtVenda.Text <> FormatNumber(0, 3) Then
             Me.txtVendaPorc.Text = FormatNumber(Me.txtVenda.Text * 100 / Me.txtCusto.Text - 100, 3)
         End If
 

@@ -389,9 +389,13 @@ Public Class frmCadPedido
                         Dim dtProdutoSelect As DataTable
                         If CodInterno <> -1 Then
                             dtProdutoSelect = CarregarDataTable("select * from Produtos where CodigoInterno = '" & CodInterno & "';")
-                        End If
-                        If CodigoProduto <> -1 Then
+
+                        ElseIf CodigoProduto <> -1 Then
                             dtProdutoSelect = CarregarDataTable("select * from Produtos where Codigo = '" & CodigoProduto & "';")
+                        Else
+                            MsgBox("Nenhum produto selecionado.", MsgBoxStyle.Exclamation)
+                            LimparProdutos()
+                            Exit Sub
                         End If
 
                         If dtProdutoSelect.Rows.Count > 0 Then
@@ -1703,7 +1707,6 @@ Public Class frmCadPedido
             frmCadProdutos.ShowDialog()
 
             Dim dtProdutoSelect As DataTable = CarregarDataTable("select * from Produtos where Codigo = " & CodigoProduto & "")
-
 
             If dtProdutoSelect.Rows.Count > 0 Then
                 Me.txtAddCodigoInterno.Text = dtProdutoSelect.Rows.Item(0).Item("CodigoInterno")

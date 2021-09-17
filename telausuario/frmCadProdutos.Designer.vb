@@ -23,7 +23,7 @@ Partial Class frmCadProdutos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim GridLevelNode2 As DevExpress.XtraGrid.GridLevelNode = New DevExpress.XtraGrid.GridLevelNode()
+        Dim GridLevelNode1 As DevExpress.XtraGrid.GridLevelNode = New DevExpress.XtraGrid.GridLevelNode()
         Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
         Me.btnSalvar = New DevExpress.XtraBars.Bar()
         Me.btnExcluir = New DevExpress.XtraBars.BarButtonItem()
@@ -533,8 +533,8 @@ Partial Class frmCadProdutos
         Me.grdQtde.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.grdQtde.DataMember = "tbQtd"
         Me.grdQtde.DataSource = Me.dsQuantidade
-        GridLevelNode2.RelationName = "Level1"
-        Me.grdQtde.LevelTree.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode2})
+        GridLevelNode1.RelationName = "Level1"
+        Me.grdQtde.LevelTree.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode1})
         Me.grdQtde.Location = New System.Drawing.Point(5, 5)
         Me.grdQtde.MainView = Me.grd3
         Me.grdQtde.MenuManager = Me.BarManager1
@@ -794,7 +794,7 @@ Partial Class frmCadProdutos
         '
         'lblEmPromocao
         '
-        Me.lblEmPromocao.Location = New System.Drawing.Point(53, 199)
+        Me.lblEmPromocao.Location = New System.Drawing.Point(53, 195)
         Me.lblEmPromocao.Name = "lblEmPromocao"
         Me.lblEmPromocao.Size = New System.Drawing.Size(64, 13)
         Me.lblEmPromocao.TabIndex = 84
@@ -802,7 +802,7 @@ Partial Class frmCadProdutos
         '
         'PanelControl2
         '
-        Me.PanelControl2.Location = New System.Drawing.Point(8, 207)
+        Me.PanelControl2.Location = New System.Drawing.Point(8, 203)
         Me.PanelControl2.Name = "PanelControl2"
         Me.PanelControl2.Size = New System.Drawing.Size(184, 5)
         Me.PanelControl2.TabIndex = 110
@@ -852,7 +852,7 @@ Partial Class frmCadProdutos
         'txtDescontoPorc
         '
         Me.txtDescontoPorc.EnterMoveNextControl = True
-        Me.txtDescontoPorc.Location = New System.Drawing.Point(159, 224)
+        Me.txtDescontoPorc.Location = New System.Drawing.Point(159, 214)
         Me.txtDescontoPorc.MenuManager = Me.BarManager1
         Me.txtDescontoPorc.Name = "txtDescontoPorc"
         Me.txtDescontoPorc.Properties.Appearance.Options.UseTextOptions = True
@@ -865,7 +865,7 @@ Partial Class frmCadProdutos
         'txtDesconto
         '
         Me.txtDesconto.EnterMoveNextControl = True
-        Me.txtDesconto.Location = New System.Drawing.Point(92, 224)
+        Me.txtDesconto.Location = New System.Drawing.Point(92, 214)
         Me.txtDesconto.MenuManager = Me.BarManager1
         Me.txtDesconto.Name = "txtDesconto"
         Me.txtDesconto.Properties.Appearance.Options.UseTextOptions = True
@@ -1054,7 +1054,7 @@ Partial Class frmCadProdutos
         '
         'lblDescontoPorc
         '
-        Me.lblDescontoPorc.Location = New System.Drawing.Point(203, 227)
+        Me.lblDescontoPorc.Location = New System.Drawing.Point(203, 217)
         Me.lblDescontoPorc.Name = "lblDescontoPorc"
         Me.lblDescontoPorc.Size = New System.Drawing.Size(11, 13)
         Me.lblDescontoPorc.TabIndex = 90
@@ -1062,7 +1062,7 @@ Partial Class frmCadProdutos
         '
         'lblDesconto
         '
-        Me.lblDesconto.Location = New System.Drawing.Point(25, 227)
+        Me.lblDesconto.Location = New System.Drawing.Point(25, 217)
         Me.lblDesconto.Name = "lblDesconto"
         Me.lblDesconto.Size = New System.Drawing.Size(61, 13)
         Me.lblDesconto.TabIndex = 89

@@ -575,7 +575,7 @@ Partial Class frmCadPedido
         'btnYoutube
         '
         Me.btnYoutube.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnYoutube.Location = New System.Drawing.Point(963, 10)
+        Me.btnYoutube.Location = New System.Drawing.Point(969, 10)
         Me.btnYoutube.Name = "btnYoutube"
         Me.btnYoutube.Size = New System.Drawing.Size(21, 21)
         Me.btnYoutube.TabIndex = 9
@@ -589,7 +589,7 @@ Partial Class frmCadPedido
         Me.dtData.Name = "dtData"
         Me.dtData.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.dtData.Properties.VistaTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
-        Me.dtData.Size = New System.Drawing.Size(95, 20)
+        Me.dtData.Size = New System.Drawing.Size(101, 20)
         Me.dtData.TabIndex = 8
         '
         'lblData
@@ -706,7 +706,7 @@ Partial Class frmCadPedido
         '
         'btnRemoverPesquisarGrid
         '
-        Me.btnRemoverPesquisarGrid.Location = New System.Drawing.Point(165, 99)
+        Me.btnRemoverPesquisarGrid.Location = New System.Drawing.Point(226, 99)
         Me.btnRemoverPesquisarGrid.MenuManager = Me.BarManager1
         Me.btnRemoverPesquisarGrid.Name = "btnRemoverPesquisarGrid"
         Me.btnRemoverPesquisarGrid.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Global.telausuario.My.Resources.Resources.Lupa_Azul_12x12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject2, "", Nothing, Nothing, True)})
@@ -725,7 +725,7 @@ Partial Class frmCadPedido
         Me.txtRemoverCodigo.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtRemoverCodigo.Properties.AppearanceFocused.Options.UseBackColor = True
         Me.txtRemoverCodigo.Properties.MaxLength = 10
-        Me.txtRemoverCodigo.Size = New System.Drawing.Size(99, 20)
+        Me.txtRemoverCodigo.Size = New System.Drawing.Size(143, 20)
         Me.txtRemoverCodigo.TabIndex = 23
         '
         'txtRemoverQtd
@@ -739,7 +739,7 @@ Partial Class frmCadPedido
         Me.txtRemoverQtd.Properties.AppearanceFocused.Options.UseBackColor = True
         Me.txtRemoverQtd.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtRemoverQtd.Properties.MaxLength = 10
-        Me.txtRemoverQtd.Size = New System.Drawing.Size(118, 20)
+        Me.txtRemoverQtd.Size = New System.Drawing.Size(124, 20)
         Me.txtRemoverQtd.TabIndex = 26
         '
         'txtRemoverProduto
@@ -747,7 +747,7 @@ Partial Class frmCadPedido
         Me.txtRemoverProduto.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtRemoverProduto.EnterMoveNextControl = True
-        Me.txtRemoverProduto.Location = New System.Drawing.Point(290, 100)
+        Me.txtRemoverProduto.Location = New System.Drawing.Point(303, 100)
         Me.txtRemoverProduto.MenuManager = Me.BarManager1
         Me.txtRemoverProduto.Name = "txtRemoverProduto"
         Me.txtRemoverProduto.Properties.Appearance.BackColor = System.Drawing.Color.White
@@ -755,7 +755,7 @@ Partial Class frmCadPedido
         Me.txtRemoverProduto.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtRemoverProduto.Properties.AppearanceFocused.Options.UseBackColor = True
         Me.txtRemoverProduto.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtRemoverProduto.Size = New System.Drawing.Size(484, 20)
+        Me.txtRemoverProduto.Size = New System.Drawing.Size(471, 20)
         Me.txtRemoverProduto.TabIndex = 25
         '
         'btnRemover
@@ -764,7 +764,7 @@ Partial Class frmCadPedido
         Me.btnRemover.Image = Global.telausuario.My.Resources.Resources.Remove_Item
         Me.btnRemover.Location = New System.Drawing.Point(862, 123)
         Me.btnRemover.Name = "btnRemover"
-        Me.btnRemover.Size = New System.Drawing.Size(118, 23)
+        Me.btnRemover.Size = New System.Drawing.Size(124, 23)
         Me.btnRemover.TabIndex = 143
         Me.btnRemover.Text = "Remover"
         '
@@ -779,7 +779,7 @@ Partial Class frmCadPedido
         '
         'lblRProduto
         '
-        Me.lblRProduto.Location = New System.Drawing.Point(246, 102)
+        Me.lblRProduto.Location = New System.Drawing.Point(260, 102)
         Me.lblRProduto.Name = "lblRProduto"
         Me.lblRProduto.Size = New System.Drawing.Size(38, 13)
         Me.lblRProduto.TabIndex = 139
@@ -1141,7 +1141,7 @@ Partial Class frmCadPedido
         '
         'lblMecanico
         '
-        Me.lblMecanico.Location = New System.Drawing.Point(260, 91)
+        Me.lblMecanico.Location = New System.Drawing.Point(254, 91)
         Me.lblMecanico.Name = "lblMecanico"
         Me.lblMecanico.Size = New System.Drawing.Size(44, 13)
         Me.lblMecanico.TabIndex = 105
