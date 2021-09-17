@@ -212,6 +212,8 @@ Partial Class frmCadProdutos
         Me.colCor1 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colCodBarra = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.grpProdCadastrados = New DevExpress.XtraEditors.GroupControl()
+        Me.btnLimparBusca = New DevExpress.XtraEditors.SimpleButton()
+        Me.cboBuscarProd = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.lblInativo = New DevExpress.XtraEditors.LabelControl()
         Me.chkInativo = New DevExpress.XtraEditors.CheckEdit()
         Me.lblTribPadrao = New DevExpress.XtraEditors.LabelControl()
@@ -275,6 +277,7 @@ Partial Class frmCadProdutos
         CType(Me.txtAlterarGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grpProdCadastrados, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpProdCadastrados.SuspendLayout()
+        CType(Me.cboBuscarProd.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.chkInativo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.chkTribPadrao.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.chkAlterarPreco.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -412,22 +415,22 @@ Partial Class frmCadProdutos
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 625)
-        Me.barDockControlBottom.Size = New System.Drawing.Size(1008, 41)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 623)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(1008, 43)
         '
         'barDockControlLeft
         '
         Me.barDockControlLeft.CausesValidation = False
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
         Me.barDockControlLeft.Location = New System.Drawing.Point(0, 0)
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 625)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 623)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
         Me.barDockControlRight.Location = New System.Drawing.Point(1008, 0)
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 625)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 623)
         '
         'RepositoryItemButtonEdit1
         '
@@ -1198,7 +1201,7 @@ Partial Class frmCadProdutos
         Me.txtCodigoInterno.Location = New System.Drawing.Point(92, 6)
         Me.txtCodigoInterno.MenuManager = Me.BarManager1
         Me.txtCodigoInterno.Name = "txtCodigoInterno"
-        Me.txtCodigoInterno.Properties.MaxLength = 20
+        Me.txtCodigoInterno.Properties.MaxLength = 10
         Me.txtCodigoInterno.Size = New System.Drawing.Size(100, 20)
         Me.txtCodigoInterno.TabIndex = 0
         '
@@ -1295,7 +1298,7 @@ Partial Class frmCadProdutos
         Me.PanelControl1.Controls.Add(Me.txtProdCadastrados)
         Me.PanelControl1.Controls.Add(Me.lblProdCadastrados)
         Me.PanelControl1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PanelControl1.Location = New System.Drawing.Point(0, 581)
+        Me.PanelControl1.Location = New System.Drawing.Point(0, 579)
         Me.PanelControl1.Name = "PanelControl1"
         Me.PanelControl1.Size = New System.Drawing.Size(1008, 44)
         Me.PanelControl1.TabIndex = 2
@@ -1940,6 +1943,8 @@ Partial Class frmCadProdutos
         Me.grpProdCadastrados.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.grpProdCadastrados.Controls.Add(Me.btnLimparBusca)
+        Me.grpProdCadastrados.Controls.Add(Me.cboBuscarProd)
         Me.grpProdCadastrados.Controls.Add(Me.lblInativo)
         Me.grpProdCadastrados.Controls.Add(Me.chkInativo)
         Me.grpProdCadastrados.Controls.Add(Me.lblTribPadrao)
@@ -1954,6 +1959,24 @@ Partial Class frmCadProdutos
         Me.grpProdCadastrados.Size = New System.Drawing.Size(1008, 295)
         Me.grpProdCadastrados.TabIndex = 9
         Me.grpProdCadastrados.Text = "Produtos Cadastrados"
+        '
+        'btnLimparBusca
+        '
+        Me.btnLimparBusca.Location = New System.Drawing.Point(269, 28)
+        Me.btnLimparBusca.Name = "btnLimparBusca"
+        Me.btnLimparBusca.Size = New System.Drawing.Size(75, 23)
+        Me.btnLimparBusca.TabIndex = 130
+        Me.btnLimparBusca.Text = "Limpar"
+        '
+        'cboBuscarProd
+        '
+        Me.cboBuscarProd.Location = New System.Drawing.Point(6, 29)
+        Me.cboBuscarProd.MenuManager = Me.BarManager1
+        Me.cboBuscarProd.Name = "cboBuscarProd"
+        Me.cboBuscarProd.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cboBuscarProd.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.cboBuscarProd.Size = New System.Drawing.Size(257, 20)
+        Me.cboBuscarProd.TabIndex = 128
         '
         'lblInativo
         '
@@ -2100,6 +2123,7 @@ Partial Class frmCadProdutos
         CType(Me.grpProdCadastrados, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grpProdCadastrados.ResumeLayout(False)
         Me.grpProdCadastrados.PerformLayout()
+        CType(Me.cboBuscarProd.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.chkInativo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.chkTribPadrao.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.chkAlterarPreco.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2304,4 +2328,6 @@ Partial Class frmCadProdutos
     Friend WithEvents CodigoInterno As System.Data.DataColumn
     Friend WithEvents colCodigoInterno As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents txtAlterarGridQtde As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
+    Friend WithEvents btnLimparBusca As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents cboBuscarProd As DevExpress.XtraEditors.ComboBoxEdit
 End Class

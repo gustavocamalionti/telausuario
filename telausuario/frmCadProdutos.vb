@@ -36,6 +36,50 @@ Public Class frmCadProdutos
             Me.colCodProd1.Visible = False
             Me.colTamanho1.Visible = False
             Me.grd2.OptionsView.ColumnAutoWidth = True
+            Me.btnLimparBusca.Visible = False
+            Me.cboBuscarProd.Visible = False
+
+        ElseIf Me.Tag = "ConsultarProdutoAdicionar" Then
+            Me.txtCodigoInterno.Visible = True
+            Me.grdQtde.Visible = True
+            Me.colAlterarPreco.Visible = True
+            Me.colLocacao.Visible = True
+            Me.colComissao.Visible = True
+            Me.colCusto.Visible = True
+            Me.colVenda.Visible = True
+            Me.colQtd1.Visible = True
+            Me.colDesconto.Visible = True
+            Me.colObservacao.Visible = True
+            Me.colAlterarPreco.Visible = True
+            Me.colDuplicar.Visible = True
+            Me.colTribPadrao.Visible = True
+            Me.colInativo.Visible = True
+            Me.colLote1.Visible = True
+            Me.colCodBarra.Visible = True
+            Me.colQtd1.Visible = True
+            Me.colAcabou1.Visible = True
+            Me.colLote1.Visible = True
+            Me.colCodConfig1.Visible = True
+            Me.colDataFim1.Visible = True
+            Me.colCor1.Visible = True
+            Me.colEmFalta1.Visible = True
+            Me.colValorCusto1.Visible = True
+            Me.colqtdeMaxima1.Visible = True
+            Me.colCodProd1.Visible = True
+            Me.colTamanho1.Visible = True
+            Me.btnLimparBusca.Visible = True
+            Me.cboBuscarProd.Visible = True
+            Me.cboBuscarProd.Text = NomeProduto
+
+            Me.grd2.OptionsView.ColumnAutoWidth = False
+
+
+            CarregarDados("select P.Codigo, P.CodigoInterno, P.CodFor, P.CodBarra, P.Produto, P.Setor, P.Grupo, P.Fornecedor, P.Familia, P.UnidMed, P.Tipo, " & _
+                      "P.Locacao, P.Comissao, P.Custo, P.Venda, ((select case when sum(qtd) is null then 0 else sum(qtd) end from Entradanf " & _
+                      "where entradanf.codprod = P.codigo) - (select case when sum(qtd) is null then 0 else sum(qtd) end from Pedido " & _
+                      "where Pedido.codprod = P.codigo) + (select case when sum(qtd) is null then 0 else sum(qtd) end from AjusteQtde " & _
+                      "where AjusteQtde.codprod = P.codigo)) as Qtd,  P.Desconto, P.Observacao, P.AlterarPreco, P.Duplicar, P.TribPadrao, " & _
+                      "P.Inativo, Q.Tamanho, Q.Cor, Q.Lote from Produtos as P left join Qtde as Q on Q.CodProd = P.Codigo where P.Produto like '%" & NomeProduto & "%';", grdProdCadastrados)
 
         Else
             Me.txtCodigoInterno.Visible = True
@@ -65,6 +109,9 @@ Public Class frmCadProdutos
             Me.colqtdeMaxima1.Visible = True
             Me.colCodProd1.Visible = True
             Me.colTamanho1.Visible = True
+            Me.btnLimparBusca.Visible = False
+            Me.cboBuscarProd.Visible = False
+
             Me.grd2.OptionsView.ColumnAutoWidth = False
         End If
 
@@ -125,6 +172,7 @@ Public Class frmCadProdutos
         Me.chkDuplicar.Checked = False
         Me.chkAlterarPreco.Checked = False
         Me.chkTribPadrao.Checked = False
+        Me.cboBuscarProd.ResetText()
 
     End Sub
 
@@ -612,5 +660,28 @@ Public Class frmCadProdutos
 
     Private Sub txtDesconto_EditValueChanged(sender As Object, e As EventArgs) Handles txtDesconto.EditValueChanged
 
+    End Sub
+
+    Private Sub cboBuscarProd_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboBuscarProd.KeyPress
+        If e.KeyChar = "'" Then
+            e.Handled = True
+            Exit Sub
+        End If
+
+    End Sub
+
+    Private Sub cboBuscarProd_KeyUp(sender As Object, e As KeyEventArgs) Handles cboBuscarProd.KeyUp
+        CarregarDados("select P.Codigo, P.CodigoInterno, P.CodFor, P.CodBarra, P.Produto, P.Setor, P.Grupo, P.Fornecedor, P.Familia, P.UnidMed, P.Tipo, " & _
+                  "P.Locacao, P.Comissao, P.Custo, P.Venda, ((select case when sum(qtd) is null then 0 else sum(qtd) end from Entradanf " & _
+                  "where entradanf.codprod = P.codigo) - (select case when sum(qtd) is null then 0 else sum(qtd) end from Pedido " & _
+                  "where Pedido.codprod = P.codigo) + (select case when sum(qtd) is null then 0 else sum(qtd) end from AjusteQtde " & _
+                  "where AjusteQtde.codprod = P.codigo)) as Qtd,  P.Desconto, P.Observacao, P.AlterarPreco, P.Duplicar, P.TribPadrao, " & _
+                  "P.Inativo, Q.Tamanho, Q.Cor, Q.Lote from Produtos as P left join Qtde as Q on Q.CodProd = P.Codigo where P.Produto like '%" & cboBuscarProd.Text & "%';", grdProdCadastrados)
+
+    End Sub
+
+    Private Sub btnLimparBusca_Click(sender As Object, e As EventArgs) Handles btnLimparBusca.Click
+        Limpar()
+        AtualizarGrid()
     End Sub
 End Class

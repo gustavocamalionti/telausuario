@@ -1,4 +1,5 @@
 ﻿Imports telausuario.clsFuncao
+Imports telausuario.modFuncoes
 Imports DevExpress.XtraEditors
 Imports DevExpress.XtraEditors.Controls
 
@@ -155,6 +156,7 @@ Public Class frmCadPedido
         vetDelete.Clear()
         CodigoProduto = -1
         CodigoCliente = -1
+        CodInterno = -1
         NomeProduto = ""
         dblSomaDesconto = FormatNumber(0, 3)
         dblSomaGeral = FormatNumber(0, 3)
@@ -212,6 +214,7 @@ Public Class frmCadPedido
         Me.grd1.ClearColumnsFilter()
         bolStatusAlteracao = False
         CodigoProduto = -1
+        CodInterno = -1
 
         Me.txtAddCodigoInterno.ResetText()
         Me.txtAddProduto.ResetText()
@@ -383,8 +386,14 @@ Public Class frmCadPedido
                         Me.txtAddQtd.ResetText()
                         Exit Sub
                     Else
+                        Dim dtProdutoSelect As DataTable
+                        If CodInterno <> -1 Then
+                            dtProdutoSelect = CarregarDataTable("select * from Produtos where CodigoInterno = '" & CodInterno & "';")
+                        End If
+                        If CodigoProduto <> -1 Then
+                            dtProdutoSelect = CarregarDataTable("select * from Produtos where Codigo = '" & CodigoProduto & "';")
+                        End If
 
-                        Dim dtProdutoSelect As DataTable = CarregarDataTable("select * from Produtos where Codigo = " & CodigoProduto & ";")
                         If dtProdutoSelect.Rows.Count > 0 Then
                             ResetarTotalUnitario()
 
@@ -441,11 +450,17 @@ Public Class frmCadPedido
             Exit Sub
 
         Else
-            Dim dtProdutoSelect As DataTable = CarregarDataTable("select * from Produtos where Codigo = " & CodigoProduto & "")
+            Dim dtProdutoSelect As DataTable
+            If CodigoProduto <> -1 Then
+                dtProdutoSelect = CarregarDataTable("select * from Produtos where Codigo = " & CodigoProduto & "")
+            ElseIf CodInterno <> -1 Then
+                dtProdutoSelect = CarregarDataTable("select * from Produtos where CodigoInterno = '" & CodInterno & "'")
+            End If
+
             If dtProdutoSelect.Rows.Count > 0 Then
                 For i = 0 To tbPedidoAtual.Rows.Count - 1
                     If tbPedidoAtual.Rows.Item(i).Item("Produto") = dtProdutoSelect.Rows.Item(0).Item("Produto") Then
-                        If Me.txtRemoverQtd.Text = tbPedidoAtual.Rows.Item(i).Item("Qtde") Then 'Quantidades iguais para serem removidas - Delete ROW
+                        If FormatNumber(Me.txtRemoverQtd.Text, 3) = tbPedidoAtual.Rows.Item(i).Item("Qtde") Then 'Quantidades iguais para serem removidas - Delete ROW
                             If tbPedidoAtual.Rows.Item(i).Item("Tipo") = "VENDA" Then
 
                                 dblSomaVenda = dblSomaVenda - tbPedidoAtual.Rows.Item(i).Item("ValorTotal")
@@ -569,7 +584,7 @@ Public Class frmCadPedido
 
                     Next
 
-                    Atualizar("update TotalConsig set DataSaida = , Data = getdate(), Total = " & Me.txtTotalGeral.Text.Replace(".", "").Replace(",", ".") & ", Descricao = '" & Me.memObservacoes.Text & "', Custo = " & dblSomaCusto.ToString.Replace(".", "").Replace(",", ".") & ", Desconto = " & Me.txtTotalDesconto.Text.ToString.Replace(".", "").Replace(",", ".") & "")
+                    Atualizar("update TotalConsig set DataRetirada = '" & Me.dtDataSaida.Text & "', DataEntrega = '" & Me.dtDataEntrada.Text & "', Data = getdate(), Total = " & Me.txtTotalGeral.Text.Replace(".", "").Replace(",", ".") & ", Descricao = '" & Me.memObservacoes.Text & "', Custo = " & dblSomaCusto.ToString.Replace(".", "").Replace(",", ".") & ", Desconto = " & Me.txtTotalDesconto.Text.ToString.Replace(".", "").Replace(",", ".") & "")
                     Limpar()
                     Exit Sub
 
@@ -934,9 +949,7 @@ Public Class frmCadPedido
         End If
     End Sub
 
-    Private Sub txtAddCodigo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtAddCodigoInterno.KeyPress
-        e.Handled = True
-    End Sub
+
     Private Sub txtValorFrete_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtValorFrete.KeyPress
         cfgPressNumVirgulas(txtValorFrete, e)
     End Sub
@@ -1515,7 +1528,7 @@ Public Class frmCadPedido
         End If
     End Sub
 
-    Private Sub memObservacoes_KeyPress(sender As Object, e As KeyPressEventArgs) Handles memObservacoes.KeyPress, txtRemoverCodigo.KeyPress, cboVendedor.KeyPress, cboStatusNano.KeyPress, cboNossoStatus.KeyPress, txtNivelComb.KeyPress, txtMotor.KeyPress, txtModelo.KeyPress, txtKmSaida.KeyPress, txtKmEntrada.KeyPress, txtCor.KeyPress, txtAno.KeyPress, memDefeitosVeiculo.KeyPress, ComboBoxEdit2.KeyPress
+    Private Sub memObservacoes_KeyPress(sender As Object, e As KeyPressEventArgs) Handles memObservacoes.KeyPress, cboVendedor.KeyPress, cboStatusNano.KeyPress, cboNossoStatus.KeyPress, txtNivelComb.KeyPress, txtMotor.KeyPress, txtModelo.KeyPress, txtKmSaida.KeyPress, txtKmEntrada.KeyPress, txtCor.KeyPress, txtAno.KeyPress, memDefeitosVeiculo.KeyPress, ComboBoxEdit2.KeyPress
         If e.KeyChar = "'" Then
             e.Handled = True
         End If
@@ -1525,4 +1538,196 @@ Public Class frmCadPedido
         LimparProdutos()
     End Sub
 
+
+    Private Sub txtOrdem_EditValueChanged(sender As Object, e As EventArgs) Handles txtOrdem.EditValueChanged
+
+    End Sub
+
+    Private Sub txtOrdem_Leave(sender As Object, e As EventArgs) Handles txtOrdem.Leave
+
+        If txtOrdem.Text = "" Then
+            Exit Sub
+        Else
+            Dim dtBuscaOrdem As DataTable = CarregarDataTable("select * from Ordens where Cod = " & txtOrdem.Text & "")
+            If dtBuscaOrdem.Rows.Count > 0 Then
+                CodOrdem = txtOrdem.Text
+
+                Dim dtOrdemSelect As DataTable = CarregarDataTable("select * from ItensConsig where CodOrdens = " & CodOrdem & "")
+                If dtOrdemSelect.Rows.Count > 0 Then
+                    If Me.Tag = "ConsultarPedido" Or Me.Tag = "AlterarPedido" Then
+                        Me.tbPedidoAtual.Rows.Clear()
+                        Dim dblSomaValorDistribuido As Double = FormatNumber(0, 3)
+                        Dim dblSomaDescontoDistribuicao As Double = FormatNumber(0, 3)
+                        dblValorTotalGeralSemDesc = FormatNumber(0, 3)
+                        dblFrete = FormatNumber(0, 3)
+                        dblSomaGeral = FormatNumber(0, 3)
+
+                        Dim dtProdutoSelect As DataTable = CarregarDataTable("select C.Nome, C.CPF, C.Telefone, IC.CodOrdens, IC.CodPedAut, IC.CodigoProduto, P.Produto, IC.Qtd as 'Qtde', IC.DescSemDistribuicao, IC.DescComDistribuicao, P.Venda as 'SemDesc', IC.ValorUnitario, IC.ValorTotal, IC.Tipo from ItensConsig as IC left Join Produtos as P on IC.CodigoProduto = P.Codigo left Join TotalConsig as TC on TC.CodOrdens = IC.CodOrdens left Join Cliente as C on C.Codigo = TC.CodCli where IC.CodOrdens = " & CodOrdem & ";")
+                        txtNome.Text = dtProdutoSelect.Rows.Item(0).Item("Nome").ToString
+                        txtCpfCnpj.Text = dtProdutoSelect.Rows.Item(0).Item("CPF").ToString
+                        txtTelefone.Text = dtProdutoSelect.Rows.Item(0).Item("Telefone").ToString
+                        txtOrdem.Text = dtOrdemSelect.Rows.Item(0).Item("CodOrdens")
+                        For i = 0 To dtProdutoSelect.Rows.Count - 1
+                            tbPedidoAtual.Rows.Add(0)
+                            Dim PosicaoLinha As Integer = tbPedidoAtual.Rows.Count - 1
+                            Dim dbValor As Double = dtProdutoSelect.Rows.Item(i).Item("DescComDistribuicao")
+                            dblSomaValorDistribuido = FormatNumber(dblSomaValorDistribuido + dbValor, 3)
+                            tbPedidoAtual.Rows.Item(PosicaoLinha).Item("CodProd") = dtProdutoSelect.Rows.Item(i).Item("CodigoProduto")
+                            tbPedidoAtual.Rows.Item(PosicaoLinha).Item("Produto") = dtProdutoSelect.Rows.Item(i).Item("Produto")
+                            tbPedidoAtual.Rows.Item(PosicaoLinha).Item("Qtde") = FormatNumber(dtProdutoSelect.Rows.Item(i).Item("Qtde"), 3)
+                            tbPedidoAtual.Rows.Item(PosicaoLinha).Item("DescSemDistribuicao") = FormatNumber(dtProdutoSelect.Rows.Item(i).Item("DescSemDistribuicao"), 3)
+                            tbPedidoAtual.Rows.Item(PosicaoLinha).Item("SemDesc") = FormatNumber(dtProdutoSelect.Rows.Item(i).Item("SemDesc"), 3)
+                            tbPedidoAtual.Rows.Item(PosicaoLinha).Item("ValorUnitario") = FormatNumber(dtProdutoSelect.Rows.Item(i).Item("ValorUnitario"), 3)
+                            tbPedidoAtual.Rows.Item(PosicaoLinha).Item("ValorTotal") = FormatNumber(FormatNumber(dtProdutoSelect.Rows.Item(i).Item("ValorTotal"), 3), 3)
+                            tbPedidoAtual.Rows.Item(PosicaoLinha).Item("DescComDistribuicao") = FormatNumber(dtProdutoSelect.Rows.Item(i).Item("DescComDistribuicao"), 3)
+                            tbPedidoAtual.Rows.Item(PosicaoLinha).Item("Tipo") = dtProdutoSelect.Rows.Item(i).Item("Tipo")
+                            tbPedidoAtual.Rows.Item(PosicaoLinha).Item("CodPedAut") = dtProdutoSelect.Rows.Item(i).Item("CodPedAut")
+                            tbPedidoAtual.Rows.Item(PosicaoLinha).Item("CodOrdens") = dtProdutoSelect.Rows.Item(i).Item("CodOrdens")
+                            dblSomaGeral = dblSomaGeral + tbPedidoAtual.Rows.Item(PosicaoLinha).Item("ValorTotal")
+                        Next
+                        Dim tbselect As DataTable = CarregarDataTable("select Total from TotalConsig where CodOrdens = " & CodOrdem & "; ")
+
+                        Me.txtValorFrete.Text = FormatNumber(tbselect.Rows.Item(0).Item("Total") - dblSomaGeral, 3)
+
+                        Me.txtValorDistribuido.Text = FormatNumber(dblSomaValorDistribuido, 3)
+                        SomarTotalProdutoServico()
+
+                        For i = 0 To tbPedidoAtual.Rows.Count - 1
+                            If tbPedidoAtual.Rows.Item(i).Item("DescSemDistribuicao") = FormatNumber(0, 3) Then
+                                dblValorTotalGeralSemDesc = FormatNumber(dblValorTotalGeralSemDesc + tbPedidoAtual.Rows.Item(i).Item("ValorTotal") + tbPedidoAtual.Rows.Item(i).Item("DescComDistribuicao"), 3)
+                            End If
+                        Next
+
+                        If dblValorTotalGeralSemDesc = FormatNumber(0, 3) Then
+                            txtPorcentagem.Text = FormatNumber(0, 3)
+                            txtValorDistribuido.Text = FormatNumber(0, 3)
+                            Exit Sub
+                        End If
+
+                        Dim dblValorDistribuido As Double = Me.txtValorDistribuido.Text
+                        Me.txtPorcentagem.Text = FormatNumber(100 * dblValorDistribuido / dblValorTotalGeralSemDesc, 3)
+                    End If
+                End If
+            Else
+                MsgBox("Pedido não encontrado.", MsgBoxStyle.Exclamation)
+                Limpar()
+            End If
+        End If
+
+    End Sub
+
+    Private Sub btnAddPesquisarProduto_EditValueChanged(sender As Object, e As EventArgs) Handles btnAddPesquisarProduto.EditValueChanged
+
+    End Sub
+
+    Private Sub txtAddCodigoInterno_EditValueChanged(sender As Object, e As EventArgs) Handles txtAddCodigoInterno.EditValueChanged
+
+    End Sub
+
+    Private Sub txtAddCodigoInterno_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtAddCodigoInterno.KeyPress
+        cfgPressNumVirgulas(txtAddCodigoInterno, e)
+    End Sub
+
+    Private Sub txtAddCodigoInterno_Leave(sender As Object, e As EventArgs) Handles txtAddCodigoInterno.Leave
+        If txtAddCodigoInterno.Text = "" Then
+            Exit Sub
+        Else
+
+            CodInterno = txtAddCodigoInterno.Text
+            Dim dtProdutoSelect As DataTable = CarregarDataTable("select * from Produtos where CodigoInterno = '" & CodInterno & "'")
+            If dtProdutoSelect.Rows.Count > 0 Then
+                Me.txtAddCodigoInterno.Text = dtProdutoSelect.Rows.Item(0).Item("CodigoInterno")
+                Me.txtAddProduto.Text = dtProdutoSelect.Rows.Item(0).Item("Produto").ToString
+                Me.txtAddQtd.Text = FormatNumber(1, 3)
+
+
+                If dtProdutoSelect.Rows.Item(0).Item("Desconto") = "" Then
+                    Me.txtDescontoPorc.Text = FormatNumber(0, 3)
+                    Me.txtDesconto.Text = FormatNumber(0, 3)
+
+                Else
+                    Me.txtDesconto.Text = FormatNumber(dtProdutoSelect.Rows.Item(0).Item("Desconto"), 3)
+                    Me.txtDescontoPorc.Text = FormatNumber(Me.txtDesconto.Text / dtProdutoSelect.Rows.Item(0).Item("Venda") * 100, 3)
+                End If
+
+                Me.txtPreco.Text = FormatNumber(dtProdutoSelect.Rows.Item(0).Item("Venda") - Me.txtDesconto.Text, 3)
+            Else
+                MsgBox("Item não encontrado.", MsgBoxStyle.Exclamation)
+                LimparProdutos()
+            End If
+
+        End If
+    End Sub
+
+    Private Sub txtRemoverCodigo_EditValueChanged(sender As Object, e As EventArgs) Handles txtRemoverCodigo.EditValueChanged
+
+    End Sub
+
+    Private Sub txtRemoverCodigo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtRemoverCodigo.KeyPress
+        If e.KeyChar = "'" Then
+            e.Handled = True
+        End If
+
+        cfgPressNumVirgulas(txtRemoverCodigo, e)
+    End Sub
+
+    Private Sub txtRemoverCodigo_Leave(sender As Object, e As EventArgs) Handles txtRemoverCodigo.Leave
+        If txtRemoverCodigo.Text = "" Then
+            Exit Sub
+        Else
+            CodInterno = txtRemoverCodigo.Text
+            Dim dtProdutoSelect As DataTable = CarregarDataTable("select * from Produtos where CodigoInterno = '" & CodInterno & "'")
+            If dtProdutoSelect.Rows.Count > 0 Then
+                Me.txtRemoverCodigo.Text = dtProdutoSelect.Rows.Item(0).Item("CodigoInterno")
+                Me.txtRemoverProduto.Text = dtProdutoSelect.Rows.Item(0).Item("Produto")
+                Me.txtRemoverQtd.Text = 1
+            Else
+                MsgBox("Item não encontrado.", MsgBoxStyle.Exclamation)
+            End If
+        End If
+        
+    End Sub
+
+    Private Sub txtAddProduto_EditValueChanged(sender As Object, e As EventArgs) Handles txtAddProduto.EditValueChanged
+
+    End Sub
+
+    Private Sub txtAddProduto_FormatEditValue(sender As Object, e As ConvertEditValueEventArgs) Handles txtAddProduto.FormatEditValue
+
+    End Sub
+
+    Private Sub txtAddProduto_Leave(sender As Object, e As EventArgs) Handles txtAddProduto.Leave
+        If Me.txtAddCodigoInterno.Text = "" Then
+            NomeProduto = Me.txtAddProduto.Text
+            frmCadProdutos.Tag = "ConsultarProdutoAdicionar"
+            frmCadProdutos.ShowDialog()
+
+            Dim dtProdutoSelect As DataTable = CarregarDataTable("select * from Produtos where Codigo = " & CodigoProduto & "")
+
+
+            If dtProdutoSelect.Rows.Count > 0 Then
+                Me.txtAddCodigoInterno.Text = dtProdutoSelect.Rows.Item(0).Item("CodigoInterno")
+                Me.txtAddProduto.Text = dtProdutoSelect.Rows.Item(0).Item("Produto").ToString
+                Me.txtAddQtd.Text = FormatNumber(1, 3)
+
+
+                If dtProdutoSelect.Rows.Item(0).Item("Desconto") = "" Then
+                    Me.txtDescontoPorc.Text = FormatNumber(0, 3)
+                    Me.txtDesconto.Text = FormatNumber(0, 3)
+
+                Else
+                    Me.txtDesconto.Text = FormatNumber(dtProdutoSelect.Rows.Item(0).Item("Desconto"), 3)
+                    Me.txtDescontoPorc.Text = FormatNumber(Me.txtDesconto.Text / dtProdutoSelect.Rows.Item(0).Item("Venda") * 100, 3)
+                End If
+
+                Me.txtPreco.Text = FormatNumber(dtProdutoSelect.Rows.Item(0).Item("Venda") - Me.txtDesconto.Text, 3)
+            End If
+        Else
+            Exit Sub
+        End If
+    End Sub
+
+    Private Sub btnRemoverPesquisarGrid_EditValueChanged(sender As Object, e As EventArgs) Handles btnRemoverPesquisarGrid.EditValueChanged
+
+    End Sub
 End Class

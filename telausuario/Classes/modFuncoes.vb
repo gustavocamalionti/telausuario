@@ -9,6 +9,7 @@
     Public CodOrdem As String = 0
     Public CodigoCliente As Integer
     Public CodigoProduto As Integer
+    Public CodInterno As Double
     Public NomeProduto As String
     Public indexPedidoAtual As Integer
 

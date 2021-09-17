@@ -559,7 +559,6 @@ Partial Class frmCadPedido
         Me.txtOrdem.Properties.AppearanceFocused.Options.UseBackColor = True
         Me.txtOrdem.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.White
         Me.txtOrdem.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.txtOrdem.Properties.ReadOnly = True
         Me.txtOrdem.Size = New System.Drawing.Size(143, 20)
         Me.txtOrdem.TabIndex = 112
         Me.txtOrdem.Visible = False
@@ -725,6 +724,7 @@ Partial Class frmCadPedido
         Me.txtRemoverCodigo.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
         Me.txtRemoverCodigo.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtRemoverCodigo.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.txtRemoverCodigo.Properties.MaxLength = 10
         Me.txtRemoverCodigo.Size = New System.Drawing.Size(99, 20)
         Me.txtRemoverCodigo.TabIndex = 23
         '
@@ -755,7 +755,6 @@ Partial Class frmCadPedido
         Me.txtRemoverProduto.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtRemoverProduto.Properties.AppearanceFocused.Options.UseBackColor = True
         Me.txtRemoverProduto.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtRemoverProduto.Properties.ReadOnly = True
         Me.txtRemoverProduto.Size = New System.Drawing.Size(484, 20)
         Me.txtRemoverProduto.TabIndex = 25
         '
@@ -875,7 +874,7 @@ Partial Class frmCadPedido
         Me.txtAddCodigoInterno.Properties.AppearanceDisabled.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
         Me.txtAddCodigoInterno.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtAddCodigoInterno.Properties.AppearanceFocused.Options.UseBackColor = True
-        Me.txtAddCodigoInterno.Properties.MaxLength = 20
+        Me.txtAddCodigoInterno.Properties.MaxLength = 10
         Me.txtAddCodigoInterno.Size = New System.Drawing.Size(162, 20)
         Me.txtAddCodigoInterno.TabIndex = 155
         '
@@ -981,7 +980,6 @@ Partial Class frmCadPedido
         Me.txtAddProduto.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.White
         Me.txtAddProduto.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.txtAddProduto.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtAddProduto.Properties.ReadOnly = True
         Me.txtAddProduto.Size = New System.Drawing.Size(471, 20)
         Me.txtAddProduto.TabIndex = 156
         '
