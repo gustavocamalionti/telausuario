@@ -400,20 +400,23 @@ Public Class frmCadProdutos
     End Sub
 
     Private Sub txtAlterarGrid_DoubleClick(sender As Object, e As EventArgs) Handles txtAlterarGrid.DoubleClick
+        Dim Index As Integer = Me.grd2.FocusedRowHandle
+        If Index < 0 Then
+            Exit Sub
+        End If
+
         If Me.Tag = "ConsultarProdutoAdicionar" Then
-            Dim Index As Integer = Me.grd2.FocusedRowHandle
             CodigoProduto = Me.grd2.GetRowCellValue(Index, colCodigo)
             Me.Close()
 
         ElseIf Me.Tag = "ConsultarProdutoRemover" Then
-            Dim Index As Integer = Me.grd2.FocusedRowHandle
             CodigoProduto = Me.grd2.GetRowCellValue(Index, colCodigo)
             Me.Close()
 
         ElseIf Me.Tag = "CadastrarProduto" Then
-            Dim Index As Integer = Me.grd2.FocusedRowHandle
             intCodigoProduto = Me.grd2.GetRowCellValue(Index, colCodigo)
             MostrarDados()
+
             If intCodigoProduto <= 0 Then
                 bolStatusAlteracao = False
                 Exit Sub
