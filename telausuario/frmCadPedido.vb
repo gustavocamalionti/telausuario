@@ -609,7 +609,7 @@ Public Class frmCadPedido
 
                 UltimoCodTabTotalConsig = CarregarDataTable("select max(cod) as 'Ultimo Registro', Tabela from Ordens where Tabela = 'TotalConsig' group by Tabela;")
 
-                Inserir("insert into TotalConsig (CodOrdens, Data,CodCli, Total, Descricao, Status, Custo, Desconto) values (" & UltimoCodTabTotalConsig.Rows.Item(0).Item(0) & ", getdate(), " & CodigoCliente & ", " & Me.txtTotalGeral.Text.Replace(".", "").Replace(",", ".") & ", '" & Me.memObservacoes.Text & "', 'Pendente', " & dblSomaCusto.ToString.Replace(".", "").Replace(",", ".") & ", " & Me.txtTotalDesconto.Text.ToString.Replace(".", "").Replace(",", ".") & " );")
+                Inserir("insert into TotalConsig (DataEntrega, DataRetirada, CodOrdens, Data,CodCli, Total, Descricao, Status, Custo, Desconto) values ('" & Me.dtDataSaida.Text & "', '" & Me.dtDataEntrada.Text & "', " & UltimoCodTabTotalConsig.Rows.Item(0).Item(0) & ", getdate(), " & CodigoCliente & ", " & Me.txtTotalGeral.Text.Replace(".", "").Replace(",", ".") & ", '" & Me.memObservacoes.Text & "', 'Pendente', " & dblSomaCusto.ToString.Replace(".", "").Replace(",", ".") & ", " & Me.txtTotalDesconto.Text.ToString.Replace(".", "").Replace(",", ".") & " );")
 
                 Limpar()
             Else
@@ -1515,97 +1515,14 @@ Public Class frmCadPedido
         End If
     End Sub
 
-    Private Sub txtNome_Click(sender As Object, e As EventArgs) Handles txtNome.Click
-        frmCadCliente.Tag = "ConsultarCliente"
-        frmCadCliente.ShowDialog()
-        Dim ClienteSelect As DataTable = CarregarDataTable("select * from Cliente where Codigo = " & CodigoCliente & "")
-
-        If ClienteSelect.Rows.Count > 0 Then
-            Me.txtNome.Text = ClienteSelect.Rows.Item(0).Item("Nome").ToString
-            Me.txtCpfCnpj.Text = ClienteSelect.Rows.Item(0).Item("CPF").ToString
-            Me.txtEmail.Text = ClienteSelect.Rows.Item(0).Item("Email").ToString
-            Me.txtTelefone.Text = ClienteSelect.Rows.Item(0).Item("Telefone").ToString
-            Me.txtCelular.Text = ClienteSelect.Rows.Item(0).Item("Celular").ToString
-        End If
-    End Sub
-
-    Private Sub txtRemoverProduto_Click(sender As Object, e As EventArgs) Handles txtRemoverProduto.Click
-
-        frmCadProdutos.Tag = "ConsultarProdutoRemover"
-        frmCadProdutos.ShowDialog()
-
-        Dim dtProdutoSelect As DataTable = CarregarDataTable("select * from Produtos where Codigo = " & CodigoProduto & "")
-
-        If dtProdutoSelect.Rows.Count > 0 Then
-            Me.txtRemoverCodigo.Text = dtProdutoSelect.Rows.Item(0).Item("Codigo")
-            Me.txtRemoverProduto.Text = dtProdutoSelect.Rows.Item(0).Item("Produto")
-            Me.txtRemoverQtd.Text = FormatNumber(1, 3)
-        End If
-    End Sub
-
-    Private Sub txtAddProduto_Click(sender As Object, e As EventArgs) Handles txtAddProduto.Click
-        frmCadProdutos.Tag = "ConsultarProdutoAdicionar"
-        frmCadProdutos.ShowDialog()
-        Dim dtProdutoSelect As DataTable = CarregarDataTable("select * from Produtos where Codigo = " & CodigoProduto & "")
-
-
-        If dtProdutoSelect.Rows.Count > 0 Then
-            Me.txtAddCodigoInterno.Text = dtProdutoSelect.Rows.Item(0).Item("CodigoInterno")
-            Me.txtAddProduto.Text = dtProdutoSelect.Rows.Item(0).Item("Produto").ToString
-            Me.txtAddQtd.Text = FormatNumber(1, 3)
-
-
-            If dtProdutoSelect.Rows.Item(0).Item("Desconto") = "" Then
-                Me.txtDescontoPorc.Text = FormatNumber(0, 3)
-                Me.txtDesconto.Text = FormatNumber(0, 3)
-
-            Else
-                Me.txtDesconto.Text = FormatNumber(dtProdutoSelect.Rows.Item(0).Item("Desconto"), 3)
-                Me.txtDescontoPorc.Text = FormatNumber(Me.txtDesconto.Text / dtProdutoSelect.Rows.Item(0).Item("Venda") * 100, 3)
-            End If
-
-            Me.txtPreco.Text = FormatNumber(dtProdutoSelect.Rows.Item(0).Item("Venda") - Me.txtDesconto.Text, 3)
-        End If
-    End Sub
-
     Private Sub memObservacoes_KeyPress(sender As Object, e As KeyPressEventArgs) Handles memObservacoes.KeyPress, txtRemoverCodigo.KeyPress, cboVendedor.KeyPress, cboStatusNano.KeyPress, cboNossoStatus.KeyPress, txtNivelComb.KeyPress, txtMotor.KeyPress, txtModelo.KeyPress, txtKmSaida.KeyPress, txtKmEntrada.KeyPress, txtCor.KeyPress, txtAno.KeyPress, memDefeitosVeiculo.KeyPress, ComboBoxEdit2.KeyPress
         If e.KeyChar = "'" Then
             e.Handled = True
         End If
     End Sub
 
-    Private Sub txtDataEntrada_EditValueChanged(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub txtDesconto_EditValueChanged(sender As Object, e As EventArgs) Handles txtDesconto.EditValueChanged
-
-    End Sub
-
-    Private Sub txtAddQtd_EditValueChanged(sender As Object, e As EventArgs) Handles txtAddQtd.EditValueChanged
-
-    End Sub
-
-    Private Sub txtDescontoPorc_EditValueChanged(sender As Object, e As EventArgs) Handles txtDescontoPorc.EditValueChanged
-
-    End Sub
-
-    Private Sub txtRemoverQtd_EditValueChanged(sender As Object, e As EventArgs) Handles txtRemoverQtd.EditValueChanged
-        
-    End Sub
-
-    Private Sub btnRemoverPesquisarGrid_EditValueChanged(sender As Object, e As EventArgs) Handles btnRemoverPesquisarGrid.EditValueChanged
-
-    End Sub
-
-    Private Sub tabRemoverProdutos_Paint(sender As Object, e As PaintEventArgs) Handles tabRemoverProdutos.Paint
-
-    End Sub
-
-    Private Sub tabAddRemover_Click(sender As Object, e As EventArgs) Handles tabAddRemover.Click
-    End Sub
-
     Private Sub tabAddRemover_SelectedPageChanged(sender As Object, e As DevExpress.XtraTab.TabPageChangedEventArgs) Handles tabAddRemover.SelectedPageChanged
         LimparProdutos()
     End Sub
+
 End Class
