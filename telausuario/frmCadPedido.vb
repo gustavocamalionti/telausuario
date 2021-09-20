@@ -1733,4 +1733,12 @@ Public Class frmCadPedido
     Private Sub btnRemoverPesquisarGrid_EditValueChanged(sender As Object, e As EventArgs) Handles btnRemoverPesquisarGrid.EditValueChanged
 
     End Sub
+
+    Private Sub btnDescontoAcrescimo_Click(sender As Object, e As EventArgs) Handles btnDescontoAcrescimo.Click
+
+    End Sub
+
+    Private Sub txtNome_EditValueChanged(sender As Object, e As EventArgs) Handles txtNome.EditValueChanged
+
+    End Sub
 End Class

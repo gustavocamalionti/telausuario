@@ -28,6 +28,7 @@ Partial Class frmCadPedido
         Dim SerializableAppearanceObject3 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject4 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject5 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim GridLevelNode1 As DevExpress.XtraGrid.GridLevelNode = New DevExpress.XtraGrid.GridLevelNode()
         Dim StyleFormatCondition1 As DevExpress.XtraGrid.StyleFormatCondition = New DevExpress.XtraGrid.StyleFormatCondition()
         Dim StyleFormatCondition2 As DevExpress.XtraGrid.StyleFormatCondition = New DevExpress.XtraGrid.StyleFormatCondition()
         Me.colTipo = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -2304,6 +2305,8 @@ Partial Class frmCadPedido
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.grdPedidoAtual.DataMember = "tbPedidoAtual"
         Me.grdPedidoAtual.DataSource = Me.dsPedidoAtual
+        GridLevelNode1.RelationName = "Level1"
+        Me.grdPedidoAtual.LevelTree.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode1})
         Me.grdPedidoAtual.Location = New System.Drawing.Point(-1, 0)
         Me.grdPedidoAtual.MainView = Me.grd1
         Me.grdPedidoAtual.MenuManager = Me.BarManager1

@@ -13,10 +13,6 @@
 
     End Sub
 
-    Private Sub CNPJTextEdit_EditValueChanged(sender As Object, e As EventArgs) Handles txtCnpj.EditValueChanged
-
-    End Sub
-
     Private Sub CNPJTextEdit_KeyPress(sender As Object, e As KeyPressEventArgs)
         'Aceitar apenas Números 
         If Char.IsNumber(e.KeyChar) = False Then
@@ -56,10 +52,7 @@
         Me.ConfigBindingSource.EndEdit()
         Me.TableAdapterManager.UpdateAll(Me.DsTelaUsuario)
         MsgBox("Alterações Realizadas com Sucesso.", MsgBoxStyle.Exclamation)
-
-    End Sub
-
-    Private Sub txtVersaoNano_EditValueChanged(sender As Object, e As EventArgs) Handles txtVersaoNano.EditValueChanged
+        Me.Close()
 
     End Sub
 
@@ -67,17 +60,23 @@
         Me.Close()
     End Sub
 
-    Private Sub txtEndereco_EditValueChanged(sender As Object, e As EventArgs) Handles txtEndereco.EditValueChanged
-
-    End Sub
-
-    Private Sub txtEmpresa_EditValueChanged(sender As Object, e As EventArgs) Handles txtEmpresa.EditValueChanged
-
+    Private Sub txtEndereco_KeyDown(sender As Object, e As KeyEventArgs) Handles txtEndereco.KeyDown
+        If e.KeyCode = Keys.Enter Or e.KeyCode = Keys.Tab Then
+            Me.Validate()
+            Me.ConfigBindingSource.EndEdit()
+            Me.TableAdapterManager.UpdateAll(Me.DsTelaUsuario)
+            MsgBox("Alterações Realizadas com Sucesso.", MsgBoxStyle.Exclamation)
+            Me.Close()
+        End If
     End Sub
 
     Private Sub txtEmpresa_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtEmpresa.KeyPress, txtTelefone.KeyPress, txtEndereco.KeyPress, txtCnpj.KeyPress
         If e.KeyChar = "'" Then
             e.Handled = True
         End If
+    End Sub
+
+    Private Sub txtEndereco_EditValueChanged(sender As Object, e As EventArgs) Handles txtEndereco.EditValueChanged
+
     End Sub
 End Class

@@ -289,6 +289,7 @@ Partial Class frmConfig
         Me.txtCnpj.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 11.0!)
         Me.txtCnpj.Properties.Appearance.Options.UseFont = True
         Me.txtCnpj.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtCnpj.Properties.MaxLength = 20
         Me.txtCnpj.Size = New System.Drawing.Size(203, 24)
         Me.txtCnpj.TabIndex = 2
         '

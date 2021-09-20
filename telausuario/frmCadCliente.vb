@@ -380,22 +380,15 @@ Public Class frmCadCliente
         End If
     End Sub
 
-    Private Sub txtNomeRazao_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtNomeRazao.KeyPress
-        If Char.IsLetter(e.KeyChar) = False Then
-            e.Handled = True
-        End If
 
-        'aceitar Delete
-        If e.KeyChar = vbBack Then
-            e.Handled = False
-            Exit Sub
-        End If
-    End Sub
 
-    Private Sub txtFantasia_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtFantasia.KeyPress, txtTelefone3.KeyPress, txtTelefone2.KeyPress, txtTelefone1.KeyPress, txtRgIe.KeyPress, txtEmail.KeyPress, txtContato.KeyPress, txtClienteNum.KeyPress, txtClienteEndereco.KeyPress, txtClienteComp.KeyPress, memObservacoes.KeyPress, cboClienteCidade.KeyPress, cboClienteBairro.KeyPress
+    Private Sub txtFantasia_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtFantasia.KeyPress, txtTelefone3.KeyPress, txtTelefone2.KeyPress, txtTelefone1.KeyPress, txtRgIe.KeyPress, txtEmail.KeyPress, txtContato.KeyPress, txtClienteNum.KeyPress, txtClienteEndereco.KeyPress, txtClienteComp.KeyPress, memObservacoes.KeyPress, cboClienteCidade.KeyPress, cboClienteBairro.KeyPress, txtNomeRazao.KeyPress
         If e.KeyChar = "'" Then
             e.Handled = True
         End If
     End Sub
 
+    Private Sub txtNomeRazao_EditValueChanged(sender As Object, e As EventArgs) Handles txtNomeRazao.EditValueChanged
+
+    End Sub
 End Class
