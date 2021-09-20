@@ -586,9 +586,11 @@ Public Class frmCadPedido
                             dblSomaCusto = dblSomaCusto + ProdutoSelect.Rows.Item(0).Item("Custo")
                         End If
 
+
                     Next
 
-                    Atualizar("update TotalConsig set DataRetirada = '" & Me.dtDataSaida.Text & "', DataEntrega = '" & Me.dtDataEntrada.Text & "', Data = getdate(), Total = " & Me.txtTotalGeral.Text.Replace(".", "").Replace(",", ".") & ", Descricao = '" & Me.memObservacoes.Text & "', Custo = " & dblSomaCusto.ToString.Replace(".", "").Replace(",", ".") & ", Desconto = " & Me.txtTotalDesconto.Text.ToString.Replace(".", "").Replace(",", ".") & "")
+                    Dim dtCodOrdens As Integer = tbPedidoAtual.Rows.Item(0).Item("CodOrdens")
+                    Atualizar("update TotalConsig set DataRetirada = '" & Me.dtDataSaida.Text & "', DataEntrega = '" & Me.dtDataEntrada.Text & "', Data = getdate(), Total = " & Me.txtTotalGeral.Text.Replace(".", "").Replace(",", ".") & ", Descricao = '" & Me.memObservacoes.Text & "', Custo = " & dblSomaCusto.ToString.Replace(".", "").Replace(",", ".") & ", Desconto = " & Me.txtTotalDesconto.Text.ToString.Replace(".", "").Replace(",", ".") & " where CodOrdens = " & dtCodOrdens & "; ")
                     Limpar()
                     Exit Sub
 

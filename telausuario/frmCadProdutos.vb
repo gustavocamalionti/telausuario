@@ -634,34 +634,14 @@ Public Class frmCadProdutos
         Me.txtDescontoPorc.BackColor = Color.FromArgb(255, 255, 192)
     End Sub
 
-    Private Sub txtVendaPorc_EditValueChanged(sender As Object, e As EventArgs) Handles txtVendaPorc.EditValueChanged
-
-    End Sub
-
     Private Sub txtVendaPorc_VisibleChanged(sender As Object, e As EventArgs) Handles txtVendaPorc.VisibleChanged
         Me.txtVendaPorc.BackColor = Color.FromArgb(255, 255, 192)
-    End Sub
-
-    Private Sub memObservacao_EditValueChanged(sender As Object, e As EventArgs) Handles memObservacao.EditValueChanged
-
     End Sub
 
     Private Sub memObservacao_KeyPress(sender As Object, e As KeyPressEventArgs) Handles memObservacao.KeyPress, txtProduto.KeyPress, txtLocacao.KeyPress, txtAlterarGridQtde.KeyPress, cboUniMed.KeyPress, cboTipo.KeyPress, cboSetor.KeyPress, cboGrupo.KeyPress, cboFornecedor.KeyPress, cboFamilia.KeyPress, cboCustoVenda.KeyPress, cboCodBarra.KeyPress
         If e.KeyChar = "'" Then
             e.Handled = True
         End If
-
-    End Sub
-
-    Private Sub txtCusto_EditValueChanged(sender As Object, e As EventArgs) Handles txtCusto.EditValueChanged
-
-    End Sub
-
-    Private Sub txtVenda_EditValueChanged(sender As Object, e As EventArgs) Handles txtVenda.EditValueChanged
-
-    End Sub
-
-    Private Sub txtDesconto_EditValueChanged(sender As Object, e As EventArgs) Handles txtDesconto.EditValueChanged
 
     End Sub
 
