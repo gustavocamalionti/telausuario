@@ -276,6 +276,7 @@ Partial Class frmConfig
         Me.txtEmpresa.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 11.0!)
         Me.txtEmpresa.Properties.Appearance.Options.UseFont = True
         Me.txtEmpresa.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtEmpresa.Properties.MaxLength = 20
         Me.txtEmpresa.Size = New System.Drawing.Size(203, 24)
         Me.txtEmpresa.TabIndex = 1
         '
@@ -313,6 +314,7 @@ Partial Class frmConfig
         Me.txtTelefone.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 11.0!)
         Me.txtTelefone.Properties.Appearance.Options.UseFont = True
         Me.txtTelefone.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtTelefone.Properties.MaxLength = 20
         Me.txtTelefone.Size = New System.Drawing.Size(203, 24)
         Me.txtTelefone.TabIndex = 4
         '
@@ -325,6 +327,7 @@ Partial Class frmConfig
         Me.txtEndereco.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 11.0!)
         Me.txtEndereco.Properties.Appearance.Options.UseFont = True
         Me.txtEndereco.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtEndereco.Properties.MaxLength = 50
         Me.txtEndereco.Size = New System.Drawing.Size(203, 24)
         Me.txtEndereco.TabIndex = 5
         '
@@ -379,22 +382,22 @@ Partial Class frmConfig
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 229)
-        Me.barDockControlBottom.Size = New System.Drawing.Size(385, 41)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 227)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(385, 43)
         '
         'barDockControlLeft
         '
         Me.barDockControlLeft.CausesValidation = False
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
         Me.barDockControlLeft.Location = New System.Drawing.Point(0, 0)
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 229)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 227)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
         Me.barDockControlRight.Location = New System.Drawing.Point(385, 0)
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 229)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 227)
         '
         'frmConfig
         '

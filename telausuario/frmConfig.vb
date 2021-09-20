@@ -17,7 +17,7 @@
 
     End Sub
 
-    Private Sub CNPJTextEdit_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCnpj.KeyPress
+    Private Sub CNPJTextEdit_KeyPress(sender As Object, e As KeyPressEventArgs)
         'Aceitar apenas Números 
         If Char.IsNumber(e.KeyChar) = False Then
             e.Handled = True
@@ -69,5 +69,15 @@
 
     Private Sub txtEndereco_EditValueChanged(sender As Object, e As EventArgs) Handles txtEndereco.EditValueChanged
 
+    End Sub
+
+    Private Sub txtEmpresa_EditValueChanged(sender As Object, e As EventArgs) Handles txtEmpresa.EditValueChanged
+
+    End Sub
+
+    Private Sub txtEmpresa_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtEmpresa.KeyPress, txtTelefone.KeyPress, txtEndereco.KeyPress, txtCnpj.KeyPress
+        If e.KeyChar = "'" Then
+            e.Handled = True
+        End If
     End Sub
 End Class
