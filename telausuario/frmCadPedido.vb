@@ -1701,14 +1701,6 @@ Public Class frmCadPedido
         
     End Sub
 
-    Private Sub txtAddProduto_EditValueChanged(sender As Object, e As EventArgs) Handles txtAddProduto.EditValueChanged
-
-    End Sub
-
-    Private Sub txtAddProduto_FormatEditValue(sender As Object, e As ConvertEditValueEventArgs) Handles txtAddProduto.FormatEditValue
-
-    End Sub
-
     Private Sub txtAddProduto_Leave(sender As Object, e As EventArgs) Handles txtAddProduto.Leave
         If Me.txtAddCodigoInterno.Text = "" Then
             NomeProduto = Me.txtAddProduto.Text
@@ -1721,7 +1713,6 @@ Public Class frmCadPedido
                 Me.txtAddCodigoInterno.Text = dtProdutoSelect.Rows.Item(0).Item("CodigoInterno")
                 Me.txtAddProduto.Text = dtProdutoSelect.Rows.Item(0).Item("Produto").ToString
                 Me.txtAddQtd.Text = FormatNumber(1, 3)
-
 
                 If dtProdutoSelect.Rows.Item(0).Item("Desconto") = "" Then
                     Me.txtDescontoPorc.Text = FormatNumber(0, 3)
