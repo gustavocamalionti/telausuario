@@ -764,9 +764,9 @@ Public Class frmCadPedido
                     tbPedidoAtual.Rows.Item(PosicaoLinha).Item("Qtde") = FormatNumber(dtProdutoSelect.Rows.Item(i).Item("Qtde"), 3)
                     tbPedidoAtual.Rows.Item(PosicaoLinha).Item("DescSemDistribuicao") = FormatNumber(dtProdutoSelect.Rows.Item(i).Item("DescSemDistribuicao"), 3)
                     tbPedidoAtual.Rows.Item(PosicaoLinha).Item("SemDesc") = FormatNumber(dtProdutoSelect.Rows.Item(i).Item("SemDesc"), 3)
-                    tbPedidoAtual.Rows.Item(PosicaoLinha).Item("ValorUnitario") = FormatNumber(dtProdutoSelect.Rows.Item(i).Item("ValorUnitario"), 3)
-                    tbPedidoAtual.Rows.Item(PosicaoLinha).Item("ValorTotal") = FormatNumber(FormatNumber(dtProdutoSelect.Rows.Item(i).Item("ValorTotal"), 3), 3)
-                    tbPedidoAtual.Rows.Item(PosicaoLinha).Item("DescComDistribuicao") = FormatNumber(dtProdutoSelect.Rows.Item(i).Item("DescComDistribuicao"), 3)
+                    tbPedidoAtual.Rows.Item(PosicaoLinha).Item("ValorUnitario") = FormatNumber(dtProdutoSelect.Rows.Item(i).Item("ValorUnitario").replace(".", ","), 3)
+                    tbPedidoAtual.Rows.Item(PosicaoLinha).Item("ValorTotal") = FormatNumber(FormatNumber(dtProdutoSelect.Rows.Item(i).Item("ValorTotal").replace(".", ","), 3), 3)
+                    tbPedidoAtual.Rows.Item(PosicaoLinha).Item("DescComDistribuicao") = FormatNumber(dtProdutoSelect.Rows.Item(i).Item("DescComDistribuicao").replace(".", ","), 3)
                     tbPedidoAtual.Rows.Item(PosicaoLinha).Item("Tipo") = dtProdutoSelect.Rows.Item(i).Item("Tipo")
                     tbPedidoAtual.Rows.Item(PosicaoLinha).Item("CodPedAut") = dtProdutoSelect.Rows.Item(i).Item("CodPedAut")
                     tbPedidoAtual.Rows.Item(PosicaoLinha).Item("CodOrdens") = dtProdutoSelect.Rows.Item(i).Item("CodOrdens")
@@ -774,7 +774,7 @@ Public Class frmCadPedido
                 Next
                 Dim tbselect As DataTable = CarregarDataTable("select Total from TotalConsig where CodOrdens = " & CodOrdem & "; ")
 
-                Me.txtValorFrete.Text = FormatNumber(tbselect.Rows.Item(0).Item("Total") - dblSomaGeral, 3)
+                Me.txtValorFrete.Text = FormatNumber(tbselect.Rows.Item(0).Item("Total").replace(".", ",") - dblSomaGeral, 3)
 
                 Me.txtValorDistribuido.Text = FormatNumber(dblSomaValorDistribuido, 3)
                 SomarTotalProdutoServico()
@@ -846,7 +846,6 @@ Public Class frmCadPedido
                         MsgBox("Valor inválido! tente novamente", MsgBoxStyle.Exclamation)
                         txtRemoverQtd.Text = FormatNumber(1, 3)
                         Exit Sub
-
 
                     ElseIf txtRemoverQtd.Text > tbPedidoAtual.Rows.Item(i).Item("Qtde") Then
                         MsgBox("Valor inválido! tente novamente", MsgBoxStyle.Exclamation)
@@ -1338,6 +1337,11 @@ Public Class frmCadPedido
     End Sub
 
     Private Sub rdgTPS_SelectedIndexChanged(sender As Object, e As EventArgs) Handles rdgTPS.SelectedIndexChanged
+        ResetarTotalUnitario()
+        Me.txtValorDistribuido.Text = FormatNumber(0, 3)
+        Me.txtPorcentagem.Text = FormatNumber(0, 3)
+        SomarTotalProdutoServico()
+
         If Me.Tag = "CadastrarPedido" Then
             ResetarTotalUnitario()
             Me.txtValorDistribuido.Text = FormatNumber(0, 3)
@@ -1357,7 +1361,6 @@ Public Class frmCadPedido
                             If tbPedidoAtual.Rows.Item(i).Item("DescComDistribuicao") > 0 Then
                                 dblSomarDesconto = FormatNumber(dblSomarDesconto + tbPedidoAtual.Rows.Item(i).Item("DescComDistribuicao"), 3)
                                 dblSomarTotalProdComDesconto = FormatNumber(dblSomarTotalProdComDesconto + tbPedidoAtual.Rows.Item(i).Item("ValorTotal") + dblSomarDesconto, 3)
-
                             End If
                         Next
                         Me.txtValorDistribuido.Text = FormatNumber(dblSomarDesconto, 3)
@@ -1366,6 +1369,7 @@ Public Class frmCadPedido
                         Else
                             Me.txtPorcentagem.Text = FormatNumber(dblSomarDesconto * 100 / dblSomarTotalProdComDesconto, 3)
                         End If
+
                     ElseIf rdgTPS.SelectedIndex = 1 Then
                         Dim dblSomarDesconto As Double = FormatNumber(0, 3)
                         Dim dblSomarTotalProdComDesconto As Double
@@ -1384,6 +1388,7 @@ Public Class frmCadPedido
                         Else
                             Me.txtPorcentagem.Text = FormatNumber(dblSomarDesconto * 100 / dblSomarTotalProdComDesconto, 3)
                         End If
+
                     ElseIf rdgTPS.SelectedIndex = 2 Then
                         Dim dblSomarDesconto As Double = FormatNumber(0, 3)
                         Dim dblSomarTotalProdComDesconto As Double
@@ -1404,6 +1409,7 @@ Public Class frmCadPedido
                         End If
                     End If
                     SomarTotalProdutoServico()
+
                 Case 1
                     If rdgTPS.SelectedIndex = 0 Then
                         Dim dblSomarAcrescimo As Double = FormatNumber(0, 3)
