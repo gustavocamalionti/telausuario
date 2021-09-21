@@ -1340,6 +1340,7 @@ Public Class frmCadPedido
         ResetarTotalUnitario()
         Me.txtValorDistribuido.Text = FormatNumber(0, 3)
         Me.txtPorcentagem.Text = FormatNumber(0, 3)
+        Me.txtValorFrete.Text = FormatNumber(0, 3)
         SomarTotalProdutoServico()
 
         If Me.Tag = "CadastrarPedido" Then
