@@ -26,4 +26,8 @@
         frmCadPedido.Tag = "AlterarPedido"
         frmCadPedido.ShowDialog()
     End Sub
+
+    Private Sub btnCadastrarUsuario_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnCadastrarUsuario.ItemClick
+
+    End Sub
 End Class
