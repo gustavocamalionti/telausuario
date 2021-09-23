@@ -302,6 +302,13 @@ Public Class clsBanco
                     "[Auxiliar] [varchar](100));")
             End If
 
+            If ExisteTabela("Bloqueios") = False Then
+                ExecutaSQL("CREATE TABLE Bloqueios (" & _
+                    "Codigo INT IDENTITY CONSTRAINT primarykey12 PRIMARY KEY," & _
+                    "Principal varchar(60)," & _
+                    "Relatórios varchar (60));")
+            End If
+
         End If
 
         Dim intVersao As Integer = VersaoSistemaBanco.Replace(".", "")

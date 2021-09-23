@@ -43,6 +43,10 @@ telausuario
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
+</member><member name="P:telausuario.My.Resources.Resources.cadeado">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
 </member><member name="P:telausuario.My.Resources.Resources.cal_2">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.

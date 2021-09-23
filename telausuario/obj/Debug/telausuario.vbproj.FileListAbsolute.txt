@@ -33,3 +33,4 @@ C:\Users\Usuario\Documents\Visual Studio 2013\Projects\telausuario2\telausuario\
 C:\Users\Usuario\Documents\Visual Studio 2013\Projects\telausuario2\telausuario\obj\Debug\telausuario.frmConsultaOrdem.resources
 C:\Users\Usuario\Documents\Visual Studio 2013\Projects\telausuario\telausuario\obj\Debug\telausuario.frmConsultaOrdem.resources
 C:\Users\Usuario\Documents\Visual Studio 2013\Projects\telausuario\telausuario\obj\Debug\telausuario.frmCadUsuario.resources
+C:\Users\Usuario\Documents\Visual Studio 2013\Projects\telausuario\telausuario\obj\Debug\telausuario.frmBloquearUsuario.resources

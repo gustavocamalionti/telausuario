@@ -183,6 +183,12 @@
     <Compile Include="frmCadUsuario.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmBloquearUsuario.Designer.vb">
+      <DependentUpon>frmBloquearUsuario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmBloquearUsuario.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="frmCadPedido.resx">
@@ -215,6 +221,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCadUsuario.resx">
       <DependentUpon>frmCadUsuario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBloquearUsuario.resx">
+      <DependentUpon>frmBloquearUsuario.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
