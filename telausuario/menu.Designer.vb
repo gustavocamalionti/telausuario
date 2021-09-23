@@ -30,13 +30,13 @@ Partial Class frmMenu
         Me.btnConsultarPedido = New DevExpress.XtraBars.BarButtonItem()
         Me.BarStaticItem1 = New DevExpress.XtraBars.BarStaticItem()
         Me.BarStaticItem2 = New DevExpress.XtraBars.BarStaticItem()
+        Me.btnCadastrarUsuario = New DevExpress.XtraBars.BarButtonItem()
         Me.princ = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.Principal = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonStatusBar = New DevExpress.XtraBars.Ribbon.RibbonStatusBar()
         Me.ToolTipController1 = New DevExpress.Utils.ToolTipController(Me.components)
         Me.DefaultLookAndFeel1 = New DevExpress.LookAndFeel.DefaultLookAndFeel(Me.components)
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.btnCadastrarUsuario = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -120,6 +120,13 @@ Partial Class frmMenu
         Me.BarStaticItem2.Name = "BarStaticItem2"
         Me.BarStaticItem2.TextAlignment = System.Drawing.StringAlignment.Near
         '
+        'btnCadastrarUsuario
+        '
+        Me.btnCadastrarUsuario.Caption = "btnCadastrarUsuario"
+        Me.btnCadastrarUsuario.Glyph = Global.telausuario.My.Resources.Resources.Usu
+        Me.btnCadastrarUsuario.Id = 126
+        Me.btnCadastrarUsuario.Name = "btnCadastrarUsuario"
+        '
         'princ
         '
         Me.princ.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.Principal})
@@ -150,12 +157,6 @@ Partial Class frmMenu
         'DefaultLookAndFeel1
         '
         Me.DefaultLookAndFeel1.LookAndFeel.SkinName = "Office 2010 Blue"
-        '
-        'btnCadastrarUsuario
-        '
-        Me.btnCadastrarUsuario.Caption = "btnCadastrarUsuario"
-        Me.btnCadastrarUsuario.Id = 126
-        Me.btnCadastrarUsuario.Name = "btnCadastrarUsuario"
         '
         'frmMenu
         '

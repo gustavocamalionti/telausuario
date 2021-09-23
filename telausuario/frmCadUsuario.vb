@@ -3,12 +3,6 @@ Public Class frmCadUsuario
     Dim bolAlterar As Boolean
     Dim intCodigo As Integer
     Dim strNivel As String
-    Private Sub UsuarioBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs)
-        Me.Validate()
-        Me.UsuarioBindingSource.EndEdit()
-        Me.TableAdapterManager.UpdateAll(Me.DsTelaUsuario)
-
-    End Sub
 
     Private Sub frmCadUsuario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.MaximizeBox = False
@@ -17,7 +11,7 @@ Public Class frmCadUsuario
     End Sub
 
     Private Sub AtualizarGrid()
-        CarregarDados("select Codigo, Login, Nome, Senha, Nivel, Inativo from Usuario", grdUsuariosCadastrados)
+        CarregarDados("select Codigo, Login, Nome, Senha, Nivel, Inativo, CodConfig from Usuario", grdUsuariosCadastrados)
     End Sub
     Private Sub Limpar()
         bolAlterar = False
@@ -88,7 +82,7 @@ Public Class frmCadUsuario
         Else
             MsgBox("NÃO É POSSÍVEL EXCLUIR O USUÁRIO ADM.")
         End If
-        
+
         Limpar()
     End Sub
 
