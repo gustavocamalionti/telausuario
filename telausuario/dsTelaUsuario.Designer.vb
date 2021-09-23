@@ -3695,6 +3695,28 @@ Partial Public Class dsTelaUsuario
         
         Private columnSenha As Global.System.Data.DataColumn
         
+        Private columnNome As Global.System.Data.DataColumn
+        
+        Private columnNivel As Global.System.Data.DataColumn
+        
+        Private columnPrincipal As Global.System.Data.DataColumn
+        
+        Private columnConsultas As Global.System.Data.DataColumn
+        
+        Private columnRelatorios As Global.System.Data.DataColumn
+        
+        Private columnSkin As Global.System.Data.DataColumn
+        
+        Private columnPlanoFundo As Global.System.Data.DataColumn
+        
+        Private columnFundoPadrao As Global.System.Data.DataColumn
+        
+        Private columnExibicao As Global.System.Data.DataColumn
+        
+        Private columnCodConfig As Global.System.Data.DataColumn
+        
+        Private columnInativo As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -3755,6 +3777,94 @@ Partial Public Class dsTelaUsuario
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property NomeColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNome
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property NivelColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNivel
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property PrincipalColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPrincipal
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property ConsultasColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnConsultas
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property RelatoriosColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRelatorios
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property SkinColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSkin
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property PlanoFundoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPlanoFundo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property FundoPadraoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFundoPadrao
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property ExibicaoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnExibicao
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CodConfigColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCodConfig
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property InativoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnInativo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -3791,9 +3901,9 @@ Partial Public Class dsTelaUsuario
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddUsuarioRow(ByVal Login As String, ByVal Senha As String) As UsuarioRow
+        Public Overloads Function AddUsuarioRow(ByVal Login As String, ByVal Senha As String, ByVal Nome As String, ByVal Nivel As String, ByVal Principal As String, ByVal Consultas As String, ByVal Relatorios As String, ByVal Skin As String, ByVal PlanoFundo() As Byte, ByVal FundoPadrao As Boolean, ByVal Exibicao As String, ByVal CodConfig As Integer, ByVal Inativo As Boolean) As UsuarioRow
             Dim rowUsuarioRow As UsuarioRow = CType(Me.NewRow,UsuarioRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Login, Senha}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Login, Senha, Nome, Nivel, Principal, Consultas, Relatorios, Skin, PlanoFundo, FundoPadrao, Exibicao, CodConfig, Inativo}
             rowUsuarioRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowUsuarioRow)
             Return rowUsuarioRow
@@ -3825,6 +3935,17 @@ Partial Public Class dsTelaUsuario
             Me.columnCodigo = MyBase.Columns("Codigo")
             Me.columnLogin = MyBase.Columns("Login")
             Me.columnSenha = MyBase.Columns("Senha")
+            Me.columnNome = MyBase.Columns("Nome")
+            Me.columnNivel = MyBase.Columns("Nivel")
+            Me.columnPrincipal = MyBase.Columns("Principal")
+            Me.columnConsultas = MyBase.Columns("Consultas")
+            Me.columnRelatorios = MyBase.Columns("Relatorios")
+            Me.columnSkin = MyBase.Columns("Skin")
+            Me.columnPlanoFundo = MyBase.Columns("PlanoFundo")
+            Me.columnFundoPadrao = MyBase.Columns("FundoPadrao")
+            Me.columnExibicao = MyBase.Columns("Exibicao")
+            Me.columnCodConfig = MyBase.Columns("CodConfig")
+            Me.columnInativo = MyBase.Columns("Inativo")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3836,6 +3957,28 @@ Partial Public Class dsTelaUsuario
             MyBase.Columns.Add(Me.columnLogin)
             Me.columnSenha = New Global.System.Data.DataColumn("Senha", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnSenha)
+            Me.columnNome = New Global.System.Data.DataColumn("Nome", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNome)
+            Me.columnNivel = New Global.System.Data.DataColumn("Nivel", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNivel)
+            Me.columnPrincipal = New Global.System.Data.DataColumn("Principal", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPrincipal)
+            Me.columnConsultas = New Global.System.Data.DataColumn("Consultas", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnConsultas)
+            Me.columnRelatorios = New Global.System.Data.DataColumn("Relatorios", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRelatorios)
+            Me.columnSkin = New Global.System.Data.DataColumn("Skin", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSkin)
+            Me.columnPlanoFundo = New Global.System.Data.DataColumn("PlanoFundo", GetType(Byte()), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPlanoFundo)
+            Me.columnFundoPadrao = New Global.System.Data.DataColumn("FundoPadrao", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFundoPadrao)
+            Me.columnExibicao = New Global.System.Data.DataColumn("Exibicao", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnExibicao)
+            Me.columnCodConfig = New Global.System.Data.DataColumn("CodConfig", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCodConfig)
+            Me.columnInativo = New Global.System.Data.DataColumn("Inativo", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnInativo)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCodigo}, true))
             Me.columnCodigo.AutoIncrement = true
             Me.columnCodigo.AutoIncrementSeed = -1
@@ -3845,6 +3988,13 @@ Partial Public Class dsTelaUsuario
             Me.columnCodigo.Unique = true
             Me.columnLogin.MaxLength = 30
             Me.columnSenha.MaxLength = 25
+            Me.columnNome.MaxLength = 80
+            Me.columnNivel.MaxLength = 15
+            Me.columnPrincipal.MaxLength = 250
+            Me.columnConsultas.MaxLength = 30
+            Me.columnRelatorios.MaxLength = 250
+            Me.columnSkin.MaxLength = 40
+            Me.columnExibicao.MaxLength = 1
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -8294,6 +8444,171 @@ Partial Public Class dsTelaUsuario
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Nome() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableUsuario.NomeColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Nome' in table 'Usuario' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableUsuario.NomeColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Nivel() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableUsuario.NivelColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Nivel' in table 'Usuario' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableUsuario.NivelColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Principal() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableUsuario.PrincipalColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Principal' in table 'Usuario' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableUsuario.PrincipalColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Consultas() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableUsuario.ConsultasColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Consultas' in table 'Usuario' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableUsuario.ConsultasColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Relatorios() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableUsuario.RelatoriosColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Relatorios' in table 'Usuario' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableUsuario.RelatoriosColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Skin() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableUsuario.SkinColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Skin' in table 'Usuario' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableUsuario.SkinColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property PlanoFundo() As Byte()
+            Get
+                Try 
+                    Return CType(Me(Me.tableUsuario.PlanoFundoColumn),Byte())
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'PlanoFundo' in table 'Usuario' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableUsuario.PlanoFundoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property FundoPadrao() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tableUsuario.FundoPadraoColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'FundoPadrao' in table 'Usuario' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableUsuario.FundoPadraoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Exibicao() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableUsuario.ExibicaoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Exibicao' in table 'Usuario' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableUsuario.ExibicaoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property CodConfig() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableUsuario.CodConfigColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CodConfig' in table 'Usuario' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableUsuario.CodConfigColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Inativo() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tableUsuario.InativoColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Inativo' in table 'Usuario' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableUsuario.InativoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsLoginNull() As Boolean
             Return Me.IsNull(Me.tableUsuario.LoginColumn)
         End Function
@@ -8314,6 +8629,138 @@ Partial Public Class dsTelaUsuario
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetSenhaNull()
             Me(Me.tableUsuario.SenhaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsNomeNull() As Boolean
+            Return Me.IsNull(Me.tableUsuario.NomeColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetNomeNull()
+            Me(Me.tableUsuario.NomeColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsNivelNull() As Boolean
+            Return Me.IsNull(Me.tableUsuario.NivelColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetNivelNull()
+            Me(Me.tableUsuario.NivelColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsPrincipalNull() As Boolean
+            Return Me.IsNull(Me.tableUsuario.PrincipalColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetPrincipalNull()
+            Me(Me.tableUsuario.PrincipalColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsConsultasNull() As Boolean
+            Return Me.IsNull(Me.tableUsuario.ConsultasColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetConsultasNull()
+            Me(Me.tableUsuario.ConsultasColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsRelatoriosNull() As Boolean
+            Return Me.IsNull(Me.tableUsuario.RelatoriosColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetRelatoriosNull()
+            Me(Me.tableUsuario.RelatoriosColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsSkinNull() As Boolean
+            Return Me.IsNull(Me.tableUsuario.SkinColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetSkinNull()
+            Me(Me.tableUsuario.SkinColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsPlanoFundoNull() As Boolean
+            Return Me.IsNull(Me.tableUsuario.PlanoFundoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetPlanoFundoNull()
+            Me(Me.tableUsuario.PlanoFundoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsFundoPadraoNull() As Boolean
+            Return Me.IsNull(Me.tableUsuario.FundoPadraoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetFundoPadraoNull()
+            Me(Me.tableUsuario.FundoPadraoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsExibicaoNull() As Boolean
+            Return Me.IsNull(Me.tableUsuario.ExibicaoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetExibicaoNull()
+            Me(Me.tableUsuario.ExibicaoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsCodConfigNull() As Boolean
+            Return Me.IsNull(Me.tableUsuario.CodConfigColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetCodConfigNull()
+            Me(Me.tableUsuario.CodConfigColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsInativoNull() As Boolean
+            Return Me.IsNull(Me.tableUsuario.InativoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetInativoNull()
+            Me(Me.tableUsuario.InativoColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -10861,9 +11308,9 @@ Namespace dsTelaUsuarioTableAdapters
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[AjusteQtde] ([CodProd], [Qtd], [Data], [Tabela], [CodConfig], "& _ 
                 "[CodUser], [Tamanho], [Cor], [UserName]) VALUES (@CodProd, @Qtd, @Data, @Tabela,"& _ 
-                " @CodConfig, @CodUser, @Tamanho, @Cor, @UserName);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Codigo, CodProd, Qtd,"& _ 
-                " Data, Tabela, CodConfig, CodUser, Tamanho, Cor, UserName FROM AjusteQtde WHERE "& _ 
-                "(Codigo = SCOPE_IDENTITY())"
+                " @CodConfig, @CodUser, @Tamanho, @Cor, @UserName);"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Codigo, CodProd, Qtd, "& _ 
+                "Data, Tabela, CodConfig, CodUser, Tamanho, Cor, UserName FROM AjusteQtde WHERE ("& _ 
+                "Codigo = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CodProd", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CodProd", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Qtd", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 15, 3, "Qtd", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -10888,8 +11335,8 @@ Namespace dsTelaUsuarioTableAdapters
                 "_CodUser)) AND ((@IsNull_Tamanho = 1 AND [Tamanho] IS NULL) OR ([Tamanho] = @Ori"& _ 
                 "ginal_Tamanho)) AND ((@IsNull_Cor = 1 AND [Cor] IS NULL) OR ([Cor] = @Original_C"& _ 
                 "or)) AND ((@IsNull_UserName = 1 AND [UserName] IS NULL) OR ([UserName] = @Origin"& _ 
-                "al_UserName)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Codigo, CodProd, Qtd, Data, Tabela, CodConfig, CodUser, "& _ 
-                "Tamanho, Cor, UserName FROM AjusteQtde WHERE (Codigo = @Codigo)"
+                "al_UserName)));"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Codigo, CodProd, Qtd, Data, Tabela, CodConfig, CodUser, T"& _ 
+                "amanho, Cor, UserName FROM AjusteQtde WHERE (Codigo = @Codigo)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CodProd", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CodProd", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Qtd", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 15, 3, "Qtd", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -11597,12 +12044,12 @@ Namespace dsTelaUsuarioTableAdapters
                 "RGIE, @CPF, @Endereco, @Numero, @Complemento, @Bairro, @Cep, @Cidade, @Estado, @"& _ 
                 "Telefone, @Fax, @Celular, @Email, @Data, @Fantasia, @Observacao, @Inadimplente, "& _ 
                 "@Status, @Nascimento, @Sexo, @Limite, @Empresa, @TelEmpresa, @Salario, @Credito,"& _ 
-                " @Marcas, @CodConfig, @Pessoa1, @Pessoa2, @RG1, @RG2, @Contato, @Inativo);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELE"& _ 
-                "CT Codigo, Nome, RGIE, CPF, Endereco, Numero, Complemento, Bairro, Cep, Cidade, "& _ 
-                "Estado, Telefone, Fax, Celular, Email, Data, Fantasia, Observacao, Inadimplente,"& _ 
-                " Status, Nascimento, Sexo, Limite, Empresa, TelEmpresa, Salario, Credito, Marcas"& _ 
-                ", CodConfig, Pessoa1, Pessoa2, RG1, RG2, Contato, Inativo FROM Cliente WHERE (Co"& _ 
-                "digo = SCOPE_IDENTITY())"
+                " @Marcas, @CodConfig, @Pessoa1, @Pessoa2, @RG1, @RG2, @Contato, @Inativo);"&Global.Microsoft.VisualBasic.ChrW(10)&"SELEC"& _ 
+                "T Codigo, Nome, RGIE, CPF, Endereco, Numero, Complemento, Bairro, Cep, Cidade, E"& _ 
+                "stado, Telefone, Fax, Celular, Email, Data, Fantasia, Observacao, Inadimplente, "& _ 
+                "Status, Nascimento, Sexo, Limite, Empresa, TelEmpresa, Salario, Credito, Marcas,"& _ 
+                " CodConfig, Pessoa1, Pessoa2, RG1, RG2, Contato, Inativo FROM Cliente WHERE (Cod"& _ 
+                "igo = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nome", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nome", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RGIE", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RGIE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -11683,11 +12130,11 @@ Namespace dsTelaUsuarioTableAdapters
                 "_RG1 = 1 AND [RG1] IS NULL) OR ([RG1] = @Original_RG1)) AND ((@IsNull_RG2 = 1 AN"& _ 
                 "D [RG2] IS NULL) OR ([RG2] = @Original_RG2)) AND ((@IsNull_Contato = 1 AND [Cont"& _ 
                 "ato] IS NULL) OR ([Contato] = @Original_Contato)) AND ((@IsNull_Inativo = 1 AND "& _ 
-                "[Inativo] IS NULL) OR ([Inativo] = @Original_Inativo)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Codigo, Nome, R"& _ 
-                "GIE, CPF, Endereco, Numero, Complemento, Bairro, Cep, Cidade, Estado, Telefone, "& _ 
-                "Fax, Celular, Email, Data, Fantasia, Observacao, Inadimplente, Status, Nasciment"& _ 
-                "o, Sexo, Limite, Empresa, TelEmpresa, Salario, Credito, Marcas, CodConfig, Pesso"& _ 
-                "a1, Pessoa2, RG1, RG2, Contato, Inativo FROM Cliente WHERE (Codigo = @Codigo)"
+                "[Inativo] IS NULL) OR ([Inativo] = @Original_Inativo)));"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Codigo, Nome, RG"& _ 
+                "IE, CPF, Endereco, Numero, Complemento, Bairro, Cep, Cidade, Estado, Telefone, F"& _ 
+                "ax, Celular, Email, Data, Fantasia, Observacao, Inadimplente, Status, Nascimento"& _ 
+                ", Sexo, Limite, Empresa, TelEmpresa, Salario, Credito, Marcas, CodConfig, Pessoa"& _ 
+                "1, Pessoa2, RG1, RG2, Contato, Inativo FROM Cliente WHERE (Codigo = @Codigo)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nome", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nome", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RGIE", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RGIE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -13102,9 +13549,9 @@ Namespace dsTelaUsuarioTableAdapters
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Config] ([Empresa], [CNPJ], [VersaoNano], [Telefone], [Enderec"& _ 
-                "o]) VALUES (@Empresa, @CNPJ, @VersaoNano, @Telefone, @Endereco);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Codigo,"& _ 
-                " Empresa, CNPJ, VersaoNano, Telefone, Endereco FROM Config WHERE (Codigo = SCOPE"& _ 
-                "_IDENTITY())"
+                "o]) VALUES (@Empresa, @CNPJ, @VersaoNano, @Telefone, @Endereco);"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Codigo, "& _ 
+                "Empresa, CNPJ, VersaoNano, Telefone, Endereco FROM Config WHERE (Codigo = SCOPE_"& _ 
+                "IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Empresa", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Empresa", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CNPJ", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNPJ", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -13120,8 +13567,8 @@ Namespace dsTelaUsuarioTableAdapters
                 "ginal_CNPJ)) AND ((@IsNull_VersaoNano = 1 AND [VersaoNano] IS NULL) OR ([VersaoN"& _ 
                 "ano] = @Original_VersaoNano)) AND ((@IsNull_Telefone = 1 AND [Telefone] IS NULL)"& _ 
                 " OR ([Telefone] = @Original_Telefone)) AND ((@IsNull_Endereco = 1 AND [Endereco]"& _ 
-                " IS NULL) OR ([Endereco] = @Original_Endereco)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Codigo, Empresa, CNPJ,"& _ 
-                " VersaoNano, Telefone, Endereco FROM Config WHERE (Codigo = @Codigo)"
+                " IS NULL) OR ([Endereco] = @Original_Endereco)));"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Codigo, Empresa, CNPJ, "& _ 
+                "VersaoNano, Telefone, Endereco FROM Config WHERE (Codigo = @Codigo)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Empresa", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Empresa", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CNPJ", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CNPJ", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -13547,8 +13994,8 @@ Namespace dsTelaUsuarioTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Qtd", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 15, 3, "Qtd", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[EntradaNf] ([CodProd], [Qtd]) VALUES (@CodProd, @Qtd);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT"& _ 
-                " Codigo, CodProd, Qtd FROM EntradaNf WHERE (Codigo = SCOPE_IDENTITY())"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[EntradaNf] ([CodProd], [Qtd]) VALUES (@CodProd, @Qtd);"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT "& _ 
+                "Codigo, CodProd, Qtd FROM EntradaNf WHERE (Codigo = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CodProd", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CodProd", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Qtd", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 15, 3, "Qtd", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -13557,8 +14004,8 @@ Namespace dsTelaUsuarioTableAdapters
             Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[EntradaNf] SET [CodProd] = @CodProd, [Qtd] = @Qtd WHERE (([Codigo] "& _ 
                 "= @Original_Codigo) AND ((@IsNull_CodProd = 1 AND [CodProd] IS NULL) OR ([CodPro"& _ 
                 "d] = @Original_CodProd)) AND ((@IsNull_Qtd = 1 AND [Qtd] IS NULL) OR ([Qtd] = @O"& _ 
-                "riginal_Qtd)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Codigo, CodProd, Qtd FROM EntradaNf WHERE (Codigo = @Cod"& _ 
-                "igo)"
+                "riginal_Qtd)));"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Codigo, CodProd, Qtd FROM EntradaNf WHERE (Codigo = @Codi"& _ 
+                "go)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CodProd", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CodProd", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Qtd", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 15, 3, "Qtd", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -13903,8 +14350,8 @@ Namespace dsTelaUsuarioTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Qtd", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 15, 3, "Qtd", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Pedido] ([CodProd], [Qtd]) VALUES (@CodProd, @Qtd);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Co"& _ 
-                "digo, CodProd, Qtd FROM Pedido WHERE (Codigo = SCOPE_IDENTITY())"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Pedido] ([CodProd], [Qtd]) VALUES (@CodProd, @Qtd);"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Cod"& _ 
+                "igo, CodProd, Qtd FROM Pedido WHERE (Codigo = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CodProd", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CodProd", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Qtd", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 15, 3, "Qtd", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -13913,7 +14360,7 @@ Namespace dsTelaUsuarioTableAdapters
             Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Pedido] SET [CodProd] = @CodProd, [Qtd] = @Qtd WHERE (([Codigo] = @"& _ 
                 "Original_Codigo) AND ((@IsNull_CodProd = 1 AND [CodProd] IS NULL) OR ([CodProd] "& _ 
                 "= @Original_CodProd)) AND ((@IsNull_Qtd = 1 AND [Qtd] IS NULL) OR ([Qtd] = @Orig"& _ 
-                "inal_Qtd)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Codigo, CodProd, Qtd FROM Pedido WHERE (Codigo = @Codigo)"
+                "inal_Qtd)));"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Codigo, CodProd, Qtd FROM Pedido WHERE (Codigo = @Codigo)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CodProd", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CodProd", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Qtd", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 15, 3, "Qtd", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -14334,11 +14781,11 @@ Namespace dsTelaUsuarioTableAdapters
                 "Desconto], [Observacao], [AlterarPreco], [Duplicar], [TribPadrao], [Inativo], [C"& _ 
                 "odigoInterno]) VALUES (@CodFor, @CodBarra, @Produto, @Setor, @Grupo, @Fornecedor"& _ 
                 ", @Familia, @UnidMed, @Tipo, @Locacao, @Comissao, @Custo, @Venda, @Desconto, @Ob"& _ 
-                "servacao, @AlterarPreco, @Duplicar, @TribPadrao, @Inativo, @CodigoInterno);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SEL"& _ 
-                "ECT Codigo, CodFor, CodBarra, Produto, Setor, Grupo, Fornecedor, Familia, UnidMe"& _ 
-                "d, Tipo, Locacao, Comissao, Custo, Venda, Desconto, Observacao, AlterarPreco, Du"& _ 
-                "plicar, TribPadrao, Inativo, CodigoInterno FROM Produtos WHERE (Codigo = SCOPE_I"& _ 
-                "DENTITY())"
+                "servacao, @AlterarPreco, @Duplicar, @TribPadrao, @Inativo, @CodigoInterno);"&Global.Microsoft.VisualBasic.ChrW(10)&"SELE"& _ 
+                "CT Codigo, CodFor, CodBarra, Produto, Setor, Grupo, Fornecedor, Familia, UnidMed"& _ 
+                ", Tipo, Locacao, Comissao, Custo, Venda, Desconto, Observacao, AlterarPreco, Dup"& _ 
+                "licar, TribPadrao, Inativo, CodigoInterno FROM Produtos WHERE (Codigo = SCOPE_ID"& _ 
+                "ENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CodFor", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CodFor", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CodBarra", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CodBarra", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -14389,10 +14836,10 @@ Namespace dsTelaUsuarioTableAdapters
                 "adrao] IS NULL) OR ([TribPadrao] = @Original_TribPadrao)) AND ((@IsNull_Inativo "& _ 
                 "= 1 AND [Inativo] IS NULL) OR ([Inativo] = @Original_Inativo)) AND ((@IsNull_Cod"& _ 
                 "igoInterno = 1 AND [CodigoInterno] IS NULL) OR ([CodigoInterno] = @Original_Codi"& _ 
-                "goInterno)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Codigo, CodFor, CodBarra, Produto, Setor, Grupo, Fornecedo"& _ 
-                "r, Familia, UnidMed, Tipo, Locacao, Comissao, Custo, Venda, Desconto, Observacao"& _ 
-                ", AlterarPreco, Duplicar, TribPadrao, Inativo, CodigoInterno FROM Produtos WHERE"& _ 
-                " (Codigo = @Codigo)"
+                "goInterno)));"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Codigo, CodFor, CodBarra, Produto, Setor, Grupo, Fornecedor"& _ 
+                ", Familia, UnidMed, Tipo, Locacao, Comissao, Custo, Venda, Desconto, Observacao,"& _ 
+                " AlterarPreco, Duplicar, TribPadrao, Inativo, CodigoInterno FROM Produtos WHERE "& _ 
+                "(Codigo = @Codigo)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CodFor", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CodFor", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CodBarra", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CodBarra", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -15374,9 +15821,9 @@ Namespace dsTelaUsuarioTableAdapters
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Qtde] ([CodProd], [Tamanho], [QtdeMinima], [qtdeMaxima], [Qtd]"& _ 
                 ", [Lote], [ValorCusto], [EmFalta], [Acabou], [CodConfig], [DataFim], [Cor]) VALU"& _ 
                 "ES (@CodProd, @Tamanho, @QtdeMinima, @qtdeMaxima, @Qtd, @Lote, @ValorCusto, @EmF"& _ 
-                "alta, @Acabou, @CodConfig, @DataFim, @Cor);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Codigo, CodProd, Tamanho, Qt"& _ 
-                "deMinima, qtdeMaxima, Qtd, Lote, ValorCusto, EmFalta, Acabou, CodConfig, DataFim"& _ 
-                ", Cor FROM Qtde WHERE (Codigo = SCOPE_IDENTITY())"
+                "alta, @Acabou, @CodConfig, @DataFim, @Cor);"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Codigo, CodProd, Tamanho, Qtd"& _ 
+                "eMinima, qtdeMaxima, Qtd, Lote, ValorCusto, EmFalta, Acabou, CodConfig, DataFim,"& _ 
+                " Cor FROM Qtde WHERE (Codigo = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CodProd", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CodProd", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Tamanho", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tamanho", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -15408,9 +15855,9 @@ Namespace dsTelaUsuarioTableAdapters
                 "cabou] IS NULL) OR ([Acabou] = @Original_Acabou)) AND ((@IsNull_CodConfig = 1 AN"& _ 
                 "D [CodConfig] IS NULL) OR ([CodConfig] = @Original_CodConfig)) AND ((@IsNull_Dat"& _ 
                 "aFim = 1 AND [DataFim] IS NULL) OR ([DataFim] = @Original_DataFim)) AND ((@IsNul"& _ 
-                "l_Cor = 1 AND [Cor] IS NULL) OR ([Cor] = @Original_Cor)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Codigo, CodPr"& _ 
-                "od, Tamanho, QtdeMinima, qtdeMaxima, Qtd, Lote, ValorCusto, EmFalta, Acabou, Cod"& _ 
-                "Config, DataFim, Cor FROM Qtde WHERE (Codigo = @Codigo)"
+                "l_Cor = 1 AND [Cor] IS NULL) OR ([Cor] = @Original_Cor)));"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Codigo, CodPro"& _ 
+                "d, Tamanho, QtdeMinima, qtdeMaxima, Qtd, Lote, ValorCusto, EmFalta, Acabou, CodC"& _ 
+                "onfig, DataFim, Cor FROM Qtde WHERE (Codigo = @Codigo)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CodProd", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CodProd", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Tamanho", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tamanho", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -16063,40 +16510,144 @@ Namespace dsTelaUsuarioTableAdapters
             tableMapping.ColumnMappings.Add("Codigo", "Codigo")
             tableMapping.ColumnMappings.Add("Login", "Login")
             tableMapping.ColumnMappings.Add("Senha", "Senha")
+            tableMapping.ColumnMappings.Add("Nome", "Nome")
+            tableMapping.ColumnMappings.Add("Nivel", "Nivel")
+            tableMapping.ColumnMappings.Add("Principal", "Principal")
+            tableMapping.ColumnMappings.Add("Consultas", "Consultas")
+            tableMapping.ColumnMappings.Add("Relatorios", "Relatorios")
+            tableMapping.ColumnMappings.Add("Skin", "Skin")
+            tableMapping.ColumnMappings.Add("PlanoFundo", "PlanoFundo")
+            tableMapping.ColumnMappings.Add("FundoPadrao", "FundoPadrao")
+            tableMapping.ColumnMappings.Add("Exibicao", "Exibicao")
+            tableMapping.ColumnMappings.Add("CodConfig", "CodConfig")
+            tableMapping.ColumnMappings.Add("Inativo", "Inativo")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Usuario] WHERE (([Codigo] = @Original_Codigo) AND ((@IsNull_Lo"& _ 
-                "gin = 1 AND [Login] IS NULL) OR ([Login] = @Original_Login)) AND ((@IsNull_Senha"& _ 
-                " = 1 AND [Senha] IS NULL) OR ([Senha] = @Original_Senha)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [Usuario] WHERE (([Codigo] = @Original_Codigo) AND ((@IsNull_Login = "& _ 
+                "1 AND [Login] IS NULL) OR ([Login] = @Original_Login)) AND ((@IsNull_Senha = 1 A"& _ 
+                "ND [Senha] IS NULL) OR ([Senha] = @Original_Senha)) AND ((@IsNull_CodConfig = 1 "& _ 
+                "AND [CodConfig] IS NULL) OR ([CodConfig] = @Original_CodConfig)) AND ((@IsNull_C"& _ 
+                "onsultas = 1 AND [Consultas] IS NULL) OR ([Consultas] = @Original_Consultas)) AN"& _ 
+                "D ((@IsNull_Exibicao = 1 AND [Exibicao] IS NULL) OR ([Exibicao] = @Original_Exib"& _ 
+                "icao)) AND ((@IsNull_FundoPadrao = 1 AND [FundoPadrao] IS NULL) OR ([FundoPadrao"& _ 
+                "] = @Original_FundoPadrao)) AND ((@IsNull_Inativo = 1 AND [Inativo] IS NULL) OR "& _ 
+                "([Inativo] = @Original_Inativo)) AND ((@IsNull_Nivel = 1 AND [Nivel] IS NULL) OR"& _ 
+                " ([Nivel] = @Original_Nivel)) AND ((@IsNull_Nome = 1 AND [Nome] IS NULL) OR ([No"& _ 
+                "me] = @Original_Nome)) AND ((@IsNull_Principal = 1 AND [Principal] IS NULL) OR ("& _ 
+                "[Principal] = @Original_Principal)) AND ((@IsNull_Relatorios = 1 AND [Relatorios"& _ 
+                "] IS NULL) OR ([Relatorios] = @Original_Relatorios)) AND ((@IsNull_Skin = 1 AND "& _ 
+                "[Skin] IS NULL) OR ([Skin] = @Original_Skin)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Codigo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Codigo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Login", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Login", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Login", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Login", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Senha", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Senha", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Senha", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Senha", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CodConfig", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CodConfig", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CodConfig", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CodConfig", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Consultas", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Consultas", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Consultas", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Consultas", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Exibicao", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Exibicao", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Exibicao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Exibicao", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_FundoPadrao", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FundoPadrao", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_FundoPadrao", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FundoPadrao", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Inativo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Inativo", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Inativo", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Inativo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Nivel", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nivel", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nivel", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nivel", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Nome", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nome", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nome", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nome", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Principal", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Principal", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Principal", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Principal", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Relatorios", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Relatorios", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Relatorios", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Relatorios", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Skin", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Skin", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Skin", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Skin", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Usuario] ([Login], [Senha]) VALUES (@Login, @Senha);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT C"& _ 
-                "odigo, Login, Senha FROM Usuario WHERE (Codigo = SCOPE_IDENTITY())"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [Usuario] ([Login], [Senha], [CodConfig], [Consultas], [Exibicao], [F"& _ 
+                "undoPadrao], [Inativo], [Nivel], [Nome], [PlanoFundo], [Principal], [Relatorios]"& _ 
+                ", [Skin]) VALUES (@Login, @Senha, @CodConfig, @Consultas, @Exibicao, @FundoPadra"& _ 
+                "o, @Inativo, @Nivel, @Nome, @PlanoFundo, @Principal, @Relatorios, @Skin);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELEC"& _ 
+                "T Codigo, Login, Senha, CodConfig, Consultas, Exibicao, FundoPadrao, Inativo, Ni"& _ 
+                "vel, Nome, PlanoFundo, Principal, Relatorios, Skin FROM Usuario WHERE (Codigo = "& _ 
+                "SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Login", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Login", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Senha", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Senha", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CodConfig", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CodConfig", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Consultas", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Consultas", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Exibicao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Exibicao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FundoPadrao", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FundoPadrao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Inativo", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Inativo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nivel", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nivel", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nome", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nome", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PlanoFundo", Global.System.Data.SqlDbType.Image, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PlanoFundo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Principal", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Principal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Relatorios", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Relatorios", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Skin", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Skin", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Usuario] SET [Login] = @Login, [Senha] = @Senha WHERE (([Codigo] = "& _ 
-                "@Original_Codigo) AND ((@IsNull_Login = 1 AND [Login] IS NULL) OR ([Login] = @Or"& _ 
-                "iginal_Login)) AND ((@IsNull_Senha = 1 AND [Senha] IS NULL) OR ([Senha] = @Origi"& _ 
-                "nal_Senha)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Codigo, Login, Senha FROM Usuario WHERE (Codigo = @Codigo)"& _ 
-                ""
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [Usuario] SET [Login] = @Login, [Senha] = @Senha, [CodConfig] = @CodConfig"& _ 
+                ", [Consultas] = @Consultas, [Exibicao] = @Exibicao, [FundoPadrao] = @FundoPadrao"& _ 
+                ", [Inativo] = @Inativo, [Nivel] = @Nivel, [Nome] = @Nome, [PlanoFundo] = @PlanoF"& _ 
+                "undo, [Principal] = @Principal, [Relatorios] = @Relatorios, [Skin] = @Skin WHERE"& _ 
+                " (([Codigo] = @Original_Codigo) AND ((@IsNull_Login = 1 AND [Login] IS NULL) OR "& _ 
+                "([Login] = @Original_Login)) AND ((@IsNull_Senha = 1 AND [Senha] IS NULL) OR ([S"& _ 
+                "enha] = @Original_Senha)) AND ((@IsNull_CodConfig = 1 AND [CodConfig] IS NULL) O"& _ 
+                "R ([CodConfig] = @Original_CodConfig)) AND ((@IsNull_Consultas = 1 AND [Consulta"& _ 
+                "s] IS NULL) OR ([Consultas] = @Original_Consultas)) AND ((@IsNull_Exibicao = 1 A"& _ 
+                "ND [Exibicao] IS NULL) OR ([Exibicao] = @Original_Exibicao)) AND ((@IsNull_Fundo"& _ 
+                "Padrao = 1 AND [FundoPadrao] IS NULL) OR ([FundoPadrao] = @Original_FundoPadrao)"& _ 
+                ") AND ((@IsNull_Inativo = 1 AND [Inativo] IS NULL) OR ([Inativo] = @Original_Ina"& _ 
+                "tivo)) AND ((@IsNull_Nivel = 1 AND [Nivel] IS NULL) OR ([Nivel] = @Original_Nive"& _ 
+                "l)) AND ((@IsNull_Nome = 1 AND [Nome] IS NULL) OR ([Nome] = @Original_Nome)) AND"& _ 
+                " ((@IsNull_Principal = 1 AND [Principal] IS NULL) OR ([Principal] = @Original_Pr"& _ 
+                "incipal)) AND ((@IsNull_Relatorios = 1 AND [Relatorios] IS NULL) OR ([Relatorios"& _ 
+                "] = @Original_Relatorios)) AND ((@IsNull_Skin = 1 AND [Skin] IS NULL) OR ([Skin]"& _ 
+                " = @Original_Skin)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Codigo, Login, Senha, CodConfig, Consultas, Exibic"& _ 
+                "ao, FundoPadrao, Inativo, Nivel, Nome, PlanoFundo, Principal, Relatorios, Skin F"& _ 
+                "ROM Usuario WHERE (Codigo = @Codigo)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Login", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Login", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Senha", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Senha", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CodConfig", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CodConfig", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Consultas", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Consultas", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Exibicao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Exibicao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FundoPadrao", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FundoPadrao", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Inativo", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Inativo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nivel", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nivel", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nome", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nome", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PlanoFundo", Global.System.Data.SqlDbType.Image, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PlanoFundo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Principal", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Principal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Relatorios", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Relatorios", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Skin", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Skin", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Codigo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Codigo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Login", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Login", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Login", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Login", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Senha", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Senha", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Senha", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Senha", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CodConfig", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CodConfig", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CodConfig", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CodConfig", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Consultas", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Consultas", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Consultas", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Consultas", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Exibicao", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Exibicao", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Exibicao", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Exibicao", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_FundoPadrao", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FundoPadrao", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_FundoPadrao", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FundoPadrao", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Inativo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Inativo", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Inativo", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Inativo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Nivel", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nivel", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nivel", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nivel", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Nome", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nome", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nome", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nome", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Principal", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Principal", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Principal", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Principal", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Relatorios", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Relatorios", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Relatorios", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Relatorios", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Skin", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Skin", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Skin", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Skin", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Codigo", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Codigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
@@ -16113,7 +16664,8 @@ Namespace dsTelaUsuarioTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT Codigo, Login, Senha FROM dbo.Usuario"
+            Me._commandCollection(0).CommandText = "SELECT Codigo, Login, Senha, CodConfig, Consultas, Exibicao, FundoPadrao, Inativo"& _ 
+                ", Nivel, Nome, PlanoFundo, Principal, Relatorios, Skin FROM Usuario"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -16173,7 +16725,7 @@ Namespace dsTelaUsuarioTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_Codigo As Integer, ByVal Original_Login As String, ByVal Original_Senha As String) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_Codigo As Integer, ByVal Original_Login As String, ByVal Original_Senha As String, ByVal Original_CodConfig As Global.System.Nullable(Of Integer), ByVal Original_Consultas As String, ByVal Original_Exibicao As String, ByVal Original_FundoPadrao As Global.System.Nullable(Of Boolean), ByVal Original_Inativo As Global.System.Nullable(Of Boolean), ByVal Original_Nivel As String, ByVal Original_Nome As String, ByVal Original_Principal As String, ByVal Original_Relatorios As String, ByVal Original_Skin As String) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_Codigo,Integer)
             If (Original_Login Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
@@ -16188,6 +16740,76 @@ Namespace dsTelaUsuarioTableAdapters
             Else
                 Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
                 Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Senha,String)
+            End If
+            If (Original_CodConfig.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_CodConfig.Value,Integer)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Consultas Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_Consultas,String)
+            End If
+            If (Original_Exibicao Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_Exibicao,String)
+            End If
+            If (Original_FundoPadrao.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_FundoPadrao.Value,Boolean)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Inativo.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_Inativo.Value,Boolean)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Nivel Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_Nivel,String)
+            End If
+            If (Original_Nome Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(18).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_Nome,String)
+            End If
+            If (Original_Principal Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(20).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_Principal,String)
+            End If
+            If (Original_Relatorios Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(22).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(Original_Relatorios,String)
+            End If
+            If (Original_Skin Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(24).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(24).Value = CType(Original_Skin,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -16208,7 +16830,7 @@ Namespace dsTelaUsuarioTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal Login As String, ByVal Senha As String) As Integer
+        Public Overloads Overridable Function Insert(ByVal Login As String, ByVal Senha As String, ByVal CodConfig As Global.System.Nullable(Of Integer), ByVal Consultas As String, ByVal Exibicao As String, ByVal FundoPadrao As Global.System.Nullable(Of Boolean), ByVal Inativo As Global.System.Nullable(Of Boolean), ByVal Nivel As String, ByVal Nome As String, ByVal PlanoFundo() As Byte, ByVal Principal As String, ByVal Relatorios As String, ByVal Skin As String) As Integer
             If (Login Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -16218,6 +16840,61 @@ Namespace dsTelaUsuarioTableAdapters
                 Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.InsertCommand.Parameters(1).Value = CType(Senha,String)
+            End If
+            If (CodConfig.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(CodConfig.Value,Integer)
+            Else
+                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            If (Consultas Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(Consultas,String)
+            End If
+            If (Exibicao Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(Exibicao,String)
+            End If
+            If (FundoPadrao.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(FundoPadrao.Value,Boolean)
+            Else
+                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
+            End If
+            If (Inativo.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(Inativo.Value,Boolean)
+            Else
+                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
+            End If
+            If (Nivel Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(Nivel,String)
+            End If
+            If (Nome Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(8).Value = CType(Nome,String)
+            End If
+            If (PlanoFundo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(9).Value = CType(PlanoFundo,Byte())
+            End If
+            If (Principal Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(10).Value = CType(Principal,String)
+            End If
+            If (Relatorios Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(11).Value = CType(Relatorios,String)
+            End If
+            If (Skin Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(12).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(12).Value = CType(Skin,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -16238,7 +16915,34 @@ Namespace dsTelaUsuarioTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Login As String, ByVal Senha As String, ByVal Original_Codigo As Integer, ByVal Original_Login As String, ByVal Original_Senha As String, ByVal Codigo As Integer) As Integer
+        Public Overloads Overridable Function Update( _
+                    ByVal Login As String,  _
+                    ByVal Senha As String,  _
+                    ByVal CodConfig As Global.System.Nullable(Of Integer),  _
+                    ByVal Consultas As String,  _
+                    ByVal Exibicao As String,  _
+                    ByVal FundoPadrao As Global.System.Nullable(Of Boolean),  _
+                    ByVal Inativo As Global.System.Nullable(Of Boolean),  _
+                    ByVal Nivel As String,  _
+                    ByVal Nome As String,  _
+                    ByVal PlanoFundo() As Byte,  _
+                    ByVal Principal As String,  _
+                    ByVal Relatorios As String,  _
+                    ByVal Skin As String,  _
+                    ByVal Original_Codigo As Integer,  _
+                    ByVal Original_Login As String,  _
+                    ByVal Original_Senha As String,  _
+                    ByVal Original_CodConfig As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_Consultas As String,  _
+                    ByVal Original_Exibicao As String,  _
+                    ByVal Original_FundoPadrao As Global.System.Nullable(Of Boolean),  _
+                    ByVal Original_Inativo As Global.System.Nullable(Of Boolean),  _
+                    ByVal Original_Nivel As String,  _
+                    ByVal Original_Nome As String,  _
+                    ByVal Original_Principal As String,  _
+                    ByVal Original_Relatorios As String,  _
+                    ByVal Original_Skin As String,  _
+                    ByVal Codigo As Integer) As Integer
             If (Login Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -16249,22 +16953,147 @@ Namespace dsTelaUsuarioTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Senha,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Original_Codigo,Integer)
-            If (Original_Login Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(1,Object)
+            If (CodConfig.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(CodConfig.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            If (Consultas Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Consultas,String)
+            End If
+            If (Exibicao Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_Login,String)
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Exibicao,String)
+            End If
+            If (FundoPadrao.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(FundoPadrao.Value,Boolean)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
+            End If
+            If (Inativo.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Inativo.Value,Boolean)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
+            End If
+            If (Nivel Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Nivel,String)
+            End If
+            If (Nome Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Nome,String)
+            End If
+            If (PlanoFundo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(PlanoFundo,Byte())
+            End If
+            If (Principal Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Principal,String)
+            End If
+            If (Relatorios Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Relatorios,String)
+            End If
+            If (Skin Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Skin,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_Codigo,Integer)
+            If (Original_Login Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_Login,String)
             End If
             If (Original_Senha Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_Senha,String)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_Senha,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Codigo,Integer)
+            If (Original_CodConfig.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_CodConfig.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Consultas Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_Consultas,String)
+            End If
+            If (Original_Exibicao Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_Exibicao,String)
+            End If
+            If (Original_FundoPadrao.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_FundoPadrao.Value,Boolean)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Inativo.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_Inativo.Value,Boolean)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Nivel Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_Nivel,String)
+            End If
+            If (Original_Nome Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_Nome,String)
+            End If
+            If (Original_Principal Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(33).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(Original_Principal,String)
+            End If
+            If (Original_Relatorios Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(35).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(Original_Relatorios,String)
+            End If
+            If (Original_Skin Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(37).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(Original_Skin,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(38).Value = CType(Codigo,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -16284,8 +17113,34 @@ Namespace dsTelaUsuarioTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Login As String, ByVal Senha As String, ByVal Original_Codigo As Integer, ByVal Original_Login As String, ByVal Original_Senha As String) As Integer
-            Return Me.Update(Login, Senha, Original_Codigo, Original_Login, Original_Senha, Original_Codigo)
+        Public Overloads Overridable Function Update( _
+                    ByVal Login As String,  _
+                    ByVal Senha As String,  _
+                    ByVal CodConfig As Global.System.Nullable(Of Integer),  _
+                    ByVal Consultas As String,  _
+                    ByVal Exibicao As String,  _
+                    ByVal FundoPadrao As Global.System.Nullable(Of Boolean),  _
+                    ByVal Inativo As Global.System.Nullable(Of Boolean),  _
+                    ByVal Nivel As String,  _
+                    ByVal Nome As String,  _
+                    ByVal PlanoFundo() As Byte,  _
+                    ByVal Principal As String,  _
+                    ByVal Relatorios As String,  _
+                    ByVal Skin As String,  _
+                    ByVal Original_Codigo As Integer,  _
+                    ByVal Original_Login As String,  _
+                    ByVal Original_Senha As String,  _
+                    ByVal Original_CodConfig As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_Consultas As String,  _
+                    ByVal Original_Exibicao As String,  _
+                    ByVal Original_FundoPadrao As Global.System.Nullable(Of Boolean),  _
+                    ByVal Original_Inativo As Global.System.Nullable(Of Boolean),  _
+                    ByVal Original_Nivel As String,  _
+                    ByVal Original_Nome As String,  _
+                    ByVal Original_Principal As String,  _
+                    ByVal Original_Relatorios As String,  _
+                    ByVal Original_Skin As String) As Integer
+            Return Me.Update(Login, Senha, CodConfig, Consultas, Exibicao, FundoPadrao, Inativo, Nivel, Nome, PlanoFundo, Principal, Relatorios, Skin, Original_Codigo, Original_Login, Original_Senha, Original_CodConfig, Original_Consultas, Original_Exibicao, Original_FundoPadrao, Original_Inativo, Original_Nivel, Original_Nome, Original_Principal, Original_Relatorios, Original_Skin, Original_Codigo)
         End Function
     End Class
     
@@ -16534,11 +17389,11 @@ Namespace dsTelaUsuarioTableAdapters
                 " @ValorUnitario, @ValorTotal, @CodigoInterno, @Custo, @UM, @Tamanho, @CodConfig,"& _ 
                 " @UniSemDesc, @Promocao, @Desconto, @Retorno, @MedidaA, @MedidaB, @QtdMedida, @D"& _ 
                 "ataAdd, @CodigoFuncionario, @Autorizado, @CampoPedido, @TabelaPreco, @AuxiliarPe"& _ 
-                "d, @Cor);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Codigo, CodOrdens, Qtd, CodigoProduto, Produto, ValorUnitario,"& _ 
-                " ValorTotal, CodigoInterno, Custo, UM, Tamanho, CodConfig, UniSemDesc, Promocao,"& _ 
-                " Desconto, Retorno, MedidaA, MedidaB, QtdMedida, DataAdd, CodigoFuncionario, Aut"& _ 
-                "orizado, CampoPedido, TabelaPreco, AuxiliarPed, Cor FROM ItensConsig WHERE (Codi"& _ 
-                "go = SCOPE_IDENTITY())"
+                "d, @Cor);"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Codigo, CodOrdens, Qtd, CodigoProduto, Produto, ValorUnitario, "& _ 
+                "ValorTotal, CodigoInterno, Custo, UM, Tamanho, CodConfig, UniSemDesc, Promocao, "& _ 
+                "Desconto, Retorno, MedidaA, MedidaB, QtdMedida, DataAdd, CodigoFuncionario, Auto"& _ 
+                "rizado, CampoPedido, TabelaPreco, AuxiliarPed, Cor FROM ItensConsig WHERE (Codig"& _ 
+                "o = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CodOrdens", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CodOrdens", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Qtd", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 15, 3, "Qtd", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -16603,11 +17458,11 @@ Namespace dsTelaUsuarioTableAdapters
                 "aPreco = 1 AND [TabelaPreco] IS NULL) OR ([TabelaPreco] = @Original_TabelaPreco)"& _ 
                 ") AND ((@IsNull_AuxiliarPed = 1 AND [AuxiliarPed] IS NULL) OR ([AuxiliarPed] = @"& _ 
                 "Original_AuxiliarPed)) AND ((@IsNull_Cor = 1 AND [Cor] IS NULL) OR ([Cor] = @Ori"& _ 
-                "ginal_Cor)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Codigo, CodOrdens, Qtd, CodigoProduto, Produto, ValorUnita"& _ 
-                "rio, ValorTotal, CodigoInterno, Custo, UM, Tamanho, CodConfig, UniSemDesc, Promo"& _ 
-                "cao, Desconto, Retorno, MedidaA, MedidaB, QtdMedida, DataAdd, CodigoFuncionario,"& _ 
-                " Autorizado, CampoPedido, TabelaPreco, AuxiliarPed, Cor FROM ItensConsig WHERE ("& _ 
-                "Codigo = @Codigo)"
+                "ginal_Cor)));"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Codigo, CodOrdens, Qtd, CodigoProduto, Produto, ValorUnitar"& _ 
+                "io, ValorTotal, CodigoInterno, Custo, UM, Tamanho, CodConfig, UniSemDesc, Promoc"& _ 
+                "ao, Desconto, Retorno, MedidaA, MedidaB, QtdMedida, DataAdd, CodigoFuncionario, "& _ 
+                "Autorizado, CampoPedido, TabelaPreco, AuxiliarPed, Cor FROM ItensConsig WHERE (C"& _ 
+                "odigo = @Codigo)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CodOrdens", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CodOrdens", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Qtd", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 15, 3, "Qtd", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -17730,8 +18585,8 @@ Namespace dsTelaUsuarioTableAdapters
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Ordens] ([Cod], [Tabela], [CodConfig], [CodEmitente], [StatusE"& _ 
                 "mitente], [Auxiliar]) VALUES (@Cod, @Tabela, @CodConfig, @CodEmitente, @StatusEm"& _ 
-                "itente, @Auxiliar);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Codigo, Cod, Tabela, CodConfig, CodEmitente, StatusE"& _ 
-                "mitente, Auxiliar FROM Ordens WHERE (Codigo = SCOPE_IDENTITY())"
+                "itente, @Auxiliar);"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Codigo, Cod, Tabela, CodConfig, CodEmitente, StatusEm"& _ 
+                "itente, Auxiliar FROM Ordens WHERE (Codigo = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Cod", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Cod", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Tabela", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tabela", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -17750,8 +18605,8 @@ Namespace dsTelaUsuarioTableAdapters
                 "= 1 AND [CodEmitente] IS NULL) OR ([CodEmitente] = @Original_CodEmitente)) AND ("& _ 
                 "(@IsNull_StatusEmitente = 1 AND [StatusEmitente] IS NULL) OR ([StatusEmitente] ="& _ 
                 " @Original_StatusEmitente)) AND ((@IsNull_Auxiliar = 1 AND [Auxiliar] IS NULL) O"& _ 
-                "R ([Auxiliar] = @Original_Auxiliar)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Codigo, Cod, Tabela, CodConfig, C"& _ 
-                "odEmitente, StatusEmitente, Auxiliar FROM Ordens WHERE (Codigo = @Codigo)"
+                "R ([Auxiliar] = @Original_Auxiliar)));"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Codigo, Cod, Tabela, CodConfig, Co"& _ 
+                "dEmitente, StatusEmitente, Auxiliar FROM Ordens WHERE (Codigo = @Codigo)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Cod", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Cod", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Tabela", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tabela", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -18362,13 +19217,13 @@ Namespace dsTelaUsuarioTableAdapters
                 " @Acrescimo, @DataRetirada, @DataEntrega, @Comanda, @StatusPedido, @Placa, @Mode"& _ 
                 "lo, @Cor, @Ano, @Motor, @NivelCombustivel, @KMSaida, @KMEntrada, @Seguro, @Sinis"& _ 
                 "tro, @UsuarioAlt, @Assinatura, @CheckList, @ValorFrete, @CodNFe, @AuxiliarPed, @"& _ 
-                "Operador, @CodNFSe, @TipoDesc, @CodVenda, @EnderecoPedido);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Codigo, CodO"& _ 
-                "rdens, Data, CodCli, Total, Descricao, Status, Custo, Desconto, Entrega, CodFunc"& _ 
-                ", CodConfig, DataVenda, CodAnimal, Acrescimo, DataRetirada, DataEntrega, Comanda"& _ 
-                ", StatusPedido, Placa, Modelo, Cor, Ano, Motor, NivelCombustivel, KMSaida, KMEnt"& _ 
-                "rada, Seguro, Sinistro, UsuarioAlt, Assinatura, CheckList, ValorFrete, CodNFe, A"& _ 
-                "uxiliarPed, Operador, CodNFSe, TipoDesc, CodVenda, EnderecoPedido FROM TotalCons"& _ 
-                "ig WHERE (Codigo = SCOPE_IDENTITY())"
+                "Operador, @CodNFSe, @TipoDesc, @CodVenda, @EnderecoPedido);"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Codigo, CodOr"& _ 
+                "dens, Data, CodCli, Total, Descricao, Status, Custo, Desconto, Entrega, CodFunc,"& _ 
+                " CodConfig, DataVenda, CodAnimal, Acrescimo, DataRetirada, DataEntrega, Comanda,"& _ 
+                " StatusPedido, Placa, Modelo, Cor, Ano, Motor, NivelCombustivel, KMSaida, KMEntr"& _ 
+                "ada, Seguro, Sinistro, UsuarioAlt, Assinatura, CheckList, ValorFrete, CodNFe, Au"& _ 
+                "xiliarPed, Operador, CodNFSe, TipoDesc, CodVenda, EnderecoPedido FROM TotalConsi"& _ 
+                "g WHERE (Codigo = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CodOrdens", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CodOrdens", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Data", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Data", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -18464,13 +19319,13 @@ Namespace dsTelaUsuarioTableAdapters
                 "D ((@IsNull_TipoDesc = 1 AND [TipoDesc] IS NULL) OR ([TipoDesc] = @Original_Tipo"& _ 
                 "Desc)) AND ((@IsNull_CodVenda = 1 AND [CodVenda] IS NULL) OR ([CodVenda] = @Orig"& _ 
                 "inal_CodVenda)) AND ((@IsNull_EnderecoPedido = 1 AND [EnderecoPedido] IS NULL) O"& _ 
-                "R ([EnderecoPedido] = @Original_EnderecoPedido)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Codigo, CodOrdens, Da"& _ 
-                "ta, CodCli, Total, Descricao, Status, Custo, Desconto, Entrega, CodFunc, CodConf"& _ 
-                "ig, DataVenda, CodAnimal, Acrescimo, DataRetirada, DataEntrega, Comanda, StatusP"& _ 
-                "edido, Placa, Modelo, Cor, Ano, Motor, NivelCombustivel, KMSaida, KMEntrada, Seg"& _ 
-                "uro, Sinistro, UsuarioAlt, Assinatura, CheckList, ValorFrete, CodNFe, AuxiliarPe"& _ 
-                "d, Operador, CodNFSe, TipoDesc, CodVenda, EnderecoPedido FROM TotalConsig WHERE "& _ 
-                "(Codigo = @Codigo)"
+                "R ([EnderecoPedido] = @Original_EnderecoPedido)));"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Codigo, CodOrdens, Dat"& _ 
+                "a, CodCli, Total, Descricao, Status, Custo, Desconto, Entrega, CodFunc, CodConfi"& _ 
+                "g, DataVenda, CodAnimal, Acrescimo, DataRetirada, DataEntrega, Comanda, StatusPe"& _ 
+                "dido, Placa, Modelo, Cor, Ano, Motor, NivelCombustivel, KMSaida, KMEntrada, Segu"& _ 
+                "ro, Sinistro, UsuarioAlt, Assinatura, CheckList, ValorFrete, CodNFe, AuxiliarPed"& _ 
+                ", Operador, CodNFSe, TipoDesc, CodVenda, EnderecoPedido FROM TotalConsig WHERE ("& _ 
+                "Codigo = @Codigo)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CodOrdens", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CodOrdens", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Data", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Data", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))

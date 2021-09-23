@@ -177,10 +177,10 @@
     <Compile Include="frmConsultaOrdem.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="XtraForm1.Designer.vb">
-      <DependentUpon>XtraForm1.vb</DependentUpon>
+    <Compile Include="frmCadUsuario.Designer.vb">
+      <DependentUpon>frmCadUsuario.vb</DependentUpon>
     </Compile>
-    <Compile Include="XtraForm1.vb">
+    <Compile Include="frmCadUsuario.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
@@ -213,8 +213,8 @@
     <EmbeddedResource Include="frmConsultaOrdem.resx">
       <DependentUpon>frmConsultaOrdem.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="XtraForm1.resx">
-      <DependentUpon>XtraForm1.vb</DependentUpon>
+    <EmbeddedResource Include="frmCadUsuario.resx">
+      <DependentUpon>frmCadUsuario.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
