@@ -31,13 +31,13 @@ Partial Class frmMenu
         Me.BarStaticItem1 = New DevExpress.XtraBars.BarStaticItem()
         Me.BarStaticItem2 = New DevExpress.XtraBars.BarStaticItem()
         Me.btnCadastrarUsuario = New DevExpress.XtraBars.BarButtonItem()
+        Me.btnBloquearUsuario = New DevExpress.XtraBars.BarButtonItem()
         Me.princ = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.Principal = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonStatusBar = New DevExpress.XtraBars.Ribbon.RibbonStatusBar()
         Me.ToolTipController1 = New DevExpress.Utils.ToolTipController(Me.components)
         Me.DefaultLookAndFeel1 = New DevExpress.LookAndFeel.DefaultLookAndFeel(Me.components)
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.BarButtonItem2 = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -45,7 +45,7 @@ Partial Class frmMenu
         '
         Me.RibbonControl.ExpandCollapseItem.Id = 0
         Me.RibbonControl.ForeColor = System.Drawing.SystemColors.ActiveCaption
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.btnCadCliente, Me.btnEstoque, Me.btnCadastrarProduto, Me.btnPedidos, Me.btnCadastrarPedido, Me.BarStaticItem1, Me.BarStaticItem2, Me.btnConsultarPedido, Me.BarButtonItem1, Me.btnCadastrarUsuario, Me.BarButtonItem2})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.btnCadCliente, Me.btnEstoque, Me.btnCadastrarProduto, Me.btnPedidos, Me.btnCadastrarPedido, Me.BarStaticItem1, Me.BarStaticItem2, Me.btnConsultarPedido, Me.BarButtonItem1, Me.btnCadastrarUsuario, Me.btnBloquearUsuario})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
         Me.RibbonControl.MaxItemId = 128
         Me.RibbonControl.Name = "RibbonControl"
@@ -53,7 +53,7 @@ Partial Class frmMenu
         Me.RibbonControl.Size = New System.Drawing.Size(436, 145)
         Me.RibbonControl.StatusBar = Me.RibbonStatusBar
         Me.RibbonControl.Toolbar.ItemLinks.Add(Me.btnCadastrarUsuario)
-        Me.RibbonControl.Toolbar.ItemLinks.Add(Me.BarButtonItem2)
+        Me.RibbonControl.Toolbar.ItemLinks.Add(Me.btnBloquearUsuario)
         Me.RibbonControl.TransparentEditors = True
         '
         'btnCadCliente
@@ -129,6 +129,13 @@ Partial Class frmMenu
         Me.btnCadastrarUsuario.Id = 126
         Me.btnCadastrarUsuario.Name = "btnCadastrarUsuario"
         '
+        'btnBloquearUsuario
+        '
+        Me.btnBloquearUsuario.Caption = "BarButtonItem2"
+        Me.btnBloquearUsuario.Glyph = Global.telausuario.My.Resources.Resources.cadeado
+        Me.btnBloquearUsuario.Id = 127
+        Me.btnBloquearUsuario.Name = "btnBloquearUsuario"
+        '
         'princ
         '
         Me.princ.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.Principal})
@@ -159,13 +166,6 @@ Partial Class frmMenu
         'DefaultLookAndFeel1
         '
         Me.DefaultLookAndFeel1.LookAndFeel.SkinName = "Office 2010 Blue"
-        '
-        'BarButtonItem2
-        '
-        Me.BarButtonItem2.Caption = "BarButtonItem2"
-        Me.BarButtonItem2.Glyph = Global.telausuario.My.Resources.Resources.cadeado
-        Me.BarButtonItem2.Id = 127
-        Me.BarButtonItem2.Name = "BarButtonItem2"
         '
         'frmMenu
         '
@@ -201,7 +201,7 @@ Partial Class frmMenu
     Friend WithEvents btnConsultarPedido As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonItem1 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents btnCadastrarUsuario As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents BarButtonItem2 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents btnBloquearUsuario As DevExpress.XtraBars.BarButtonItem
 
 
 End Class

@@ -31,7 +31,8 @@
         frmCadUsuario.ShowDialog()
     End Sub
 
-    Private Sub BarButtonItem2_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem2.ItemClick
+    Private Sub BarButtonItem2_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnBloquearUsuario.ItemClick
+        frmBloquearUsuario.ShowDialog()
 
     End Sub
 End Class
