@@ -52,18 +52,18 @@ Partial Class frmCadUsuario
         Me.colInativo = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.UsuarioTableAdapter = New telausuario.dsTelaUsuarioTableAdapters.UsuarioTableAdapter()
         Me.TableAdapterManager = New telausuario.dsTelaUsuarioTableAdapters.TableAdapterManager()
-        Me.TextEdit1 = New DevExpress.XtraEditors.TextEdit()
+        Me.txtNome = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
-        Me.ComboBoxEdit1 = New DevExpress.XtraEditors.ComboBoxEdit()
-        Me.RadioGroup1 = New DevExpress.XtraEditors.RadioGroup()
+        Me.cboLoja = New DevExpress.XtraEditors.ComboBoxEdit()
+        Me.rdgNivel = New DevExpress.XtraEditors.RadioGroup()
         Me.LabelControl55 = New DevExpress.XtraEditors.LabelControl()
         Me.PanelControl4 = New DevExpress.XtraEditors.PanelControl()
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
-        Me.TextEdit2 = New DevExpress.XtraEditors.TextEdit()
+        Me.txtLogin = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl()
-        Me.TextEdit3 = New DevExpress.XtraEditors.TextEdit()
+        Me.txtSenha = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl4 = New DevExpress.XtraEditors.LabelControl()
-        Me.TextEdit4 = New DevExpress.XtraEditors.TextEdit()
+        Me.txtConfirmarSenha = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl5 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl6 = New DevExpress.XtraEditors.LabelControl()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -73,13 +73,13 @@ Partial Class frmCadUsuario
         CType(Me.UsuarioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DsTelaUsuario, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grd1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TextEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ComboBoxEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadioGroup1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtNome.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cboLoja.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.rdgNivel.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TextEdit2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TextEdit3.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TextEdit4.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtLogin.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtSenha.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtConfirmarSenha.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'BarManager1
@@ -180,7 +180,7 @@ Partial Class frmCadUsuario
         Me.grpUsuariosCadastrados.Controls.Add(Me.grdUsuariosCadastrados)
         Me.grpUsuariosCadastrados.Location = New System.Drawing.Point(0, 178)
         Me.grpUsuariosCadastrados.Name = "grpUsuariosCadastrados"
-        Me.grpUsuariosCadastrados.Size = New System.Drawing.Size(576, 255)
+        Me.grpUsuariosCadastrados.Size = New System.Drawing.Size(576, 256)
         Me.grpUsuariosCadastrados.TabIndex = 4
         Me.grpUsuariosCadastrados.Text = "Usuários Cadastrados"
         '
@@ -191,7 +191,7 @@ Partial Class frmCadUsuario
         Me.grdUsuariosCadastrados.MainView = Me.grd1
         Me.grdUsuariosCadastrados.MenuManager = Me.BarManager1
         Me.grdUsuariosCadastrados.Name = "grdUsuariosCadastrados"
-        Me.grdUsuariosCadastrados.Size = New System.Drawing.Size(576, 231)
+        Me.grdUsuariosCadastrados.Size = New System.Drawing.Size(576, 235)
         Me.grdUsuariosCadastrados.TabIndex = 0
         Me.grdUsuariosCadastrados.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.grd1})
         '
@@ -323,13 +323,13 @@ Partial Class frmCadUsuario
         Me.TableAdapterManager.UpdateOrder = telausuario.dsTelaUsuarioTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.UsuarioTableAdapter = Me.UsuarioTableAdapter
         '
-        'TextEdit1
+        'txtNome
         '
-        Me.TextEdit1.Location = New System.Drawing.Point(111, 12)
-        Me.TextEdit1.MenuManager = Me.BarManager1
-        Me.TextEdit1.Name = "TextEdit1"
-        Me.TextEdit1.Size = New System.Drawing.Size(156, 20)
-        Me.TextEdit1.TabIndex = 9
+        Me.txtNome.Location = New System.Drawing.Point(111, 12)
+        Me.txtNome.MenuManager = Me.BarManager1
+        Me.txtNome.Name = "txtNome"
+        Me.txtNome.Size = New System.Drawing.Size(455, 20)
+        Me.txtNome.TabIndex = 9
         '
         'LabelControl1
         '
@@ -339,23 +339,23 @@ Partial Class frmCadUsuario
         Me.LabelControl1.TabIndex = 10
         Me.LabelControl1.Text = "Nome"
         '
-        'ComboBoxEdit1
+        'cboLoja
         '
-        Me.ComboBoxEdit1.Location = New System.Drawing.Point(432, 85)
-        Me.ComboBoxEdit1.MenuManager = Me.BarManager1
-        Me.ComboBoxEdit1.Name = "ComboBoxEdit1"
-        Me.ComboBoxEdit1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.ComboBoxEdit1.Size = New System.Drawing.Size(134, 20)
-        Me.ComboBoxEdit1.TabIndex = 11
+        Me.cboLoja.Location = New System.Drawing.Point(432, 85)
+        Me.cboLoja.MenuManager = Me.BarManager1
+        Me.cboLoja.Name = "cboLoja"
+        Me.cboLoja.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cboLoja.Size = New System.Drawing.Size(134, 20)
+        Me.cboLoja.TabIndex = 11
         '
-        'RadioGroup1
+        'rdgNivel
         '
-        Me.RadioGroup1.Location = New System.Drawing.Point(111, 57)
-        Me.RadioGroup1.MenuManager = Me.BarManager1
-        Me.RadioGroup1.Name = "RadioGroup1"
-        Me.RadioGroup1.Properties.Items.AddRange(New DevExpress.XtraEditors.Controls.RadioGroupItem() {New DevExpress.XtraEditors.Controls.RadioGroupItem(Nothing, "USUÁRIO"), New DevExpress.XtraEditors.Controls.RadioGroupItem(Nothing, "ADMINISTRADOR"), New DevExpress.XtraEditors.Controls.RadioGroupItem(Nothing, "MASTER")})
-        Me.RadioGroup1.Size = New System.Drawing.Size(455, 22)
-        Me.RadioGroup1.TabIndex = 12
+        Me.rdgNivel.Location = New System.Drawing.Point(111, 57)
+        Me.rdgNivel.MenuManager = Me.BarManager1
+        Me.rdgNivel.Name = "rdgNivel"
+        Me.rdgNivel.Properties.Items.AddRange(New DevExpress.XtraEditors.Controls.RadioGroupItem() {New DevExpress.XtraEditors.Controls.RadioGroupItem(Nothing, "USUÁRIO"), New DevExpress.XtraEditors.Controls.RadioGroupItem(Nothing, "ADMINISTRADOR"), New DevExpress.XtraEditors.Controls.RadioGroupItem(Nothing, "MASTER")})
+        Me.rdgNivel.Size = New System.Drawing.Size(455, 22)
+        Me.rdgNivel.TabIndex = 12
         '
         'LabelControl55
         '
@@ -382,13 +382,13 @@ Partial Class frmCadUsuario
         Me.LabelControl2.TabIndex = 73
         Me.LabelControl2.Text = "Login"
         '
-        'TextEdit2
+        'txtLogin
         '
-        Me.TextEdit2.Location = New System.Drawing.Point(111, 85)
-        Me.TextEdit2.MenuManager = Me.BarManager1
-        Me.TextEdit2.Name = "TextEdit2"
-        Me.TextEdit2.Size = New System.Drawing.Size(156, 20)
-        Me.TextEdit2.TabIndex = 72
+        Me.txtLogin.Location = New System.Drawing.Point(111, 85)
+        Me.txtLogin.MenuManager = Me.BarManager1
+        Me.txtLogin.Name = "txtLogin"
+        Me.txtLogin.Size = New System.Drawing.Size(156, 20)
+        Me.txtLogin.TabIndex = 72
         '
         'LabelControl3
         '
@@ -398,13 +398,13 @@ Partial Class frmCadUsuario
         Me.LabelControl3.TabIndex = 75
         Me.LabelControl3.Text = "Senha"
         '
-        'TextEdit3
+        'txtSenha
         '
-        Me.TextEdit3.Location = New System.Drawing.Point(111, 111)
-        Me.TextEdit3.MenuManager = Me.BarManager1
-        Me.TextEdit3.Name = "TextEdit3"
-        Me.TextEdit3.Size = New System.Drawing.Size(156, 20)
-        Me.TextEdit3.TabIndex = 74
+        Me.txtSenha.Location = New System.Drawing.Point(111, 111)
+        Me.txtSenha.MenuManager = Me.BarManager1
+        Me.txtSenha.Name = "txtSenha"
+        Me.txtSenha.Size = New System.Drawing.Size(156, 20)
+        Me.txtSenha.TabIndex = 74
         '
         'LabelControl4
         '
@@ -414,13 +414,13 @@ Partial Class frmCadUsuario
         Me.LabelControl4.TabIndex = 77
         Me.LabelControl4.Text = "Confirmar Senha"
         '
-        'TextEdit4
+        'txtConfirmarSenha
         '
-        Me.TextEdit4.Location = New System.Drawing.Point(111, 137)
-        Me.TextEdit4.MenuManager = Me.BarManager1
-        Me.TextEdit4.Name = "TextEdit4"
-        Me.TextEdit4.Size = New System.Drawing.Size(156, 20)
-        Me.TextEdit4.TabIndex = 76
+        Me.txtConfirmarSenha.Location = New System.Drawing.Point(111, 137)
+        Me.txtConfirmarSenha.MenuManager = Me.BarManager1
+        Me.txtConfirmarSenha.Name = "txtConfirmarSenha"
+        Me.txtConfirmarSenha.Size = New System.Drawing.Size(156, 20)
+        Me.txtConfirmarSenha.TabIndex = 76
         '
         'LabelControl5
         '
@@ -446,17 +446,17 @@ Partial Class frmCadUsuario
         Me.Controls.Add(Me.LabelControl6)
         Me.Controls.Add(Me.LabelControl5)
         Me.Controls.Add(Me.LabelControl4)
-        Me.Controls.Add(Me.TextEdit4)
+        Me.Controls.Add(Me.txtConfirmarSenha)
         Me.Controls.Add(Me.LabelControl3)
-        Me.Controls.Add(Me.TextEdit3)
+        Me.Controls.Add(Me.txtSenha)
         Me.Controls.Add(Me.LabelControl2)
-        Me.Controls.Add(Me.TextEdit2)
+        Me.Controls.Add(Me.txtLogin)
         Me.Controls.Add(Me.LabelControl55)
         Me.Controls.Add(Me.PanelControl4)
-        Me.Controls.Add(Me.RadioGroup1)
-        Me.Controls.Add(Me.ComboBoxEdit1)
+        Me.Controls.Add(Me.rdgNivel)
+        Me.Controls.Add(Me.cboLoja)
         Me.Controls.Add(Me.LabelControl1)
-        Me.Controls.Add(Me.TextEdit1)
+        Me.Controls.Add(Me.txtNome)
         Me.Controls.Add(Me.grpUsuariosCadastrados)
         Me.Controls.Add(Me.barDockControlLeft)
         Me.Controls.Add(Me.barDockControlRight)
@@ -471,13 +471,13 @@ Partial Class frmCadUsuario
         CType(Me.UsuarioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DsTelaUsuario, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grd1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TextEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ComboBoxEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadioGroup1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtNome.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cboLoja.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.rdgNivel.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TextEdit2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TextEdit3.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TextEdit4.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtLogin.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtSenha.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtConfirmarSenha.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -498,10 +498,10 @@ Partial Class frmCadUsuario
     Friend WithEvents DsTelaUsuario As telausuario.dsTelaUsuario
     Friend WithEvents UsuarioTableAdapter As telausuario.dsTelaUsuarioTableAdapters.UsuarioTableAdapter
     Friend WithEvents TableAdapterManager As telausuario.dsTelaUsuarioTableAdapters.TableAdapterManager
-    Friend WithEvents RadioGroup1 As DevExpress.XtraEditors.RadioGroup
-    Friend WithEvents ComboBoxEdit1 As DevExpress.XtraEditors.ComboBoxEdit
+    Friend WithEvents rdgNivel As DevExpress.XtraEditors.RadioGroup
+    Friend WithEvents cboLoja As DevExpress.XtraEditors.ComboBoxEdit
     Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents TextEdit1 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtNome As DevExpress.XtraEditors.TextEdit
     Friend WithEvents grdUsuariosCadastrados As DevExpress.XtraGrid.GridControl
     Friend WithEvents grd1 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents colCodigo As DevExpress.XtraGrid.Columns.GridColumn
@@ -521,11 +521,11 @@ Partial Class frmCadUsuario
     Friend WithEvents LabelControl6 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl5 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl4 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents TextEdit4 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtConfirmarSenha As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LabelControl3 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents TextEdit3 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtSenha As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LabelControl2 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents TextEdit2 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtLogin As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LabelControl55 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents PanelControl4 As DevExpress.XtraEditors.PanelControl
 End Class
