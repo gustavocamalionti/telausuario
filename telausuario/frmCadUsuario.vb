@@ -138,16 +138,15 @@ Public Class frmCadUsuario
 
     End Sub
 
-    Private Sub txtNome_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtNome.KeyPress, txtSenha.KeyPress, txtLogin.KeyPress, txtConfirmarSenha.KeyPress, cboLoja.KeyPress
-        If e.KeyChar = "'" Then
-            e.Handled = True
-        End If
-    End Sub
-
     Private Sub btnAlterar_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnAlterar.ItemClick
         Dim Index As Integer = Me.grd1.FocusedRowHandle
         If Me.grd1.FocusedRowHandle < 0 Then Exit Sub
         MostrarDados()
+    End Sub
+    Private Sub txtNome_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtNome.KeyPress, txtSenha.KeyPress, txtLogin.KeyPress, txtConfirmarSenha.KeyPress, cboLoja.KeyPress
+        If e.KeyChar = "'" Then
+            e.Handled = True
+        End If
     End Sub
 
     Private Sub txtAlterarGrid_DoubleClick(sender As Object, e As EventArgs) Handles txtAlterarGrid.DoubleClick
