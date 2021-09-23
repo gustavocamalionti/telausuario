@@ -667,4 +667,8 @@ Public Class frmCadProdutos
         Limpar()
         AtualizarGrid()
     End Sub
+
+    Private Sub grdProdCadastrados_Click(sender As Object, e As EventArgs) Handles grdProdCadastrados.Click
+
+    End Sub
 End Class

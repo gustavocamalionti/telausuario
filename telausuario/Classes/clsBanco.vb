@@ -152,9 +152,19 @@ Public Class clsBanco
                 ExecutaSQL("CREATE TABLE Usuario (" & _
                     "Codigo INT IDENTITY CONSTRAINT primarykey4 PRIMARY KEY," & _
                     "Login varchar (30)," & _
+                    "Nome varchar(80)," & _
+                    "Principal varchar(250)," & _
+                    "Relatorios varchar(250)," & _
+                    "Skin varchar(40)," & _
+                    "PlanoFundo image," & _
+                    "FundoPadrao bit," & _
+                    "Exibicao varchar(1)," & _
+                    "CodConfig varchar(10)," & _
+                    "Inativo bit," & _
+                    "Nivel varchar(15)," & _
                     "Senha varchar (25));")
 
-                ExecutaSQL("Insert into Usuario (Login, Senha) values ('ADM','spfc'); ")
+                ExecutaSQL("Insert into Usuario (Login, Senha, Nome, nivel) values ('ADM','spfc', 'ADM', 'MASTER'); ")
 
             End If
 

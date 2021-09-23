@@ -21,17 +21,18 @@ Partial Class frmCadUsuario
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
-        Me.Bar3 = New DevExpress.XtraBars.Bar()
-        Me.BarButtonItem1 = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonItem2 = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonItem3 = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonItem4 = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonItem5 = New DevExpress.XtraBars.BarButtonItem()
+        Me.barRodape = New DevExpress.XtraBars.Bar()
+        Me.btnExcluir = New DevExpress.XtraBars.BarButtonItem()
+        Me.btnSalvar = New DevExpress.XtraBars.BarButtonItem()
+        Me.btnAlterar = New DevExpress.XtraBars.BarButtonItem()
+        Me.btnLimpar = New DevExpress.XtraBars.BarButtonItem()
+        Me.btnFechar = New DevExpress.XtraBars.BarButtonItem()
         Me.barDockControlTop = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlBottom = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlLeft = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlRight = New DevExpress.XtraBars.BarDockControl()
         Me.grpUsuariosCadastrados = New DevExpress.XtraEditors.GroupControl()
+        Me.chkInativo = New DevExpress.XtraEditors.CheckEdit()
         Me.grdUsuariosCadastrados = New DevExpress.XtraGrid.GridControl()
         Me.UsuarioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DsTelaUsuario = New telausuario.dsTelaUsuario()
@@ -66,9 +67,11 @@ Partial Class frmCadUsuario
         Me.txtConfirmarSenha = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl5 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl6 = New DevExpress.XtraEditors.LabelControl()
+        Me.txtAlterarGrid = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grpUsuariosCadastrados, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpUsuariosCadastrados.SuspendLayout()
+        CType(Me.chkInativo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grdUsuariosCadastrados, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UsuarioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DsTelaUsuario, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -80,72 +83,73 @@ Partial Class frmCadUsuario
         CType(Me.txtLogin.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtSenha.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtConfirmarSenha.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtAlterarGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'BarManager1
         '
-        Me.BarManager1.Bars.AddRange(New DevExpress.XtraBars.Bar() {Me.Bar3})
+        Me.BarManager1.Bars.AddRange(New DevExpress.XtraBars.Bar() {Me.barRodape})
         Me.BarManager1.DockControls.Add(Me.barDockControlTop)
         Me.BarManager1.DockControls.Add(Me.barDockControlBottom)
         Me.BarManager1.DockControls.Add(Me.barDockControlLeft)
         Me.BarManager1.DockControls.Add(Me.barDockControlRight)
         Me.BarManager1.Form = Me
-        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.BarButtonItem1, Me.BarButtonItem2, Me.BarButtonItem3, Me.BarButtonItem4, Me.BarButtonItem5})
+        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.btnExcluir, Me.btnSalvar, Me.btnAlterar, Me.btnLimpar, Me.btnFechar})
         Me.BarManager1.MaxItemId = 5
-        Me.BarManager1.StatusBar = Me.Bar3
+        Me.BarManager1.StatusBar = Me.barRodape
         '
-        'Bar3
+        'barRodape
         '
-        Me.Bar3.BarName = "Status bar"
-        Me.Bar3.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom
-        Me.Bar3.DockCol = 0
-        Me.Bar3.DockRow = 0
-        Me.Bar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom
-        Me.Bar3.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.BarButtonItem1, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.BarButtonItem2, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.BarButtonItem3, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.BarButtonItem4, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.BarButtonItem5, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)})
-        Me.Bar3.OptionsBar.AllowQuickCustomization = False
-        Me.Bar3.OptionsBar.DrawDragBorder = False
-        Me.Bar3.OptionsBar.UseWholeRow = True
-        Me.Bar3.Text = "Status bar"
+        Me.barRodape.BarName = "Status bar"
+        Me.barRodape.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom
+        Me.barRodape.DockCol = 0
+        Me.barRodape.DockRow = 0
+        Me.barRodape.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom
+        Me.barRodape.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnExcluir, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnSalvar, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnAlterar, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnLimpar, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnFechar, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)})
+        Me.barRodape.OptionsBar.AllowQuickCustomization = False
+        Me.barRodape.OptionsBar.DrawDragBorder = False
+        Me.barRodape.OptionsBar.UseWholeRow = True
+        Me.barRodape.Text = "Status bar"
         '
-        'BarButtonItem1
+        'btnExcluir
         '
-        Me.BarButtonItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left
-        Me.BarButtonItem1.Caption = "Excluir"
-        Me.BarButtonItem1.Glyph = Global.telausuario.My.Resources.Resources.delete
-        Me.BarButtonItem1.Id = 0
-        Me.BarButtonItem1.Name = "BarButtonItem1"
+        Me.btnExcluir.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left
+        Me.btnExcluir.Caption = "Excluir"
+        Me.btnExcluir.Glyph = Global.telausuario.My.Resources.Resources.delete
+        Me.btnExcluir.Id = 0
+        Me.btnExcluir.Name = "btnExcluir"
         '
-        'BarButtonItem2
+        'btnSalvar
         '
-        Me.BarButtonItem2.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
-        Me.BarButtonItem2.Caption = "Salvar"
-        Me.BarButtonItem2.Glyph = Global.telausuario.My.Resources.Resources.Comando_Gravar_32x32
-        Me.BarButtonItem2.Id = 1
-        Me.BarButtonItem2.Name = "BarButtonItem2"
+        Me.btnSalvar.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
+        Me.btnSalvar.Caption = "Salvar"
+        Me.btnSalvar.Glyph = Global.telausuario.My.Resources.Resources.Comando_Gravar_32x32
+        Me.btnSalvar.Id = 1
+        Me.btnSalvar.Name = "btnSalvar"
         '
-        'BarButtonItem3
+        'btnAlterar
         '
-        Me.BarButtonItem3.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
-        Me.BarButtonItem3.Caption = "Alterar"
-        Me.BarButtonItem3.Glyph = Global.telausuario.My.Resources.Resources.Alterar
-        Me.BarButtonItem3.Id = 2
-        Me.BarButtonItem3.Name = "BarButtonItem3"
+        Me.btnAlterar.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
+        Me.btnAlterar.Caption = "Alterar"
+        Me.btnAlterar.Glyph = Global.telausuario.My.Resources.Resources.Alterar
+        Me.btnAlterar.Id = 2
+        Me.btnAlterar.Name = "btnAlterar"
         '
-        'BarButtonItem4
+        'btnLimpar
         '
-        Me.BarButtonItem4.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
-        Me.BarButtonItem4.Caption = "Limpar"
-        Me.BarButtonItem4.Glyph = Global.telausuario.My.Resources.Resources.Comando_Limpar_32x32
-        Me.BarButtonItem4.Id = 3
-        Me.BarButtonItem4.Name = "BarButtonItem4"
+        Me.btnLimpar.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
+        Me.btnLimpar.Caption = "Limpar"
+        Me.btnLimpar.Glyph = Global.telausuario.My.Resources.Resources.Comando_Limpar_32x32
+        Me.btnLimpar.Id = 3
+        Me.btnLimpar.Name = "btnLimpar"
         '
-        'BarButtonItem5
+        'btnFechar
         '
-        Me.BarButtonItem5.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
-        Me.BarButtonItem5.Caption = "Fechar"
-        Me.BarButtonItem5.Glyph = Global.telausuario.My.Resources.Resources.Comando_Fechar_32x32
-        Me.BarButtonItem5.Id = 4
-        Me.BarButtonItem5.Name = "BarButtonItem5"
+        Me.btnFechar.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
+        Me.btnFechar.Caption = "Fechar"
+        Me.btnFechar.Glyph = Global.telausuario.My.Resources.Resources.Comando_Fechar_32x32
+        Me.btnFechar.Id = 4
+        Me.btnFechar.Name = "btnFechar"
         '
         'barDockControlTop
         '
@@ -180,12 +184,22 @@ Partial Class frmCadUsuario
         Me.grpUsuariosCadastrados.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.grpUsuariosCadastrados.Controls.Add(Me.chkInativo)
         Me.grpUsuariosCadastrados.Controls.Add(Me.grdUsuariosCadastrados)
         Me.grpUsuariosCadastrados.Location = New System.Drawing.Point(0, 178)
         Me.grpUsuariosCadastrados.Name = "grpUsuariosCadastrados"
         Me.grpUsuariosCadastrados.Size = New System.Drawing.Size(576, 256)
         Me.grpUsuariosCadastrados.TabIndex = 4
         Me.grpUsuariosCadastrados.Text = "Usuários Cadastrados"
+        '
+        'chkInativo
+        '
+        Me.chkInativo.Location = New System.Drawing.Point(496, 2)
+        Me.chkInativo.MenuManager = Me.BarManager1
+        Me.chkInativo.Name = "chkInativo"
+        Me.chkInativo.Properties.Caption = "Inativo"
+        Me.chkInativo.Size = New System.Drawing.Size(75, 19)
+        Me.chkInativo.TabIndex = 1
         '
         'grdUsuariosCadastrados
         '
@@ -197,6 +211,7 @@ Partial Class frmCadUsuario
         Me.grdUsuariosCadastrados.MainView = Me.grd1
         Me.grdUsuariosCadastrados.MenuManager = Me.BarManager1
         Me.grdUsuariosCadastrados.Name = "grdUsuariosCadastrados"
+        Me.grdUsuariosCadastrados.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.txtAlterarGrid})
         Me.grdUsuariosCadastrados.Size = New System.Drawing.Size(576, 235)
         Me.grdUsuariosCadastrados.TabIndex = 0
         Me.grdUsuariosCadastrados.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.grd1})
@@ -220,6 +235,7 @@ Partial Class frmCadUsuario
         '
         'colCodigo
         '
+        Me.colCodigo.ColumnEdit = Me.txtAlterarGrid
         Me.colCodigo.FieldName = "Codigo"
         Me.colCodigo.Name = "colCodigo"
         Me.colCodigo.OptionsColumn.ReadOnly = True
@@ -229,6 +245,7 @@ Partial Class frmCadUsuario
         Me.colLogin.AppearanceCell.Options.UseTextOptions = True
         Me.colLogin.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.colLogin.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
+        Me.colLogin.ColumnEdit = Me.txtAlterarGrid
         Me.colLogin.FieldName = "Login"
         Me.colLogin.Name = "colLogin"
         Me.colLogin.Visible = True
@@ -239,6 +256,7 @@ Partial Class frmCadUsuario
         Me.colSenha.AppearanceCell.Options.UseTextOptions = True
         Me.colSenha.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.colSenha.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
+        Me.colSenha.ColumnEdit = Me.txtAlterarGrid
         Me.colSenha.FieldName = "Senha"
         Me.colSenha.Name = "colSenha"
         Me.colSenha.Visible = True
@@ -249,6 +267,7 @@ Partial Class frmCadUsuario
         Me.colNome.AppearanceCell.Options.UseTextOptions = True
         Me.colNome.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.colNome.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
+        Me.colNome.ColumnEdit = Me.txtAlterarGrid
         Me.colNome.FieldName = "Nome"
         Me.colNome.Name = "colNome"
         Me.colNome.Visible = True
@@ -259,6 +278,7 @@ Partial Class frmCadUsuario
         Me.colNivel.AppearanceCell.Options.UseTextOptions = True
         Me.colNivel.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.colNivel.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
+        Me.colNivel.ColumnEdit = Me.txtAlterarGrid
         Me.colNivel.FieldName = "Nivel"
         Me.colNivel.Name = "colNivel"
         Me.colNivel.Visible = True
@@ -456,6 +476,11 @@ Partial Class frmCadUsuario
         Me.LabelControl6.TabIndex = 79
         Me.LabelControl6.Text = "Loja"
         '
+        'txtAlterarGrid
+        '
+        Me.txtAlterarGrid.AutoHeight = False
+        Me.txtAlterarGrid.Name = "txtAlterarGrid"
+        '
         'frmCadUsuario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -485,6 +510,7 @@ Partial Class frmCadUsuario
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grpUsuariosCadastrados, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grpUsuariosCadastrados.ResumeLayout(False)
+        CType(Me.chkInativo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grdUsuariosCadastrados, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UsuarioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DsTelaUsuario, System.ComponentModel.ISupportInitialize).EndInit()
@@ -496,17 +522,18 @@ Partial Class frmCadUsuario
         CType(Me.txtLogin.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtSenha.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtConfirmarSenha.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtAlterarGrid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents BarManager1 As DevExpress.XtraBars.BarManager
-    Friend WithEvents Bar3 As DevExpress.XtraBars.Bar
-    Friend WithEvents BarButtonItem1 As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents BarButtonItem2 As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents BarButtonItem3 As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents BarButtonItem4 As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents BarButtonItem5 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents barRodape As DevExpress.XtraBars.Bar
+    Friend WithEvents btnExcluir As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents btnSalvar As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents btnAlterar As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents btnLimpar As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents btnFechar As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents barDockControlTop As DevExpress.XtraBars.BarDockControl
     Friend WithEvents barDockControlBottom As DevExpress.XtraBars.BarDockControl
     Friend WithEvents barDockControlLeft As DevExpress.XtraBars.BarDockControl
@@ -546,4 +573,6 @@ Partial Class frmCadUsuario
     Friend WithEvents txtLogin As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LabelControl55 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents PanelControl4 As DevExpress.XtraEditors.PanelControl
+    Friend WithEvents chkInativo As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents txtAlterarGrid As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
 End Class
