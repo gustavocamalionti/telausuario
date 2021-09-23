@@ -38,6 +38,7 @@ Partial Class frmCadUsuario
         Me.DsTelaUsuario = New telausuario.dsTelaUsuario()
         Me.grd1 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.colCodigo = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.txtAlterarGrid = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
         Me.colLogin = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colSenha = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colNome = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -67,7 +68,6 @@ Partial Class frmCadUsuario
         Me.txtConfirmarSenha = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl5 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl6 = New DevExpress.XtraEditors.LabelControl()
-        Me.txtAlterarGrid = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grpUsuariosCadastrados, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpUsuariosCadastrados.SuspendLayout()
@@ -76,6 +76,7 @@ Partial Class frmCadUsuario
         CType(Me.UsuarioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DsTelaUsuario, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grd1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtAlterarGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtNome.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cboLoja.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.rdgNivel.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -83,7 +84,6 @@ Partial Class frmCadUsuario
         CType(Me.txtLogin.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtSenha.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtConfirmarSenha.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtAlterarGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'BarManager1
@@ -194,6 +194,7 @@ Partial Class frmCadUsuario
         '
         'chkInativo
         '
+        Me.chkInativo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.chkInativo.Location = New System.Drawing.Point(496, 2)
         Me.chkInativo.MenuManager = Me.BarManager1
         Me.chkInativo.Name = "chkInativo"
@@ -239,6 +240,11 @@ Partial Class frmCadUsuario
         Me.colCodigo.FieldName = "Codigo"
         Me.colCodigo.Name = "colCodigo"
         Me.colCodigo.OptionsColumn.ReadOnly = True
+        '
+        'txtAlterarGrid
+        '
+        Me.txtAlterarGrid.AutoHeight = False
+        Me.txtAlterarGrid.Name = "txtAlterarGrid"
         '
         'colLogin
         '
@@ -356,6 +362,7 @@ Partial Class frmCadUsuario
         Me.txtNome.Location = New System.Drawing.Point(111, 12)
         Me.txtNome.MenuManager = Me.BarManager1
         Me.txtNome.Name = "txtNome"
+        Me.txtNome.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtNome.Properties.MaxLength = 80
         Me.txtNome.Size = New System.Drawing.Size(455, 20)
         Me.txtNome.TabIndex = 9
@@ -375,6 +382,7 @@ Partial Class frmCadUsuario
         Me.cboLoja.MenuManager = Me.BarManager1
         Me.cboLoja.Name = "cboLoja"
         Me.cboLoja.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cboLoja.Properties.MaxLength = 10
         Me.cboLoja.Size = New System.Drawing.Size(134, 20)
         Me.cboLoja.TabIndex = 11
         '
@@ -421,6 +429,7 @@ Partial Class frmCadUsuario
         Me.txtLogin.Location = New System.Drawing.Point(111, 85)
         Me.txtLogin.MenuManager = Me.BarManager1
         Me.txtLogin.Name = "txtLogin"
+        Me.txtLogin.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtLogin.Properties.MaxLength = 20
         Me.txtLogin.Size = New System.Drawing.Size(156, 20)
         Me.txtLogin.TabIndex = 72
@@ -439,6 +448,7 @@ Partial Class frmCadUsuario
         Me.txtSenha.MenuManager = Me.BarManager1
         Me.txtSenha.Name = "txtSenha"
         Me.txtSenha.Properties.MaxLength = 10
+        Me.txtSenha.Properties.UseSystemPasswordChar = True
         Me.txtSenha.Size = New System.Drawing.Size(156, 20)
         Me.txtSenha.TabIndex = 74
         '
@@ -456,6 +466,7 @@ Partial Class frmCadUsuario
         Me.txtConfirmarSenha.MenuManager = Me.BarManager1
         Me.txtConfirmarSenha.Name = "txtConfirmarSenha"
         Me.txtConfirmarSenha.Properties.MaxLength = 10
+        Me.txtConfirmarSenha.Properties.UseSystemPasswordChar = True
         Me.txtConfirmarSenha.Size = New System.Drawing.Size(156, 20)
         Me.txtConfirmarSenha.TabIndex = 76
         '
@@ -475,11 +486,6 @@ Partial Class frmCadUsuario
         Me.LabelControl6.Size = New System.Drawing.Size(20, 13)
         Me.LabelControl6.TabIndex = 79
         Me.LabelControl6.Text = "Loja"
-        '
-        'txtAlterarGrid
-        '
-        Me.txtAlterarGrid.AutoHeight = False
-        Me.txtAlterarGrid.Name = "txtAlterarGrid"
         '
         'frmCadUsuario
         '
@@ -515,6 +521,7 @@ Partial Class frmCadUsuario
         CType(Me.UsuarioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DsTelaUsuario, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grd1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtAlterarGrid, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtNome.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cboLoja.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.rdgNivel.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -522,7 +529,6 @@ Partial Class frmCadUsuario
         CType(Me.txtLogin.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtSenha.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtConfirmarSenha.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtAlterarGrid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

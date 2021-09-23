@@ -164,7 +164,7 @@ Public Class clsBanco
                     "Nivel varchar(15)," & _
                     "Senha varchar (25));")
 
-                ExecutaSQL("Insert into Usuario (Login, Senha, Nome, nivel) values ('ADM','spfc', 'ADM', 'MASTER'); ")
+                ExecutaSQL("Insert into Usuario (Login, Senha, Nome, nivel, Inativo) values ('ADM','spfc', 'ADM', 'MASTER', 0); ")
 
             End If
 
