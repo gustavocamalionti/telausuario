@@ -10,6 +10,6 @@
     Private Sub frmCadUsuario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'DsTelaUsuario.Usuario' table. You can move, or remove it, as needed.
         Me.UsuarioTableAdapter.Fill(Me.DsTelaUsuario.Usuario)
-
+        Me.MaximizeBox = False
     End Sub
 End Class

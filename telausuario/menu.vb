@@ -28,6 +28,6 @@
     End Sub
 
     Private Sub btnCadastrarUsuario_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnCadastrarUsuario.ItemClick
-
+        frmCadUsuario.ShowDialog()
     End Sub
 End Class

@@ -177,6 +177,9 @@ Partial Class frmCadUsuario
         '
         'grpUsuariosCadastrados
         '
+        Me.grpUsuariosCadastrados.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.grpUsuariosCadastrados.Controls.Add(Me.grdUsuariosCadastrados)
         Me.grpUsuariosCadastrados.Location = New System.Drawing.Point(0, 178)
         Me.grpUsuariosCadastrados.Name = "grpUsuariosCadastrados"
@@ -186,6 +189,9 @@ Partial Class frmCadUsuario
         '
         'grdUsuariosCadastrados
         '
+        Me.grdUsuariosCadastrados.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.grdUsuariosCadastrados.DataSource = Me.UsuarioBindingSource
         Me.grdUsuariosCadastrados.Location = New System.Drawing.Point(0, 21)
         Me.grdUsuariosCadastrados.MainView = Me.grd1
@@ -325,6 +331,8 @@ Partial Class frmCadUsuario
         '
         'txtNome
         '
+        Me.txtNome.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtNome.Location = New System.Drawing.Point(111, 12)
         Me.txtNome.MenuManager = Me.BarManager1
         Me.txtNome.Name = "txtNome"
@@ -341,6 +349,7 @@ Partial Class frmCadUsuario
         '
         'cboLoja
         '
+        Me.cboLoja.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cboLoja.Location = New System.Drawing.Point(432, 85)
         Me.cboLoja.MenuManager = Me.BarManager1
         Me.cboLoja.Name = "cboLoja"
@@ -350,6 +359,8 @@ Partial Class frmCadUsuario
         '
         'rdgNivel
         '
+        Me.rdgNivel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.rdgNivel.Location = New System.Drawing.Point(111, 57)
         Me.rdgNivel.MenuManager = Me.BarManager1
         Me.rdgNivel.Name = "rdgNivel"
@@ -369,6 +380,8 @@ Partial Class frmCadUsuario
         '
         'PanelControl4
         '
+        Me.PanelControl4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PanelControl4.Location = New System.Drawing.Point(17, 46)
         Me.PanelControl4.Name = "PanelControl4"
         Me.PanelControl4.Size = New System.Drawing.Size(549, 5)
@@ -432,6 +445,7 @@ Partial Class frmCadUsuario
         '
         'LabelControl6
         '
+        Me.LabelControl6.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LabelControl6.Location = New System.Drawing.Point(406, 88)
         Me.LabelControl6.Name = "LabelControl6"
         Me.LabelControl6.Size = New System.Drawing.Size(20, 13)
