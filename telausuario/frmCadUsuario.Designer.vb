@@ -336,6 +336,7 @@ Partial Class frmCadUsuario
         Me.txtNome.Location = New System.Drawing.Point(111, 12)
         Me.txtNome.MenuManager = Me.BarManager1
         Me.txtNome.Name = "txtNome"
+        Me.txtNome.Properties.MaxLength = 80
         Me.txtNome.Size = New System.Drawing.Size(455, 20)
         Me.txtNome.TabIndex = 9
         '
@@ -400,6 +401,7 @@ Partial Class frmCadUsuario
         Me.txtLogin.Location = New System.Drawing.Point(111, 85)
         Me.txtLogin.MenuManager = Me.BarManager1
         Me.txtLogin.Name = "txtLogin"
+        Me.txtLogin.Properties.MaxLength = 20
         Me.txtLogin.Size = New System.Drawing.Size(156, 20)
         Me.txtLogin.TabIndex = 72
         '
@@ -416,6 +418,7 @@ Partial Class frmCadUsuario
         Me.txtSenha.Location = New System.Drawing.Point(111, 111)
         Me.txtSenha.MenuManager = Me.BarManager1
         Me.txtSenha.Name = "txtSenha"
+        Me.txtSenha.Properties.MaxLength = 10
         Me.txtSenha.Size = New System.Drawing.Size(156, 20)
         Me.txtSenha.TabIndex = 74
         '
@@ -432,6 +435,7 @@ Partial Class frmCadUsuario
         Me.txtConfirmarSenha.Location = New System.Drawing.Point(111, 137)
         Me.txtConfirmarSenha.MenuManager = Me.BarManager1
         Me.txtConfirmarSenha.Name = "txtConfirmarSenha"
+        Me.txtConfirmarSenha.Properties.MaxLength = 10
         Me.txtConfirmarSenha.Size = New System.Drawing.Size(156, 20)
         Me.txtConfirmarSenha.TabIndex = 76
         '

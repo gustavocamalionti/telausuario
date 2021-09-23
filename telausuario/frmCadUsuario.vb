@@ -12,4 +12,10 @@
         Me.UsuarioTableAdapter.Fill(Me.DsTelaUsuario.Usuario)
         Me.MaximizeBox = False
     End Sub
+
+    Private Sub txtNome_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtNome.KeyPress, txtSenha.KeyPress, txtLogin.KeyPress, txtConfirmarSenha.KeyPress, cboLoja.KeyPress
+        If e.KeyChar = "'" Then
+            e.Handled = True
+        End If
+    End Sub
 End Class
