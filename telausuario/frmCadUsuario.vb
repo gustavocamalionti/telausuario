@@ -3,6 +3,8 @@ Public Class frmCadUsuario
     Dim bolAlterar As Boolean
     Dim intCodigo As Integer
     Dim strNivel As String
+    Dim strPrincipal As String
+    Dim strRelatorios As String
 
     Private Sub frmCadUsuario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.MaximizeBox = False
@@ -89,6 +91,7 @@ Public Class frmCadUsuario
     Private Sub ConverterRdgNivel()
         If Me.rdgNivel.SelectedIndex = 0 Then
             strNivel = "USUÁRIO"
+
         ElseIf Me.rdgNivel.SelectedIndex = 1 Then
             strNivel = "ADMINISTRADOR"
         Else
