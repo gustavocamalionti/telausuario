@@ -10,10 +10,13 @@ Public Class frmCadUsuario
         Me.MaximizeBox = False
         AtualizarGrid()
         Limpar()
+
+        strPrincipal = "4|2|5|1"
+        Dim vetPrinc As Array = Split(strPrincipal, "|")
     End Sub
 
     Private Sub AtualizarGrid()
-        CarregarDados("select Codigo, Login, Nome, Senha, Nivel, Inativo, CodConfig from Usuario", grdUsuariosCadastrados)
+        CarregarDados("select Codigo, Login, Nome, Senha, Nivel, Inativo, CodConfig, Principal, Relatorios from Usuario", grdUsuariosCadastrados)
     End Sub
     Private Sub Limpar()
         bolAlterar = False
