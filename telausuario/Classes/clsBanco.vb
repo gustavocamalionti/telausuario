@@ -315,7 +315,11 @@ Public Class clsBanco
         If intVersao <= 100 Then
             Atualizar("Update Config set versaoNano = '1.0.1';")
 
-            Inserir("insert into Bloqueios (Principal,Relatorios) values ('Cadastrar Cliente','');")
+            ExecutaSQL("insert into Bloqueios (Principal, Relatorios) values ('Cadastrar Cliente', '');")
+            ExecutaSQL("insert into Bloqueios (principal, Relatorios) values ('Cadastrar Produto', '');")
+            ExecutaSQL("insert into Bloqueios (Principal, Relatorios) values ('Alterar Cliente', '');")
+            ExecutaSQL("insert into Bloqueios (principal, Relatorios) values ('Alterar Produto', '');")
+
         End If
     End Function
 
