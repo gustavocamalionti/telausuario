@@ -249,7 +249,7 @@ Partial Class frmCadPedido
         Me.colCodPed = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.tabTodosPedido = New DevExpress.XtraTab.XtraTabPage()
         Me.grdTodosPedidos = New DevExpress.XtraGrid.GridControl()
-        Me.dtTodosPedidos = New System.Data.DataSet()
+        Me.dsTodosPedidos = New System.Data.DataSet()
         Me.tbTodosPedidos = New System.Data.DataTable()
         Me.DataColumn11 = New System.Data.DataColumn()
         Me.DataColumn12 = New System.Data.DataColumn()
@@ -381,7 +381,7 @@ Partial Class frmCadPedido
         CType(Me.grd2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabTodosPedido.SuspendLayout()
         CType(Me.grdTodosPedidos, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.dtTodosPedidos, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dsTodosPedidos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tbTodosPedidos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grd3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BarManager2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -2712,7 +2712,7 @@ Partial Class frmCadPedido
         'grdTodosPedidos
         '
         Me.grdTodosPedidos.DataMember = "tbTodosPedidos"
-        Me.grdTodosPedidos.DataSource = Me.dtTodosPedidos
+        Me.grdTodosPedidos.DataSource = Me.dsTodosPedidos
         Me.grdTodosPedidos.Location = New System.Drawing.Point(-2, 0)
         Me.grdTodosPedidos.MainView = Me.grd3
         Me.grdTodosPedidos.MenuManager = Me.BarManager1
@@ -2721,10 +2721,10 @@ Partial Class frmCadPedido
         Me.grdTodosPedidos.TabIndex = 0
         Me.grdTodosPedidos.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.grd3})
         '
-        'dtTodosPedidos
+        'dsTodosPedidos
         '
-        Me.dtTodosPedidos.DataSetName = "NewDataSet"
-        Me.dtTodosPedidos.Tables.AddRange(New System.Data.DataTable() {Me.tbTodosPedidos})
+        Me.dsTodosPedidos.DataSetName = "NewDataSet"
+        Me.dsTodosPedidos.Tables.AddRange(New System.Data.DataTable() {Me.tbTodosPedidos})
         '
         'tbTodosPedidos
         '
@@ -2990,7 +2990,7 @@ Partial Class frmCadPedido
         CType(Me.grd2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabTodosPedido.ResumeLayout(False)
         CType(Me.grdTodosPedidos, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.dtTodosPedidos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dsTodosPedidos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tbTodosPedidos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grd3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BarManager2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -3209,7 +3209,7 @@ Partial Class frmCadPedido
     Friend WithEvents colCodigoInterno1 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colCodPed As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents grdTodosPedidos As DevExpress.XtraGrid.GridControl
-    Friend WithEvents dtTodosPedidos As System.Data.DataSet
+    Friend WithEvents dsTodosPedidos As System.Data.DataSet
     Friend WithEvents tbTodosPedidos As System.Data.DataTable
     Friend WithEvents DataColumn11 As System.Data.DataColumn
     Friend WithEvents DataColumn12 As System.Data.DataColumn

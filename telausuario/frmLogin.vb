@@ -34,7 +34,7 @@ Public Class frmLogin
             VersaoSistemaBanco = dtVersaoNano.Rows.Item(0).Item("VersaoNano").ToString
         End If
 
-            GerenciarTabela()
+        GerenciarTabela()
     End Sub
 
     Private Sub btnOk_Click(sender As Object, e As EventArgs) Handles btnOk.Click
@@ -47,6 +47,7 @@ Public Class frmLogin
                     Me.txtSenha.ResetText()
                     Hide()
                     frmMenu.ShowDialog()
+                    Me.Close()
                     Exit Sub
                 End If
             Next
@@ -57,7 +58,7 @@ Public Class frmLogin
             Me.txtSenha.ResetText()
             MsgBox("Preencha os campos antes de enviar.", MsgBoxStyle.Exclamation)
         End If
-        
+
     End Sub
 
     Private Sub btnOk_VisibleChanged(sender As Object, e As EventArgs) Handles btnOk.VisibleChanged
@@ -83,6 +84,7 @@ Public Class frmLogin
                         Me.txtSenha.ResetText()
                         Hide()
                         frmMenu.ShowDialog()
+                        Me.Close()
                         Exit Sub
                     End If
                 Next

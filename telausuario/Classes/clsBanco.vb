@@ -306,7 +306,7 @@ Public Class clsBanco
                 ExecutaSQL("CREATE TABLE Bloqueios (" & _
                     "Codigo INT IDENTITY CONSTRAINT primarykey12 PRIMARY KEY," & _
                     "Principal varchar(60)," & _
-                    "Relatórios varchar (60));")
+                    "Relatorios varchar (60));")
             End If
 
         End If
@@ -314,6 +314,8 @@ Public Class clsBanco
         Dim intVersao As Integer = VersaoSistemaBanco.Replace(".", "")
         If intVersao <= 100 Then
             Atualizar("Update Config set versaoNano = '1.0.1';")
+
+            Inserir("insert into Bloqueios (Principal,Relatorios) values ('Cadastrar Cliente','');")
         End If
     End Function
 

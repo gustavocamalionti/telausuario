@@ -124,14 +124,14 @@ Partial Class frmMenu
         '
         'btnCadastrarUsuario
         '
-        Me.btnCadastrarUsuario.Caption = "btnCadastrarUsuario"
+        Me.btnCadastrarUsuario.Caption = "Cadastrar Usuário"
         Me.btnCadastrarUsuario.Glyph = Global.telausuario.My.Resources.Resources.Usu
         Me.btnCadastrarUsuario.Id = 126
         Me.btnCadastrarUsuario.Name = "btnCadastrarUsuario"
         '
         'btnBloquearUsuario
         '
-        Me.btnBloquearUsuario.Caption = "BarButtonItem2"
+        Me.btnBloquearUsuario.Caption = "Bloquear Usuário"
         Me.btnBloquearUsuario.Glyph = Global.telausuario.My.Resources.Resources.cadeado
         Me.btnBloquearUsuario.Id = 127
         Me.btnBloquearUsuario.Name = "btnBloquearUsuario"
@@ -147,7 +147,6 @@ Partial Class frmMenu
         Me.Principal.ItemLinks.Add(Me.btnEstoque)
         Me.Principal.ItemLinks.Add(Me.btnPedidos)
         Me.Principal.Name = "Principal"
-        Me.Principal.Text = "RibbonPageGroup1"
         '
         'RibbonStatusBar
         '
