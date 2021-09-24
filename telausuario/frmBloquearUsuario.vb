@@ -17,7 +17,7 @@ Public Class frmBloquearUsuario
         If dtBloqueiosPrincipal.Rows.Count > 0 Then
             For c = 0 To dtBloqueiosPrincipal.Rows.Count - 1
                 If dtBloqueiosPrincipal.Rows.Item(c).Item("Principal").ToString <> "" Then
-                    chkAbaPrincipal.Items.Add(dtBloqueiosPrincipal.Rows.Item(c).Item("Principal"))
+                    lstAbaPrincipal.Items.Add(dtBloqueiosPrincipal.Rows.Item(c).Item("Principal"))
                 End If
             Next
         End If
@@ -25,19 +25,30 @@ Public Class frmBloquearUsuario
         If dtBloqueiosRelatorios.Rows.Count > 0 Then
             For c = 0 To dtBloqueiosRelatorios.Rows.Count - 1
                 If dtBloqueiosRelatorios.Rows.Item(c).Item("Relatorios").ToString <> "" Then
-                    chkAbaRelatorios.Items.Add(dtBloqueiosRelatorios.Rows.Item(c).Item("Relatorios"))
+                    lstAbaRelatorios.Items.Add(dtBloqueiosRelatorios.Rows.Item(c).Item("Relatorios"))
                 End If
             Next
         End If
 
-
     End Sub
 
-    Private Sub CheckedListBox1_SelectedIndexChanged(sender As Object, e As EventArgs)
+    Private Sub btnBloquear_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnBloquear.ItemClick
+        Dim strPrincipal As String = ""
+        Dim strRelatorio As String = ""
 
-    End Sub
+        For c = 0 To Me.lstAbaPrincipal.Items.Count - 1
+            If lstAbaPrincipal.Items.Item(c).CheckState = CheckState.Checked Then
+                strPrincipal = strPrincipal & c & "|"
+            End If
+        Next
 
-    Private Sub chkAbaPrincipal_SelectedIndexChanged(sender As Object, e As EventArgs) Handles chkAbaPrincipal.SelectedIndexChanged
+        For c = 0 To Me.lstAbaRelatorios.Items.Count - 1
+            If lstAbaRelatorios.Items.Item(c).CheckState = CheckState.Checked Then
+                strRelatorio = strRelatorio & c & "|"
+            End If
+        Next
+
+        Atualizar("update usuario set Principal = '" & strPrincipal & "', Relatorios = '" & strRelatorio & "' where Nome = '" & Me.cboUsuarios.Text & "'")
 
     End Sub
 End Class

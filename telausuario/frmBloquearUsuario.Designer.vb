@@ -21,14 +21,14 @@ Partial Class frmBloquearUsuario
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.grpAbaPrincipal = New DevExpress.XtraEditors.GroupControl()
-        Me.chkAbaPrincipal = New DevExpress.XtraEditors.CheckedListBoxControl()
+        Me.lstAbaPrincipal = New DevExpress.XtraEditors.CheckedListBoxControl()
         Me.dsBloqueios = New System.Data.DataSet()
         Me.tbBloqueiosPrincipal = New System.Data.DataTable()
         Me.DataColumn1 = New System.Data.DataColumn()
         Me.tbBloqueiosRelatorios = New System.Data.DataTable()
         Me.DataColumn2 = New System.Data.DataColumn()
         Me.grpAbaRelatorios = New DevExpress.XtraEditors.GroupControl()
-        Me.chkAbaRelatorios = New DevExpress.XtraEditors.CheckedListBoxControl()
+        Me.lstAbaRelatorios = New DevExpress.XtraEditors.CheckedListBoxControl()
         Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
         Me.Bar3 = New DevExpress.XtraBars.Bar()
         Me.btnBloquear = New DevExpress.XtraBars.BarButtonItem()
@@ -40,13 +40,13 @@ Partial Class frmBloquearUsuario
         Me.cboUsuarios = New DevExpress.XtraEditors.ComboBoxEdit()
         CType(Me.grpAbaPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpAbaPrincipal.SuspendLayout()
-        CType(Me.chkAbaPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lstAbaPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dsBloqueios, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tbBloqueiosPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tbBloqueiosRelatorios, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grpAbaRelatorios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpAbaRelatorios.SuspendLayout()
-        CType(Me.chkAbaRelatorios, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lstAbaRelatorios, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cboUsuarios.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -56,21 +56,21 @@ Partial Class frmBloquearUsuario
         Me.grpAbaPrincipal.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.grpAbaPrincipal.Controls.Add(Me.chkAbaPrincipal)
+        Me.grpAbaPrincipal.Controls.Add(Me.lstAbaPrincipal)
         Me.grpAbaPrincipal.Location = New System.Drawing.Point(0, 41)
         Me.grpAbaPrincipal.Name = "grpAbaPrincipal"
         Me.grpAbaPrincipal.Size = New System.Drawing.Size(309, 302)
         Me.grpAbaPrincipal.TabIndex = 0
         Me.grpAbaPrincipal.Text = "Aba Principal"
         '
-        'chkAbaPrincipal
+        'lstAbaPrincipal
         '
-        Me.chkAbaPrincipal.CheckOnClick = True
-        Me.chkAbaPrincipal.Location = New System.Drawing.Point(0, 21)
-        Me.chkAbaPrincipal.Name = "chkAbaPrincipal"
-        Me.chkAbaPrincipal.Size = New System.Drawing.Size(309, 281)
-        Me.chkAbaPrincipal.TabIndex = 2
-        Me.chkAbaPrincipal.ValueMember = "tbBloqueiosPrincipal.Principal"
+        Me.lstAbaPrincipal.CheckOnClick = True
+        Me.lstAbaPrincipal.Location = New System.Drawing.Point(0, 21)
+        Me.lstAbaPrincipal.Name = "lstAbaPrincipal"
+        Me.lstAbaPrincipal.Size = New System.Drawing.Size(309, 281)
+        Me.lstAbaPrincipal.TabIndex = 2
+        Me.lstAbaPrincipal.ValueMember = "tbBloqueiosPrincipal.Principal"
         '
         'dsBloqueios
         '
@@ -99,22 +99,22 @@ Partial Class frmBloquearUsuario
         '
         Me.grpAbaRelatorios.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.grpAbaRelatorios.Controls.Add(Me.chkAbaRelatorios)
+        Me.grpAbaRelatorios.Controls.Add(Me.lstAbaRelatorios)
         Me.grpAbaRelatorios.Location = New System.Drawing.Point(312, 41)
         Me.grpAbaRelatorios.Name = "grpAbaRelatorios"
         Me.grpAbaRelatorios.Size = New System.Drawing.Size(309, 302)
         Me.grpAbaRelatorios.TabIndex = 1
         Me.grpAbaRelatorios.Text = "Aba de Relatórios"
         '
-        'chkAbaRelatorios
+        'lstAbaRelatorios
         '
-        Me.chkAbaRelatorios.CheckOnClick = True
-        Me.chkAbaRelatorios.DisplayMember = "tbBloqueiosRelatorios.Relatorios"
-        Me.chkAbaRelatorios.Location = New System.Drawing.Point(1, 21)
-        Me.chkAbaRelatorios.Name = "chkAbaRelatorios"
-        Me.chkAbaRelatorios.Size = New System.Drawing.Size(309, 281)
-        Me.chkAbaRelatorios.TabIndex = 3
-        Me.chkAbaRelatorios.ValueMember = "tbBloqueiosRelatorios.Relatorios"
+        Me.lstAbaRelatorios.CheckOnClick = True
+        Me.lstAbaRelatorios.DisplayMember = "tbBloqueiosRelatorios.Relatorios"
+        Me.lstAbaRelatorios.Location = New System.Drawing.Point(1, 21)
+        Me.lstAbaRelatorios.Name = "lstAbaRelatorios"
+        Me.lstAbaRelatorios.Size = New System.Drawing.Size(309, 281)
+        Me.lstAbaRelatorios.TabIndex = 3
+        Me.lstAbaRelatorios.ValueMember = "tbBloqueiosRelatorios.Relatorios"
         '
         'BarManager1
         '
@@ -215,13 +215,13 @@ Partial Class frmBloquearUsuario
         Me.Text = "Bloquear Usuário"
         CType(Me.grpAbaPrincipal, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grpAbaPrincipal.ResumeLayout(False)
-        CType(Me.chkAbaPrincipal, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lstAbaPrincipal, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dsBloqueios, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tbBloqueiosPrincipal, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tbBloqueiosRelatorios, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grpAbaRelatorios, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grpAbaRelatorios.ResumeLayout(False)
-        CType(Me.chkAbaRelatorios, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lstAbaRelatorios, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cboUsuarios.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -244,6 +244,6 @@ Partial Class frmBloquearUsuario
     Friend WithEvents DataColumn1 As System.Data.DataColumn
     Friend WithEvents tbBloqueiosRelatorios As System.Data.DataTable
     Friend WithEvents DataColumn2 As System.Data.DataColumn
-    Friend WithEvents chkAbaPrincipal As DevExpress.XtraEditors.CheckedListBoxControl
-    Friend WithEvents chkAbaRelatorios As DevExpress.XtraEditors.CheckedListBoxControl
+    Friend WithEvents lstAbaPrincipal As DevExpress.XtraEditors.CheckedListBoxControl
+    Friend WithEvents lstAbaRelatorios As DevExpress.XtraEditors.CheckedListBoxControl
 End Class

@@ -11,8 +11,6 @@ Public Class frmCadUsuario
         AtualizarGrid()
         Limpar()
 
-        strPrincipal = "4|2|5|1"
-        Dim vetPrinc As Array = Split(strPrincipal, "|")
     End Sub
 
     Private Sub AtualizarGrid()
