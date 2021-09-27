@@ -3,8 +3,8 @@ Public Class frmCadUsuario
     Dim bolAlterar As Boolean
     Dim intCodigo As Integer
     Dim strNivel As String
-    Dim strPrincipal As String
-    Dim strRelatorios As String
+    Dim strPrincipal As String = ""
+    Dim strRelatorios As String = ""
 
     Private Sub frmCadUsuario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.MaximizeBox = False
@@ -41,7 +41,7 @@ Public Class frmCadUsuario
 
     Private Sub inserirDados()
         ConverterRdgNivel()
-        Inserir("insert into usuario (Nome, Login, Senha, Inativo, CodConfig, Nivel) values ('" & Me.txtNome.Text & "', '" & Me.txtLogin.Text & "', '" & Me.txtConfirmarSenha.Text & "', '" & Me.chkInativo.Checked & "', '" & Me.cboLoja.Text.Replace(",", ".") & "', '" & Me.strNivel & "')")
+        Inserir("insert into usuario (Nome, Login, Senha, Inativo, CodConfig, Nivel, Principal, Relatorios) values ('" & Me.txtNome.Text & "', '" & Me.txtLogin.Text & "', '" & Me.txtConfirmarSenha.Text & "', '" & Me.chkInativo.Checked & "', '" & Me.cboLoja.Text.Replace(",", ".") & "', '" & Me.strNivel & "', '" & strPrincipal & "', '" & strRelatorios & "')")
         Limpar()
         AtualizarGrid()
     End Sub
@@ -92,11 +92,18 @@ Public Class frmCadUsuario
     Private Sub ConverterRdgNivel()
         If Me.rdgNivel.SelectedIndex = 0 Then
             strNivel = "USUÁRIO"
+            strPrincipal = "2|3|4|5|"
+            strRelatorios = ""
 
         ElseIf Me.rdgNivel.SelectedIndex = 1 Then
             strNivel = "ADMINISTRADOR"
+            strPrincipal = "5|"
+            strRelatorios = ""
+
         Else
             strNivel = "MASTER"
+            strPrincipal = ""
+            strRelatorios = ""
         End If
     End Sub
 

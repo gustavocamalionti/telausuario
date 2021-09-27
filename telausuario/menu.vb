@@ -5,6 +5,15 @@ Imports telausuario.modBloqueios
 Public Class frmMenu
     Private Sub frmMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         BloqueiosConfig()
+
+        'Bloqueios
+        If bolBloquearCadastroUsuario = True Then
+            btnCadastrarUsuario.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
+        End If
+
+        If bolBloquearBloqueioUsuario = True Then
+            btnBloquearUsuario.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
+        End If
     End Sub
 
     Private Sub BloqueiosConfig()
@@ -34,6 +43,11 @@ Public Class frmMenu
                     Case 3 'Alterar Produto
                         bolBloquearAlterarProduto = True
 
+                    Case 4 'Cadastrar Usuarios
+                        bolBloquearCadastroUsuario = True
+
+                    Case 5 'Bloquear Usuario
+                        bolBloquearBloqueioUsuario = True
                 End Select
             Next
         End If
@@ -69,9 +83,11 @@ Public Class frmMenu
 
     Private Sub btnCadastrarUsuario_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnCadastrarUsuario.ItemClick
         frmCadUsuario.ShowDialog()
+        MsgBox("REINICIE O PROGRAMA PARA APLICAR AS CONFIGURAÇÕES!", MsgBoxStyle.Exclamation)
     End Sub
 
-    Private Sub BarButtonItem2_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnBloquearUsuario.ItemClick
+    Private Sub btnBloquearUsuario_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnBloquearUsuario.ItemClick
         frmBloquearUsuario.ShowDialog()
+        MsgBox("REINICIE O PROGRAMA PARA APLICAR AS CONFIGURAÇÕES!", MsgBoxStyle.Exclamation)
     End Sub
 End Class

@@ -52,6 +52,9 @@ Public Class frmCadCliente
         Me.memObservacoes.ResetText()
         Me.cboAniverMes.SelectedIndex = -1
 
+        If bolBloquearCadastroCliente = False And BolBloquearAlterarCliente = True Then
+            Me.btnSalvar.Visibility = DevExpress.XtraBars.BarItemVisibility.Always
+        End If
     End Sub
 
     Private Sub Alterar()
@@ -386,7 +389,7 @@ Public Class frmCadCliente
         End If
 
         'Bloqueios 
-        If BolBloquearAlterarCliente = True Then
+        If bolBloquearCadastroCliente = False And BolBloquearAlterarCliente = True Then
             Me.btnSalvar.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
         End If
     End Sub

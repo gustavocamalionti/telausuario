@@ -122,7 +122,7 @@ Public Class frmCadProdutos
         'Bloqueios
 
         If bolBloquearCadastroProduto = True Then
-            Me.bar1.Visible = False
+            Me.btnSalvar.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
         End If
 
     End Sub
@@ -183,6 +183,10 @@ Public Class frmCadProdutos
         Me.chkAlterarPreco.Checked = False
         Me.chkTribPadrao.Checked = False
         Me.cboBuscarProd.ResetText()
+
+        If bolBloquearCadastroProduto = False And bolBloquearAlterarProduto = True Then
+            Me.btnSalvar.Visibility = DevExpress.XtraBars.BarItemVisibility.Always
+        End If
 
     End Sub
 
@@ -434,6 +438,11 @@ Public Class frmCadProdutos
 
             bolStatusAlteracao = True
 
+            'Bloqueios
+
+            If bolBloquearCadastroProduto = False And bolBloquearAlterarProduto = True Then
+                Me.btnSalvar.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
+            End If
         End If
 
     End Sub

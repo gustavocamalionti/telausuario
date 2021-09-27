@@ -316,9 +316,11 @@ Public Class clsBanco
             Atualizar("Update Config set versaoNano = '1.0.1';")
 
             ExecutaSQL("insert into Bloqueios (Principal, Relatorios) values ('Cadastrar Cliente', '');")
-            ExecutaSQL("insert into Bloqueios (principal, Relatorios) values ('Cadastrar Produto', '');")
+            ExecutaSQL("insert into Bloqueios (Principal, Relatorios) values ('Cadastrar Produto', '');")
             ExecutaSQL("insert into Bloqueios (Principal, Relatorios) values ('Alterar Cliente', '');")
-            ExecutaSQL("insert into Bloqueios (principal, Relatorios) values ('Alterar Produto', '');")
+            ExecutaSQL("insert into Bloqueios (Principal, Relatorios) values ('Alterar Produto', '');")
+            ExecutaSQL("insert into Bloqueios (Principal, Relatorios) values ('Cadastrar Usuario', '');")
+            ExecutaSQL("insert into Bloqueios (Principal, Relatorios) values ('Bloquear Usuario', '')")
 
         End If
     End Function

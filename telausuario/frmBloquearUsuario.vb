@@ -7,7 +7,7 @@ Public Class frmBloquearUsuario
         Dim dtBloqueiosRelatorios As DataTable = CarregarDataTable("select Relatorios from bloqueios")
         Dim dtPesquisarUsuarios As DataTable = CarregarDataTable("select Nome from Usuario")
 
-        If dtPesquisarUsuarios.Rows.Count > 0 And cboUsuarios.Properties.Items.Count <= 1 Then
+        If dtPesquisarUsuarios.Rows.Count > 0 Then
             For I = 0 To dtPesquisarUsuarios.Rows.Count - 1
                 If dtPesquisarUsuarios.Rows.Item(I).Item("Nome").ToString <> "" Then
                     cboUsuarios.Properties.Items.Add(dtPesquisarUsuarios.Rows.Item(I).Item("Nome"))
@@ -56,11 +56,13 @@ Public Class frmBloquearUsuario
         Next
 
         Dim dtValidarNivel As DataTable = CarregarDataTable("select * from usuario where nome = '" & Me.cboUsuarios.Text & "'")
-        If Me.cboUsuarios.Text <> "" And dtValidarNivel.rows.item(0).item("Nivel") <> "MASTER" Then
-            Atualizar("update usuario set Principal = '" & strPrincipal & "', Relatorios = '" & strRelatorio & "' where Nome = '" & Me.cboUsuarios.Text & "'")
-            Limpar()
-            MsgBox("Funções bloqueadas com sucesso.", MsgBoxStyle.Information)
-            Exit Sub
+        If dtValidarNivel.Rows.Count <> 0 Then
+            If Me.cboUsuarios.Text <> "" And dtValidarNivel.Rows.Item(0).Item("Nivel") <> "MASTER" Then
+                Atualizar("update usuario set Principal = '" & strPrincipal & "', Relatorios = '" & strRelatorio & "' where Nome = '" & Me.cboUsuarios.Text & "'")
+                Limpar()
+                MsgBox("Funções bloqueadas com sucesso.", MsgBoxStyle.Information)
+                Exit Sub
+            End If
         End If
         Limpar()
     End Sub

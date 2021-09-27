@@ -200,7 +200,7 @@ Partial Class frmCadUsuario
         Me.chkInativo.Name = "chkInativo"
         Me.chkInativo.Properties.Caption = "Inativo"
         Me.chkInativo.Size = New System.Drawing.Size(75, 19)
-        Me.chkInativo.TabIndex = 1
+        Me.chkInativo.TabIndex = 6
         '
         'grdUsuariosCadastrados
         '
@@ -359,13 +359,14 @@ Partial Class frmCadUsuario
         '
         Me.txtNome.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtNome.EnterMoveNextControl = True
         Me.txtNome.Location = New System.Drawing.Point(111, 12)
         Me.txtNome.MenuManager = Me.BarManager1
         Me.txtNome.Name = "txtNome"
         Me.txtNome.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtNome.Properties.MaxLength = 80
         Me.txtNome.Size = New System.Drawing.Size(455, 20)
-        Me.txtNome.TabIndex = 9
+        Me.txtNome.TabIndex = 0
         '
         'LabelControl1
         '
@@ -378,13 +379,14 @@ Partial Class frmCadUsuario
         'cboLoja
         '
         Me.cboLoja.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cboLoja.EnterMoveNextControl = True
         Me.cboLoja.Location = New System.Drawing.Point(432, 85)
         Me.cboLoja.MenuManager = Me.BarManager1
         Me.cboLoja.Name = "cboLoja"
         Me.cboLoja.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cboLoja.Properties.MaxLength = 10
         Me.cboLoja.Size = New System.Drawing.Size(134, 20)
-        Me.cboLoja.TabIndex = 11
+        Me.cboLoja.TabIndex = 5
         '
         'rdgNivel
         '
@@ -395,7 +397,7 @@ Partial Class frmCadUsuario
         Me.rdgNivel.Name = "rdgNivel"
         Me.rdgNivel.Properties.Items.AddRange(New DevExpress.XtraEditors.Controls.RadioGroupItem() {New DevExpress.XtraEditors.Controls.RadioGroupItem(Nothing, "USUÁRIO"), New DevExpress.XtraEditors.Controls.RadioGroupItem(Nothing, "ADMINISTRADOR"), New DevExpress.XtraEditors.Controls.RadioGroupItem(Nothing, "MASTER")})
         Me.rdgNivel.Size = New System.Drawing.Size(455, 22)
-        Me.rdgNivel.TabIndex = 12
+        Me.rdgNivel.TabIndex = 1
         '
         'LabelControl55
         '
@@ -426,13 +428,14 @@ Partial Class frmCadUsuario
         '
         'txtLogin
         '
+        Me.txtLogin.EnterMoveNextControl = True
         Me.txtLogin.Location = New System.Drawing.Point(111, 85)
         Me.txtLogin.MenuManager = Me.BarManager1
         Me.txtLogin.Name = "txtLogin"
         Me.txtLogin.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtLogin.Properties.MaxLength = 20
         Me.txtLogin.Size = New System.Drawing.Size(156, 20)
-        Me.txtLogin.TabIndex = 72
+        Me.txtLogin.TabIndex = 2
         '
         'LabelControl3
         '
@@ -444,13 +447,14 @@ Partial Class frmCadUsuario
         '
         'txtSenha
         '
+        Me.txtSenha.EnterMoveNextControl = True
         Me.txtSenha.Location = New System.Drawing.Point(111, 111)
         Me.txtSenha.MenuManager = Me.BarManager1
         Me.txtSenha.Name = "txtSenha"
         Me.txtSenha.Properties.MaxLength = 10
         Me.txtSenha.Properties.UseSystemPasswordChar = True
         Me.txtSenha.Size = New System.Drawing.Size(156, 20)
-        Me.txtSenha.TabIndex = 74
+        Me.txtSenha.TabIndex = 3
         '
         'LabelControl4
         '
@@ -462,13 +466,14 @@ Partial Class frmCadUsuario
         '
         'txtConfirmarSenha
         '
+        Me.txtConfirmarSenha.EnterMoveNextControl = True
         Me.txtConfirmarSenha.Location = New System.Drawing.Point(111, 137)
         Me.txtConfirmarSenha.MenuManager = Me.BarManager1
         Me.txtConfirmarSenha.Name = "txtConfirmarSenha"
         Me.txtConfirmarSenha.Properties.MaxLength = 10
         Me.txtConfirmarSenha.Properties.UseSystemPasswordChar = True
         Me.txtConfirmarSenha.Size = New System.Drawing.Size(156, 20)
-        Me.txtConfirmarSenha.TabIndex = 76
+        Me.txtConfirmarSenha.TabIndex = 4
         '
         'LabelControl5
         '
