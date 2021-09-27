@@ -405,4 +405,8 @@ Public Class frmCadCliente
     Private Sub txtNomeRazao_EditValueChanged(sender As Object, e As EventArgs) Handles txtNomeRazao.EditValueChanged
 
     End Sub
+
+    Private Sub txtClienteCep_EditValueChanged(sender As Object, e As EventArgs) Handles txtClienteCep.EditValueChanged
+
+    End Sub
 End Class

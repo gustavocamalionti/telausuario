@@ -159,4 +159,16 @@ Public Class frmCadUsuario
         MostrarDados()
     End Sub
     
+    Private Sub txtNome_EditValueChanged(sender As Object, e As EventArgs) Handles txtNome.EditValueChanged
+
+    End Sub
+    Private Sub txtLogin_EditValueChanged(sender As Object, e As EventArgs) Handles txtLogin.EditValueChanged
+
+    End Sub
+    Private Sub txtSenha_EditValueChanged(sender As Object, e As EventArgs) Handles txtSenha.EditValueChanged
+
+    End Sub
+    Private Sub txtConfirmarSenha_EditValueChanged(sender As Object, e As EventArgs) Handles txtConfirmarSenha.EditValueChanged
+
+    End Sub
 End Class

@@ -3,6 +3,7 @@ Public Class frmBloquearUsuario
 
     Private Sub frmBloquearUsuario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Limpar()
+        Me.cboUsuarios.Properties.Items.Clear()
         Dim dtBloqueiosPrincipal As DataTable = CarregarDataTable("select Principal from bloqueios")
         Dim dtBloqueiosRelatorios As DataTable = CarregarDataTable("select Relatorios from bloqueios")
         Dim dtPesquisarUsuarios As DataTable = CarregarDataTable("select Nome from Usuario")
@@ -35,7 +36,6 @@ Public Class frmBloquearUsuario
 
     Private Sub Limpar()
         Me.cboUsuarios.ResetText()
-        Me.cboUsuarios.Properties.Items.Clear()
         Me.lstAbaPrincipal.UnCheckAll()
         Me.lstAbaRelatorios.UnCheckAll()
     End Sub
