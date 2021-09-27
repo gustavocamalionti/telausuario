@@ -162,22 +162,22 @@ Partial Class frmCadUsuario
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 433)
-        Me.barDockControlBottom.Size = New System.Drawing.Size(576, 35)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 431)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(576, 37)
         '
         'barDockControlLeft
         '
         Me.barDockControlLeft.CausesValidation = False
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
         Me.barDockControlLeft.Location = New System.Drawing.Point(0, 0)
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 433)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 431)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
         Me.barDockControlRight.Location = New System.Drawing.Point(576, 0)
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 433)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 431)
         '
         'grpUsuariosCadastrados
         '
@@ -517,6 +517,7 @@ Partial Class frmCadUsuario
         Me.Controls.Add(Me.barDockControlBottom)
         Me.Controls.Add(Me.barDockControlTop)
         Me.Name = "frmCadUsuario"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Cadastrar Usuário"
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grpUsuariosCadastrados, System.ComponentModel.ISupportInitialize).EndInit()

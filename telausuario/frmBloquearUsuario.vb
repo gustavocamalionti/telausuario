@@ -35,6 +35,7 @@ Public Class frmBloquearUsuario
 
     Private Sub Limpar()
         Me.cboUsuarios.ResetText()
+        Me.cboUsuarios.Properties.Items.Clear()
         Me.lstAbaPrincipal.UnCheckAll()
         Me.lstAbaRelatorios.UnCheckAll()
     End Sub
