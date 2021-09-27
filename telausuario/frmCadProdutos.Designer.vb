@@ -25,7 +25,7 @@ Partial Class frmCadProdutos
         Me.components = New System.ComponentModel.Container()
         Dim GridLevelNode1 As DevExpress.XtraGrid.GridLevelNode = New DevExpress.XtraGrid.GridLevelNode()
         Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
-        Me.btnSalvar = New DevExpress.XtraBars.Bar()
+        Me.bar1 = New DevExpress.XtraBars.Bar()
         Me.btnExcluir = New DevExpress.XtraBars.BarButtonItem()
         Me.lblModelo = New DevExpress.XtraBars.BarStaticItem()
         Me.BarEditItem1 = New DevExpress.XtraBars.BarEditItem()
@@ -34,7 +34,7 @@ Partial Class frmCadProdutos
         Me.btnEtiquetas = New DevExpress.XtraBars.BarButtonItem()
         Me.btnFunções = New DevExpress.XtraBars.BarSubItem()
         Me.btnVisualizar = New DevExpress.XtraBars.BarButtonItem()
-        Me.bntSalvar = New DevExpress.XtraBars.BarButtonItem()
+        Me.btnSalvar = New DevExpress.XtraBars.BarButtonItem()
         Me.btnAlterar = New DevExpress.XtraBars.BarButtonItem()
         Me.btnLimpar = New DevExpress.XtraBars.BarButtonItem()
         Me.btnFechar = New DevExpress.XtraBars.BarButtonItem()
@@ -286,36 +286,36 @@ Partial Class frmCadProdutos
         '
         'BarManager1
         '
-        Me.BarManager1.Bars.AddRange(New DevExpress.XtraBars.Bar() {Me.btnSalvar})
+        Me.BarManager1.Bars.AddRange(New DevExpress.XtraBars.Bar() {Me.bar1})
         Me.BarManager1.DockControls.Add(Me.barDockControlTop)
         Me.BarManager1.DockControls.Add(Me.barDockControlBottom)
         Me.BarManager1.DockControls.Add(Me.barDockControlLeft)
         Me.BarManager1.DockControls.Add(Me.barDockControlRight)
         Me.BarManager1.Form = Me
-        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.btnExcluir, Me.lblModelo, Me.BarEditItem1, Me.btnAdicionar, Me.btnEtiquetas, Me.btnFunções, Me.btnVisualizar, Me.bntSalvar, Me.btnAlterar, Me.btnLimpar, Me.btnFechar})
+        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.btnExcluir, Me.lblModelo, Me.BarEditItem1, Me.btnAdicionar, Me.btnEtiquetas, Me.btnFunções, Me.btnVisualizar, Me.btnSalvar, Me.btnAlterar, Me.btnLimpar, Me.btnFechar})
         Me.BarManager1.MaxItemId = 17
         Me.BarManager1.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemButtonEdit1, Me.RepositoryItemTextEdit1, Me.RepositoryItemButtonEdit2})
-        Me.BarManager1.StatusBar = Me.btnSalvar
+        Me.BarManager1.StatusBar = Me.bar1
         '
-        'btnSalvar
+        'bar1
         '
-        Me.btnSalvar.BarAppearance.Disabled.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btnSalvar.BarAppearance.Disabled.BackColor2 = System.Drawing.Color.Yellow
-        Me.btnSalvar.BarAppearance.Disabled.BorderColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.btnSalvar.BarAppearance.Disabled.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btnSalvar.BarAppearance.Disabled.Options.UseBackColor = True
-        Me.btnSalvar.BarAppearance.Disabled.Options.UseBorderColor = True
-        Me.btnSalvar.BarAppearance.Disabled.Options.UseForeColor = True
-        Me.btnSalvar.BarName = "Status bar"
-        Me.btnSalvar.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom
-        Me.btnSalvar.DockCol = 0
-        Me.btnSalvar.DockRow = 0
-        Me.btnSalvar.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom
-        Me.btnSalvar.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnExcluir, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(Me.lblModelo), New DevExpress.XtraBars.LinkPersistInfo(Me.BarEditItem1), New DevExpress.XtraBars.LinkPersistInfo(Me.btnAdicionar), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnEtiquetas, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnFunções, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnVisualizar, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.bntSalvar, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnAlterar, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnLimpar, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnFechar, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)})
-        Me.btnSalvar.OptionsBar.AllowQuickCustomization = False
-        Me.btnSalvar.OptionsBar.DrawDragBorder = False
-        Me.btnSalvar.OptionsBar.UseWholeRow = True
-        Me.btnSalvar.Text = "Status bar"
+        Me.bar1.BarAppearance.Disabled.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.bar1.BarAppearance.Disabled.BackColor2 = System.Drawing.Color.Yellow
+        Me.bar1.BarAppearance.Disabled.BorderColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.bar1.BarAppearance.Disabled.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.bar1.BarAppearance.Disabled.Options.UseBackColor = True
+        Me.bar1.BarAppearance.Disabled.Options.UseBorderColor = True
+        Me.bar1.BarAppearance.Disabled.Options.UseForeColor = True
+        Me.bar1.BarName = "Status bar"
+        Me.bar1.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom
+        Me.bar1.DockCol = 0
+        Me.bar1.DockRow = 0
+        Me.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom
+        Me.bar1.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnExcluir, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(Me.lblModelo), New DevExpress.XtraBars.LinkPersistInfo(Me.BarEditItem1), New DevExpress.XtraBars.LinkPersistInfo(Me.btnAdicionar), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnEtiquetas, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnFunções, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnVisualizar, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnSalvar, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnAlterar, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnLimpar, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnFechar, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)})
+        Me.bar1.OptionsBar.AllowQuickCustomization = False
+        Me.bar1.OptionsBar.DrawDragBorder = False
+        Me.bar1.OptionsBar.UseWholeRow = True
+        Me.bar1.Text = "Status bar"
         '
         'btnExcluir
         '
@@ -372,13 +372,13 @@ Partial Class frmCadProdutos
         Me.btnVisualizar.Id = 11
         Me.btnVisualizar.Name = "btnVisualizar"
         '
-        'bntSalvar
+        'btnSalvar
         '
-        Me.bntSalvar.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
-        Me.bntSalvar.Caption = "Salvar"
-        Me.bntSalvar.Glyph = Global.telausuario.My.Resources.Resources.apply
-        Me.bntSalvar.Id = 12
-        Me.bntSalvar.Name = "bntSalvar"
+        Me.btnSalvar.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
+        Me.btnSalvar.Caption = "Salvar"
+        Me.btnSalvar.Glyph = Global.telausuario.My.Resources.Resources.apply
+        Me.btnSalvar.Id = 12
+        Me.btnSalvar.Name = "btnSalvar"
         '
         'btnAlterar
         '
@@ -2132,7 +2132,7 @@ Partial Class frmCadProdutos
 
     End Sub
     Friend WithEvents BarManager1 As DevExpress.XtraBars.BarManager
-    Friend WithEvents btnSalvar As DevExpress.XtraBars.Bar
+    Friend WithEvents bar1 As DevExpress.XtraBars.Bar
     Friend WithEvents barDockControlTop As DevExpress.XtraBars.BarDockControl
     Friend WithEvents barDockControlBottom As DevExpress.XtraBars.BarDockControl
     Friend WithEvents barDockControlLeft As DevExpress.XtraBars.BarDockControl
@@ -2147,7 +2147,7 @@ Partial Class frmCadProdutos
     Friend WithEvents btnEtiquetas As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents btnFunções As DevExpress.XtraBars.BarSubItem
     Friend WithEvents btnVisualizar As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents bntSalvar As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents btnSalvar As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents btnAlterar As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents btnLimpar As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents btnFechar As DevExpress.XtraBars.BarButtonItem

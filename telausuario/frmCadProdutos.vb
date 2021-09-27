@@ -4,6 +4,10 @@ Public Class frmCadProdutos
     Dim intCodigoProduto As Integer
     Dim dblResultado As Double
 
+    Private Sub frmCadProdutos_InputLanguageChanging(sender As Object, e As InputLanguageChangingEventArgs) Handles Me.InputLanguageChanging
+
+    End Sub
+
     Private Sub frmCadProdutos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Limpar()
         AtualizarGrid()
@@ -118,7 +122,7 @@ Public Class frmCadProdutos
         'Bloqueios
 
         If bolBloquearCadastroProduto = True Then
-            Me.btnSalvar.Visible = False
+            Me.bar1.Visible = False
         End If
 
     End Sub
@@ -302,7 +306,7 @@ Public Class frmCadProdutos
 
     End Sub
 
-    Private Sub bntSalvar_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bntSalvar.ItemClick
+    Private Sub bntSalvar_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnSalvar.ItemClick
         If Me.txtProduto.Text = "" Then
             MsgBox("O campo Produto é Obrigatório, tente novamente!", MsgBoxStyle.Exclamation)
             Exit Sub
