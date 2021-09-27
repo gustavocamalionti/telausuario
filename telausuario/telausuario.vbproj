@@ -190,6 +190,12 @@
     <Compile Include="frmBloquearUsuario.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmAlterarsenha.Designer.vb">
+      <DependentUpon>frmAlterarsenha.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAlterarsenha.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="frmCadPedido.resx">
@@ -225,6 +231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmBloquearUsuario.resx">
       <DependentUpon>frmBloquearUsuario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAlterarsenha.resx">
+      <DependentUpon>frmAlterarsenha.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -369,6 +378,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cadeado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Senha.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

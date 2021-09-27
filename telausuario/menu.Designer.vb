@@ -32,6 +32,7 @@ Partial Class frmMenu
         Me.BarStaticItem2 = New DevExpress.XtraBars.BarStaticItem()
         Me.btnCadastrarUsuario = New DevExpress.XtraBars.BarButtonItem()
         Me.btnBloquearUsuario = New DevExpress.XtraBars.BarButtonItem()
+        Me.btnAlterarSenha = New DevExpress.XtraBars.BarButtonItem()
         Me.princ = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.Principal = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonStatusBar = New DevExpress.XtraBars.Ribbon.RibbonStatusBar()
@@ -45,13 +46,14 @@ Partial Class frmMenu
         '
         Me.RibbonControl.ExpandCollapseItem.Id = 0
         Me.RibbonControl.ForeColor = System.Drawing.SystemColors.ActiveCaption
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.btnCadCliente, Me.btnEstoque, Me.btnCadastrarProduto, Me.btnPedidos, Me.btnCadastrarPedido, Me.BarStaticItem1, Me.BarStaticItem2, Me.btnConsultarPedido, Me.BarButtonItem1, Me.btnCadastrarUsuario, Me.btnBloquearUsuario})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.btnCadCliente, Me.btnEstoque, Me.btnCadastrarProduto, Me.btnPedidos, Me.btnCadastrarPedido, Me.BarStaticItem1, Me.BarStaticItem2, Me.btnConsultarPedido, Me.BarButtonItem1, Me.btnCadastrarUsuario, Me.btnBloquearUsuario, Me.btnAlterarSenha})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonControl.MaxItemId = 128
+        Me.RibbonControl.MaxItemId = 129
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.princ})
         Me.RibbonControl.Size = New System.Drawing.Size(436, 145)
         Me.RibbonControl.StatusBar = Me.RibbonStatusBar
+        Me.RibbonControl.Toolbar.ItemLinks.Add(Me.btnAlterarSenha)
         Me.RibbonControl.Toolbar.ItemLinks.Add(Me.btnCadastrarUsuario)
         Me.RibbonControl.Toolbar.ItemLinks.Add(Me.btnBloquearUsuario)
         Me.RibbonControl.TransparentEditors = True
@@ -136,6 +138,13 @@ Partial Class frmMenu
         Me.btnBloquearUsuario.Id = 127
         Me.btnBloquearUsuario.Name = "btnBloquearUsuario"
         '
+        'btnAlterarSenha
+        '
+        Me.btnAlterarSenha.Caption = "Alterar Senha"
+        Me.btnAlterarSenha.Glyph = Global.telausuario.My.Resources.Resources.Senha
+        Me.btnAlterarSenha.Id = 128
+        Me.btnAlterarSenha.Name = "btnAlterarSenha"
+        '
         'princ
         '
         Me.princ.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.Principal})
@@ -201,6 +210,7 @@ Partial Class frmMenu
     Friend WithEvents BarButtonItem1 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents btnCadastrarUsuario As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents btnBloquearUsuario As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents btnAlterarSenha As DevExpress.XtraBars.BarButtonItem
 
 
 End Class
