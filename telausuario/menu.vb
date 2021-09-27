@@ -1,4 +1,7 @@
-﻿Public Class frmMenu
+﻿
+Imports telausuario.modFuncoes
+Imports telausuario.clsFuncao
+Public Class frmMenu
 
     Private Sub btnCadCliente_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnCadCliente.ItemClick
         frmCadCliente.Tag = "CadastrarCliente"
@@ -33,5 +36,9 @@
 
     Private Sub BarButtonItem2_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnBloquearUsuario.ItemClick
         frmBloquearUsuario.ShowDialog()
+    End Sub
+
+    Private Sub frmMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

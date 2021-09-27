@@ -102,6 +102,31 @@ Public Class frmCadCliente
         Me.memObservacoes.Text = Me.grd1.GetRowCellDisplayText(Index, Me.colObservacao)
     End Sub
 
+    Private Sub BloqueiosDeUsuarios()
+        Dim dtCarregarBloqueiosUsuario As DataTable = CarregarDataTable("select Principal, Relatorios as usuarios where Nome = '" & NomeUsuarioConectado & "' ")
+
+        Dim strPrincipal As String = dtCarregarBloqueiosUsuario.Rows.Item(0).Item("Principal")
+        Dim strRelatorios As String = dtCarregarBloqueiosUsuario.Rows.Item(0).Item("Relatorios")
+
+        Dim vetPrincipal As Array = Split(strPrincipal, "|")
+        Dim vetRelatorios As Array = Split(strPrincipal, "|")
+
+        For I = 0 To vetPrincipal.Length - 1
+            Select Case vetPrincipal(I)
+                Case 0 'Cadastrar Cliente
+                    Me.btnSalvar.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
+
+                Case 1 'Cadastrar Produto
+                    Me.btnAlterar.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
+                Case 2 'Alterar Cliente
+
+                Case 3 'Alterar Produto
+
+
+            End Select
+        Next
+
+    End Sub
 
     Private Sub btnExclui_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnExclui.ItemClick
         If bolStatusAlteracao = True Then

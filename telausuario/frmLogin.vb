@@ -5,6 +5,8 @@ Imports telausuario.clsFuncao
 Public Class frmLogin
 
     Private Sub frmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        NomeUsuarioConectado = ""
+
         StringDeConexao = My.Settings.dsTelaUsuario
         Dim intPosicaoDireita As Integer
         Dim intPosicaoEsquerda As Integer
@@ -37,11 +39,11 @@ Public Class frmLogin
         GerenciarTabela()
     End Sub
 
-    Private Sub btnOk_Click(sender As Object, e As EventArgs) Handles btnOk.Click
-        Dim ValidarSenha As DataTable = CarregarDataTable("select Login, Senha from Usuario;")
+    Private Sub ValidarSalvamento(parVal As Object)
         If Me.txtLogin.Text <> "" And Me.txtSenha.Text <> "" Then
-            For c = 0 To ValidarSenha.Rows.Count - 1
-                If Me.txtLogin.Text = ValidarSenha.Rows.Item(c).Item("Login") And Me.txtSenha.Text = ValidarSenha.Rows.Item(c).Item("Senha") Then
+            For c = 0 To parVal.Rows.Count - 1
+                If Me.txtLogin.Text = parVal.Rows.Item(c).Item("Login") And Me.txtSenha.Text = parVal.Rows.Item(c).Item("Senha") Then
+                    NomeUsuarioConectado = parVal.Rows.Item(c).Item("Login")
                     MsgBox("Login feito com sucesso!", MsgBoxStyle.Information)
                     Me.txtLogin.ResetText()
                     Me.txtSenha.ResetText()
@@ -61,6 +63,12 @@ Public Class frmLogin
 
     End Sub
 
+    Private Sub btnOk_Click(sender As Object, e As EventArgs) Handles btnOk.Click
+        Dim dtDadosUsuarios As DataTable = CarregarDataTable("select Login, Senha from Usuario;")
+        ValidarSalvamento(dtDadosUsuarios)
+
+    End Sub
+
     Private Sub btnOk_VisibleChanged(sender As Object, e As EventArgs) Handles btnOk.VisibleChanged
         btnOk.BackColor = Color.FromArgb(155, 194, 206)
     End Sub
@@ -75,27 +83,9 @@ Public Class frmLogin
 
     Private Sub txtSenha_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtSenha.KeyPress
         If AscW(e.KeyChar) = CInt(Keys.Enter) Then
-            Dim ValidarSenha As DataTable = CarregarDataTable("select Login, Senha from Usuario;")
-            If Me.txtLogin.Text <> "" And Me.txtSenha.Text <> "" Then
-                For c = 0 To ValidarSenha.Rows.Count - 1
-                    If Me.txtLogin.Text = ValidarSenha.Rows.Item(c).Item("Login") And Me.txtSenha.Text = ValidarSenha.Rows.Item(c).Item("Senha") Then
-                        MsgBox("Login feito com sucesso!", MsgBoxStyle.Information)
-                        Me.txtLogin.ResetText()
-                        Me.txtSenha.ResetText()
-                        Hide()
-                        frmMenu.ShowDialog()
-                        Me.Close()
-                        Exit Sub
-                    End If
-                Next
-                MsgBox("Erro ao fazer login! Verifique as informações fornecidas.", MsgBoxStyle.Exclamation)
-            Else
-                Me.txtLogin.ResetText()
-                Me.txtSenha.ResetText()
-                MsgBox("Preencha os campos antes de enviar.", MsgBoxStyle.Exclamation)
-            End If
+            Dim dtDadosUsuarios As DataTable = CarregarDataTable("select Login, Senha from Usuario;")
+            ValidarSalvamento(dtDadosUsuarios)
         End If
-
     End Sub
 
 
@@ -105,5 +95,9 @@ Public Class frmLogin
 
     Private Sub txtSenha_Leave(sender As Object, e As EventArgs) Handles txtSenha.Leave
         txtSenha.Text.Trim()
+    End Sub
+
+    Private Sub txtSenha_EditValueChanged(sender As Object, e As EventArgs) Handles txtSenha.EditValueChanged
+
     End Sub
 End Class

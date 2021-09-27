@@ -13,4 +13,5 @@
     Public NomeProduto As String
     Public indexPedidoAtual As Integer
 
+    Public NomeUsuarioConectado As String
 End Module
