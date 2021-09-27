@@ -109,6 +109,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\modBloqueios.vb" />
     <Compile Include="Classes\clsBanco.vb" />
     <Compile Include="Classes\modFuncoes.vb" />
     <Compile Include="Classes\clsFuncao.vb" />

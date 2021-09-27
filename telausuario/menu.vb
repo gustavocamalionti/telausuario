@@ -1,7 +1,44 @@
 ﻿
 Imports telausuario.modFuncoes
 Imports telausuario.clsFuncao
+Imports telausuario.modBloqueios
 Public Class frmMenu
+    Private Sub frmMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        BloqueiosConfig()
+    End Sub
+
+    Private Sub BloqueiosConfig()
+        Dim dtCarregarBloqueiosUsuario As DataTable = CarregarDataTable("select Principal, Relatorios from usuario where Login = '" & LoginUsuarioConectado & "' ")
+
+        If dtCarregarBloqueiosUsuario.Rows.Count <> 0 Then
+            Dim strPrincipal As String = dtCarregarBloqueiosUsuario.Rows.Item(0).Item("Principal").ToString
+            Dim strRelatorios As String = dtCarregarBloqueiosUsuario.Rows.Item(0).Item("Relatorios").ToString
+
+
+            Dim vetPrincipal As Array = Split(strPrincipal, "|")
+            Dim vetRelatorios As Array = Split(strRelatorios, "|")
+
+
+            For I = 0 To vetPrincipal.Length - 1
+                Select Case vetPrincipal(I)
+                    Case ""
+                    Case 0 'Cadastrar Cliente
+                        bolBloquearCadastroCliente = True
+
+                    Case 1 'Cadastrar Produto
+                        bolBloquearCadastroProduto = True
+
+                    Case 2 'Alterar Cliente
+                        BolBloquearAlterarCliente = True
+
+                    Case 3 'Alterar Produto
+                        bolBloquearAlterarProduto = True
+
+                End Select
+            Next
+        End If
+    End Sub
+
 
     Private Sub btnCadCliente_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnCadCliente.ItemClick
         frmCadCliente.Tag = "CadastrarCliente"
@@ -36,9 +73,5 @@ Public Class frmMenu
 
     Private Sub BarButtonItem2_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnBloquearUsuario.ItemClick
         frmBloquearUsuario.ShowDialog()
-    End Sub
-
-    Private Sub frmMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
     End Sub
 End Class

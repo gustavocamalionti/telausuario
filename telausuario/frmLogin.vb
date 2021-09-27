@@ -5,7 +5,7 @@ Imports telausuario.clsFuncao
 Public Class frmLogin
 
     Private Sub frmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        NomeUsuarioConectado = ""
+        LoginUsuarioConectado = ""
 
         StringDeConexao = My.Settings.dsTelaUsuario
         Dim intPosicaoDireita As Integer
@@ -43,7 +43,7 @@ Public Class frmLogin
         If Me.txtLogin.Text <> "" And Me.txtSenha.Text <> "" Then
             For c = 0 To parVal.Rows.Count - 1
                 If Me.txtLogin.Text = parVal.Rows.Item(c).Item("Login") And Me.txtSenha.Text = parVal.Rows.Item(c).Item("Senha") Then
-                    NomeUsuarioConectado = parVal.Rows.Item(c).Item("Login")
+                    LoginUsuarioConectado = parVal.Rows.Item(c).Item("Login")
                     MsgBox("Login feito com sucesso!", MsgBoxStyle.Information)
                     Me.txtLogin.ResetText()
                     Me.txtSenha.ResetText()
@@ -97,7 +97,4 @@ Public Class frmLogin
         txtSenha.Text.Trim()
     End Sub
 
-    Private Sub txtSenha_EditValueChanged(sender As Object, e As EventArgs) Handles txtSenha.EditValueChanged
-
-    End Sub
 End Class

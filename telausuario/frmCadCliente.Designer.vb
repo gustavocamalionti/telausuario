@@ -21,7 +21,7 @@ Partial Class frmCadCliente
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCadCliente))
-        Dim GridLevelNode1 As DevExpress.XtraGrid.GridLevelNode = New DevExpress.XtraGrid.GridLevelNode()
+        Dim GridLevelNode2 As DevExpress.XtraGrid.GridLevelNode = New DevExpress.XtraGrid.GridLevelNode()
         Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
         Me.Bar3 = New DevExpress.XtraBars.Bar()
         Me.btnExclui = New DevExpress.XtraBars.BarButtonItem()
@@ -412,6 +412,7 @@ Partial Class frmCadCliente
         '
         'btnAlterar
         '
+        Me.btnAlterar.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
         Me.btnAlterar.Caption = "Alterar"
         Me.btnAlterar.Glyph = CType(resources.GetObject("btnAlterar.Glyph"), System.Drawing.Image)
         Me.btnAlterar.Id = 6
@@ -419,6 +420,7 @@ Partial Class frmCadCliente
         '
         'btnLimpar
         '
+        Me.btnLimpar.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
         Me.btnLimpar.Caption = "Limpar"
         Me.btnLimpar.Glyph = CType(resources.GetObject("btnLimpar.Glyph"), System.Drawing.Image)
         Me.btnLimpar.Id = 7
@@ -426,6 +428,7 @@ Partial Class frmCadCliente
         '
         'btnFechar
         '
+        Me.btnFechar.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
         Me.btnFechar.Caption = "Fechar"
         Me.btnFechar.Glyph = CType(resources.GetObject("btnFechar.Glyph"), System.Drawing.Image)
         Me.btnFechar.Id = 8
@@ -651,8 +654,8 @@ Partial Class frmCadCliente
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.grdClientesCad.DataSource = Me.ClienteBindingSource
         Me.grdClientesCad.EmbeddedNavigator.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D
-        GridLevelNode1.RelationName = "Level1"
-        Me.grdClientesCad.LevelTree.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode1})
+        GridLevelNode2.RelationName = "Level1"
+        Me.grdClientesCad.LevelTree.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode2})
         Me.grdClientesCad.Location = New System.Drawing.Point(2, 24)
         Me.grdClientesCad.MainView = Me.grd1
         Me.grdClientesCad.MenuManager = Me.BarManager1
