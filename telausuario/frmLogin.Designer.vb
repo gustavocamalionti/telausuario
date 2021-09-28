@@ -121,6 +121,7 @@ Partial Class frmLogin
         Me.Controls.Add(Me.btnOk)
         Me.Controls.Add(Me.lblSenha)
         Me.Controls.Add(Me.lblLogin)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmLogin"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Tela de Login"
