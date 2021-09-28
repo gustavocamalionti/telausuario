@@ -22,22 +22,24 @@ Partial Class frmAlterarSenha
         Me.txtSenhaAntiga = New DevExpress.XtraEditors.TextEdit()
         Me.lblSenhaAntiga = New DevExpress.XtraEditors.LabelControl()
         Me.lblNovaSenha = New DevExpress.XtraEditors.LabelControl()
-        Me.TextEdit1 = New DevExpress.XtraEditors.TextEdit()
+        Me.txtNovaSenha = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
-        Me.TextEdit2 = New DevExpress.XtraEditors.TextEdit()
+        Me.txtConfirmarSenha = New DevExpress.XtraEditors.TextEdit()
         Me.PanelControl4 = New DevExpress.XtraEditors.PanelControl()
         Me.btnCancelar = New DevExpress.XtraEditors.SimpleButton()
         Me.btnOk = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.txtSenhaAntiga.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TextEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TextEdit2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtNovaSenha.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtConfirmarSenha.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txtSenhaAntiga
         '
+        Me.txtSenhaAntiga.EnterMoveNextControl = True
         Me.txtSenhaAntiga.Location = New System.Drawing.Point(100, 9)
         Me.txtSenhaAntiga.Name = "txtSenhaAntiga"
+        Me.txtSenhaAntiga.Properties.UseSystemPasswordChar = True
         Me.txtSenhaAntiga.Size = New System.Drawing.Size(124, 20)
         Me.txtSenhaAntiga.TabIndex = 0
         '
@@ -57,12 +59,14 @@ Partial Class frmAlterarSenha
         Me.lblNovaSenha.TabIndex = 3
         Me.lblNovaSenha.Text = "Nova Senha"
         '
-        'TextEdit1
+        'txtNovaSenha
         '
-        Me.TextEdit1.Location = New System.Drawing.Point(100, 35)
-        Me.TextEdit1.Name = "TextEdit1"
-        Me.TextEdit1.Size = New System.Drawing.Size(124, 20)
-        Me.TextEdit1.TabIndex = 1
+        Me.txtNovaSenha.EnterMoveNextControl = True
+        Me.txtNovaSenha.Location = New System.Drawing.Point(100, 35)
+        Me.txtNovaSenha.Name = "txtNovaSenha"
+        Me.txtNovaSenha.Properties.UseSystemPasswordChar = True
+        Me.txtNovaSenha.Size = New System.Drawing.Size(124, 20)
+        Me.txtNovaSenha.TabIndex = 1
         '
         'LabelControl2
         '
@@ -72,12 +76,14 @@ Partial Class frmAlterarSenha
         Me.LabelControl2.TabIndex = 5
         Me.LabelControl2.Text = "Confirmar Senha"
         '
-        'TextEdit2
+        'txtConfirmarSenha
         '
-        Me.TextEdit2.Location = New System.Drawing.Point(100, 61)
-        Me.TextEdit2.Name = "TextEdit2"
-        Me.TextEdit2.Size = New System.Drawing.Size(124, 20)
-        Me.TextEdit2.TabIndex = 2
+        Me.txtConfirmarSenha.EnterMoveNextControl = True
+        Me.txtConfirmarSenha.Location = New System.Drawing.Point(100, 61)
+        Me.txtConfirmarSenha.Name = "txtConfirmarSenha"
+        Me.txtConfirmarSenha.Properties.UseSystemPasswordChar = True
+        Me.txtConfirmarSenha.Size = New System.Drawing.Size(124, 20)
+        Me.txtConfirmarSenha.TabIndex = 2
         '
         'PanelControl4
         '
@@ -113,17 +119,17 @@ Partial Class frmAlterarSenha
         Me.Controls.Add(Me.btnCancelar)
         Me.Controls.Add(Me.PanelControl4)
         Me.Controls.Add(Me.LabelControl2)
-        Me.Controls.Add(Me.TextEdit2)
+        Me.Controls.Add(Me.txtConfirmarSenha)
         Me.Controls.Add(Me.lblNovaSenha)
-        Me.Controls.Add(Me.TextEdit1)
+        Me.Controls.Add(Me.txtNovaSenha)
         Me.Controls.Add(Me.lblSenhaAntiga)
         Me.Controls.Add(Me.txtSenhaAntiga)
         Me.Name = "frmAlterarSenha"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Alterar Senha"
         CType(Me.txtSenhaAntiga.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TextEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TextEdit2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtNovaSenha.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtConfirmarSenha.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -132,9 +138,9 @@ Partial Class frmAlterarSenha
     Friend WithEvents txtSenhaAntiga As DevExpress.XtraEditors.TextEdit
     Friend WithEvents lblSenhaAntiga As DevExpress.XtraEditors.LabelControl
     Friend WithEvents lblNovaSenha As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents TextEdit1 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtNovaSenha As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LabelControl2 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents TextEdit2 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtConfirmarSenha As DevExpress.XtraEditors.TextEdit
     Friend WithEvents PanelControl4 As DevExpress.XtraEditors.PanelControl
     Friend WithEvents btnCancelar As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents btnOk As DevExpress.XtraEditors.SimpleButton

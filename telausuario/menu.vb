@@ -4,6 +4,9 @@ Imports telausuario.clsFuncao
 Imports telausuario.modBloqueios
 Public Class frmMenu
     Private Sub frmMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        barNanoVersaoComputador.Caption = "NANO Versão " & VersaoSistemaProjeto & " - Nome do Computador: " & Environment.MachineName.ToString & ""
+        barHora.Caption = Date.Today
+
         BloqueiosConfig()
 
         'Bloqueios
@@ -89,5 +92,13 @@ Public Class frmMenu
     Private Sub btnBloquearUsuario_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnBloquearUsuario.ItemClick
         frmBloquearUsuario.ShowDialog()
         MsgBox("REINICIE O PROGRAMA PARA APLICAR AS CONFIGURAÇÕES!", MsgBoxStyle.Exclamation)
+    End Sub
+
+    Private Sub btnAlterarSenha_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnAlterarSenha.ItemClick
+        frmAlterarSenha.ShowDialog()
+    End Sub
+
+    Private Sub BarEditItem1_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs)
+
     End Sub
 End Class

@@ -123,7 +123,7 @@ Partial Class frmLogin
         Me.Controls.Add(Me.lblLogin)
         Me.Name = "frmLogin"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "frmLogin"
+        Me.Text = "Tela de Login"
         CType(Me.txtLogin.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtSenha.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

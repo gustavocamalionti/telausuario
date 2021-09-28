@@ -97,4 +97,7 @@ Public Class frmLogin
         txtSenha.Text.Trim()
     End Sub
 
+    Private Sub txtSenha_EditValueChanged(sender As Object, e As EventArgs) Handles txtSenha.EditValueChanged
+
+    End Sub
 End Class

@@ -28,8 +28,6 @@ Partial Class frmMenu
         Me.btnCadastrarPedido = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem1 = New DevExpress.XtraBars.BarButtonItem()
         Me.btnConsultarPedido = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarStaticItem1 = New DevExpress.XtraBars.BarStaticItem()
-        Me.BarStaticItem2 = New DevExpress.XtraBars.BarStaticItem()
         Me.btnCadastrarUsuario = New DevExpress.XtraBars.BarButtonItem()
         Me.btnBloquearUsuario = New DevExpress.XtraBars.BarButtonItem()
         Me.btnAlterarSenha = New DevExpress.XtraBars.BarButtonItem()
@@ -39,18 +37,23 @@ Partial Class frmMenu
         Me.ToolTipController1 = New DevExpress.Utils.ToolTipController(Me.components)
         Me.DefaultLookAndFeel1 = New DevExpress.LookAndFeel.DefaultLookAndFeel(Me.components)
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.RepositoryItemTextEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
+        Me.barHora = New DevExpress.XtraBars.BarStaticItem()
+        Me.barNanoVersaoComputador = New DevExpress.XtraBars.BarStaticItem()
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemTextEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'RibbonControl
         '
         Me.RibbonControl.ExpandCollapseItem.Id = 0
         Me.RibbonControl.ForeColor = System.Drawing.SystemColors.ActiveCaption
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.btnCadCliente, Me.btnEstoque, Me.btnCadastrarProduto, Me.btnPedidos, Me.btnCadastrarPedido, Me.BarStaticItem1, Me.BarStaticItem2, Me.btnConsultarPedido, Me.BarButtonItem1, Me.btnCadastrarUsuario, Me.btnBloquearUsuario, Me.btnAlterarSenha})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.btnCadCliente, Me.btnEstoque, Me.btnCadastrarProduto, Me.btnPedidos, Me.btnCadastrarPedido, Me.btnConsultarPedido, Me.BarButtonItem1, Me.btnCadastrarUsuario, Me.btnBloquearUsuario, Me.btnAlterarSenha, Me.barHora, Me.barNanoVersaoComputador})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonControl.MaxItemId = 129
+        Me.RibbonControl.MaxItemId = 132
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.princ})
+        Me.RibbonControl.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemTextEdit1})
         Me.RibbonControl.Size = New System.Drawing.Size(436, 145)
         Me.RibbonControl.StatusBar = Me.RibbonStatusBar
         Me.RibbonControl.Toolbar.ItemLinks.Add(Me.btnAlterarSenha)
@@ -110,20 +113,6 @@ Partial Class frmMenu
         Me.btnConsultarPedido.Id = 124
         Me.btnConsultarPedido.Name = "btnConsultarPedido"
         '
-        'BarStaticItem1
-        '
-        Me.BarStaticItem1.Caption = "TesteBarStatic"
-        Me.BarStaticItem1.Id = 122
-        Me.BarStaticItem1.Name = "BarStaticItem1"
-        Me.BarStaticItem1.TextAlignment = System.Drawing.StringAlignment.Near
-        '
-        'BarStaticItem2
-        '
-        Me.BarStaticItem2.Caption = "testeBarStatic2"
-        Me.BarStaticItem2.Id = 123
-        Me.BarStaticItem2.Name = "BarStaticItem2"
-        Me.BarStaticItem2.TextAlignment = System.Drawing.StringAlignment.Near
-        '
         'btnCadastrarUsuario
         '
         Me.btnCadastrarUsuario.Caption = "Cadastrar Usuário"
@@ -159,8 +148,8 @@ Partial Class frmMenu
         '
         'RibbonStatusBar
         '
-        Me.RibbonStatusBar.ItemLinks.Add(Me.BarStaticItem1)
-        Me.RibbonStatusBar.ItemLinks.Add(Me.BarStaticItem2)
+        Me.RibbonStatusBar.ItemLinks.Add(Me.barHora)
+        Me.RibbonStatusBar.ItemLinks.Add(Me.barNanoVersaoComputador)
         Me.RibbonStatusBar.Location = New System.Drawing.Point(0, 417)
         Me.RibbonStatusBar.Name = "RibbonStatusBar"
         Me.RibbonStatusBar.Ribbon = Me.RibbonControl
@@ -175,6 +164,26 @@ Partial Class frmMenu
         '
         Me.DefaultLookAndFeel1.LookAndFeel.SkinName = "Office 2010 Blue"
         '
+        'RepositoryItemTextEdit1
+        '
+        Me.RepositoryItemTextEdit1.AutoHeight = False
+        Me.RepositoryItemTextEdit1.Name = "RepositoryItemTextEdit1"
+        '
+        'barHora
+        '
+        Me.barHora.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
+        Me.barHora.Caption = "BarStaticItem1"
+        Me.barHora.Id = 130
+        Me.barHora.Name = "barHora"
+        Me.barHora.TextAlignment = System.Drawing.StringAlignment.Near
+        '
+        'barNanoVersaoComputador
+        '
+        Me.barNanoVersaoComputador.Caption = "BarStaticItem1"
+        Me.barNanoVersaoComputador.Id = 131
+        Me.barNanoVersaoComputador.Name = "barNanoVersaoComputador"
+        Me.barNanoVersaoComputador.TextAlignment = System.Drawing.StringAlignment.Near
+        '
         'frmMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -188,6 +197,7 @@ Partial Class frmMenu
         Me.StatusBar = Me.RibbonStatusBar
         Me.Text = "Menu Principal"
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemTextEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -202,8 +212,6 @@ Partial Class frmMenu
     Friend WithEvents btnPedidos As DevExpress.XtraBars.BarSubItem
     Friend WithEvents btnCadastrarPedido As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents DefaultLookAndFeel1 As DevExpress.LookAndFeel.DefaultLookAndFeel
-    Friend WithEvents BarStaticItem1 As DevExpress.XtraBars.BarStaticItem
-    Friend WithEvents BarStaticItem2 As DevExpress.XtraBars.BarStaticItem
     Friend WithEvents ToolTipController1 As DevExpress.Utils.ToolTipController
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
     Friend WithEvents btnConsultarPedido As DevExpress.XtraBars.BarButtonItem
@@ -211,6 +219,9 @@ Partial Class frmMenu
     Friend WithEvents btnCadastrarUsuario As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents btnBloquearUsuario As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents btnAlterarSenha As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents RepositoryItemTextEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
+    Friend WithEvents barHora As DevExpress.XtraBars.BarStaticItem
+    Friend WithEvents barNanoVersaoComputador As DevExpress.XtraBars.BarStaticItem
 
 
 End Class
