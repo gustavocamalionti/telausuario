@@ -20,7 +20,7 @@ Partial Class frmMenu
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.RibbonControl = New DevExpress.XtraBars.Ribbon.RibbonControl()
+        Me.rbcMenuPrincipal = New DevExpress.XtraBars.Ribbon.RibbonControl()
         Me.btnCadCliente = New DevExpress.XtraBars.BarButtonItem()
         Me.btnEstoque = New DevExpress.XtraBars.BarSubItem()
         Me.btnCadastrarProduto = New DevExpress.XtraBars.BarButtonItem()
@@ -40,26 +40,27 @@ Partial Class frmMenu
         Me.RepositoryItemTextEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
         Me.barHora = New DevExpress.XtraBars.BarStaticItem()
         Me.barNanoVersaoComputador = New DevExpress.XtraBars.BarStaticItem()
-        CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.rbcMenuPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemTextEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'RibbonControl
+        'rbcMenuPrincipal
         '
-        Me.RibbonControl.ExpandCollapseItem.Id = 0
-        Me.RibbonControl.ForeColor = System.Drawing.SystemColors.ActiveCaption
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.btnCadCliente, Me.btnEstoque, Me.btnCadastrarProduto, Me.btnPedidos, Me.btnCadastrarPedido, Me.btnConsultarPedido, Me.BarButtonItem1, Me.btnCadastrarUsuario, Me.btnBloquearUsuario, Me.btnAlterarSenha, Me.barHora, Me.barNanoVersaoComputador})
-        Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonControl.MaxItemId = 132
-        Me.RibbonControl.Name = "RibbonControl"
-        Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.princ})
-        Me.RibbonControl.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemTextEdit1})
-        Me.RibbonControl.Size = New System.Drawing.Size(436, 145)
-        Me.RibbonControl.StatusBar = Me.RibbonStatusBar
-        Me.RibbonControl.Toolbar.ItemLinks.Add(Me.btnAlterarSenha)
-        Me.RibbonControl.Toolbar.ItemLinks.Add(Me.btnCadastrarUsuario)
-        Me.RibbonControl.Toolbar.ItemLinks.Add(Me.btnBloquearUsuario)
-        Me.RibbonControl.TransparentEditors = True
+        Me.rbcMenuPrincipal.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.rbcMenuPrincipal.ExpandCollapseItem.Id = 0
+        Me.rbcMenuPrincipal.ForeColor = System.Drawing.SystemColors.ActiveCaption
+        Me.rbcMenuPrincipal.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.rbcMenuPrincipal.ExpandCollapseItem, Me.btnCadCliente, Me.btnEstoque, Me.btnCadastrarProduto, Me.btnPedidos, Me.btnCadastrarPedido, Me.btnConsultarPedido, Me.BarButtonItem1, Me.btnCadastrarUsuario, Me.btnBloquearUsuario, Me.btnAlterarSenha, Me.barHora, Me.barNanoVersaoComputador})
+        Me.rbcMenuPrincipal.Location = New System.Drawing.Point(0, 0)
+        Me.rbcMenuPrincipal.MaxItemId = 132
+        Me.rbcMenuPrincipal.Name = "rbcMenuPrincipal"
+        Me.rbcMenuPrincipal.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.princ})
+        Me.rbcMenuPrincipal.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemTextEdit1})
+        Me.rbcMenuPrincipal.Size = New System.Drawing.Size(436, 145)
+        Me.rbcMenuPrincipal.StatusBar = Me.RibbonStatusBar
+        Me.rbcMenuPrincipal.Toolbar.ItemLinks.Add(Me.btnAlterarSenha)
+        Me.rbcMenuPrincipal.Toolbar.ItemLinks.Add(Me.btnCadastrarUsuario)
+        Me.rbcMenuPrincipal.Toolbar.ItemLinks.Add(Me.btnBloquearUsuario)
+        Me.rbcMenuPrincipal.TransparentEditors = True
         '
         'btnCadCliente
         '
@@ -152,7 +153,7 @@ Partial Class frmMenu
         Me.RibbonStatusBar.ItemLinks.Add(Me.barNanoVersaoComputador)
         Me.RibbonStatusBar.Location = New System.Drawing.Point(0, 417)
         Me.RibbonStatusBar.Name = "RibbonStatusBar"
-        Me.RibbonStatusBar.Ribbon = Me.RibbonControl
+        Me.RibbonStatusBar.Ribbon = Me.rbcMenuPrincipal
         Me.RibbonStatusBar.Size = New System.Drawing.Size(436, 32)
         Me.RibbonStatusBar.ToolTipController = Me.ToolTipController1
         '
@@ -172,37 +173,39 @@ Partial Class frmMenu
         'barHora
         '
         Me.barHora.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
-        Me.barHora.Caption = "BarStaticItem1"
+        Me.barHora.Caption = "Data"
         Me.barHora.Id = 130
         Me.barHora.Name = "barHora"
         Me.barHora.TextAlignment = System.Drawing.StringAlignment.Near
         '
         'barNanoVersaoComputador
         '
-        Me.barNanoVersaoComputador.Caption = "BarStaticItem1"
+        Me.barNanoVersaoComputador.Caption = "BarNanoVersaoComputador"
         Me.barNanoVersaoComputador.Id = 131
         Me.barNanoVersaoComputador.Name = "barNanoVersaoComputador"
         Me.barNanoVersaoComputador.TextAlignment = System.Drawing.StringAlignment.Near
         '
         'frmMenu
         '
+        Me.Appearance.BackColor = System.Drawing.Color.White
+        Me.Appearance.Options.UseBackColor = True
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(436, 449)
         Me.Controls.Add(Me.RibbonStatusBar)
-        Me.Controls.Add(Me.RibbonControl)
+        Me.Controls.Add(Me.rbcMenuPrincipal)
         Me.Name = "frmMenu"
-        Me.Ribbon = Me.RibbonControl
+        Me.Ribbon = Me.rbcMenuPrincipal
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.StatusBar = Me.RibbonStatusBar
         Me.Text = "Menu Principal"
-        CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.rbcMenuPrincipal, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemTextEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents RibbonControl As DevExpress.XtraBars.Ribbon.RibbonControl
+    Friend WithEvents rbcMenuPrincipal As DevExpress.XtraBars.Ribbon.RibbonControl
     Friend WithEvents princ As DevExpress.XtraBars.Ribbon.RibbonPage
     Friend WithEvents Principal As DevExpress.XtraBars.Ribbon.RibbonPageGroup
     Friend WithEvents RibbonStatusBar As DevExpress.XtraBars.Ribbon.RibbonStatusBar

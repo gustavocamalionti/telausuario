@@ -445,22 +445,22 @@ Partial Class frmCadCliente
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 618)
-        Me.barDockControlBottom.Size = New System.Drawing.Size(1014, 43)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 620)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(1014, 41)
         '
         'barDockControlLeft
         '
         Me.barDockControlLeft.CausesValidation = False
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
         Me.barDockControlLeft.Location = New System.Drawing.Point(0, 0)
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 618)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 620)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
         Me.barDockControlRight.Location = New System.Drawing.Point(1014, 0)
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 618)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 620)
         '
         'RepositoryItemButtonEdit1
         '
