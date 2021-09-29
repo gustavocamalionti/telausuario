@@ -1,4 +1,4 @@
-﻿
+﻿Imports DevExpress.XtraReports.UI
 Imports telausuario.clsFuncao
 Imports telausuario.modBloqueios
 Public Class frmCadCliente
@@ -407,6 +407,14 @@ Public Class frmCadCliente
     End Sub
 
     Private Sub txtClienteCep_EditValueChanged(sender As Object, e As EventArgs) Handles txtClienteCep.EditValueChanged
+
+    End Sub
+
+    Private Sub btnRelatorioClientes_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnRelatorioClientes.ItemClick
+        Dim rel As New relCliente
+        rel.ShowPreview()
+
+
 
     End Sub
 End Class
