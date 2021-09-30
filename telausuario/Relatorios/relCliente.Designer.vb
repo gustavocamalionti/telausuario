@@ -24,6 +24,16 @@ Partial Public Class relCliente
         Me.Detail = New DevExpress.XtraReports.UI.DetailBand()
         Me.WinControlContainer2 = New DevExpress.XtraReports.UI.WinControlContainer()
         Me.grdClientesCad = New DevExpress.XtraGrid.GridControl()
+        Me.dsCliente = New System.Data.DataSet()
+        Me.tbClientes = New System.Data.DataTable()
+        Me.DataColumn1 = New System.Data.DataColumn()
+        Me.DataColumn2 = New System.Data.DataColumn()
+        Me.DataColumn3 = New System.Data.DataColumn()
+        Me.DataColumn4 = New System.Data.DataColumn()
+        Me.DataColumn5 = New System.Data.DataColumn()
+        Me.DataColumn6 = New System.Data.DataColumn()
+        Me.DataColumn7 = New System.Data.DataColumn()
+        Me.DataColumn8 = New System.Data.DataColumn()
         Me.grd1 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.colCodigo = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.AlterarGrid = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
@@ -48,34 +58,25 @@ Partial Public Class relCliente
         Me.colSexo = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colInativo = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colContato = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colNumero1 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.TopMargin = New DevExpress.XtraReports.UI.TopMarginBand()
         Me.lblRelatorioCliente = New DevExpress.XtraReports.UI.XRLabel()
         Me.imgCliente = New DevExpress.XtraReports.UI.XRPictureBox()
         Me.linbottom = New DevExpress.XtraReports.UI.XRLine()
         Me.lintop = New DevExpress.XtraReports.UI.XRLine()
         Me.BottomMargin = New DevExpress.XtraReports.UI.BottomMarginBand()
-        Me.dsCliente = New System.Data.DataSet()
-        Me.tbClientes = New System.Data.DataTable()
-        Me.DataColumn1 = New System.Data.DataColumn()
-        Me.DataColumn2 = New System.Data.DataColumn()
-        Me.DataColumn3 = New System.Data.DataColumn()
-        Me.DataColumn4 = New System.Data.DataColumn()
-        Me.DataColumn5 = New System.Data.DataColumn()
-        Me.DataColumn6 = New System.Data.DataColumn()
-        Me.DataColumn7 = New System.Data.DataColumn()
-        Me.DataColumn8 = New System.Data.DataColumn()
-        Me.colNumero1 = New DevExpress.XtraGrid.Columns.GridColumn()
         CType(Me.grdClientesCad, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.grd1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.AlterarGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dsCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tbClientes, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grd1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AlterarGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         '
         'Detail
         '
         Me.Detail.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.WinControlContainer2})
         Me.Detail.HeightF = 286.0416!
+        Me.Detail.MultiColumn.Mode = DevExpress.XtraReports.UI.MultiColumnMode.UseColumnWidth
         Me.Detail.Name = "Detail"
         Me.Detail.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
         Me.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
@@ -84,7 +85,7 @@ Partial Public Class relCliente
         '
         Me.WinControlContainer2.LocationFloat = New DevExpress.Utils.PointFloat(0.00003973643!, 0.0!)
         Me.WinControlContainer2.Name = "WinControlContainer2"
-        Me.WinControlContainer2.SizeF = New System.Drawing.SizeF(897.0001!, 276.0416!)
+        Me.WinControlContainer2.SizeF = New System.Drawing.SizeF(820.0!, 276.0416!)
         Me.WinControlContainer2.WinControl = Me.grdClientesCad
         '
         'grdClientesCad
@@ -105,9 +106,51 @@ Partial Public Class relCliente
         Me.grdClientesCad.MainView = Me.grd1
         Me.grdClientesCad.Name = "grdClientesCad"
         Me.grdClientesCad.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.AlterarGrid})
-        Me.grdClientesCad.Size = New System.Drawing.Size(861, 265)
+        Me.grdClientesCad.Size = New System.Drawing.Size(787, 265)
         Me.grdClientesCad.TabIndex = 78
         Me.grdClientesCad.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.grd1})
+        '
+        'dsCliente
+        '
+        Me.dsCliente.DataSetName = "dsCliente"
+        Me.dsCliente.Tables.AddRange(New System.Data.DataTable() {Me.tbClientes})
+        '
+        'tbClientes
+        '
+        Me.tbClientes.Columns.AddRange(New System.Data.DataColumn() {Me.DataColumn1, Me.DataColumn2, Me.DataColumn3, Me.DataColumn4, Me.DataColumn5, Me.DataColumn6, Me.DataColumn7, Me.DataColumn8})
+        Me.tbClientes.TableName = "tbClientes"
+        '
+        'DataColumn1
+        '
+        Me.DataColumn1.ColumnName = "Nome"
+        '
+        'DataColumn2
+        '
+        Me.DataColumn2.ColumnName = "Endereco"
+        '
+        'DataColumn3
+        '
+        Me.DataColumn3.ColumnName = "RgIe"
+        '
+        'DataColumn4
+        '
+        Me.DataColumn4.ColumnName = "CPF"
+        '
+        'DataColumn5
+        '
+        Me.DataColumn5.ColumnName = "Numero"
+        '
+        'DataColumn6
+        '
+        Me.DataColumn6.ColumnName = "Bairro"
+        '
+        'DataColumn7
+        '
+        Me.DataColumn7.ColumnName = "Cidade"
+        '
+        'DataColumn8
+        '
+        Me.DataColumn8.ColumnName = "Telefone"
         '
         'grd1
         '
@@ -275,6 +318,9 @@ Partial Public Class relCliente
         Me.GridColumn5.AppearanceHeader.BackColor = System.Drawing.Color.White
         Me.GridColumn5.AppearanceHeader.BackColor2 = System.Drawing.Color.White
         Me.GridColumn5.AppearanceHeader.Options.UseBackColor = True
+        Me.GridColumn5.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn5.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn5.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
         Me.GridColumn5.ColumnEdit = Me.AlterarGrid
         Me.GridColumn5.FieldName = "Cidade"
         Me.GridColumn5.Name = "GridColumn5"
@@ -410,6 +456,12 @@ Partial Public Class relCliente
         Me.colContato.OptionsColumn.ReadOnly = True
         Me.colContato.Width = 105
         '
+        'colNumero1
+        '
+        Me.colNumero1.FieldName = "Numero"
+        Me.colNumero1.Name = "colNumero1"
+        Me.colNumero1.Width = 67
+        '
         'TopMargin
         '
         Me.TopMargin.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.lblRelatorioCliente, Me.imgCliente, Me.linbottom, Me.lintop})
@@ -422,7 +474,7 @@ Partial Public Class relCliente
         '
         Me.lblRelatorioCliente.AutoWidth = True
         Me.lblRelatorioCliente.Font = New System.Drawing.Font("Calibri", 22.0!, System.Drawing.FontStyle.Bold)
-        Me.lblRelatorioCliente.LocationFloat = New DevExpress.Utils.PointFloat(326.0417!, 36.41669!)
+        Me.lblRelatorioCliente.LocationFloat = New DevExpress.Utils.PointFloat(263.5417!, 36.41667!)
         Me.lblRelatorioCliente.Name = "lblRelatorioCliente"
         Me.lblRelatorioCliente.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.lblRelatorioCliente.SizeF = New System.Drawing.SizeF(314.5833!, 45.95833!)
@@ -432,91 +484,40 @@ Partial Public Class relCliente
         'imgCliente
         '
         Me.imgCliente.Image = CType(resources.GetObject("imgCliente.Image"), System.Drawing.Image)
-        Me.imgCliente.LocationFloat = New DevExpress.Utils.PointFloat(227.7083!, 23.00002!)
+        Me.imgCliente.LocationFloat = New DevExpress.Utils.PointFloat(165.2083!, 23.0!)
         Me.imgCliente.Name = "imgCliente"
         Me.imgCliente.SizeF = New System.Drawing.SizeF(70.83334!, 70.83334!)
         Me.imgCliente.Sizing = DevExpress.XtraPrinting.ImageSizeMode.AutoSize
         '
         'linbottom
         '
-        Me.linbottom.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 93.83335!)
+        Me.linbottom.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 93.83334!)
         Me.linbottom.Name = "linbottom"
-        Me.linbottom.SizeF = New System.Drawing.SizeF(897.0!, 23.0!)
+        Me.linbottom.SizeF = New System.Drawing.SizeF(820.0!, 23.0!)
         '
         'lintop
         '
         Me.lintop.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 0.0!)
         Me.lintop.Name = "lintop"
-        Me.lintop.SizeF = New System.Drawing.SizeF(897.0!, 23.0!)
+        Me.lintop.SizeF = New System.Drawing.SizeF(820.0!, 23.0!)
         '
         'BottomMargin
         '
-        Me.BottomMargin.HeightF = 6.666883!
+        Me.BottomMargin.HeightF = 7.0!
         Me.BottomMargin.Name = "BottomMargin"
         Me.BottomMargin.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
         Me.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
-        '
-        'dsCliente
-        '
-        Me.dsCliente.DataSetName = "dsCliente"
-        Me.dsCliente.Tables.AddRange(New System.Data.DataTable() {Me.tbClientes})
-        '
-        'tbClientes
-        '
-        Me.tbClientes.Columns.AddRange(New System.Data.DataColumn() {Me.DataColumn1, Me.DataColumn2, Me.DataColumn3, Me.DataColumn4, Me.DataColumn5, Me.DataColumn6, Me.DataColumn7, Me.DataColumn8})
-        Me.tbClientes.TableName = "tbClientes"
-        '
-        'DataColumn1
-        '
-        Me.DataColumn1.ColumnName = "Nome"
-        '
-        'DataColumn2
-        '
-        Me.DataColumn2.ColumnName = "Endereco"
-        '
-        'DataColumn3
-        '
-        Me.DataColumn3.ColumnName = "RgIe"
-        '
-        'DataColumn4
-        '
-        Me.DataColumn4.ColumnName = "CPF"
-        '
-        'DataColumn5
-        '
-        Me.DataColumn5.ColumnName = "Numero"
-        '
-        'DataColumn6
-        '
-        Me.DataColumn6.ColumnName = "Bairro"
-        '
-        'DataColumn7
-        '
-        Me.DataColumn7.ColumnName = "Cidade"
-        '
-        'DataColumn8
-        '
-        Me.DataColumn8.ColumnName = "Telefone"
-        '
-        'colNumero1
-        '
-        Me.colNumero1.FieldName = "Numero"
-        Me.colNumero1.Name = "colNumero1"
-        Me.colNumero1.Width = 67
         '
         'relCliente
         '
         Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.TopMargin, Me.BottomMargin})
         Me.Margins = New System.Drawing.Printing.Margins(15, 15, 117, 7)
-        Me.PageHeight = 1200
-        Me.PageWidth = 927
-        Me.PaperKind = System.Drawing.Printing.PaperKind.LetterExtraTransverse
         Me.Version = "12.2"
         CType(Me.grdClientesCad, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.grd1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.AlterarGrid, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dsCliente, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tbClientes, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grd1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AlterarGrid, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me, System.ComponentModel.ISupportInitialize).EndInit()
 
     End Sub
