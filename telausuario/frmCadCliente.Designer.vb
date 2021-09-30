@@ -21,7 +21,7 @@ Partial Class frmCadCliente
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCadCliente))
-        Dim GridLevelNode2 As DevExpress.XtraGrid.GridLevelNode = New DevExpress.XtraGrid.GridLevelNode()
+        Dim GridLevelNode1 As DevExpress.XtraGrid.GridLevelNode = New DevExpress.XtraGrid.GridLevelNode()
         Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
         Me.Bar3 = New DevExpress.XtraBars.Bar()
         Me.btnExclui = New DevExpress.XtraBars.BarButtonItem()
@@ -30,6 +30,8 @@ Partial Class frmCadCliente
         Me.RepositoryItemComboBox1 = New DevExpress.XtraEditors.Repository.RepositoryItemComboBox()
         Me.btnAdd = New DevExpress.XtraBars.BarButtonItem()
         Me.btnEtiquetas = New DevExpress.XtraBars.BarButtonItem()
+        Me.menuVisualizar = New DevExpress.XtraBars.BarSubItem()
+        Me.btnRelatorioClientes = New DevExpress.XtraBars.BarButtonItem()
         Me.btnSalvar = New DevExpress.XtraBars.BarButtonItem()
         Me.btnAlterar = New DevExpress.XtraBars.BarButtonItem()
         Me.btnLimpar = New DevExpress.XtraBars.BarButtonItem()
@@ -225,8 +227,6 @@ Partial Class frmCadCliente
         Me.BarDockControl11 = New DevExpress.XtraBars.BarDockControl()
         Me.BarDockControl12 = New DevExpress.XtraBars.BarDockControl()
         Me.ClienteTableAdapter = New telausuario.dsTelaUsuarioTableAdapters.ClienteTableAdapter()
-        Me.menuVisualizar = New DevExpress.XtraBars.BarSubItem()
-        Me.btnRelatorioClientes = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemComboBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemButtonEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -396,6 +396,22 @@ Partial Class frmCadCliente
         Me.btnEtiquetas.Id = 3
         Me.btnEtiquetas.Name = "btnEtiquetas"
         '
+        'menuVisualizar
+        '
+        Me.menuVisualizar.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left
+        Me.menuVisualizar.Caption = "Visualizar"
+        Me.menuVisualizar.Glyph = Global.telausuario.My.Resources.Resources.viewmag
+        Me.menuVisualizar.Id = 15
+        Me.menuVisualizar.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnRelatorioClientes, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)})
+        Me.menuVisualizar.Name = "menuVisualizar"
+        '
+        'btnRelatorioClientes
+        '
+        Me.btnRelatorioClientes.Caption = "Relatório de Clientes"
+        Me.btnRelatorioClientes.Glyph = Global.telausuario.My.Resources.Resources.viewmag
+        Me.btnRelatorioClientes.Id = 16
+        Me.btnRelatorioClientes.Name = "btnRelatorioClientes"
+        '
         'btnSalvar
         '
         Me.btnSalvar.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
@@ -439,22 +455,22 @@ Partial Class frmCadCliente
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 620)
-        Me.barDockControlBottom.Size = New System.Drawing.Size(1014, 41)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 618)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(1014, 43)
         '
         'barDockControlLeft
         '
         Me.barDockControlLeft.CausesValidation = False
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
         Me.barDockControlLeft.Location = New System.Drawing.Point(0, 0)
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 620)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 618)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
         Me.barDockControlRight.Location = New System.Drawing.Point(1014, 0)
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 620)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 618)
         '
         'RepositoryItemButtonEdit1
         '
@@ -648,8 +664,8 @@ Partial Class frmCadCliente
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.grdClientesCad.DataSource = Me.ClienteBindingSource
         Me.grdClientesCad.EmbeddedNavigator.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D
-        GridLevelNode2.RelationName = "Level1"
-        Me.grdClientesCad.LevelTree.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode2})
+        GridLevelNode1.RelationName = "Level1"
+        Me.grdClientesCad.LevelTree.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode1})
         Me.grdClientesCad.Location = New System.Drawing.Point(2, 24)
         Me.grdClientesCad.MainView = Me.grd1
         Me.grdClientesCad.MenuManager = Me.BarManager1
@@ -2302,22 +2318,6 @@ Partial Class frmCadCliente
         'ClienteTableAdapter
         '
         Me.ClienteTableAdapter.ClearBeforeFill = True
-        '
-        'menuVisualizar
-        '
-        Me.menuVisualizar.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left
-        Me.menuVisualizar.Caption = "Visualizar"
-        Me.menuVisualizar.Glyph = Global.telausuario.My.Resources.Resources.viewmag
-        Me.menuVisualizar.Id = 15
-        Me.menuVisualizar.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnRelatorioClientes, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)})
-        Me.menuVisualizar.Name = "menuVisualizar"
-        '
-        'btnRelatorioClientes
-        '
-        Me.btnRelatorioClientes.Caption = "Relatório de Clientes"
-        Me.btnRelatorioClientes.Glyph = Global.telausuario.My.Resources.Resources.viewmag
-        Me.btnRelatorioClientes.Id = 16
-        Me.btnRelatorioClientes.Name = "btnRelatorioClientes"
         '
         'frmCadCliente
         '

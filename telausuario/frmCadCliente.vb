@@ -412,9 +412,19 @@ Public Class frmCadCliente
 
     Private Sub btnRelatorioClientes_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnRelatorioClientes.ItemClick
         Dim rel As New relCliente
+        Dim dtProdutoSelect As DataTable = CarregarDataTable("select * from Cliente")
+        For i = 0 To dtProdutoSelect.Rows.Count - 1
+            rel.tbClientes.Rows.Add()
+            rel.tbClientes.Rows.Item(i).Item("Nome") = dtProdutoSelect.Rows.Item(i).Item("Nome")
+            rel.tbClientes.Rows.Item(i).Item("Endereco") = dtProdutoSelect.Rows.Item(i).Item("Endereco")
+            rel.tbClientes.Rows.Item(i).Item("RgIe") = dtProdutoSelect.Rows.Item(i).Item("RGIE")
+            rel.tbClientes.Rows.Item(i).Item("CPF") = dtProdutoSelect.Rows.Item(i).Item("CPF")
+            rel.tbClientes.Rows.Item(i).Item("Numero") = dtProdutoSelect.Rows.Item(i).Item("Numero")
+            rel.tbClientes.Rows.Item(i).Item("Bairro") = dtProdutoSelect.Rows.Item(i).Item("Bairro")
+            rel.tbClientes.Rows.Item(i).Item("Cidade") = dtProdutoSelect.Rows.Item(i).Item("Cidade")
+            rel.tbClientes.Rows.Item(i).Item("Telefone") = dtProdutoSelect.Rows.Item(i).Item("Telefone")
+        Next
         rel.ShowPreview()
-
-
 
     End Sub
 End Class
