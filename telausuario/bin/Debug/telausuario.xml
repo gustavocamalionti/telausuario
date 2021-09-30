@@ -91,6 +91,10 @@ telausuario
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
+</member><member name="P:telausuario.My.Resources.Resources.gato">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
 </member><member name="P:telausuario.My.Resources.Resources.Giro18x18">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -124,6 +128,14 @@ telausuario
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member><member name="P:telausuario.My.Resources.Resources.Porcentagem2">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.rato">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.rato1">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

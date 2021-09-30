@@ -85,6 +85,10 @@
     <Reference Include="DevExpress.XtraScheduler.v12.2.Core, Version=12.2.18.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraTreeList.v12.2, Version=12.2.18.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraVerticalGrid.v12.2, Version=12.2.18.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -207,8 +211,23 @@
     <Compile Include="Relatorios\relCliente.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="XtraForm1.Designer.vb">
+      <DependentUpon>XtraForm1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraForm1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="desafioTimer.Designer.vb">
+      <DependentUpon>desafioTimer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="desafioTimer.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="desafioTimer.resx">
+      <DependentUpon>desafioTimer.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCadPedido.resx">
       <DependentUpon>frmCadPedido.vb</DependentUpon>
     </EmbeddedResource>
@@ -248,6 +267,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Relatorios\relCliente.resx">
       <DependentUpon>relCliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraForm1.resx">
+      <DependentUpon>XtraForm1.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -395,6 +417,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Senha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rato.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gato.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rato1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

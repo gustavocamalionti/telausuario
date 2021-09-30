@@ -142,11 +142,14 @@
   <data name="Alterar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Alterar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Giro24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Giro24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Impressora" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Impressora.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Giro24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Giro24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="gato" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gato.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="edit_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit_add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -172,11 +175,17 @@
   <data name="apply18x18" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\apply18x18.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="rato" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rato.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="blockdevice50" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\blockdevice50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Comando_Limpar_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Comando_Limpar_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rato1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rato1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Usu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Usu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -196,6 +205,9 @@
   <data name="Cabri" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Cabri.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Senha" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Senha.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="apply50" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\apply50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -214,7 +226,7 @@
   <data name="FundoLogin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FundoLogin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Senha" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Senha.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="gato norm" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gato norm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -253,6 +253,26 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property gato() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("gato", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property gato_norm() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("gato norm", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property Giro18x18() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Giro18x18", resourceCulture)
@@ -336,6 +356,26 @@ Namespace My.Resources
         Friend ReadOnly Property Porcentagem2() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Porcentagem2", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property rato() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("rato", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property rato1() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("rato1", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
