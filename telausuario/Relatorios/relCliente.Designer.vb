@@ -84,7 +84,7 @@ Partial Public Class relCliente
         '
         Me.WinControlContainer2.LocationFloat = New DevExpress.Utils.PointFloat(0.00003973643!, 0.0!)
         Me.WinControlContainer2.Name = "WinControlContainer2"
-        Me.WinControlContainer2.SizeF = New System.Drawing.SizeF(820.0!, 276.0416!)
+        Me.WinControlContainer2.SizeF = New System.Drawing.SizeF(897.0001!, 276.0416!)
         Me.WinControlContainer2.WinControl = Me.grdClientesCad
         '
         'grdClientesCad
@@ -105,7 +105,7 @@ Partial Public Class relCliente
         Me.grdClientesCad.MainView = Me.grd1
         Me.grdClientesCad.Name = "grdClientesCad"
         Me.grdClientesCad.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.AlterarGrid})
-        Me.grdClientesCad.Size = New System.Drawing.Size(787, 265)
+        Me.grdClientesCad.Size = New System.Drawing.Size(861, 265)
         Me.grdClientesCad.TabIndex = 78
         Me.grdClientesCad.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.grd1})
         '
@@ -422,7 +422,7 @@ Partial Public Class relCliente
         '
         Me.lblRelatorioCliente.AutoWidth = True
         Me.lblRelatorioCliente.Font = New System.Drawing.Font("Calibri", 22.0!, System.Drawing.FontStyle.Bold)
-        Me.lblRelatorioCliente.LocationFloat = New DevExpress.Utils.PointFloat(263.5417!, 36.41667!)
+        Me.lblRelatorioCliente.LocationFloat = New DevExpress.Utils.PointFloat(326.0417!, 36.41669!)
         Me.lblRelatorioCliente.Name = "lblRelatorioCliente"
         Me.lblRelatorioCliente.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.lblRelatorioCliente.SizeF = New System.Drawing.SizeF(314.5833!, 45.95833!)
@@ -432,26 +432,26 @@ Partial Public Class relCliente
         'imgCliente
         '
         Me.imgCliente.Image = CType(resources.GetObject("imgCliente.Image"), System.Drawing.Image)
-        Me.imgCliente.LocationFloat = New DevExpress.Utils.PointFloat(165.2083!, 23.0!)
+        Me.imgCliente.LocationFloat = New DevExpress.Utils.PointFloat(227.7083!, 23.00002!)
         Me.imgCliente.Name = "imgCliente"
         Me.imgCliente.SizeF = New System.Drawing.SizeF(70.83334!, 70.83334!)
         Me.imgCliente.Sizing = DevExpress.XtraPrinting.ImageSizeMode.AutoSize
         '
         'linbottom
         '
-        Me.linbottom.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 93.83334!)
+        Me.linbottom.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 93.83335!)
         Me.linbottom.Name = "linbottom"
-        Me.linbottom.SizeF = New System.Drawing.SizeF(820.0!, 23.0!)
+        Me.linbottom.SizeF = New System.Drawing.SizeF(897.0!, 23.0!)
         '
         'lintop
         '
         Me.lintop.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 0.0!)
         Me.lintop.Name = "lintop"
-        Me.lintop.SizeF = New System.Drawing.SizeF(820.0!, 23.0!)
+        Me.lintop.SizeF = New System.Drawing.SizeF(897.0!, 23.0!)
         '
         'BottomMargin
         '
-        Me.BottomMargin.HeightF = 4.708385!
+        Me.BottomMargin.HeightF = 6.666883!
         Me.BottomMargin.Name = "BottomMargin"
         Me.BottomMargin.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
         Me.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
@@ -507,7 +507,10 @@ Partial Public Class relCliente
         'relCliente
         '
         Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.TopMargin, Me.BottomMargin})
-        Me.Margins = New System.Drawing.Printing.Margins(15, 15, 117, 5)
+        Me.Margins = New System.Drawing.Printing.Margins(15, 15, 117, 7)
+        Me.PageHeight = 1200
+        Me.PageWidth = 927
+        Me.PaperKind = System.Drawing.Printing.PaperKind.LetterExtraTransverse
         Me.Version = "12.2"
         CType(Me.grdClientesCad, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grd1, System.ComponentModel.ISupportInitialize).EndInit()
