@@ -25,16 +25,16 @@ Partial Class desafioTimer
         Me.lblVelocidade = New DevExpress.XtraEditors.LabelControl()
         Me.rdgVelocidade = New DevExpress.XtraEditors.RadioGroup()
         Me.timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.imgRato = New DevExpress.XtraEditors.PictureEdit()
-        Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit()
         Me.PanelControl2 = New DevExpress.XtraEditors.PanelControl()
+        Me.imgGato = New DevExpress.XtraEditors.PictureEdit()
+        Me.imgRato = New DevExpress.XtraEditors.PictureEdit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
         CType(Me.rdgVelocidade.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.imgRato.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl2.SuspendLayout()
+        CType(Me.imgGato.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.imgRato.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PanelControl1
@@ -80,6 +80,32 @@ Partial Class desafioTimer
         'timer1
         '
         '
+        'PanelControl2
+        '
+        Me.PanelControl2.Controls.Add(Me.imgGato)
+        Me.PanelControl2.Controls.Add(Me.imgRato)
+        Me.PanelControl2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanelControl2.Location = New System.Drawing.Point(0, 100)
+        Me.PanelControl2.Name = "PanelControl2"
+        Me.PanelControl2.Size = New System.Drawing.Size(1024, 620)
+        Me.PanelControl2.TabIndex = 1
+        '
+        'imgGato
+        '
+        Me.imgGato.EditValue = Global.telausuario.My.Resources.Resources.gatoleft_30
+        Me.imgGato.Location = New System.Drawing.Point(536, 131)
+        Me.imgGato.Name = "imgGato"
+        Me.imgGato.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.imgGato.Properties.Appearance.ForeColor = System.Drawing.SystemColors.ActiveBorder
+        Me.imgGato.Properties.Appearance.Options.UseBackColor = True
+        Me.imgGato.Properties.Appearance.Options.UseForeColor = True
+        Me.imgGato.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat
+        Me.imgGato.Properties.LookAndFeel.UseDefaultLookAndFeel = False
+        Me.imgGato.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze
+        Me.imgGato.Size = New System.Drawing.Size(41, 43)
+        Me.imgGato.TabIndex = 2
+        Me.imgGato.Visible = False
+        '
         'imgRato
         '
         Me.imgRato.EditValue = Global.telausuario.My.Resources.Resources.rato1
@@ -94,32 +120,6 @@ Partial Class desafioTimer
         Me.imgRato.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom
         Me.imgRato.Size = New System.Drawing.Size(86, 105)
         Me.imgRato.TabIndex = 1
-        '
-        'PictureEdit1
-        '
-        Me.PictureEdit1.EditValue = Global.telausuario.My.Resources.Resources.gato
-        Me.PictureEdit1.Location = New System.Drawing.Point(651, 54)
-        Me.PictureEdit1.Name = "PictureEdit1"
-        Me.PictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
-        Me.PictureEdit1.Properties.Appearance.ForeColor = System.Drawing.SystemColors.ActiveBorder
-        Me.PictureEdit1.Properties.Appearance.Options.UseBackColor = True
-        Me.PictureEdit1.Properties.Appearance.Options.UseForeColor = True
-        Me.PictureEdit1.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat
-        Me.PictureEdit1.Properties.LookAndFeel.UseDefaultLookAndFeel = False
-        Me.PictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom
-        Me.PictureEdit1.Size = New System.Drawing.Size(147, 134)
-        Me.PictureEdit1.TabIndex = 2
-        Me.PictureEdit1.Visible = False
-        '
-        'PanelControl2
-        '
-        Me.PanelControl2.Controls.Add(Me.PictureEdit1)
-        Me.PanelControl2.Controls.Add(Me.imgRato)
-        Me.PanelControl2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PanelControl2.Location = New System.Drawing.Point(0, 100)
-        Me.PanelControl2.Name = "PanelControl2"
-        Me.PanelControl2.Size = New System.Drawing.Size(1024, 620)
-        Me.PanelControl2.TabIndex = 1
         '
         'desafioTimer
         '
@@ -136,10 +136,10 @@ Partial Class desafioTimer
         Me.PanelControl1.ResumeLayout(False)
         Me.PanelControl1.PerformLayout()
         CType(Me.rdgVelocidade.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.imgRato.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl2.ResumeLayout(False)
+        CType(Me.imgGato.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.imgRato.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -149,6 +149,6 @@ Partial Class desafioTimer
     Friend WithEvents rdgVelocidade As DevExpress.XtraEditors.RadioGroup
     Friend WithEvents timer1 As System.Windows.Forms.Timer
     Friend WithEvents imgRato As DevExpress.XtraEditors.PictureEdit
-    Friend WithEvents PictureEdit1 As DevExpress.XtraEditors.PictureEdit
     Friend WithEvents PanelControl2 As DevExpress.XtraEditors.PanelControl
+    Friend WithEvents imgGato As DevExpress.XtraEditors.PictureEdit
 End Class

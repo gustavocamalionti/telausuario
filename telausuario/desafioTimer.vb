@@ -13,6 +13,15 @@ Public Class desafioTimer
         intRandom_x = CInt(Int((1024 * Rnd()) + 1)) 'random_x.Next(0, 1024)
         intRandom_y = CInt(Int((620 * Rnd()) + 1)) 'random_y.Next(0, 620)
         imgRato.Location = New Point(intRandom_x, intRandom_y)
+
+        If imgGato.Location.X > imgRato.Location.X Then
+            imgGato.Image = Image.FromFile("C:\Arquivos\Gustavo Arquivos\Resources Próprios\gatoleft.png")
+            Me.Cursor = New Cursor(DirectCast(Me.imgGato.Image, Bitmap).GetHicon())
+        ElseIf imgGato.Location.X < imgRato.Location.X Then
+            imgGato.Image = Image.FromFile("C:\Arquivos\Gustavo Arquivos\Resources Próprios\gatoright.png")
+            Me.Cursor = New Cursor(DirectCast(Me.imgGato.Image, Bitmap).GetHicon())
+        End If
+
     End Sub
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles timer1.Tick
 
@@ -74,16 +83,8 @@ Public Class desafioTimer
     '    Me.PictureEdit1.Location = New System.Drawing.Point(x, y)
     'End Sub
 
-    Private Sub PanelControl1_Paint(sender As Object, e As PaintEventArgs) Handles PanelControl1.Paint
-
-    End Sub
-
-
     Private Sub PanelControl2_MouseEnter(sender As Object, e As EventArgs) Handles PanelControl2.MouseEnter
-        Me.Cursor = New Cursor(DirectCast(Me.PictureEdit1.Image, Bitmap).GetHicon())
+        Me.Cursor = New Cursor(DirectCast(Me.imgGato.Image, Bitmap).GetHicon())
     End Sub
 
-    Private Sub PanelControl2_Paint(sender As Object, e As PaintEventArgs) Handles PanelControl2.Paint
-
-    End Sub
 End Class
