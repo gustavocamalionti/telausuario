@@ -121,14 +121,14 @@
   <data name="gato norm" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\gato norm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="apply50" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\apply50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Lupa_Azul_12x12" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Lupa_Azul_12x12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="blockdevice" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\blockdevice.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Senha" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Senha.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="apply" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\apply.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -148,6 +148,9 @@
   <data name="Alterar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Alterar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Comando_Fechar_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Comando_Fechar_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Giro24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Giro24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -166,11 +169,14 @@
   <data name="Impressora50" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Impressora50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="cal 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cal 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="viewmag" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\viewmag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cal 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cal 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Senha" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Senha.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Giro18x18" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Giro18x18.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -181,11 +187,8 @@
   <data name="apply18x18" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\apply18x18.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Enveloppe Blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Enveloppe Blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="rato" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\rato.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="gatoleft 30" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gatoleft 30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="blockdevice50" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\blockdevice50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -199,8 +202,8 @@
   <data name="Filter" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Filter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Comando_Fechar_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Comando_Fechar_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="rato" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rato.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="gatop" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\gatop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -229,13 +232,13 @@
   <data name="Porcentagem2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Porcentagem2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="apply50" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\apply50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Enveloppe Blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Enveloppe Blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="FundoLogin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FundoLogin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="gatoleft 30" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gatoleft 30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="branca" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\branca.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

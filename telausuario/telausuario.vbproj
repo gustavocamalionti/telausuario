@@ -122,6 +122,12 @@
     <Compile Include="Classes\clsBanco.vb" />
     <Compile Include="Classes\modFuncoes.vb" />
     <Compile Include="Classes\clsFuncao.vb" />
+    <Compile Include="Desafios\DesafioJogoVelha.Designer.vb">
+      <DependentUpon>DesafioJogoVelha.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Desafios\DesafioJogoVelha.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="dsTelaUsuario.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -225,6 +231,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Desafios\DesafioJogoVelha.resx">
+      <DependentUpon>DesafioJogoVelha.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Desafios\desafioTimer.resx">
       <DependentUpon>desafioTimer.vb</DependentUpon>
     </EmbeddedResource>
@@ -438,6 +447,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\gatoleft 30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\branca.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

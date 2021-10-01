@@ -30,14 +30,14 @@ Partial Class desafiojson
         Me.SimpleButton1.TabIndex = 0
         Me.SimpleButton1.Text = "SimpleButton1"
         '
-        'XtraForm1
+        'desafiojson
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(284, 261)
         Me.Controls.Add(Me.SimpleButton1)
-        Me.Name = "XtraForm1"
-        Me.Text = "XtraForm1"
+        Me.Name = "desafiojson"
+        Me.Text = "Desafio Json"
         Me.ResumeLayout(False)
 
     End Sub

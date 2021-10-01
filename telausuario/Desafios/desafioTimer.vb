@@ -83,4 +83,8 @@ Public Class desafioTimer
     Private Sub PanelControl2_MouseEnter(sender As Object, e As EventArgs) Handles PanelControl2.MouseEnter
         Me.Cursor = New Cursor(DirectCast(Me.imgGato.Image, Bitmap).GetHicon())
     End Sub
+
+    Private Sub PanelControl1_Paint(sender As Object, e As PaintEventArgs) Handles PanelControl1.Paint
+
+    End Sub
 End Class
