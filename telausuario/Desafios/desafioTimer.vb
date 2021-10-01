@@ -5,9 +5,6 @@ Public Class desafioTimer
     Public random_y As New Random
     Public intRandom_x As Integer
     Public intRandom_y As Integer
-    Private Sub desafioKleberTimer_Load(sender As Object, e As EventArgs) Handles Me.Load
-
-    End Sub
 
     Private Sub positionRandom()
         intRandom_x = CInt(Int((1024 * Rnd()) + 1)) 'random_x.Next(0, 1024)
@@ -86,5 +83,4 @@ Public Class desafioTimer
     Private Sub PanelControl2_MouseEnter(sender As Object, e As EventArgs) Handles PanelControl2.MouseEnter
         Me.Cursor = New Cursor(DirectCast(Me.imgGato.Image, Bitmap).GetHicon())
     End Sub
-
 End Class

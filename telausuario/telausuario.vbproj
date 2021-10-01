@@ -211,21 +211,21 @@
     <Compile Include="Relatorios\relCliente.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="XtraForm1.Designer.vb">
-      <DependentUpon>XtraForm1.vb</DependentUpon>
+    <Compile Include="Desafios\desafiojson.Designer.vb">
+      <DependentUpon>desafiojson.vb</DependentUpon>
     </Compile>
-    <Compile Include="XtraForm1.vb">
+    <Compile Include="Desafios\desafiojson.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="desafioTimer.Designer.vb">
+    <Compile Include="Desafios\desafioTimer.Designer.vb">
       <DependentUpon>desafioTimer.vb</DependentUpon>
     </Compile>
-    <Compile Include="desafioTimer.vb">
+    <Compile Include="Desafios\desafioTimer.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="desafioTimer.resx">
+    <EmbeddedResource Include="Desafios\desafioTimer.resx">
       <DependentUpon>desafioTimer.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCadPedido.resx">
@@ -268,8 +268,8 @@
     <EmbeddedResource Include="Relatorios\relCliente.resx">
       <DependentUpon>relCliente.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="XtraForm1.resx">
-      <DependentUpon>XtraForm1.vb</DependentUpon>
+    <EmbeddedResource Include="Desafios\desafiojson.resx">
+      <DependentUpon>desafiojson.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
