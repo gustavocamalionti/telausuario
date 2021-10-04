@@ -323,6 +323,15 @@ Public Class clsBanco
             ExecutaSQL("insert into Bloqueios (Principal, Relatorios) values ('Bloquear Usuario', '')") '5
 
         End If
+
+        If intVersao <= 101 Then
+            Atualizar("Update config set versaoNano = '1.0.2';")
+
+            ExecutaSQL("Alter Table Cliente ADD Cancelamento bit;")
+            ExecutaSQL("Alter Table Cliente ADD MotivoCancelamento varchar(75);")
+            ExecutaSQL("Alter Table Cliente ADD DetalhesCancelamento nvarchar(max);")
+            ExecutaSQL("Alter Table Cliente ADD DataCancelamento varchar(35);")
+        End If
     End Function
 
     Public Shared Function ExisteTabela(ByVal parTabela As String) As Boolean

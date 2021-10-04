@@ -23,3 +23,4 @@ C:\Users\Usuario\Documents\Visual Studio 2013\Projects\telausuario\telausuario\o
 C:\Users\Usuario\Documents\Visual Studio 2013\Projects\telausuario\telausuario\obj\Debug\telausuario.desafioTimer.resources
 C:\Users\Usuario\Documents\Visual Studio 2013\Projects\telausuario\telausuario\obj\Debug\telausuario.desafiojson.resources
 C:\Users\Usuario\Documents\Visual Studio 2013\Projects\telausuario\telausuario\obj\Debug\telausuario.DesafioJogoVelha.resources
+C:\Users\Usuario\Documents\Visual Studio 2013\Projects\telausuario\telausuario\obj\Debug\telausuario.frmCancelamento.resources

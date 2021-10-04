@@ -381,9 +381,10 @@ Public Class frmCadCliente
     Private Sub AlterarGrid_DoubleClick(sender As Object, e As EventArgs) Handles AlterarGrid.DoubleClick
         MostrarDados()
         bolStatusAlteracao = True
+        Dim Index As Integer = Me.grd1.FocusedRowHandle
+        CodigoCliente = Me.grd1.GetRowCellValue(Index, colCodigo)
 
         If Me.Tag = "ConsultarCliente" Then
-            Dim Index As Integer = Me.grd1.FocusedRowHandle
             CodigoCliente = Me.grd1.GetRowCellValue(Index, colCodigo)
             Me.Close()
         End If
@@ -426,5 +427,22 @@ Public Class frmCadCliente
         Next
         rel.ShowPreview()
 
+    End Sub
+
+    Private Sub grdClientesCad_Click(sender As Object, e As EventArgs) Handles grdClientesCad.Click
+
+    End Sub
+
+
+    Private Sub tabEndereco_Click(sender As Object, e As EventArgs) Handles tabEndereco.Click
+
+    End Sub
+
+    Private Sub btnCancelamento_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnCancelamento.ItemClick
+        If bolStatusAlteracao = True Then
+            frmCancelamento.ShowDialog()
+        Else
+        MsgBox("Selecione um cliente", MsgBoxStyle.Information)
+        End If
     End Sub
 End Class

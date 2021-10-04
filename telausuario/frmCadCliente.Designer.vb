@@ -21,7 +21,7 @@ Partial Class frmCadCliente
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCadCliente))
-        Dim GridLevelNode2 As DevExpress.XtraGrid.GridLevelNode = New DevExpress.XtraGrid.GridLevelNode()
+        Dim GridLevelNode1 As DevExpress.XtraGrid.GridLevelNode = New DevExpress.XtraGrid.GridLevelNode()
         Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
         Me.Bar3 = New DevExpress.XtraBars.Bar()
         Me.btnExclui = New DevExpress.XtraBars.BarButtonItem()
@@ -32,6 +32,7 @@ Partial Class frmCadCliente
         Me.btnEtiquetas = New DevExpress.XtraBars.BarButtonItem()
         Me.menuVisualizar = New DevExpress.XtraBars.BarSubItem()
         Me.btnRelatorioClientes = New DevExpress.XtraBars.BarButtonItem()
+        Me.btnCancelamento = New DevExpress.XtraBars.BarButtonItem()
         Me.btnSalvar = New DevExpress.XtraBars.BarButtonItem()
         Me.btnAlterar = New DevExpress.XtraBars.BarButtonItem()
         Me.btnLimpar = New DevExpress.XtraBars.BarButtonItem()
@@ -335,8 +336,8 @@ Partial Class frmCadCliente
         Me.BarManager1.DockControls.Add(Me.barDockControlLeft)
         Me.BarManager1.DockControls.Add(Me.barDockControlRight)
         Me.BarManager1.Form = Me
-        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.btnExclui, Me.btnAdd, Me.btnEtiquetas, Me.btnSalvar, Me.btnAlterar, Me.btnLimpar, Me.btnFechar, Me.cboModelo, Me.lblModelo, Me.menuVisualizar, Me.btnRelatorioClientes})
-        Me.BarManager1.MaxItemId = 17
+        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.btnExclui, Me.btnAdd, Me.btnEtiquetas, Me.btnSalvar, Me.btnAlterar, Me.btnLimpar, Me.btnFechar, Me.cboModelo, Me.lblModelo, Me.menuVisualizar, Me.btnRelatorioClientes, Me.btnCancelamento})
+        Me.BarManager1.MaxItemId = 18
         Me.BarManager1.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemButtonEdit1, Me.RepositoryItemTextEdit1, Me.RepositoryItemComboBox1, Me.RepositoryItemFontEdit1, Me.RepositoryItemFontEdit2})
         Me.BarManager1.StatusBar = Me.Bar3
         '
@@ -348,7 +349,7 @@ Partial Class frmCadCliente
         Me.Bar3.DockRow = 0
         Me.Bar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom
         Me.Bar3.FloatSize = New System.Drawing.Size(50, 0)
-        Me.Bar3.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnExclui, "", True, True, True, 0, Nothing, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.lblModelo, "", True, True, True, 0, Nothing, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(Me.cboModelo, True), New DevExpress.XtraBars.LinkPersistInfo(Me.btnAdd, True), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnEtiquetas, "", True, True, True, 0, Nothing, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.menuVisualizar, "", True, True, True, 0, Nothing, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnSalvar, "", True, True, True, 0, Nothing, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnAlterar, "", True, True, True, 0, Nothing, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnLimpar, "", True, True, True, 0, Nothing, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnFechar, "", True, True, True, 0, Nothing, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)})
+        Me.Bar3.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnExclui, "", True, True, True, 0, Nothing, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.lblModelo, "", True, True, True, 0, Nothing, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(Me.cboModelo, True), New DevExpress.XtraBars.LinkPersistInfo(Me.btnAdd, True), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnEtiquetas, "", True, True, True, 0, Nothing, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.menuVisualizar, "", True, True, True, 0, Nothing, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnCancelamento, "", True, True, True, 0, Nothing, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnSalvar, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnAlterar, "", True, True, True, 0, Nothing, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnLimpar, "", True, True, True, 0, Nothing, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnFechar, "", True, True, True, 0, Nothing, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)})
         Me.Bar3.OptionsBar.AllowQuickCustomization = False
         Me.Bar3.OptionsBar.DrawDragBorder = False
         Me.Bar3.OptionsBar.UseWholeRow = True
@@ -411,6 +412,14 @@ Partial Class frmCadCliente
         Me.btnRelatorioClientes.Glyph = Global.telausuario.My.Resources.Resources.viewmag
         Me.btnRelatorioClientes.Id = 16
         Me.btnRelatorioClientes.Name = "btnRelatorioClientes"
+        '
+        'btnCancelamento
+        '
+        Me.btnCancelamento.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
+        Me.btnCancelamento.Caption = "Cancelamento"
+        Me.btnCancelamento.Glyph = Global.telausuario.My.Resources.Resources.cancel24
+        Me.btnCancelamento.Id = 17
+        Me.btnCancelamento.Name = "btnCancelamento"
         '
         'btnSalvar
         '
@@ -664,8 +673,8 @@ Partial Class frmCadCliente
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.grdClientesCad.DataSource = Me.ClienteBindingSource
         Me.grdClientesCad.EmbeddedNavigator.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D
-        GridLevelNode2.RelationName = "Level1"
-        Me.grdClientesCad.LevelTree.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode2})
+        GridLevelNode1.RelationName = "Level1"
+        Me.grdClientesCad.LevelTree.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode1})
         Me.grdClientesCad.Location = New System.Drawing.Point(2, 24)
         Me.grdClientesCad.MainView = Me.grd1
         Me.grdClientesCad.MenuManager = Me.BarManager1
@@ -2656,4 +2665,5 @@ Partial Class frmCadCliente
     Friend WithEvents AlterarGrid As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
     Friend WithEvents menuVisualizar As DevExpress.XtraBars.BarSubItem
     Friend WithEvents btnRelatorioClientes As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents btnCancelamento As DevExpress.XtraBars.BarButtonItem
 End Class

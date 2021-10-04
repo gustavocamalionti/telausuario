@@ -136,6 +136,12 @@
     <Compile Include="dsTelaUsuario.vb">
       <DependentUpon>dsTelaUsuario.xsd</DependentUpon>
     </Compile>
+    <Compile Include="frmCancelamento.designer.vb">
+      <DependentUpon>frmCancelamento.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCancelamento.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmConfig.Designer.vb">
       <DependentUpon>frmConfig.vb</DependentUpon>
     </Compile>
@@ -245,6 +251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCadCliente.resx">
       <DependentUpon>frmCadCliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCancelamento.resx">
+      <DependentUpon>frmCancelamento.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConfig.resx">
       <DependentUpon>frmConfig.vb</DependentUpon>
@@ -450,6 +459,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\branca.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel36.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Comando_Limpar_32x321.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
