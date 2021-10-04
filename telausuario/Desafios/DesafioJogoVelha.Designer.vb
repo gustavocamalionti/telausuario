@@ -19,7 +19,6 @@ Partial Class DesafioJogoVelha
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
         Me.btnStart = New DevExpress.XtraEditors.SimpleButton()
         Me.PanelControl2 = New DevExpress.XtraEditors.PanelControl()
@@ -34,7 +33,6 @@ Partial Class DesafioJogoVelha
         Me.imgBottomRight = New DevExpress.XtraEditors.PictureEdit()
         Me.imgBottomLeft = New DevExpress.XtraEditors.PictureEdit()
         Me.imgBottom = New DevExpress.XtraEditors.PictureEdit()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.imgTopLeft = New DevExpress.XtraEditors.PictureEdit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
@@ -208,9 +206,6 @@ Partial Class DesafioJogoVelha
         Me.imgBottom.Size = New System.Drawing.Size(140, 125)
         Me.imgBottom.TabIndex = 13
         '
-        'Timer1
-        '
-        '
         'imgTopLeft
         '
         Me.imgTopLeft.Cursor = System.Windows.Forms.Cursors.Hand
@@ -282,5 +277,4 @@ Partial Class DesafioJogoVelha
     Friend WithEvents imgBottomLeft As DevExpress.XtraEditors.PictureEdit
     Friend WithEvents imgBottom As DevExpress.XtraEditors.PictureEdit
     Friend WithEvents imgTopLeft As DevExpress.XtraEditors.PictureEdit
-    Friend WithEvents Timer1 As System.Windows.Forms.Timer
 End Class

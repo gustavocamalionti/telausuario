@@ -12,7 +12,134 @@
     Dim strBottom As String
     Dim strBottomRight As String
     Private Sub SituacaoJogo()
+        'Vitória do Círculo - Linhas
+        If strTopLeft = "O" And strTop = "O" And strTopRight = "O" Then
 
+            MsgBox("Vitória do Circulo!", MsgBoxStyle.Information)
+            Me.btnStart.Text = "Start"
+            LimparVelha()
+            Exit Sub
+
+        ElseIf strleft = "O" And strCenter = "O" And strRight = "O" Then
+
+            MsgBox("Vitória do Circulo!", MsgBoxStyle.Information)
+            Me.btnStart.Text = "Start"
+            LimparVelha()
+            Exit Sub
+
+
+        ElseIf strbottomLeft = "O" And strBottom = "O" And strBottomRight = "O" Then
+
+            MsgBox("Vitória do Circulo!", MsgBoxStyle.Information)
+            Me.btnStart.Text = "Start"
+            LimparVelha()
+            Exit Sub
+
+            'Vitória do Círculo - Colunas
+        ElseIf strTopLeft = "O" And strleft = "O" And strbottomLeft = "O" Then
+
+            MsgBox("Vitória do Circulo!", MsgBoxStyle.Information)
+            Me.btnStart.Text = "Start"
+            LimparVelha()
+            Exit Sub
+
+        ElseIf strTop = "O" And strCenter = "O" And strBottom = "O" Then
+
+            MsgBox("Vitória do Circulo!", MsgBoxStyle.Information)
+            Me.btnStart.Text = "Start"
+            LimparVelha()
+            Exit Sub
+
+        ElseIf strTopRight = "O" And strRight = "O" And strBottomRight = "O" Then
+
+            MsgBox("Vitória do Circulo!", MsgBoxStyle.Information)
+            Me.btnStart.Text = "Start"
+            LimparVelha()
+            Exit Sub
+
+            'Vitória do Círculo - Diagonal
+        ElseIf strTopLeft = "O" And strCenter = "O" And strBottomRight = "O" Then
+
+            MsgBox("Vitória do Circulo!", MsgBoxStyle.Information)
+            Me.btnStart.Text = "Start"
+            LimparVelha()
+            Exit Sub
+
+        ElseIf strTopLeft = "O" And strCenter = "O" And strbottomLeft = "O" Then
+
+            MsgBox("Vitória do Circulo!", MsgBoxStyle.Information)
+            Me.btnStart.Text = "Start"
+            LimparVelha()
+            Exit Sub
+
+            'Vitória da Cruz - Linhas
+        ElseIf strTopLeft = "X" And strTop = "X" And strTopRight = "X" Then
+
+            MsgBox("Vitória da Cruz!", MsgBoxStyle.Information)
+            Me.btnStart.Text = "Start"
+            LimparVelha()
+            Exit Sub
+
+        ElseIf strleft = "X" And strCenter = "X" And strRight = "X" Then
+
+            MsgBox("Vitória da Cruz!", MsgBoxStyle.Information)
+            Me.btnStart.Text = "Start"
+            LimparVelha()
+            Exit Sub
+
+
+        ElseIf strbottomLeft = "X" And strBottom = "X" And strBottomRight = "X" Then
+
+            MsgBox("Vitória da Cruz!", MsgBoxStyle.Information)
+            Me.btnStart.Text = "Start"
+            LimparVelha()
+            Exit Sub
+
+            'Vitória da Cruz - Colunas
+        ElseIf strTopLeft = "X" And strleft = "X" And strbottomLeft = "X" Then
+
+            MsgBox("Vitória da Cruz!", MsgBoxStyle.Information)
+            Me.btnStart.Text = "Start"
+            LimparVelha()
+            Exit Sub
+
+        ElseIf strTop = "X" And strCenter = "X" And strBottom = "X" Then
+
+            MsgBox("Vitória da Cruz!", MsgBoxStyle.Information)
+            Me.btnStart.Text = "Start"
+            LimparVelha()
+            Exit Sub
+
+        ElseIf strTopRight = "X" And strRight = "X" And strBottomRight = "X" Then
+
+            MsgBox("Vitória da Cruz!", MsgBoxStyle.Information)
+            Me.btnStart.Text = "Start"
+            LimparVelha()
+            Exit Sub
+
+            'Vitória da Cruz - Diagonal
+        ElseIf strTopLeft = "X" And strCenter = "X" And strBottomRight = "X" Then
+
+            MsgBox("Vitória da Cruz!", MsgBoxStyle.Information)
+            Me.btnStart.Text = "Start"
+            LimparVelha()
+            Exit Sub
+
+        ElseIf strTopRight = "X" And strCenter = "X" And strbottomLeft = "X" Then
+            MsgBox("Vitória da Cruz!", MsgBoxStyle.Information)
+            Me.btnStart.Text = "Start"
+            LimparVelha()
+            Exit Sub
+
+        End If
+
+        'Empate
+        If contador_clicks = 9 Then
+            Me.btnStart.Text = "Start"
+            contador_clicks = 0
+            MsgBox("Empate", MsgBoxStyle.Information)
+            LimparVelha()
+        End If
     End Sub
 
     Private Sub DesenharJogada(bloco As DevExpress.XtraEditors.PictureEdit, PreenchimentoJogada As String)
@@ -29,7 +156,6 @@
                     strBolinhaOuCruz = "X"
                 End If
             End If
-
         End If
     End Sub
 
@@ -60,194 +186,64 @@
     Private Sub imgTopLeft_Click(sender As Object, e As EventArgs) Handles imgTopLeft.Click
         DesenharJogada(imgTopLeft, strTopLeft)
         strTopLeft = strBolinhaOuCruz
+        SituacaoJogo()
     End Sub
 
     Private Sub imgTop_Click(sender As Object, e As EventArgs) Handles imgTop.Click
         DesenharJogada(imgTop, strTop)
         strTop = strBolinhaOuCruz
+        SituacaoJogo()
     End Sub
 
     Private Sub imgTopRight_Click(sender As Object, e As EventArgs) Handles imgTopRight.Click
         DesenharJogada(imgTopRight, strTopRight)
         strTopRight = strBolinhaOuCruz
+        SituacaoJogo()
     End Sub
 
     Private Sub imgLeft_Click(sender As Object, e As EventArgs) Handles imgLeft.Click
         DesenharJogada(imgLeft, strleft)
         strleft = strBolinhaOuCruz
+        SituacaoJogo()
     End Sub
 
     Private Sub imgCenter_Click(sender As Object, e As EventArgs) Handles imgCenter.Click
         DesenharJogada(imgCenter, strCenter)
         strCenter = strBolinhaOuCruz
+        SituacaoJogo()
     End Sub
 
     Private Sub imgRight_Click(sender As Object, e As EventArgs) Handles imgRight.Click
         DesenharJogada(imgRight, strRight)
         strRight = strBolinhaOuCruz
+        SituacaoJogo()
     End Sub
 
     Private Sub imgBottomLeft_Click(sender As Object, e As EventArgs) Handles imgBottomLeft.Click
         DesenharJogada(imgBottomLeft, strbottomLeft)
         strbottomLeft = strBolinhaOuCruz
+        SituacaoJogo()
     End Sub
 
     Private Sub imgBottom_Click(sender As Object, e As EventArgs) Handles imgBottom.Click
         DesenharJogada(imgBottom, strBottom)
         strBottom = strBolinhaOuCruz
+        SituacaoJogo()
     End Sub
 
     Private Sub imgBottomRight_Click(sender As Object, e As EventArgs) Handles imgBottomRight.Click
         DesenharJogada(imgBottomRight, strBottomRight)
         strBottomRight = strBolinhaOuCruz
-
+        SituacaoJogo()
     End Sub
 
-
-    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        Timer1.Interval = 1
-
-        'Vitória do Círculo - Linhas
-        If strTopLeft = "O" And strTop = "O" And strTopRight = "O" Then
-            Timer1.Stop()
-            MsgBox("Vitória do Circulo!", MsgBoxStyle.Information)
-            Me.btnStart.Text = "Start"
-            LimparVelha()
-            Exit Sub
-
-        ElseIf strleft = "O" And strCenter = "O" And strRight = "O" Then
-            Timer1.Stop()
-            MsgBox("Vitória do Circulo!", MsgBoxStyle.Information)
-            Me.btnStart.Text = "Start"
-            LimparVelha()
-            Exit Sub
-
-
-        ElseIf strbottomLeft = "O" And strBottom = "O" And strBottomRight = "O" Then
-            Timer1.Stop()
-            MsgBox("Vitória do Circulo!", MsgBoxStyle.Information)
-            Me.btnStart.Text = "Start"
-            LimparVelha()
-            Exit Sub
-
-            'Vitória do Círculo - Colunas
-        ElseIf strTopLeft = "O" And strleft = "O" And strbottomLeft = "O" Then
-            Timer1.Stop()
-            MsgBox("Vitória do Circulo!", MsgBoxStyle.Information)
-            Me.btnStart.Text = "Start"
-            LimparVelha()
-            Exit Sub
-
-        ElseIf strTop = "O" And strCenter = "O" And strBottom = "O" Then
-            Timer1.Stop()
-            MsgBox("Vitória do Circulo!", MsgBoxStyle.Information)
-            Me.btnStart.Text = "Start"
-            LimparVelha()
-            Exit Sub
-
-        ElseIf strTopRight = "O" And strRight = "O" And strBottomRight = "O" Then
-            Timer1.Stop()
-            MsgBox("Vitória do Circulo!", MsgBoxStyle.Information)
-            Me.btnStart.Text = "Start"
-            LimparVelha()
-            Exit Sub
-
-            'Vitória do Círculo - Diagonal
-        ElseIf strTopLeft = "O" And strCenter = "O" And strBottomRight = "O" Then
-            Timer1.Stop()
-            MsgBox("Vitória do Circulo!", MsgBoxStyle.Information)
-            Me.btnStart.Text = "Start"
-            LimparVelha()
-            Exit Sub
-
-        ElseIf strTopLeft = "O" And strCenter = "O" And strbottomLeft = "O" Then
-            Timer1.Stop()
-            MsgBox("Vitória do Circulo!", MsgBoxStyle.Information)
-            Me.btnStart.Text = "Start"
-            LimparVelha()
-            Exit Sub
-
-            'Vitória da Cruz - Linhas
-        ElseIf strTopLeft = "X" And strTop = "X" And strTopRight = "X" Then
-            Timer1.Stop()
-            MsgBox("Vitória da Cruz!", MsgBoxStyle.Information)
-            Me.btnStart.Text = "Start"
-            LimparVelha()
-            Exit Sub
-
-        ElseIf strleft = "X" And strCenter = "X" And strRight = "X" Then
-            Timer1.Stop()
-            MsgBox("Vitória da Cruz!", MsgBoxStyle.Information)
-            Me.btnStart.Text = "Start"
-            LimparVelha()
-            Exit Sub
-
-
-        ElseIf strbottomLeft = "X" And strBottom = "X" And strBottomRight = "X" Then
-            Timer1.Stop()
-            MsgBox("Vitória da Cruz!", MsgBoxStyle.Information)
-            Me.btnStart.Text = "Start"
-            LimparVelha()
-            Exit Sub
-
-            'Vitória da Cruz - Colunas
-        ElseIf strTopLeft = "X" And strleft = "X" And strbottomLeft = "X" Then
-            Timer1.Stop()
-            MsgBox("Vitória da Cruz!", MsgBoxStyle.Information)
-            Me.btnStart.Text = "Start"
-            LimparVelha()
-            Exit Sub
-
-        ElseIf strTop = "X" And strCenter = "X" And strBottom = "X" Then
-            Timer1.Stop()
-            MsgBox("Vitória da Cruz!", MsgBoxStyle.Information)
-            Me.btnStart.Text = "Start"
-            LimparVelha()
-            Exit Sub
-
-        ElseIf strTopRight = "X" And strRight = "X" And strBottomRight = "X" Then
-            Timer1.Stop()
-            MsgBox("Vitória da Cruz!", MsgBoxStyle.Information)
-            Me.btnStart.Text = "Start"
-            LimparVelha()
-            Exit Sub
-
-            'Vitória da Cruz - Diagonal
-        ElseIf strTopLeft = "X" And strCenter = "X" And strBottomRight = "X" Then
-            Timer1.Stop()
-            MsgBox("Vitória da Cruz!", MsgBoxStyle.Information)
-            Me.btnStart.Text = "Start"
-            LimparVelha()
-            Exit Sub
-
-        ElseIf strTopLeft = "X" And strCenter = "X" And strbottomLeft = "X" Then
-            Timer1.Stop()
-            MsgBox("Vitória da Cruz!", MsgBoxStyle.Information)
-            Me.btnStart.Text = "Start"
-            LimparVelha()
-            Exit Sub
-
-        End If
-
-        'Empate
-        If contador_clicks = 9 Then
-            Me.btnStart.Text = "Start"
-            Timer1.Stop()
-            contador_clicks = 0
-            MsgBox("Empate", MsgBoxStyle.Information)
-            LimparVelha()
-        End If
-    End Sub
 
     Private Sub btnStart_Click(sender As Object, e As EventArgs) Handles btnStart.Click
         If Me.btnStart.Text = "Start" Then
             Me.btnStart.Text = "Stop"
-            Timer1.Start()
         Else
             Me.btnStart.Text = "Start"
-            Timer1.Stop()
             contador_clicks = 0
-
 
         End If
         LimparVelha()
