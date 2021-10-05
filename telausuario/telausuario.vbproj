@@ -122,10 +122,10 @@
     <Compile Include="Classes\clsBanco.vb" />
     <Compile Include="Classes\modFuncoes.vb" />
     <Compile Include="Classes\clsFuncao.vb" />
-    <Compile Include="Desafios\DesafioJogoVelha.Designer.vb">
-      <DependentUpon>DesafioJogoVelha.vb</DependentUpon>
+    <Compile Include="Desafios\jogo-da-velha.Designer.vb">
+      <DependentUpon>jogo-da-velha.vb</DependentUpon>
     </Compile>
-    <Compile Include="Desafios\DesafioJogoVelha.vb">
+    <Compile Include="Desafios\jogo-da-velha.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="dsTelaUsuario.Designer.vb">
@@ -229,19 +229,19 @@
     <Compile Include="Desafios\desafiojson.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Desafios\desafioTimer.Designer.vb">
-      <DependentUpon>desafioTimer.vb</DependentUpon>
+    <Compile Include="Desafios\gato-rato.Designer.vb">
+      <DependentUpon>gato-rato.vb</DependentUpon>
     </Compile>
-    <Compile Include="Desafios\desafioTimer.vb">
+    <Compile Include="Desafios\gato-rato.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Desafios\DesafioJogoVelha.resx">
-      <DependentUpon>DesafioJogoVelha.vb</DependentUpon>
+    <EmbeddedResource Include="Desafios\jogo-da-velha.resx">
+      <DependentUpon>jogo-da-velha.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Desafios\desafioTimer.resx">
-      <DependentUpon>desafioTimer.vb</DependentUpon>
+    <EmbeddedResource Include="Desafios\gato-rato.resx">
+      <DependentUpon>gato-rato.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCadPedido.resx">
       <DependentUpon>frmCadPedido.vb</DependentUpon>
