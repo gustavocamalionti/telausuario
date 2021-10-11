@@ -44,6 +44,7 @@ Public Class frmLogin
             For c = 0 To parVal.Rows.Count - 1
                 If Me.txtLogin.Text = parVal.Rows.Item(c).Item("Login") And Me.txtSenha.Text = parVal.Rows.Item(c).Item("Senha") Then
                     LoginUsuarioConectado = parVal.Rows.Item(c).Item("Login")
+                    CodConfig = parVal.Rows.Item(c).Item("CodConfig")
                     MsgBox("Login feito com sucesso!", MsgBoxStyle.Information)
                     Me.txtLogin.ResetText()
                     Me.txtSenha.ResetText()

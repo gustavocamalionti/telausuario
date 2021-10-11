@@ -1,4 +1,6 @@
 ﻿Imports DevExpress.XtraReports.UI
+Imports telausuario.modFuncoes
+Imports telausuario.clsFuncao
 Public Class frmEtiquetas
 
     Private Sub btnArdoxGarantia_Click(sender As Object, e As EventArgs) Handles btnArdoxGarantia.Click
@@ -19,22 +21,34 @@ Public Class frmEtiquetas
         rel.tbProd.Rows.Item(1).Item("Func") = "V: Juliana"
         rel.ShowPreview()
 
+
+
     End Sub
 
     Private Sub btnEtiqueta_Click(sender As Object, e As EventArgs) Handles btnEtiqueta.Click
+
+        'Dim ParametroBusca As DataTable = CarregarDataTable("select P.CodOrdem, case when F.Nome is null then '' else F.Nome " & _
+        '"end as 'Funcionário', P.CodProdInterno, P.ValorUnitario() " & _
+        '"from pedido as P left join funcionario as F on F.Codigo = P.CodFunc " & _
+        '"where F.CodConfig = '' and CodOrdem = '';")
+
         Dim rel As New relEtiqueta
 
         rel.tbProd.Rows.Add()
-        rel.tbProd.Rows.Item(0).Item("Produto") = "NOME DO PRODUTO 1"
+        rel.tbProd.Rows.Item(0).Item("Produto") = "TESTE TESTE TESTE TESTE TESTE TESTE 01 COM O NOME DO PRODUTO"
         rel.tbProd.Rows.Item(0).Item("CodInterno") = "00001"
         rel.tbProd.Rows.Item(0).Item("Empresa") = "ELIANE MELO PRATA FINA"
         rel.tbProd.Rows.Item(0).Item("ValorUnitario") = "32,99"
 
         rel.tbProd.Rows.Add()
-        rel.tbProd.Rows.Item(1).Item("Produto") = "NOME DO PRODUTO 2"
+        rel.tbProd.Rows.Item(1).Item("Produto") = "TESTE 02 COM O NOME DO PRODUTO"
         rel.tbProd.Rows.Item(1).Item("CodInterno") = "41131"
         rel.tbProd.Rows.Item(1).Item("Empresa") = "ELIANE MELO PRATA FINA"
         rel.tbProd.Rows.Item(1).Item("ValorUnitario") = "24,99"
         rel.ShowPreview()
+    End Sub
+
+    Private Sub frmEtiquetas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class
