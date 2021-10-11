@@ -11,7 +11,7 @@
     <AssemblyName>telausuario</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -27,6 +27,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -136,40 +137,46 @@
     <Compile Include="dsTelaUsuario.vb">
       <DependentUpon>dsTelaUsuario.xsd</DependentUpon>
     </Compile>
-    <Compile Include="frmCancelamento.designer.vb">
+    <Compile Include="forms\frmCancelamento.designer.vb">
       <DependentUpon>frmCancelamento.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmCancelamento.vb">
+    <Compile Include="forms\frmCancelamento.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmConfig.Designer.vb">
+    <Compile Include="forms\frmConfig.Designer.vb">
       <DependentUpon>frmConfig.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmConfig.vb">
+    <Compile Include="forms\frmConfig.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCadPedido.Designer.vb">
+    <Compile Include="forms\frmCadPedido.Designer.vb">
       <DependentUpon>frmCadPedido.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmCadPedido.vb">
+    <Compile Include="forms\frmCadPedido.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCadProdutos.Designer.vb">
+    <Compile Include="forms\frmCadProdutos.Designer.vb">
       <DependentUpon>frmCadProdutos.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmCadProdutos.vb">
+    <Compile Include="forms\frmCadProdutos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCadCliente.Designer.vb">
+    <Compile Include="forms\frmCadCliente.Designer.vb">
       <DependentUpon>frmCadCliente.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmCadCliente.vb">
+    <Compile Include="forms\frmCadCliente.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLogin.Designer.vb">
+    <Compile Include="forms\frmEtiquetas.Designer.vb">
+      <DependentUpon>frmEtiquetas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmEtiquetas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmLogin.Designer.vb">
       <DependentUpon>frmLogin.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmLogin.vb">
+    <Compile Include="forms\frmLogin.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -187,34 +194,34 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="menu.Designer.vb">
+    <Compile Include="forms\menu.Designer.vb">
       <DependentUpon>menu.vb</DependentUpon>
     </Compile>
-    <Compile Include="menu.vb">
+    <Compile Include="forms\menu.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmConsultaOrdem.Designer.vb">
+    <Compile Include="forms\frmConsultaOrdem.Designer.vb">
       <DependentUpon>frmConsultaOrdem.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmConsultaOrdem.vb">
+    <Compile Include="forms\frmConsultaOrdem.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCadUsuario.Designer.vb">
+    <Compile Include="forms\frmCadUsuario.Designer.vb">
       <DependentUpon>frmCadUsuario.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmCadUsuario.vb">
+    <Compile Include="forms\frmCadUsuario.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmBloquearUsuario.Designer.vb">
+    <Compile Include="forms\frmBloquearUsuario.Designer.vb">
       <DependentUpon>frmBloquearUsuario.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmBloquearUsuario.vb">
+    <Compile Include="forms\frmBloquearUsuario.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAlterarsenha.Designer.vb">
+    <Compile Include="forms\frmAlterarsenha.Designer.vb">
       <DependentUpon>frmAlterarsenha.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmAlterarsenha.vb">
+    <Compile Include="forms\frmAlterarsenha.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Relatorios\relCliente.Designer.vb">
@@ -235,6 +242,12 @@
     <Compile Include="Desafios\gato-rato.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Relatorios\relEtiquetaArdoxGarantia.Designer.vb">
+      <DependentUpon>relEtiquetaArdoxGarantia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\relEtiquetaArdoxGarantia.vb">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Desafios\jogo-da-velha.resx">
@@ -243,25 +256,28 @@
     <EmbeddedResource Include="Desafios\gato-rato.resx">
       <DependentUpon>gato-rato.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCadPedido.resx">
+    <EmbeddedResource Include="forms\frmCadPedido.resx">
       <DependentUpon>frmCadPedido.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCadProdutos.resx">
+    <EmbeddedResource Include="forms\frmCadProdutos.resx">
       <DependentUpon>frmCadProdutos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCadCliente.resx">
+    <EmbeddedResource Include="forms\frmCadCliente.resx">
       <DependentUpon>frmCadCliente.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCancelamento.resx">
+    <EmbeddedResource Include="forms\frmCancelamento.resx">
       <DependentUpon>frmCancelamento.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmConfig.resx">
+    <EmbeddedResource Include="forms\frmConfig.resx">
       <DependentUpon>frmConfig.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLogin.resx">
+    <EmbeddedResource Include="forms\frmEtiquetas.resx">
+      <DependentUpon>frmEtiquetas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmLogin.resx">
       <DependentUpon>frmLogin.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="menu.resx">
+    <EmbeddedResource Include="forms\menu.resx">
       <DependentUpon>menu.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\licenses.licx" />
@@ -271,16 +287,16 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmConsultaOrdem.resx">
+    <EmbeddedResource Include="forms\frmConsultaOrdem.resx">
       <DependentUpon>frmConsultaOrdem.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCadUsuario.resx">
+    <EmbeddedResource Include="forms\frmCadUsuario.resx">
       <DependentUpon>frmCadUsuario.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmBloquearUsuario.resx">
+    <EmbeddedResource Include="forms\frmBloquearUsuario.resx">
       <DependentUpon>frmBloquearUsuario.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAlterarsenha.resx">
+    <EmbeddedResource Include="forms\frmAlterarsenha.resx">
       <DependentUpon>frmAlterarsenha.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Relatorios\relCliente.resx">
@@ -288,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Desafios\desafiojson.resx">
       <DependentUpon>desafiojson.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\relEtiquetaArdoxGarantia.resx">
+      <DependentUpon>relEtiquetaArdoxGarantia.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

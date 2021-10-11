@@ -16569,10 +16569,10 @@ Namespace dsTelaUsuarioTableAdapters
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [Usuario] ([Login], [Senha], [CodConfig], [Consultas], [Exibicao], [F"& _ 
                 "undoPadrao], [Inativo], [Nivel], [Nome], [PlanoFundo], [Principal], [Relatorios]"& _ 
                 ", [Skin]) VALUES (@Login, @Senha, @CodConfig, @Consultas, @Exibicao, @FundoPadra"& _ 
-                "o, @Inativo, @Nivel, @Nome, @PlanoFundo, @Principal, @Relatorios, @Skin);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELEC"& _ 
-                "T Codigo, Login, Senha, CodConfig, Consultas, Exibicao, FundoPadrao, Inativo, Ni"& _ 
-                "vel, Nome, PlanoFundo, Principal, Relatorios, Skin FROM Usuario WHERE (Codigo = "& _ 
-                "SCOPE_IDENTITY())"
+                "o, @Inativo, @Nivel, @Nome, @PlanoFundo, @Principal, @Relatorios, @Skin);"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT"& _ 
+                " Codigo, Login, Senha, CodConfig, Consultas, Exibicao, FundoPadrao, Inativo, Niv"& _ 
+                "el, Nome, PlanoFundo, Principal, Relatorios, Skin FROM Usuario WHERE (Codigo = S"& _ 
+                "COPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Login", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Login", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Senha", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Senha", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -16606,9 +16606,9 @@ Namespace dsTelaUsuarioTableAdapters
                 " ((@IsNull_Principal = 1 AND [Principal] IS NULL) OR ([Principal] = @Original_Pr"& _ 
                 "incipal)) AND ((@IsNull_Relatorios = 1 AND [Relatorios] IS NULL) OR ([Relatorios"& _ 
                 "] = @Original_Relatorios)) AND ((@IsNull_Skin = 1 AND [Skin] IS NULL) OR ([Skin]"& _ 
-                " = @Original_Skin)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Codigo, Login, Senha, CodConfig, Consultas, Exibic"& _ 
-                "ao, FundoPadrao, Inativo, Nivel, Nome, PlanoFundo, Principal, Relatorios, Skin F"& _ 
-                "ROM Usuario WHERE (Codigo = @Codigo)"
+                " = @Original_Skin)));"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Codigo, Login, Senha, CodConfig, Consultas, Exibica"& _ 
+                "o, FundoPadrao, Inativo, Nivel, Nome, PlanoFundo, Principal, Relatorios, Skin FR"& _ 
+                "OM Usuario WHERE (Codigo = @Codigo)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Login", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Login", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Senha", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Senha", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
