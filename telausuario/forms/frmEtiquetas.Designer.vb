@@ -20,6 +20,7 @@ Partial Class frmEtiquetas
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.btnArdoxGarantia = New DevExpress.XtraEditors.SimpleButton()
+        Me.btnEtiqueta = New DevExpress.XtraEditors.SimpleButton()
         Me.SuspendLayout()
         '
         'btnArdoxGarantia
@@ -30,11 +31,20 @@ Partial Class frmEtiquetas
         Me.btnArdoxGarantia.TabIndex = 0
         Me.btnArdoxGarantia.Text = "Ardox Garantia"
         '
+        'btnEtiqueta
+        '
+        Me.btnEtiqueta.Location = New System.Drawing.Point(160, 30)
+        Me.btnEtiqueta.Name = "btnEtiqueta"
+        Me.btnEtiqueta.Size = New System.Drawing.Size(85, 23)
+        Me.btnEtiqueta.TabIndex = 1
+        Me.btnEtiqueta.Text = "Etiqueta Menor "
+        '
         'frmEtiquetas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(284, 261)
+        Me.Controls.Add(Me.btnEtiqueta)
         Me.Controls.Add(Me.btnArdoxGarantia)
         Me.Name = "frmEtiquetas"
         Me.Text = "frmEtiquetas"
@@ -42,4 +52,5 @@ Partial Class frmEtiquetas
 
     End Sub
     Friend WithEvents btnArdoxGarantia As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents btnEtiqueta As DevExpress.XtraEditors.SimpleButton
 End Class

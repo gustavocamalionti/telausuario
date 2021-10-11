@@ -242,6 +242,12 @@
     <Compile Include="Desafios\gato-rato.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Relatorios\relEtiqueta.Designer.vb">
+      <DependentUpon>relEtiqueta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\relEtiqueta.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Relatorios\relEtiquetaArdoxGarantia.Designer.vb">
       <DependentUpon>relEtiquetaArdoxGarantia.vb</DependentUpon>
     </Compile>
@@ -304,6 +310,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Desafios\desafiojson.resx">
       <DependentUpon>desafiojson.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\relEtiqueta.resx">
+      <DependentUpon>relEtiqueta.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Relatorios\relEtiquetaArdoxGarantia.resx">
       <DependentUpon>relEtiquetaArdoxGarantia.vb</DependentUpon>

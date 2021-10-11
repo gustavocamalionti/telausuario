@@ -20,4 +20,21 @@ Public Class frmEtiquetas
         rel.ShowPreview()
 
     End Sub
+
+    Private Sub btnEtiqueta_Click(sender As Object, e As EventArgs) Handles btnEtiqueta.Click
+        Dim rel As New relEtiqueta
+
+        rel.tbProd.Rows.Add()
+        rel.tbProd.Rows.Item(0).Item("Produto") = "NOME DO PRODUTO 1"
+        rel.tbProd.Rows.Item(0).Item("CodInterno") = "00001"
+        rel.tbProd.Rows.Item(0).Item("Empresa") = "ELIANE MELO PRATA FINA"
+        rel.tbProd.Rows.Item(0).Item("ValorUnitario") = "32,99"
+
+        rel.tbProd.Rows.Add()
+        rel.tbProd.Rows.Item(1).Item("Produto") = "NOME DO PRODUTO 2"
+        rel.tbProd.Rows.Item(1).Item("CodInterno") = "41131"
+        rel.tbProd.Rows.Item(1).Item("Empresa") = "ELIANE MELO PRATA FINA"
+        rel.tbProd.Rows.Item(1).Item("ValorUnitario") = "24,99"
+        rel.ShowPreview()
+    End Sub
 End Class

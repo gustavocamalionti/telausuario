@@ -26,3 +26,4 @@ C:\Users\Usuario\Documents\Visual Studio 2013\Projects\telausuario\telausuario\o
 C:\Users\Usuario\Documents\Visual Studio 2013\Projects\telausuario\telausuario\obj\Debug\telausuario.frmCancelamento.resources
 C:\Users\Usuario\Documents\Visual Studio 2013\Projects\telausuario\telausuario\obj\Debug\telausuario.frmEtiquetas.resources
 C:\Users\Usuario\Documents\Visual Studio 2013\Projects\telausuario\telausuario\obj\Debug\telausuario.relEtiquetaArdoxGarantia.resources
+C:\Users\Usuario\Documents\Visual Studio 2013\Projects\telausuario\telausuario\obj\Debug\telausuario.relEtiqueta.resources
