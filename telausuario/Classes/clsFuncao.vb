@@ -228,6 +228,18 @@ Public Class clsFuncao
         campo.Text = intContLinhas
     End Function
 
+    Public Shared Function converteimagem(ByVal Imagem As System.Drawing.Image) As Byte()
+
+        'Declare uma variável do Tipo MemoryStream
+        Dim ms As New System.IO.MemoryStream()
+
+        'Carrega o memory Stream
+        Imagem.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg)
+
+        'retorna um array de bytes
+        Return ms.ToArray()
+
+    End Function
 End Class
 
 

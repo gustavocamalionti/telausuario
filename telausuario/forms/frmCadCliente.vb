@@ -395,20 +395,10 @@ Public Class frmCadCliente
         End If
     End Sub
 
-
-
     Private Sub txtFantasia_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtFantasia.KeyPress, txtTelefone3.KeyPress, txtTelefone2.KeyPress, txtTelefone1.KeyPress, txtRgIe.KeyPress, txtEmail.KeyPress, txtContato.KeyPress, txtClienteNum.KeyPress, txtClienteEndereco.KeyPress, txtClienteComp.KeyPress, memObservacoes.KeyPress, cboClienteCidade.KeyPress, cboClienteBairro.KeyPress, txtNomeRazao.KeyPress
         If e.KeyChar = "'" Then
             e.Handled = True
         End If
-    End Sub
-
-    Private Sub txtNomeRazao_EditValueChanged(sender As Object, e As EventArgs) Handles txtNomeRazao.EditValueChanged
-
-    End Sub
-
-    Private Sub txtClienteCep_EditValueChanged(sender As Object, e As EventArgs) Handles txtClienteCep.EditValueChanged
-
     End Sub
 
     Private Sub btnRelatorioClientes_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnRelatorioClientes.ItemClick
@@ -429,15 +419,6 @@ Public Class frmCadCliente
 
     End Sub
 
-    Private Sub grdClientesCad_Click(sender As Object, e As EventArgs) Handles grdClientesCad.Click
-
-    End Sub
-
-
-    Private Sub tabEndereco_Click(sender As Object, e As EventArgs) Handles tabEndereco.Click
-
-    End Sub
-
     Private Sub btnCancelamento_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnCancelamento.ItemClick
         If bolStatusAlteracao = True Then
             frmCancelamento.ShowDialog()
@@ -445,4 +426,5 @@ Public Class frmCadCliente
         MsgBox("Selecione um cliente", MsgBoxStyle.Information)
         End If
     End Sub
+
 End Class

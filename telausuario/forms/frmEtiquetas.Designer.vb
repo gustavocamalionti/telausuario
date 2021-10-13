@@ -25,17 +25,19 @@ Partial Class frmEtiquetas
         '
         'btnArdoxGarantia
         '
-        Me.btnArdoxGarantia.Location = New System.Drawing.Point(12, 30)
+        Me.btnArdoxGarantia.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.btnArdoxGarantia.Location = New System.Drawing.Point(0, 109)
         Me.btnArdoxGarantia.Name = "btnArdoxGarantia"
-        Me.btnArdoxGarantia.Size = New System.Drawing.Size(85, 23)
+        Me.btnArdoxGarantia.Size = New System.Drawing.Size(284, 23)
         Me.btnArdoxGarantia.TabIndex = 0
         Me.btnArdoxGarantia.Text = "Ardox Garantia"
         '
         'btnEtiqueta
         '
-        Me.btnEtiqueta.Location = New System.Drawing.Point(160, 30)
+        Me.btnEtiqueta.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.btnEtiqueta.Location = New System.Drawing.Point(0, 86)
         Me.btnEtiqueta.Name = "btnEtiqueta"
-        Me.btnEtiqueta.Size = New System.Drawing.Size(85, 23)
+        Me.btnEtiqueta.Size = New System.Drawing.Size(284, 23)
         Me.btnEtiqueta.TabIndex = 1
         Me.btnEtiqueta.Text = "Etiqueta Menor "
         '
@@ -43,11 +45,11 @@ Partial Class frmEtiquetas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(284, 261)
+        Me.ClientSize = New System.Drawing.Size(284, 132)
         Me.Controls.Add(Me.btnEtiqueta)
         Me.Controls.Add(Me.btnArdoxGarantia)
         Me.Name = "frmEtiquetas"
-        Me.Text = "frmEtiquetas"
+        Me.Text = "V"
         Me.ResumeLayout(False)
 
     End Sub
