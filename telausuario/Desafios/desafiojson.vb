@@ -10,4 +10,8 @@ Public Class desafiojson
         Dim successResult2 As Linq.JObject = JsonConvert.DeserializeObject(jsonResult2)
         Dim strResultado2 As String = successResult2("transactionId")
     End Sub
+
+    Private Sub desafiojson_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

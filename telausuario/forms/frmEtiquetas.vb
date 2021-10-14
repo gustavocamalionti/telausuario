@@ -74,7 +74,6 @@ Public Class frmEtiquetas
 
 
         Dim rel As New relEtiqueta
-
         rel.tbProd.Rows.Add()
         rel.tbProd.Rows.Item(0).Item("Produto") = "TESTE TESTE TESTE TESTE TESTE TESTE 01 COM O NOME DO PRODUTO"
         rel.tbProd.Rows.Item(0).Item("CodInterno") = strCodigoProduto
@@ -83,4 +82,5 @@ Public Class frmEtiquetas
         rel.tbProd.Rows.Item(0).Item("CodBarra") = imagem
         rel.ShowPreview()
     End Sub
+
 End Class
