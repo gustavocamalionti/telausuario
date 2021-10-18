@@ -1354,7 +1354,7 @@ Partial Class frmCadProdutos
         Me.lblQtdTotal.AutoSize = True
         Me.lblQtdTotal.Location = New System.Drawing.Point(453, 16)
         Me.lblQtdTotal.Name = "lblQtdTotal"
-        Me.lblQtdTotal.Size = New System.Drawing.Size(51, 13)
+        Me.lblQtdTotal.Size = New System.Drawing.Size(52, 13)
         Me.lblQtdTotal.TabIndex = 4
         Me.lblQtdTotal.Text = "Qtd Total"
         '
@@ -1384,7 +1384,7 @@ Partial Class frmCadProdutos
         Me.lblProdCadastrados.AutoSize = True
         Me.lblProdCadastrados.Location = New System.Drawing.Point(12, 16)
         Me.lblProdCadastrados.Name = "lblProdCadastrados"
-        Me.lblProdCadastrados.Size = New System.Drawing.Size(111, 13)
+        Me.lblProdCadastrados.Size = New System.Drawing.Size(114, 13)
         Me.lblProdCadastrados.TabIndex = 0
         Me.lblProdCadastrados.Text = "Produtos Cadastrados"
         '
@@ -2054,7 +2054,6 @@ Partial Class frmCadProdutos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1008, 666)
         Me.Controls.Add(Me.grpProdCadastrados)
         Me.Controls.Add(Me.PanelControl1)

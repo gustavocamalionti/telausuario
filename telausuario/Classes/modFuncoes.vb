@@ -6,7 +6,7 @@
     Public NomeBanco As String
     Public NomeDoBancoSql As String
 
-    Public CodConfig As Integer
+    Public CodConfig As String
     Public CodOrdem As String = 0
     Public CodigoCliente As Integer
     Public CodigoProduto As Integer

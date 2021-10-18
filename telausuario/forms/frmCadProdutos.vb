@@ -690,4 +690,8 @@ Public Class frmCadProdutos
     Private Sub grdProdCadastrados_Click(sender As Object, e As EventArgs) Handles grdProdCadastrados.Click
 
     End Sub
+
+    Private Sub txtVendaPorc_EditValueChanged(sender As Object, e As EventArgs) Handles txtVendaPorc.EditValueChanged
+
+    End Sub
 End Class

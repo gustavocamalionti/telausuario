@@ -44,7 +44,7 @@ Public Class frmLogin
             For c = 0 To parVal.Rows.Count - 1
                 If Me.txtLogin.Text = parVal.Rows.Item(c).Item("Login") And Me.txtSenha.Text = parVal.Rows.Item(c).Item("Senha") Then
                     LoginUsuarioConectado = parVal.Rows.Item(c).Item("Login")
-                    CodConfig = parVal.Rows.Item(c).Item("CodConfig")
+                    CodConfig = parVal.Rows.Item(c).Item("CodConfig").ToString
                     MsgBox("Login feito com sucesso!", MsgBoxStyle.Information)
                     Me.txtLogin.ResetText()
                     Me.txtSenha.ResetText()
@@ -65,7 +65,7 @@ Public Class frmLogin
     End Sub
 
     Private Sub btnOk_Click(sender As Object, e As EventArgs) Handles btnOk.Click
-        Dim dtDadosUsuarios As DataTable = CarregarDataTable("select Login, Senha from Usuario;")
+        Dim dtDadosUsuarios As DataTable = CarregarDataTable("select Login, Senha, CodConfig from Usuario;")
         ValidarSalvamento(dtDadosUsuarios)
 
     End Sub
@@ -84,7 +84,7 @@ Public Class frmLogin
 
     Private Sub txtSenha_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtSenha.KeyPress
         If AscW(e.KeyChar) = CInt(Keys.Enter) Then
-            Dim dtDadosUsuarios As DataTable = CarregarDataTable("select Login, Senha from Usuario;")
+            Dim dtDadosUsuarios As DataTable = CarregarDataTable("select Login, Senha, CodConfig from Usuario;")
             ValidarSalvamento(dtDadosUsuarios)
         End If
     End Sub
