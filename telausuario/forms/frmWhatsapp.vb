@@ -33,7 +33,9 @@ Public Class frmWhatsapp
 
     Private Sub txtAlterarGrid_DoubleClick(sender As Object, e As EventArgs) Handles txtAlterarGrid.DoubleClick
         MostrarDados()
-        Dim Index As Integer = Me.grd1.FocusedRowHandle
-        CodigoCliente = Me.grd1.GetRowCellValue(Index, colCodigo)
+    End Sub
+
+    Private Sub btnLimpar_Click(sender As Object, e As EventArgs) Handles btnLimpar.Click
+        Limpar()
     End Sub
 End Class

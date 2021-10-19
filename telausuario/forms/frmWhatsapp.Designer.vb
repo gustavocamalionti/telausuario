@@ -30,12 +30,12 @@ Partial Class frmWhatsapp
         Me.dtListaContato = New System.Data.DataTable()
         Me.DataColumn1 = New System.Data.DataColumn()
         Me.DataColumn2 = New System.Data.DataColumn()
-        Me.grd1 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.DataColumn3 = New System.Data.DataColumn()
+        Me.grd1 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.colCodigo = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.txtAlterarGrid = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
         Me.colNome = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colCelular = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.txtAlterarGrid = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
         CType(Me.txtNumeroDestino.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.memMensagem.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grdListaClientes, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -47,6 +47,8 @@ Partial Class frmWhatsapp
         '
         'txtNumeroDestino
         '
+        Me.txtNumeroDestino.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtNumeroDestino.Location = New System.Drawing.Point(131, 120)
         Me.txtNumeroDestino.Name = "txtNumeroDestino"
         Me.txtNumeroDestino.Properties.MaxLength = 15
@@ -55,6 +57,7 @@ Partial Class frmWhatsapp
         '
         'lblNumeroDestino
         '
+        Me.lblNumeroDestino.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lblNumeroDestino.Location = New System.Drawing.Point(12, 123)
         Me.lblNumeroDestino.Name = "lblNumeroDestino"
         Me.lblNumeroDestino.Size = New System.Drawing.Size(113, 13)
@@ -63,6 +66,7 @@ Partial Class frmWhatsapp
         '
         'lblMensagemEnvio
         '
+        Me.lblMensagemEnvio.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lblMensagemEnvio.Location = New System.Drawing.Point(74, 149)
         Me.lblMensagemEnvio.Name = "lblMensagemEnvio"
         Me.lblMensagemEnvio.Size = New System.Drawing.Size(51, 13)
@@ -71,14 +75,17 @@ Partial Class frmWhatsapp
         '
         'memMensagem
         '
+        Me.memMensagem.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.memMensagem.Location = New System.Drawing.Point(131, 146)
         Me.memMensagem.Name = "memMensagem"
-        Me.memMensagem.Size = New System.Drawing.Size(393, 45)
+        Me.memMensagem.Size = New System.Drawing.Size(393, 62)
         Me.memMensagem.TabIndex = 4
         '
         'btnEnviar
         '
-        Me.btnEnviar.Location = New System.Drawing.Point(322, 197)
+        Me.btnEnviar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnEnviar.Location = New System.Drawing.Point(322, 214)
         Me.btnEnviar.Name = "btnEnviar"
         Me.btnEnviar.Size = New System.Drawing.Size(99, 23)
         Me.btnEnviar.TabIndex = 5
@@ -86,7 +93,8 @@ Partial Class frmWhatsapp
         '
         'btnLimpar
         '
-        Me.btnLimpar.Location = New System.Drawing.Point(427, 197)
+        Me.btnLimpar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnLimpar.Location = New System.Drawing.Point(427, 214)
         Me.btnLimpar.Name = "btnLimpar"
         Me.btnLimpar.Size = New System.Drawing.Size(97, 23)
         Me.btnLimpar.TabIndex = 6
@@ -94,6 +102,9 @@ Partial Class frmWhatsapp
         '
         'grdListaClientes
         '
+        Me.grdListaClientes.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.grdListaClientes.DataMember = "dtListaContato"
         Me.grdListaClientes.DataSource = Me.dsListaContato
         Me.grdListaClientes.Location = New System.Drawing.Point(12, 12)
@@ -122,6 +133,11 @@ Partial Class frmWhatsapp
         '
         Me.DataColumn2.ColumnName = "Nome"
         '
+        'DataColumn3
+        '
+        Me.DataColumn3.Caption = "Celular"
+        Me.DataColumn3.ColumnName = "Celular"
+        '
         'grd1
         '
         Me.grd1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colCodigo, Me.colNome, Me.colCelular})
@@ -129,16 +145,16 @@ Partial Class frmWhatsapp
         Me.grd1.Name = "grd1"
         Me.grd1.OptionsView.ShowGroupPanel = False
         '
-        'DataColumn3
-        '
-        Me.DataColumn3.Caption = "Celular"
-        Me.DataColumn3.ColumnName = "Celular"
-        '
         'colCodigo
         '
         Me.colCodigo.ColumnEdit = Me.txtAlterarGrid
         Me.colCodigo.FieldName = "Codigo"
         Me.colCodigo.Name = "colCodigo"
+        '
+        'txtAlterarGrid
+        '
+        Me.txtAlterarGrid.AutoHeight = False
+        Me.txtAlterarGrid.Name = "txtAlterarGrid"
         '
         'colNome
         '
@@ -156,16 +172,11 @@ Partial Class frmWhatsapp
         Me.colCelular.Visible = True
         Me.colCelular.VisibleIndex = 1
         '
-        'txtAlterarGrid
-        '
-        Me.txtAlterarGrid.AutoHeight = False
-        Me.txtAlterarGrid.Name = "txtAlterarGrid"
-        '
         'frmWhatsapp
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(536, 250)
+        Me.ClientSize = New System.Drawing.Size(536, 249)
         Me.Controls.Add(Me.grdListaClientes)
         Me.Controls.Add(Me.btnLimpar)
         Me.Controls.Add(Me.btnEnviar)
@@ -174,6 +185,7 @@ Partial Class frmWhatsapp
         Me.Controls.Add(Me.lblNumeroDestino)
         Me.Controls.Add(Me.txtNumeroDestino)
         Me.Name = "frmWhatsapp"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmWhatsapp"
         CType(Me.txtNumeroDestino.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.memMensagem.Properties, System.ComponentModel.ISupportInitialize).EndInit()
