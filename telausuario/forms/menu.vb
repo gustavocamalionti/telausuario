@@ -99,6 +99,6 @@ Public Class frmMenu
     End Sub
 
     Private Sub btnWhatsapp_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnWhatsapp.ItemClick
-
+        frmWhatsapp.ShowDialog()
     End Sub
 End Class
