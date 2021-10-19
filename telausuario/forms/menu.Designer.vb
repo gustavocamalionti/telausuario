@@ -31,15 +31,16 @@ Partial Class frmMenu
         Me.btnCadastrarUsuario = New DevExpress.XtraBars.BarButtonItem()
         Me.btnBloquearUsuario = New DevExpress.XtraBars.BarButtonItem()
         Me.btnAlterarSenha = New DevExpress.XtraBars.BarButtonItem()
+        Me.barHora = New DevExpress.XtraBars.BarStaticItem()
+        Me.barNanoVersaoComputador = New DevExpress.XtraBars.BarStaticItem()
+        Me.btnWhatsapp = New DevExpress.XtraBars.BarButtonItem()
         Me.princ = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.Principal = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.RepositoryItemTextEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
         Me.RibbonStatusBar = New DevExpress.XtraBars.Ribbon.RibbonStatusBar()
         Me.ToolTipController1 = New DevExpress.Utils.ToolTipController(Me.components)
         Me.DefaultLookAndFeel1 = New DevExpress.LookAndFeel.DefaultLookAndFeel(Me.components)
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.RepositoryItemTextEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
-        Me.barHora = New DevExpress.XtraBars.BarStaticItem()
-        Me.barNanoVersaoComputador = New DevExpress.XtraBars.BarStaticItem()
         CType(Me.rbcMenuPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemTextEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -49,9 +50,9 @@ Partial Class frmMenu
         Me.rbcMenuPrincipal.BackColor = System.Drawing.Color.WhiteSmoke
         Me.rbcMenuPrincipal.ExpandCollapseItem.Id = 0
         Me.rbcMenuPrincipal.ForeColor = System.Drawing.SystemColors.ActiveCaption
-        Me.rbcMenuPrincipal.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.rbcMenuPrincipal.ExpandCollapseItem, Me.btnCadCliente, Me.btnEstoque, Me.btnCadastrarProduto, Me.btnPedidos, Me.btnCadastrarPedido, Me.btnConsultarPedido, Me.BarButtonItem1, Me.btnCadastrarUsuario, Me.btnBloquearUsuario, Me.btnAlterarSenha, Me.barHora, Me.barNanoVersaoComputador})
+        Me.rbcMenuPrincipal.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.rbcMenuPrincipal.ExpandCollapseItem, Me.btnCadCliente, Me.btnEstoque, Me.btnCadastrarProduto, Me.btnPedidos, Me.btnCadastrarPedido, Me.btnConsultarPedido, Me.BarButtonItem1, Me.btnCadastrarUsuario, Me.btnBloquearUsuario, Me.btnAlterarSenha, Me.barHora, Me.barNanoVersaoComputador, Me.btnWhatsapp})
         Me.rbcMenuPrincipal.Location = New System.Drawing.Point(0, 0)
-        Me.rbcMenuPrincipal.MaxItemId = 132
+        Me.rbcMenuPrincipal.MaxItemId = 133
         Me.rbcMenuPrincipal.Name = "rbcMenuPrincipal"
         Me.rbcMenuPrincipal.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.princ})
         Me.rbcMenuPrincipal.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemTextEdit1})
@@ -60,6 +61,7 @@ Partial Class frmMenu
         Me.rbcMenuPrincipal.Toolbar.ItemLinks.Add(Me.btnAlterarSenha)
         Me.rbcMenuPrincipal.Toolbar.ItemLinks.Add(Me.btnCadastrarUsuario)
         Me.rbcMenuPrincipal.Toolbar.ItemLinks.Add(Me.btnBloquearUsuario)
+        Me.rbcMenuPrincipal.Toolbar.ItemLinks.Add(Me.btnWhatsapp)
         Me.rbcMenuPrincipal.TransparentEditors = True
         '
         'btnCadCliente
@@ -135,6 +137,28 @@ Partial Class frmMenu
         Me.btnAlterarSenha.Id = 128
         Me.btnAlterarSenha.Name = "btnAlterarSenha"
         '
+        'barHora
+        '
+        Me.barHora.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
+        Me.barHora.Caption = "Data"
+        Me.barHora.Id = 130
+        Me.barHora.Name = "barHora"
+        Me.barHora.TextAlignment = System.Drawing.StringAlignment.Near
+        '
+        'barNanoVersaoComputador
+        '
+        Me.barNanoVersaoComputador.Caption = "BarNanoVersaoComputador"
+        Me.barNanoVersaoComputador.Id = 131
+        Me.barNanoVersaoComputador.Name = "barNanoVersaoComputador"
+        Me.barNanoVersaoComputador.TextAlignment = System.Drawing.StringAlignment.Near
+        '
+        'btnWhatsapp
+        '
+        Me.btnWhatsapp.Caption = "btnWhatsapp"
+        Me.btnWhatsapp.Glyph = Global.telausuario.My.Resources.Resources.Whatsapp_32
+        Me.btnWhatsapp.Id = 132
+        Me.btnWhatsapp.Name = "btnWhatsapp"
+        '
         'princ
         '
         Me.princ.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.Principal})
@@ -146,6 +170,11 @@ Partial Class frmMenu
         Me.Principal.ItemLinks.Add(Me.btnEstoque)
         Me.Principal.ItemLinks.Add(Me.btnPedidos)
         Me.Principal.Name = "Principal"
+        '
+        'RepositoryItemTextEdit1
+        '
+        Me.RepositoryItemTextEdit1.AutoHeight = False
+        Me.RepositoryItemTextEdit1.Name = "RepositoryItemTextEdit1"
         '
         'RibbonStatusBar
         '
@@ -164,26 +193,6 @@ Partial Class frmMenu
         'DefaultLookAndFeel1
         '
         Me.DefaultLookAndFeel1.LookAndFeel.SkinName = "Office 2010 Blue"
-        '
-        'RepositoryItemTextEdit1
-        '
-        Me.RepositoryItemTextEdit1.AutoHeight = False
-        Me.RepositoryItemTextEdit1.Name = "RepositoryItemTextEdit1"
-        '
-        'barHora
-        '
-        Me.barHora.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
-        Me.barHora.Caption = "Data"
-        Me.barHora.Id = 130
-        Me.barHora.Name = "barHora"
-        Me.barHora.TextAlignment = System.Drawing.StringAlignment.Near
-        '
-        'barNanoVersaoComputador
-        '
-        Me.barNanoVersaoComputador.Caption = "BarNanoVersaoComputador"
-        Me.barNanoVersaoComputador.Id = 131
-        Me.barNanoVersaoComputador.Name = "barNanoVersaoComputador"
-        Me.barNanoVersaoComputador.TextAlignment = System.Drawing.StringAlignment.Near
         '
         'frmMenu
         '
@@ -225,6 +234,7 @@ Partial Class frmMenu
     Friend WithEvents RepositoryItemTextEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
     Friend WithEvents barHora As DevExpress.XtraBars.BarStaticItem
     Friend WithEvents barNanoVersaoComputador As DevExpress.XtraBars.BarStaticItem
+    Friend WithEvents btnWhatsapp As DevExpress.XtraBars.BarButtonItem
 
 
 End Class

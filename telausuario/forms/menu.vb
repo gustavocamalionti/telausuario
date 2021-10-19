@@ -98,11 +98,7 @@ Public Class frmMenu
         frmAlterarSenha.ShowDialog()
     End Sub
 
-    Private Sub BarEditItem1_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs)
-
-    End Sub
-
-    Private Sub rbcMenuPrincipal_Click(sender As Object, e As EventArgs) Handles rbcMenuPrincipal.Click
+    Private Sub btnWhatsapp_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnWhatsapp.ItemClick
 
     End Sub
 End Class

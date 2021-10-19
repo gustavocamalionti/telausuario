@@ -423,7 +423,7 @@ Public Class frmCadCliente
         If bolStatusAlteracao = True Then
             frmCancelamento.ShowDialog()
         Else
-        MsgBox("Selecione um cliente", MsgBoxStyle.Information)
+            MsgBox("Selecione um cliente", MsgBoxStyle.Information)
         End If
     End Sub
 
