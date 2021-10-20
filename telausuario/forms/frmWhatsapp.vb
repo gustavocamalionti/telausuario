@@ -5,7 +5,7 @@ Public Class frmWhatsapp
 
 
     Private Sub btnEnviar_Click(sender As Object, e As EventArgs) Handles btnEnviar.Click
-        Dim NumeroDestinatario As String = Me.txtNumeroDestino.Text
+        Dim NumeroDestinatario As String = Me.txtNumeroComDdd.Text
         Dim MensagemDestinatario As String = Me.memMensagem.Text.Replace(" ", "%20")
         System.Diagnostics.Process.Start("https://wa.me/" & NumeroDestinatario & "?text=" & Me.memMensagem.Text & "")
     End Sub
@@ -16,18 +16,39 @@ Public Class frmWhatsapp
     End Sub
 
     Private Sub CarregarGrid()
-        CarregarDados("select Codigo, Nome, Celular from cliente", grdListaClientes)
+        CarregarDados("select Codigo, Nome, Celular, CodPais from cliente", grdListaClientes)
     End Sub
 
     Private Sub Limpar()
         Me.memMensagem.ResetText()
-        Me.txtNumeroDestino.ResetText()
+        Me.txtNumeroComDdd.ResetText()
     End Sub
 
     Private Sub MostrarDados()
         Dim Index As Integer = Me.grd1.FocusedRowHandle
-        Me.txtNumeroDestino.Text = Me.grd1.GetRowCellDisplayText(Index, Me.colCelular)
+
+
         Me.memMensagem.Text = "Olá " & Me.grd1.GetRowCellDisplayText(Index, Me.colNome) & "! meu nome é " & Environment.MachineName & " da NANO SYSTEMS, podemos conversar agora? "
+
+
+        If Me.grd1.GetRowCellDisplayText(Index, Me.colCodPais).ToString <> "" Then
+            Dim dtPesquisarPais As DataTable = CarregarDataTable("select * from Pais where CodIBGE = " & Me.grd1.GetRowCellDisplayText(Index, Me.colCodPais) & "")
+            Dim NumeroCelular As String = Me.grd1.GetRowCellDisplayText(Index, Me.colCelular)
+
+            Me.txtDDI.Text = dtPesquisarPais.Rows.Item(0).Item("CodDDI")
+            Dim QuantidadeCaracterDDI As Integer = Me.txtDDI.Text.ToString.Count
+
+            'Verificar se o Numero de Celular já possui 
+
+            Dim VerificarPrimeirosDigitos As String = NumeroCelular.Substring(0, QuantidadeCaracterDDI).ToString
+            If VerificarPrimeirosDigitos = Me.txtDDI.Text Then
+                Me.txtNumeroComDdd.Text = NumeroCelular.Substring(QuantidadeCaracterDDI - 1, NumeroCelular.Count - 1)
+            End If
+        End If
+
+
+
+
 
     End Sub
 

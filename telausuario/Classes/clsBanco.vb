@@ -333,7 +333,7 @@ Public Class clsBanco
             ExecutaSQL("Alter Table Cliente ADD DataCancelamento varchar(35);")
         End If
 
-        intVersao = 102
+
         If intVersao <= 102 Then
             Atualizar("Update config set VersaoNano = '1.0.3';")
 
@@ -344,8 +344,9 @@ Public Class clsBanco
                         "[CodIBGE] [varchar](15));")
             End If
 
-            ExecutaSQL("Alter table Pais add CodDDI [varchar](15)")
+            ExecutaSQL("Alter table Cliente add CodPais varchar(4);")
             ExecutaSQL("Delete Pais;")
+            ExecutaSQL("Alter table Pais add CodDDI [varchar](15)")
             ExecutaSQL("insert into Pais (Pais,CodIBGE,CodDDI) values('AFEGANISTAO',132,93);")
             ExecutaSQL("insert into Pais (Pais,CodIBGE,CodDDI) values('AFRICA DO SUL',7560,27);")
             ExecutaSQL("insert into Pais (Pais,CodIBGE,CodDDI) values('ALBANIA, REPUBLICA DA',175,355);")
