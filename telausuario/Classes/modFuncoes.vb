@@ -1,7 +1,7 @@
 ﻿Module modFuncoes
     'Conexões - Tabela: banco
     Public StringDeConexao As String
-    Public VersaoSistemaProjeto As String = "1.0.2"
+    Public VersaoSistemaProjeto As String = "1.0.3"
     Public VersaoSistemaBanco As String
     Public NomeBanco As String
     Public NomeDoBancoSql As String

@@ -49,10 +49,10 @@ Partial Class frmWhatsapp
         '
         Me.txtNumeroDestino.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtNumeroDestino.Location = New System.Drawing.Point(131, 120)
+        Me.txtNumeroDestino.Location = New System.Drawing.Point(322, 120)
         Me.txtNumeroDestino.Name = "txtNumeroDestino"
         Me.txtNumeroDestino.Properties.MaxLength = 15
-        Me.txtNumeroDestino.Size = New System.Drawing.Size(393, 20)
+        Me.txtNumeroDestino.Size = New System.Drawing.Size(202, 20)
         Me.txtNumeroDestino.TabIndex = 0
         '
         'lblNumeroDestino
