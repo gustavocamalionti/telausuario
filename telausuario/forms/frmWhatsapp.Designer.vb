@@ -21,7 +21,7 @@ Partial Class frmWhatsapp
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.txtNumeroComDdd = New DevExpress.XtraEditors.TextEdit()
-        Me.lblNumeroDestino = New DevExpress.XtraEditors.LabelControl()
+        Me.lblNumero = New DevExpress.XtraEditors.LabelControl()
         Me.lblMensagemEnvio = New DevExpress.XtraEditors.LabelControl()
         Me.memMensagem = New DevExpress.XtraEditors.MemoEdit()
         Me.grdListaClientes = New DevExpress.XtraGrid.GridControl()
@@ -49,8 +49,11 @@ Partial Class frmWhatsapp
         Me.barDockControlLeft = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlRight = New DevExpress.XtraBars.BarDockControl()
         Me.grpDadosMensagem = New DevExpress.XtraEditors.GroupControl()
+        Me.dblformatoNumero = New DevExpress.XtraEditors.LabelControl()
+        Me.lblDDI = New DevExpress.XtraEditors.LabelControl()
         Me.txtTitulo = New DevExpress.XtraEditors.TextEdit()
         Me.lblTitulo = New DevExpress.XtraEditors.LabelControl()
+        Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
         CType(Me.txtNumeroComDdd.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.memMensagem.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grdListaClientes, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -67,27 +70,26 @@ Partial Class frmWhatsapp
         '
         'txtNumeroComDdd
         '
-        Me.txtNumeroComDdd.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtNumeroComDdd.Location = New System.Drawing.Point(163, 49)
+        Me.txtNumeroComDdd.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.txtNumeroComDdd.Location = New System.Drawing.Point(106, 196)
         Me.txtNumeroComDdd.Name = "txtNumeroComDdd"
         Me.txtNumeroComDdd.Properties.MaxLength = 15
-        Me.txtNumeroComDdd.Size = New System.Drawing.Size(122, 20)
+        Me.txtNumeroComDdd.Size = New System.Drawing.Size(94, 20)
         Me.txtNumeroComDdd.TabIndex = 0
         '
-        'lblNumeroDestino
+        'lblNumero
         '
-        Me.lblNumeroDestino.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.lblNumeroDestino.Location = New System.Drawing.Point(0, 52)
-        Me.lblNumeroDestino.Name = "lblNumeroDestino"
-        Me.lblNumeroDestino.Size = New System.Drawing.Size(113, 13)
-        Me.lblNumeroDestino.TabIndex = 1
-        Me.lblNumeroDestino.Text = "Número do Destinatário"
+        Me.lblNumero.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.lblNumero.Location = New System.Drawing.Point(19, 199)
+        Me.lblNumero.Name = "lblNumero"
+        Me.lblNumero.Size = New System.Drawing.Size(37, 13)
+        Me.lblNumero.TabIndex = 1
+        Me.lblNumero.Text = "Número"
         '
         'lblMensagemEnvio
         '
         Me.lblMensagemEnvio.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.lblMensagemEnvio.Location = New System.Drawing.Point(62, 104)
+        Me.lblMensagemEnvio.Location = New System.Drawing.Point(5, 251)
         Me.lblMensagemEnvio.Name = "lblMensagemEnvio"
         Me.lblMensagemEnvio.Size = New System.Drawing.Size(51, 13)
         Me.lblMensagemEnvio.TabIndex = 3
@@ -95,25 +97,21 @@ Partial Class frmWhatsapp
         '
         'memMensagem
         '
-        Me.memMensagem.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.memMensagem.Location = New System.Drawing.Point(119, 101)
+        Me.memMensagem.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.memMensagem.Location = New System.Drawing.Point(62, 252)
         Me.memMensagem.Name = "memMensagem"
-        Me.memMensagem.Size = New System.Drawing.Size(486, 79)
+        Me.memMensagem.Size = New System.Drawing.Size(451, 79)
         Me.memMensagem.TabIndex = 4
         '
         'grdListaClientes
         '
-        Me.grdListaClientes.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.grdListaClientes.DataMember = "dtListaContato"
         Me.grdListaClientes.DataSource = Me.dsListaContato
-        Me.grdListaClientes.Location = New System.Drawing.Point(12, 12)
+        Me.grdListaClientes.Location = New System.Drawing.Point(46, 12)
         Me.grdListaClientes.MainView = Me.grd1
         Me.grdListaClientes.Name = "grdListaClientes"
         Me.grdListaClientes.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.txtAlterarGrid})
-        Me.grdListaClientes.Size = New System.Drawing.Size(615, 133)
+        Me.grdListaClientes.Size = New System.Drawing.Size(383, 367)
         Me.grdListaClientes.TabIndex = 7
         Me.grdListaClientes.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.grd1})
         '
@@ -173,6 +171,7 @@ Partial Class frmWhatsapp
         Me.colNome.Name = "colNome"
         Me.colNome.Visible = True
         Me.colNome.VisibleIndex = 0
+        Me.colNome.Width = 258
         '
         'colCelular
         '
@@ -181,6 +180,7 @@ Partial Class frmWhatsapp
         Me.colCelular.Name = "colCelular"
         Me.colCelular.Visible = True
         Me.colCelular.VisibleIndex = 1
+        Me.colCelular.Width = 107
         '
         'colCodPais
         '
@@ -191,7 +191,7 @@ Partial Class frmWhatsapp
         'txtDDI
         '
         Me.txtDDI.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.txtDDI.Location = New System.Drawing.Point(119, 49)
+        Me.txtDDI.Location = New System.Drawing.Point(62, 196)
         Me.txtDDI.Name = "txtDDI"
         Me.txtDDI.Properties.Appearance.Options.UseTextOptions = True
         Me.txtDDI.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
@@ -262,68 +262,99 @@ Partial Class frmWhatsapp
         Me.barDockControlTop.CausesValidation = False
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
-        Me.barDockControlTop.Size = New System.Drawing.Size(639, 0)
+        Me.barDockControlTop.Size = New System.Drawing.Size(1008, 0)
         '
         'barDockControlBottom
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 346)
-        Me.barDockControlBottom.Size = New System.Drawing.Size(639, 43)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 618)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(1008, 43)
         '
         'barDockControlLeft
         '
         Me.barDockControlLeft.CausesValidation = False
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
         Me.barDockControlLeft.Location = New System.Drawing.Point(0, 0)
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 346)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 618)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(639, 0)
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 346)
+        Me.barDockControlRight.Location = New System.Drawing.Point(1008, 0)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 618)
         '
         'grpDadosMensagem
         '
+        Me.grpDadosMensagem.Controls.Add(Me.WebBrowser1)
+        Me.grpDadosMensagem.Controls.Add(Me.dblformatoNumero)
+        Me.grpDadosMensagem.Controls.Add(Me.lblDDI)
         Me.grpDadosMensagem.Controls.Add(Me.txtTitulo)
         Me.grpDadosMensagem.Controls.Add(Me.lblTitulo)
         Me.grpDadosMensagem.Controls.Add(Me.txtNumeroComDdd)
-        Me.grpDadosMensagem.Controls.Add(Me.lblNumeroDestino)
+        Me.grpDadosMensagem.Controls.Add(Me.lblNumero)
         Me.grpDadosMensagem.Controls.Add(Me.txtDDI)
         Me.grpDadosMensagem.Controls.Add(Me.lblMensagemEnvio)
         Me.grpDadosMensagem.Controls.Add(Me.memMensagem)
-        Me.grpDadosMensagem.Location = New System.Drawing.Point(12, 151)
+        Me.grpDadosMensagem.Dock = System.Windows.Forms.DockStyle.Right
+        Me.grpDadosMensagem.Location = New System.Drawing.Point(486, 0)
         Me.grpDadosMensagem.Name = "grpDadosMensagem"
-        Me.grpDadosMensagem.Size = New System.Drawing.Size(615, 189)
+        Me.grpDadosMensagem.Size = New System.Drawing.Size(522, 618)
         Me.grpDadosMensagem.TabIndex = 15
         Me.grpDadosMensagem.Text = "Whatsapp"
         '
+        'dblformatoNumero
+        '
+        Me.dblformatoNumero.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.dblformatoNumero.Appearance.ForeColor = System.Drawing.Color.DarkGray
+        Me.dblformatoNumero.Location = New System.Drawing.Point(122, 177)
+        Me.dblformatoNumero.Name = "dblformatoNumero"
+        Me.dblformatoNumero.Size = New System.Drawing.Size(72, 13)
+        Me.dblformatoNumero.TabIndex = 15
+        Me.dblformatoNumero.Text = "DDD+NÚMERO"
+        '
+        'lblDDI
+        '
+        Me.lblDDI.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.lblDDI.Appearance.ForeColor = System.Drawing.Color.DarkGray
+        Me.lblDDI.Location = New System.Drawing.Point(75, 177)
+        Me.lblDDI.Name = "lblDDI"
+        Me.lblDDI.Size = New System.Drawing.Size(18, 13)
+        Me.lblDDI.TabIndex = 14
+        Me.lblDDI.Text = "DDI"
+        '
         'txtTitulo
         '
-        Me.txtTitulo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtTitulo.Location = New System.Drawing.Point(119, 75)
+        Me.txtTitulo.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.txtTitulo.Location = New System.Drawing.Point(62, 222)
         Me.txtTitulo.Name = "txtTitulo"
         Me.txtTitulo.Properties.MaxLength = 50
-        Me.txtTitulo.Size = New System.Drawing.Size(349, 20)
+        Me.txtTitulo.Size = New System.Drawing.Size(416, 20)
         Me.txtTitulo.TabIndex = 13
         '
         'lblTitulo
         '
         Me.lblTitulo.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.lblTitulo.Location = New System.Drawing.Point(87, 78)
+        Me.lblTitulo.Location = New System.Drawing.Point(30, 225)
         Me.lblTitulo.Name = "lblTitulo"
         Me.lblTitulo.Size = New System.Drawing.Size(26, 13)
         Me.lblTitulo.TabIndex = 12
         Me.lblTitulo.Text = "Título"
         '
+        'WebBrowser1
+        '
+        Me.WebBrowser1.Location = New System.Drawing.Point(5, 348)
+        Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
+        Me.WebBrowser1.Name = "WebBrowser1"
+        Me.WebBrowser1.Size = New System.Drawing.Size(512, 265)
+        Me.WebBrowser1.TabIndex = 16
+        '
         'frmWhatsapp
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(639, 389)
+        Me.ClientSize = New System.Drawing.Size(1008, 661)
         Me.Controls.Add(Me.grdListaClientes)
         Me.Controls.Add(Me.grpDadosMensagem)
         Me.Controls.Add(Me.barDockControlLeft)
@@ -350,7 +381,7 @@ Partial Class frmWhatsapp
 
     End Sub
     Friend WithEvents txtNumeroComDdd As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents lblNumeroDestino As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents lblNumero As DevExpress.XtraEditors.LabelControl
     Friend WithEvents lblMensagemEnvio As DevExpress.XtraEditors.LabelControl
     Friend WithEvents memMensagem As DevExpress.XtraEditors.MemoEdit
     Friend WithEvents grdListaClientes As DevExpress.XtraGrid.GridControl
@@ -380,4 +411,7 @@ Partial Class frmWhatsapp
     Friend WithEvents grpDadosMensagem As DevExpress.XtraEditors.GroupControl
     Friend WithEvents txtTitulo As DevExpress.XtraEditors.TextEdit
     Friend WithEvents lblTitulo As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents dblformatoNumero As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents lblDDI As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents WebBrowser1 As System.Windows.Forms.WebBrowser
 End Class
