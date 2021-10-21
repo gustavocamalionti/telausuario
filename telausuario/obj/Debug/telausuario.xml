@@ -1,0 +1,424 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+telausuario
+</name>
+</assembly>
+<members>
+<member name="P:telausuario.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.Alterar">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.apply">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.apply18x18">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.apply50">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.blockdevice">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.blockdevice50">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.branca">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.Cabri">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.cadeado">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.cal_2">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.cancel24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.cancel36">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.cli_ente">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.Comando_Fechar_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.Comando_Gravar_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.Comando_Limpar_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.Comando_Limpar_32x321">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.credit_card">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.delete">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.edit_add">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.Enveloppe_Blue">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.Filter">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.FundoLogin">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.gato">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.gato_norm">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.gatoleft_30">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.gatop">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.gatop1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.Giro18x18">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.Giro24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.Impressora">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.Impressora50">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.Itens_24x24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.Lupa_Azul_12x12">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.playlist">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.playlist50">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.Porcentagem2">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.rato">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.rato1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.Remove_Item">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.Senha">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.TelaLogin">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.Usu">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.viewmag">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.whatsapp">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.Whatsapp_32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.whatsapp1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="T:telausuario.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="T:telausuario.dsTelaUsuario.AjusteQtdeDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:telausuario.dsTelaUsuario.ClienteDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:telausuario.dsTelaUsuario.ConfigDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:telausuario.dsTelaUsuario.EntradaNfDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:telausuario.dsTelaUsuario.PedidoDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:telausuario.dsTelaUsuario.ProdutosDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:telausuario.dsTelaUsuario.QtdeDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:telausuario.dsTelaUsuario.UsuarioDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:telausuario.dsTelaUsuario.ItensConsigDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:telausuario.dsTelaUsuario.OrdensDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:telausuario.dsTelaUsuario.TotalConsigDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:telausuario.dsTelaUsuario.AjusteQtdeRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:telausuario.dsTelaUsuario.ClienteRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:telausuario.dsTelaUsuario.ConfigRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:telausuario.dsTelaUsuario.EntradaNfRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:telausuario.dsTelaUsuario.PedidoRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:telausuario.dsTelaUsuario.ProdutosRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:telausuario.dsTelaUsuario.QtdeRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:telausuario.dsTelaUsuario.UsuarioRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:telausuario.dsTelaUsuario.ItensConsigRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:telausuario.dsTelaUsuario.OrdensRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:telausuario.dsTelaUsuario.TotalConsigRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:telausuario.dsTelaUsuario.AjusteQtdeRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:telausuario.dsTelaUsuario.ClienteRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:telausuario.dsTelaUsuario.ConfigRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:telausuario.dsTelaUsuario.EntradaNfRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:telausuario.dsTelaUsuario.PedidoRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:telausuario.dsTelaUsuario.ProdutosRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:telausuario.dsTelaUsuario.QtdeRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:telausuario.dsTelaUsuario.UsuarioRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:telausuario.dsTelaUsuario.ItensConsigRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:telausuario.dsTelaUsuario.OrdensRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:telausuario.dsTelaUsuario.TotalConsigRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:telausuario.dsTelaUsuario">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:telausuario.dsTelaUsuarioTableAdapters.AjusteQtdeTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:telausuario.dsTelaUsuarioTableAdapters.ClienteTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:telausuario.dsTelaUsuarioTableAdapters.ConfigTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:telausuario.dsTelaUsuarioTableAdapters.EntradaNfTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:telausuario.dsTelaUsuarioTableAdapters.PedidoTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:telausuario.dsTelaUsuarioTableAdapters.ProdutosTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:telausuario.dsTelaUsuarioTableAdapters.QtdeTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:telausuario.dsTelaUsuarioTableAdapters.UsuarioTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:telausuario.dsTelaUsuarioTableAdapters.ItensConsigTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:telausuario.dsTelaUsuarioTableAdapters.OrdensTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:telausuario.dsTelaUsuarioTableAdapters.TotalConsigTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:telausuario.dsTelaUsuarioTableAdapters.TableAdapterManager.UpdateUpdatedRows(telausuario.dsTelaUsuario,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:telausuario.dsTelaUsuarioTableAdapters.TableAdapterManager.UpdateInsertedRows(telausuario.dsTelaUsuario,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:telausuario.dsTelaUsuarioTableAdapters.TableAdapterManager.UpdateDeletedRows(telausuario.dsTelaUsuario,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:telausuario.dsTelaUsuarioTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:telausuario.dsTelaUsuarioTableAdapters.TableAdapterManager.UpdateAll(telausuario.dsTelaUsuario)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:telausuario.dsTelaUsuarioTableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:telausuario.dsTelaUsuarioTableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:telausuario.dsTelaUsuarioTableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+</members>
+</doc>
