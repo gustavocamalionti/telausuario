@@ -19,12 +19,11 @@ Partial Class frmWhatsapp
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.txtNumeroComDdd = New DevExpress.XtraEditors.TextEdit()
         Me.lblNumeroDestino = New DevExpress.XtraEditors.LabelControl()
         Me.lblMensagemEnvio = New DevExpress.XtraEditors.LabelControl()
         Me.memMensagem = New DevExpress.XtraEditors.MemoEdit()
-        Me.btnEnviar = New DevExpress.XtraEditors.SimpleButton()
-        Me.btnLimpar = New DevExpress.XtraEditors.SimpleButton()
         Me.grdListaClientes = New DevExpress.XtraGrid.GridControl()
         Me.dsListaContato = New System.Data.DataSet()
         Me.dtListaContato = New System.Data.DataTable()
@@ -39,6 +38,19 @@ Partial Class frmWhatsapp
         Me.colCelular = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colCodPais = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.txtDDI = New DevExpress.XtraEditors.TextEdit()
+        Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
+        Me.L = New DevExpress.XtraBars.Bar()
+        Me.btnClientes = New DevExpress.XtraBars.BarButtonItem()
+        Me.btnEnviar = New DevExpress.XtraBars.BarButtonItem()
+        Me.btnLimpar = New DevExpress.XtraBars.BarButtonItem()
+        Me.btnFechar = New DevExpress.XtraBars.BarButtonItem()
+        Me.barDockControlTop = New DevExpress.XtraBars.BarDockControl()
+        Me.barDockControlBottom = New DevExpress.XtraBars.BarDockControl()
+        Me.barDockControlLeft = New DevExpress.XtraBars.BarDockControl()
+        Me.barDockControlRight = New DevExpress.XtraBars.BarDockControl()
+        Me.grpDadosMensagem = New DevExpress.XtraEditors.GroupControl()
+        Me.txtTitulo = New DevExpress.XtraEditors.TextEdit()
+        Me.lblTitulo = New DevExpress.XtraEditors.LabelControl()
         CType(Me.txtNumeroComDdd.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.memMensagem.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grdListaClientes, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -47,22 +59,26 @@ Partial Class frmWhatsapp
         CType(Me.grd1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtAlterarGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtDDI.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grpDadosMensagem, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.grpDadosMensagem.SuspendLayout()
+        CType(Me.txtTitulo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txtNumeroComDdd
         '
         Me.txtNumeroComDdd.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtNumeroComDdd.Location = New System.Drawing.Point(465, 151)
+        Me.txtNumeroComDdd.Location = New System.Drawing.Point(163, 49)
         Me.txtNumeroComDdd.Name = "txtNumeroComDdd"
         Me.txtNumeroComDdd.Properties.MaxLength = 15
-        Me.txtNumeroComDdd.Size = New System.Drawing.Size(162, 20)
+        Me.txtNumeroComDdd.Size = New System.Drawing.Size(122, 20)
         Me.txtNumeroComDdd.TabIndex = 0
         '
         'lblNumeroDestino
         '
         Me.lblNumeroDestino.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.lblNumeroDestino.Location = New System.Drawing.Point(271, 154)
+        Me.lblNumeroDestino.Location = New System.Drawing.Point(0, 52)
         Me.lblNumeroDestino.Name = "lblNumeroDestino"
         Me.lblNumeroDestino.Size = New System.Drawing.Size(113, 13)
         Me.lblNumeroDestino.TabIndex = 1
@@ -71,7 +87,7 @@ Partial Class frmWhatsapp
         'lblMensagemEnvio
         '
         Me.lblMensagemEnvio.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.lblMensagemEnvio.Location = New System.Drawing.Point(74, 180)
+        Me.lblMensagemEnvio.Location = New System.Drawing.Point(62, 104)
         Me.lblMensagemEnvio.Name = "lblMensagemEnvio"
         Me.lblMensagemEnvio.Size = New System.Drawing.Size(51, 13)
         Me.lblMensagemEnvio.TabIndex = 3
@@ -81,28 +97,10 @@ Partial Class frmWhatsapp
         '
         Me.memMensagem.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.memMensagem.Location = New System.Drawing.Point(131, 177)
+        Me.memMensagem.Location = New System.Drawing.Point(119, 101)
         Me.memMensagem.Name = "memMensagem"
-        Me.memMensagem.Size = New System.Drawing.Size(496, 62)
+        Me.memMensagem.Size = New System.Drawing.Size(486, 79)
         Me.memMensagem.TabIndex = 4
-        '
-        'btnEnviar
-        '
-        Me.btnEnviar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnEnviar.Location = New System.Drawing.Point(425, 245)
-        Me.btnEnviar.Name = "btnEnviar"
-        Me.btnEnviar.Size = New System.Drawing.Size(99, 23)
-        Me.btnEnviar.TabIndex = 5
-        Me.btnEnviar.Text = "Enviar Mensagem"
-        '
-        'btnLimpar
-        '
-        Me.btnLimpar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnLimpar.Location = New System.Drawing.Point(530, 245)
-        Me.btnLimpar.Name = "btnLimpar"
-        Me.btnLimpar.Size = New System.Drawing.Size(97, 23)
-        Me.btnLimpar.TabIndex = 6
-        Me.btnLimpar.Text = "Limpar"
         '
         'grdListaClientes
         '
@@ -152,6 +150,9 @@ Partial Class frmWhatsapp
         Me.grd1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colCodigo, Me.colNome, Me.colCelular, Me.colCodPais})
         Me.grd1.GridControl = Me.grdListaClientes
         Me.grd1.Name = "grd1"
+        Me.grd1.OptionsView.EnableAppearanceEvenRow = True
+        Me.grd1.OptionsView.EnableAppearanceOddRow = True
+        Me.grd1.OptionsView.ShowAutoFilterRow = True
         Me.grd1.OptionsView.ShowGroupPanel = False
         '
         'colCodigo
@@ -190,28 +191,145 @@ Partial Class frmWhatsapp
         'txtDDI
         '
         Me.txtDDI.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.txtDDI.Location = New System.Drawing.Point(390, 151)
+        Me.txtDDI.Location = New System.Drawing.Point(119, 49)
         Me.txtDDI.Name = "txtDDI"
         Me.txtDDI.Properties.Appearance.Options.UseTextOptions = True
         Me.txtDDI.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.txtDDI.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
         Me.txtDDI.Properties.MaxLength = 15
-        Me.txtDDI.Size = New System.Drawing.Size(76, 20)
+        Me.txtDDI.Size = New System.Drawing.Size(45, 20)
         Me.txtDDI.TabIndex = 10
+        '
+        'BarManager1
+        '
+        Me.BarManager1.Bars.AddRange(New DevExpress.XtraBars.Bar() {Me.L})
+        Me.BarManager1.DockControls.Add(Me.barDockControlTop)
+        Me.BarManager1.DockControls.Add(Me.barDockControlBottom)
+        Me.BarManager1.DockControls.Add(Me.barDockControlLeft)
+        Me.BarManager1.DockControls.Add(Me.barDockControlRight)
+        Me.BarManager1.Form = Me
+        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.btnEnviar, Me.btnFechar, Me.btnLimpar, Me.btnClientes})
+        Me.BarManager1.MaxItemId = 4
+        Me.BarManager1.StatusBar = Me.L
+        '
+        'L
+        '
+        Me.L.BarName = "Status bar"
+        Me.L.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom
+        Me.L.DockCol = 0
+        Me.L.DockRow = 0
+        Me.L.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom
+        Me.L.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnClientes, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnEnviar, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnLimpar, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnFechar, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)})
+        Me.L.OptionsBar.AllowQuickCustomization = False
+        Me.L.OptionsBar.DrawDragBorder = False
+        Me.L.OptionsBar.UseWholeRow = True
+        Me.L.Text = "Status bar"
+        '
+        'btnClientes
+        '
+        Me.btnClientes.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left
+        Me.btnClientes.Caption = "Clientes"
+        Me.btnClientes.Glyph = Global.telausuario.My.Resources.Resources.Cliente
+        Me.btnClientes.Id = 3
+        Me.btnClientes.Name = "btnClientes"
+        '
+        'btnEnviar
+        '
+        Me.btnEnviar.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
+        Me.btnEnviar.Caption = "Enviar"
+        Me.btnEnviar.Glyph = Global.telausuario.My.Resources.Resources.apply
+        Me.btnEnviar.Id = 0
+        Me.btnEnviar.Name = "btnEnviar"
+        '
+        'btnLimpar
+        '
+        Me.btnLimpar.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
+        Me.btnLimpar.Caption = "Limpar"
+        Me.btnLimpar.Glyph = Global.telausuario.My.Resources.Resources.Comando_Limpar_32x32
+        Me.btnLimpar.Id = 2
+        Me.btnLimpar.Name = "btnLimpar"
+        '
+        'btnFechar
+        '
+        Me.btnFechar.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
+        Me.btnFechar.Caption = "Fechar"
+        Me.btnFechar.Glyph = Global.telausuario.My.Resources.Resources.Comando_Fechar_32x32
+        Me.btnFechar.Id = 1
+        Me.btnFechar.Name = "btnFechar"
+        '
+        'barDockControlTop
+        '
+        Me.barDockControlTop.CausesValidation = False
+        Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
+        Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
+        Me.barDockControlTop.Size = New System.Drawing.Size(639, 0)
+        '
+        'barDockControlBottom
+        '
+        Me.barDockControlBottom.CausesValidation = False
+        Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 346)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(639, 43)
+        '
+        'barDockControlLeft
+        '
+        Me.barDockControlLeft.CausesValidation = False
+        Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
+        Me.barDockControlLeft.Location = New System.Drawing.Point(0, 0)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 346)
+        '
+        'barDockControlRight
+        '
+        Me.barDockControlRight.CausesValidation = False
+        Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
+        Me.barDockControlRight.Location = New System.Drawing.Point(639, 0)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 346)
+        '
+        'grpDadosMensagem
+        '
+        Me.grpDadosMensagem.Controls.Add(Me.txtTitulo)
+        Me.grpDadosMensagem.Controls.Add(Me.lblTitulo)
+        Me.grpDadosMensagem.Controls.Add(Me.txtNumeroComDdd)
+        Me.grpDadosMensagem.Controls.Add(Me.lblNumeroDestino)
+        Me.grpDadosMensagem.Controls.Add(Me.txtDDI)
+        Me.grpDadosMensagem.Controls.Add(Me.lblMensagemEnvio)
+        Me.grpDadosMensagem.Controls.Add(Me.memMensagem)
+        Me.grpDadosMensagem.Location = New System.Drawing.Point(12, 151)
+        Me.grpDadosMensagem.Name = "grpDadosMensagem"
+        Me.grpDadosMensagem.Size = New System.Drawing.Size(615, 189)
+        Me.grpDadosMensagem.TabIndex = 15
+        Me.grpDadosMensagem.Text = "Whatsapp"
+        '
+        'txtTitulo
+        '
+        Me.txtTitulo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtTitulo.Location = New System.Drawing.Point(119, 75)
+        Me.txtTitulo.Name = "txtTitulo"
+        Me.txtTitulo.Properties.MaxLength = 50
+        Me.txtTitulo.Size = New System.Drawing.Size(349, 20)
+        Me.txtTitulo.TabIndex = 13
+        '
+        'lblTitulo
+        '
+        Me.lblTitulo.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.lblTitulo.Location = New System.Drawing.Point(87, 78)
+        Me.lblTitulo.Name = "lblTitulo"
+        Me.lblTitulo.Size = New System.Drawing.Size(26, 13)
+        Me.lblTitulo.TabIndex = 12
+        Me.lblTitulo.Text = "Título"
         '
         'frmWhatsapp
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(639, 280)
-        Me.Controls.Add(Me.txtDDI)
+        Me.ClientSize = New System.Drawing.Size(639, 389)
         Me.Controls.Add(Me.grdListaClientes)
-        Me.Controls.Add(Me.btnLimpar)
-        Me.Controls.Add(Me.btnEnviar)
-        Me.Controls.Add(Me.memMensagem)
-        Me.Controls.Add(Me.lblMensagemEnvio)
-        Me.Controls.Add(Me.lblNumeroDestino)
-        Me.Controls.Add(Me.txtNumeroComDdd)
+        Me.Controls.Add(Me.grpDadosMensagem)
+        Me.Controls.Add(Me.barDockControlLeft)
+        Me.Controls.Add(Me.barDockControlRight)
+        Me.Controls.Add(Me.barDockControlBottom)
+        Me.Controls.Add(Me.barDockControlTop)
         Me.Name = "frmWhatsapp"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmWhatsapp"
@@ -223,16 +341,18 @@ Partial Class frmWhatsapp
         CType(Me.grd1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtAlterarGrid, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtDDI.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grpDadosMensagem, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.grpDadosMensagem.ResumeLayout(False)
+        Me.grpDadosMensagem.PerformLayout()
+        CType(Me.txtTitulo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents txtNumeroComDdd As DevExpress.XtraEditors.TextEdit
     Friend WithEvents lblNumeroDestino As DevExpress.XtraEditors.LabelControl
     Friend WithEvents lblMensagemEnvio As DevExpress.XtraEditors.LabelControl
     Friend WithEvents memMensagem As DevExpress.XtraEditors.MemoEdit
-    Friend WithEvents btnEnviar As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents btnLimpar As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents grdListaClientes As DevExpress.XtraGrid.GridControl
     Friend WithEvents grd1 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents dsListaContato As System.Data.DataSet
@@ -247,4 +367,17 @@ Partial Class frmWhatsapp
     Friend WithEvents colNome As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colCelular As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colCodPais As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents BarManager1 As DevExpress.XtraBars.BarManager
+    Friend WithEvents L As DevExpress.XtraBars.Bar
+    Friend WithEvents btnEnviar As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents btnClientes As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents btnLimpar As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents btnFechar As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents barDockControlTop As DevExpress.XtraBars.BarDockControl
+    Friend WithEvents barDockControlBottom As DevExpress.XtraBars.BarDockControl
+    Friend WithEvents barDockControlLeft As DevExpress.XtraBars.BarDockControl
+    Friend WithEvents barDockControlRight As DevExpress.XtraBars.BarDockControl
+    Friend WithEvents grpDadosMensagem As DevExpress.XtraEditors.GroupControl
+    Friend WithEvents txtTitulo As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents lblTitulo As DevExpress.XtraEditors.LabelControl
 End Class

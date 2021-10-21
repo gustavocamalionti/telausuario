@@ -13,7 +13,6 @@ Public Class frmCadCliente
         If bolBloquearCadastroCliente = True Then
             Me.btnSalvar.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
         End If
-
     End Sub
 
     Private Sub AtualizarGrid()
@@ -427,4 +426,7 @@ Public Class frmCadCliente
         End If
     End Sub
 
+    Private Sub txtTelefone1_EditValueChanged(sender As Object, e As EventArgs) Handles txtTelefone1.EditValueChanged
+
+    End Sub
 End Class
