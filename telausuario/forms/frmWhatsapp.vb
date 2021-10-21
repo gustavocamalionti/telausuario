@@ -5,9 +5,10 @@ Public Class frmWhatsapp
 
 
     Private Sub btnEnviar_Click(sender As Object, e As EventArgs) Handles btnEnviar.Click
-        Dim NumeroDestinatario As String = Me.txtNumeroComDdd.Text
+        Dim NumeroDestinatario As String = "" & Me.txtDDI.Text & "" & Me.txtNumeroComDdd.Text & " ".Trim()
         Dim MensagemDestinatario As String = Me.memMensagem.Text.Replace(" ", "%20")
-        System.Diagnostics.Process.Start("https://wa.me/" & NumeroDestinatario & "?text=" & Me.memMensagem.Text & "")
+        Dim endereco As String = "https://wa.me/" & NumeroDestinatario & "?text=" & Me.memMensagem.Text & ""
+        System.Diagnostics.Process.Start(endereco)
     End Sub
 
 
@@ -22,6 +23,7 @@ Public Class frmWhatsapp
     Private Sub Limpar()
         Me.memMensagem.ResetText()
         Me.txtNumeroComDdd.ResetText()
+        Me.txtDDI.ResetText()
     End Sub
 
     Private Sub MostrarDados()
@@ -38,17 +40,15 @@ Public Class frmWhatsapp
             Me.txtDDI.Text = dtPesquisarPais.Rows.Item(0).Item("CodDDI")
             Dim QuantidadeCaracterDDI As Integer = Me.txtDDI.Text.ToString.Count
 
-            'Verificar se o Numero de Celular já possui 
+            'Verificar se o Numero de Celular já possui DDI
 
             Dim VerificarPrimeirosDigitos As String = NumeroCelular.Substring(0, QuantidadeCaracterDDI).ToString
             If VerificarPrimeirosDigitos = Me.txtDDI.Text Then
-                Me.txtNumeroComDdd.Text = NumeroCelular.Substring(QuantidadeCaracterDDI - 1, NumeroCelular.Count - 1)
+                Me.txtNumeroComDdd.Text = NumeroCelular.Substring(QuantidadeCaracterDDI, NumeroCelular.Count - QuantidadeCaracterDDI)
+            Else
+                Me.txtNumeroComDdd.Text = NumeroCelular
             End If
         End If
-
-
-
-
 
     End Sub
 
@@ -59,4 +59,5 @@ Public Class frmWhatsapp
     Private Sub btnLimpar_Click(sender As Object, e As EventArgs) Handles btnLimpar.Click
         Limpar()
     End Sub
+
 End Class
