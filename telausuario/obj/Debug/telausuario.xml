@@ -151,7 +151,19 @@ telausuario
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
+</member><member name="P:telausuario.My.Resources.Resources.logo_whatsapp_fundo_transparente3">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
 </member><member name="P:telausuario.My.Resources.Resources.Lupa_Azul_12x12">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.Nano">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.NanoMini">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -164,6 +176,10 @@ telausuario
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member><member name="P:telausuario.My.Resources.Resources.Porcentagem2">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.Produto">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

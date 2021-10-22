@@ -56,30 +56,6 @@ Public Class frmWhatsapp
         MostrarDados()
     End Sub
 
-    Private Sub btnEnviar_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnEnviar.ItemClick
-        If Me.txtDDI.Text <> "" And Me.txtNumeroComDdd.Text <> "" And Me.memMensagem.Text <> "" Then
-            Dim NumeroDestinatario As String = "" & Me.txtDDI.Text & "" & Me.txtNumeroComDdd.Text & " ".Trim()
-            Dim MensagemDestinatario As String = Me.memMensagem.Text.Replace(" ", "%20")
-            Dim TituloDestinatario As String = Me.txtTitulo.Text.Replace(" ", "%20")
-            Dim endereco As String
-            If Me.txtTitulo.Text <> "" Then
-                endereco = "https://wa.me/" & NumeroDestinatario & "?text=*" & TituloDestinatario & "*%0A%0A" & MensagemDestinatario & ""
-            Else
-                endereco = "https://wa.me/" & NumeroDestinatario & "?text=" & MensagemDestinatario & ""
-            End If
-
-            If bolCelular = False Then
-                Dim dtBuscaPais As DataTable = CarregarDataTable("select * from Pais where CodDDI = " & Me.txtDDI.Text & "")
-                Atualizar("update Cliente set Celular = '" & NumeroDestinatario & "', CodPais = " & dtBuscaPais.Rows.Item(0).Item("CodIBGE") & " where Codigo = " & CodigoCliente & " ")
-
-            End If
-
-            System.Diagnostics.Process.Start(endereco)
-            Limpar()
-            Else
-                MsgBox("Preencha todos os campos!.", MsgBoxStyle.Exclamation)
-            End If
-    End Sub
 
     Private Sub BarButtonItem3_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnLimpar.ItemClick
         Limpar()
@@ -95,7 +71,7 @@ Public Class frmWhatsapp
         Limpar()
     End Sub
 
-    Private Sub txtDDI_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtDDI.KeyPress, txtNumeroComDdd.KeyPress
+    Private Sub txtDDI_KeyPress(sender As Object, e As KeyPressEventArgs)
         'Aceitar apenas Números 
         If Char.IsNumber(e.KeyChar) = False Then
             e.Handled = True
