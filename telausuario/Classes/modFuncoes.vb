@@ -13,6 +13,7 @@
     Public CodInterno As Double
     Public NomeProduto As String
     Public indexPedidoAtual As Integer
+    Public NomeEmpresa As String = "NANO SYSTEMS"
 
     Public LoginUsuarioConectado As String
 End Module

@@ -543,6 +543,21 @@
   <ItemGroup>
     <None Include="Resources\logo-whatsapp-fundo-transparente3.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Message-Bubble-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Message-Bubble-icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NanoMaiVerde.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\message-send.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\message-send1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

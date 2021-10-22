@@ -344,6 +344,13 @@ Public Class clsBanco
                         "[CodIBGE] [varchar](15));")
             End If
 
+            If ExisteTabela("MensagemWhatsapp") = False Then
+                ExecutaSQL("CREATE TABLE MensagemWhatsapp (" & _
+                        "Codigo INT IDENTITY CONSTRAINT primarykey14 PRIMARY KEY," & _
+                        "[Titulo] [varchar](150)," & _
+                        "[Mensagem] [nvarchar](max));")
+            End If
+
             ExecutaSQL("Alter table Cliente add CodPais varchar(4);")
             ExecutaSQL("Delete Pais;")
             ExecutaSQL("Alter table Pais add CodDDI [varchar](15)")
