@@ -80,6 +80,8 @@ Partial Class frmWhatsapp
         Me.PictureEdit2 = New DevExpress.XtraEditors.PictureEdit()
         Me.lblClientesCadastrados = New DevExpress.XtraEditors.LabelControl()
         Me.lblCliente = New DevExpress.XtraEditors.LabelControl()
+        Me.lblTagPularLinha = New DevExpress.XtraEditors.LabelControl()
+        Me.lblPularLinha = New DevExpress.XtraEditors.LabelControl()
         CType(Me.grdListaClientes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dsListaContato, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dtListaContato, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -465,6 +467,8 @@ Partial Class frmWhatsapp
         '
         'PanelControl4
         '
+        Me.PanelControl4.Controls.Add(Me.lblTagPularLinha)
+        Me.PanelControl4.Controls.Add(Me.lblPularLinha)
         Me.PanelControl4.Controls.Add(Me.lblTagQuebrarLinha)
         Me.PanelControl4.Controls.Add(Me.lblQuebrarLinha)
         Me.PanelControl4.Controls.Add(Me.LabelControl3)
@@ -582,11 +586,11 @@ Partial Class frmWhatsapp
         Me.lblOrientacoes.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblOrientacoes.Appearance.Font = New System.Drawing.Font("Tahoma", 11.0!, System.Drawing.FontStyle.Bold)
         Me.lblOrientacoes.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(179, Byte), Integer), CType(CType(155, Byte), Integer))
-        Me.lblOrientacoes.Location = New System.Drawing.Point(6, 5)
+        Me.lblOrientacoes.Location = New System.Drawing.Point(3, 5)
         Me.lblOrientacoes.Name = "lblOrientacoes"
-        Me.lblOrientacoes.Size = New System.Drawing.Size(464, 18)
+        Me.lblOrientacoes.Size = New System.Drawing.Size(478, 18)
         Me.lblOrientacoes.TabIndex = 38
-        Me.lblOrientacoes.Text = "Deixe sua mensagem inteligente adicionando esses comandos:"
+        Me.lblOrientacoes.Text = "Deixe sua mensagem Customizada adicionando esses comandos:"
         '
         'lblObjetivoCliente
         '
@@ -707,6 +711,27 @@ Partial Class frmWhatsapp
         Me.lblCliente.TabIndex = 32
         Me.lblCliente.Text = "Cliente"
         '
+        'lblTagPularLinha
+        '
+        Me.lblTagPularLinha.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblTagPularLinha.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.lblTagPularLinha.Appearance.ForeColor = System.Drawing.Color.DarkGray
+        Me.lblTagPularLinha.Location = New System.Drawing.Point(382, 73)
+        Me.lblTagPularLinha.Name = "lblTagPularLinha"
+        Me.lblTagPularLinha.Size = New System.Drawing.Size(48, 14)
+        Me.lblTagPularLinha.TabIndex = 51
+        Me.lblTagPularLinha.Text = "<PLIN>"
+        '
+        'lblPularLinha
+        '
+        Me.lblPularLinha.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.lblPularLinha.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.lblPularLinha.Location = New System.Drawing.Point(283, 73)
+        Me.lblPularLinha.Name = "lblPularLinha"
+        Me.lblPularLinha.Size = New System.Drawing.Size(72, 14)
+        Me.lblPularLinha.TabIndex = 50
+        Me.lblPularLinha.Text = "Pular Linha:"
+        '
         'frmWhatsapp
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -814,4 +839,6 @@ Partial Class frmWhatsapp
     Friend WithEvents LabelControl3 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl4 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents btnSalvarMensagem As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents lblTagPularLinha As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents lblPularLinha As DevExpress.XtraEditors.LabelControl
 End Class

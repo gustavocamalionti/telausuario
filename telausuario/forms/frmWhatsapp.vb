@@ -125,9 +125,11 @@ Public Class frmWhatsapp
     End Sub
 
     Private Sub btnEnviar_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnEnviarSalvar.ItemClick
+        Dim Index As Integer = Me.grd1.FocusedRowHandle
+        Dim NomeCliente As String = Me.grd1.GetRowCellDisplayText(Index, colNome)
         If Me.txtDDI.Text <> "" And Me.txtNumeroComDdd.Text <> "" And Me.memMensagem.Text <> "" Then
             Dim NumeroDestinatario As String = "" & Me.txtDDI.Text & "" & Me.txtNumeroComDdd.Text & " ".Trim()
-            Dim MensagemDestinatario As String = Me.memMensagem.Text.Replace(" ", "%20").Replace("<EMPRE>", "" & NomeEmpresa & "").Replace("<USER>", "" & Environment.MachineName & "").Replace("<CLI>", "" & lblCliente.Text & "").Replace("<DAT>", "" & Date.Today & "").Replace("<QBLIN>", "%0A")
+            Dim MensagemDestinatario As String = Me.memMensagem.Text.Replace(" ", "%20").Replace("<EMPRE>", "" & NomeEmpresa & "").Replace("<USER>", "" & PrimeiraLetraMaiuscula(Environment.MachineName) & "").Replace("<CLI>", "" & PrimeiraLetraMaiuscula(NomeCliente) & "").Replace("<DAT>", "" & Date.Today & "").Replace("<QBLIN>", "%0A").Replace("<PLIN>", "%0A%0A")
             Dim TituloDestinatario As String = Me.cboTitulo.Text.Replace(" ", "%20")
             Dim endereco As String
             If Me.cboTitulo.Text <> "" Then

@@ -240,6 +240,38 @@ Public Class clsFuncao
         Return ms.ToArray()
 
     End Function
+
+    Public Shared Function PrimeiraLetraMaiuscula(ByVal str As String) As String
+        'TRANFORMA A FRASE TODA EM MINUSCULA
+        str = str.ToLower
+        '**SEPARA AS PALAVRAS DA FRASE EM UM ARRAY  USAMOS A FUNÇÃO  SPLIT PARA OBTER O  RESULTADO **
+        Dim palavras As String() = str.Split(New Char() {" "c})
+        '**VARIAVEL QUE RECEBERÁ A PALAVRA QUANDO  PERCORRERMOS O ARRAY
+        Dim palavra As String
+        '**VARIAVEL DE APOIO PARA TRANSFORMAR A PRIMEIRA LETRA EM MAIUSCULO
+        Dim troca As String
+        '*** RETORNO VARIAVEL QUE IRÁ GUARDAR A CONCATENÇÃO  DO  ARRAY GERADO
+        Dim retorno As String = Nothing
+        '** ARRAY PARA MONTARMOS NOVAMENTE A FRASE JA FORMATADA
+        Dim resul(UBound(palavras)) As String
+        '*** VARIAVEL DE APOIO PARA DETERMINARMOS O INDICE DO  ARRAY QUANDO  RECEBER A PALAVRA
+        Dim cont As Integer = 0
+        '** LAÇO PARA CONVERTER A PRIMEIRA LETRA DE CADA PALAVRA EM MAIUSCULA
+        For Each palavra In palavras
+            '***CONDIÇÃO  PARA GARANTIR QUE PALAVRAS COM MAIS DE 2 CARACTERES SOFRAM A ACTION DA FUNÇÃO
+            If Len(Trim(palavra)) > 1 Then
+                'troca = UCase(Mid(palavra, 1, 1))
+                'palavra = palavra.Replace(LCase(troca), troca)
+                troca = palavra.Substring(0, 1).ToUpper
+                resul(cont) = troca & palavra.Substring(1, Len(palavra) - 1)
+            Else
+                resul(cont) = palavra.ToUpper
+            End If
+            cont += 1
+        Next
+        retorno = Join(resul)
+        Return retorno
+    End Function
 End Class
 
 
