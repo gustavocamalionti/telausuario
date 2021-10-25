@@ -59,6 +59,8 @@ Partial Class frmWhatsapp
         Me.tabConfigurações = New DevExpress.XtraTab.XtraTabPage()
         Me.btnSalvarMensagem = New DevExpress.XtraEditors.SimpleButton()
         Me.PanelControl4 = New DevExpress.XtraEditors.PanelControl()
+        Me.lblTagPularLinha = New DevExpress.XtraEditors.LabelControl()
+        Me.lblPularLinha = New DevExpress.XtraEditors.LabelControl()
         Me.lblTagQuebrarLinha = New DevExpress.XtraEditors.LabelControl()
         Me.lblQuebrarLinha = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl()
@@ -80,8 +82,7 @@ Partial Class frmWhatsapp
         Me.PictureEdit2 = New DevExpress.XtraEditors.PictureEdit()
         Me.lblClientesCadastrados = New DevExpress.XtraEditors.LabelControl()
         Me.lblCliente = New DevExpress.XtraEditors.LabelControl()
-        Me.lblTagPularLinha = New DevExpress.XtraEditors.LabelControl()
-        Me.lblPularLinha = New DevExpress.XtraEditors.LabelControl()
+        Me.btnRemoverMensagem = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.grdListaClientes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dsListaContato, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dtListaContato, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -115,7 +116,7 @@ Partial Class frmWhatsapp
         Me.grdListaClientes.DataMember = "dtListaContato"
         Me.grdListaClientes.DataSource = Me.dsListaContato
         Me.grdListaClientes.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.grdListaClientes.Location = New System.Drawing.Point(2, 124)
+        Me.grdListaClientes.Location = New System.Drawing.Point(2, 163)
         Me.grdListaClientes.MainView = Me.grd1
         Me.grdListaClientes.Name = "grdListaClientes"
         Me.grdListaClientes.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.txtAlterarGrid})
@@ -264,7 +265,6 @@ Partial Class frmWhatsapp
         '
         'lblMensagemEnvio
         '
-        Me.lblMensagemEnvio.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lblMensagemEnvio.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
         Me.lblMensagemEnvio.Location = New System.Drawing.Point(6, 113)
         Me.lblMensagemEnvio.Name = "lblMensagemEnvio"
@@ -274,11 +274,12 @@ Partial Class frmWhatsapp
         '
         'memMensagem
         '
-        Me.memMensagem.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.memMensagem.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.memMensagem.Location = New System.Drawing.Point(74, 111)
         Me.memMensagem.Name = "memMensagem"
-        Me.memMensagem.Size = New System.Drawing.Size(396, 181)
+        Me.memMensagem.Size = New System.Drawing.Size(396, 256)
         Me.memMensagem.TabIndex = 3
         '
         'tabPrincipal
@@ -301,7 +302,7 @@ Partial Class frmWhatsapp
         Me.tabPrincipal.Location = New System.Drawing.Point(455, 70)
         Me.tabPrincipal.Name = "tabPrincipal"
         Me.tabPrincipal.SelectedTabPage = Me.tabEnviarMensagem
-        Me.tabPrincipal.Size = New System.Drawing.Size(492, 336)
+        Me.tabPrincipal.Size = New System.Drawing.Size(492, 411)
         Me.tabPrincipal.TabIndex = 30
         Me.tabPrincipal.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.tabEnviarMensagem, Me.tabConfigurações})
         '
@@ -323,7 +324,7 @@ Partial Class frmWhatsapp
         Me.tabEnviarMensagem.Controls.Add(Me.lblTitulo)
         Me.tabEnviarMensagem.Controls.Add(Me.txtNumeroComDdd)
         Me.tabEnviarMensagem.Name = "tabEnviarMensagem"
-        Me.tabEnviarMensagem.Size = New System.Drawing.Size(486, 308)
+        Me.tabEnviarMensagem.Size = New System.Drawing.Size(486, 383)
         Me.tabEnviarMensagem.Text = "Enviar Mensagem"
         '
         'cboTitulo
@@ -447,6 +448,7 @@ Partial Class frmWhatsapp
         '
         Me.tabConfigurações.Appearance.Header.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
         Me.tabConfigurações.Appearance.Header.Options.UseFont = True
+        Me.tabConfigurações.Controls.Add(Me.btnRemoverMensagem)
         Me.tabConfigurações.Controls.Add(Me.btnSalvarMensagem)
         Me.tabConfigurações.Controls.Add(Me.PanelControl4)
         Me.tabConfigurações.Controls.Add(Me.cboTituloConfig)
@@ -454,16 +456,18 @@ Partial Class frmWhatsapp
         Me.tabConfigurações.Controls.Add(Me.lblMensagemConfig)
         Me.tabConfigurações.Controls.Add(Me.lblTituloConfig)
         Me.tabConfigurações.Name = "tabConfigurações"
-        Me.tabConfigurações.Size = New System.Drawing.Size(486, 308)
+        Me.tabConfigurações.Size = New System.Drawing.Size(486, 383)
         Me.tabConfigurações.Text = "Configurar Mensagem Automática"
         '
         'btnSalvarMensagem
         '
-        Me.btnSalvarMensagem.Location = New System.Drawing.Point(374, 167)
+        Me.btnSalvarMensagem.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnSalvarMensagem.Image = Global.telausuario.My.Resources.Resources.apply
+        Me.btnSalvarMensagem.Location = New System.Drawing.Point(322, 242)
         Me.btnSalvarMensagem.Name = "btnSalvarMensagem"
-        Me.btnSalvarMensagem.Size = New System.Drawing.Size(96, 23)
+        Me.btnSalvarMensagem.Size = New System.Drawing.Size(148, 35)
         Me.btnSalvarMensagem.TabIndex = 42
-        Me.btnSalvarMensagem.Text = "Salvar"
+        Me.btnSalvarMensagem.Text = "Salvar Mensagem"
         '
         'PanelControl4
         '
@@ -481,14 +485,35 @@ Partial Class frmWhatsapp
         Me.PanelControl4.Controls.Add(Me.lblOrientacoes)
         Me.PanelControl4.Controls.Add(Me.lblObjetivoCliente)
         Me.PanelControl4.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PanelControl4.Location = New System.Drawing.Point(0, 208)
+        Me.PanelControl4.Location = New System.Drawing.Point(0, 283)
         Me.PanelControl4.Name = "PanelControl4"
         Me.PanelControl4.Size = New System.Drawing.Size(486, 100)
         Me.PanelControl4.TabIndex = 41
         '
+        'lblTagPularLinha
+        '
+        Me.lblTagPularLinha.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.lblTagPularLinha.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.lblTagPularLinha.Appearance.ForeColor = System.Drawing.Color.DarkGray
+        Me.lblTagPularLinha.Location = New System.Drawing.Point(382, 73)
+        Me.lblTagPularLinha.Name = "lblTagPularLinha"
+        Me.lblTagPularLinha.Size = New System.Drawing.Size(48, 14)
+        Me.lblTagPularLinha.TabIndex = 51
+        Me.lblTagPularLinha.Text = "<PLIN>"
+        '
+        'lblPularLinha
+        '
+        Me.lblPularLinha.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.lblPularLinha.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.lblPularLinha.Location = New System.Drawing.Point(283, 73)
+        Me.lblPularLinha.Name = "lblPularLinha"
+        Me.lblPularLinha.Size = New System.Drawing.Size(72, 14)
+        Me.lblPularLinha.TabIndex = 50
+        Me.lblPularLinha.Text = "Pular Linha:"
+        '
         'lblTagQuebrarLinha
         '
-        Me.lblTagQuebrarLinha.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblTagQuebrarLinha.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lblTagQuebrarLinha.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
         Me.lblTagQuebrarLinha.Appearance.ForeColor = System.Drawing.Color.DarkGray
         Me.lblTagQuebrarLinha.Location = New System.Drawing.Point(374, 51)
@@ -509,7 +534,7 @@ Partial Class frmWhatsapp
         '
         'LabelControl3
         '
-        Me.LabelControl3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.LabelControl3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.LabelControl3.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
         Me.LabelControl3.Appearance.ForeColor = System.Drawing.Color.DarkGray
         Me.LabelControl3.Location = New System.Drawing.Point(385, 32)
@@ -530,7 +555,7 @@ Partial Class frmWhatsapp
         '
         'lblTagMaquina
         '
-        Me.lblTagMaquina.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblTagMaquina.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lblTagMaquina.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
         Me.lblTagMaquina.Appearance.ForeColor = System.Drawing.Color.DarkGray
         Me.lblTagMaquina.Location = New System.Drawing.Point(167, 51)
@@ -551,7 +576,7 @@ Partial Class frmWhatsapp
         '
         'lblTagEmpresa
         '
-        Me.lblTagEmpresa.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblTagEmpresa.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lblTagEmpresa.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
         Me.lblTagEmpresa.Appearance.ForeColor = System.Drawing.Color.DarkGray
         Me.lblTagEmpresa.Location = New System.Drawing.Point(157, 29)
@@ -572,7 +597,7 @@ Partial Class frmWhatsapp
         '
         'lblTagCliente
         '
-        Me.lblTagCliente.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblTagCliente.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lblTagCliente.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
         Me.lblTagCliente.Appearance.ForeColor = System.Drawing.Color.DarkGray
         Me.lblTagCliente.Location = New System.Drawing.Point(177, 73)
@@ -583,9 +608,12 @@ Partial Class frmWhatsapp
         '
         'lblOrientacoes
         '
-        Me.lblOrientacoes.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblOrientacoes.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblOrientacoes.Appearance.Font = New System.Drawing.Font("Tahoma", 11.0!, System.Drawing.FontStyle.Bold)
         Me.lblOrientacoes.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(179, Byte), Integer), CType(CType(155, Byte), Integer))
+        Me.lblOrientacoes.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.lblOrientacoes.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
         Me.lblOrientacoes.Location = New System.Drawing.Point(3, 5)
         Me.lblOrientacoes.Name = "lblOrientacoes"
         Me.lblOrientacoes.Size = New System.Drawing.Size(478, 18)
@@ -613,16 +641,16 @@ Partial Class frmWhatsapp
         '
         'memMensagemConfig
         '
-        Me.memMensagemConfig.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.memMensagemConfig.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.memMensagemConfig.Location = New System.Drawing.Point(73, 46)
         Me.memMensagemConfig.Name = "memMensagemConfig"
-        Me.memMensagemConfig.Size = New System.Drawing.Size(397, 116)
+        Me.memMensagemConfig.Size = New System.Drawing.Size(397, 191)
         Me.memMensagemConfig.TabIndex = 35
         '
         'lblMensagemConfig
         '
-        Me.lblMensagemConfig.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lblMensagemConfig.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
         Me.lblMensagemConfig.Location = New System.Drawing.Point(5, 48)
         Me.lblMensagemConfig.Name = "lblMensagemConfig"
@@ -661,7 +689,7 @@ Partial Class frmWhatsapp
         Me.PanelControl3.Controls.Add(Me.grdListaClientes)
         Me.PanelControl3.Location = New System.Drawing.Point(12, 25)
         Me.PanelControl3.Name = "PanelControl3"
-        Me.PanelControl3.Size = New System.Drawing.Size(437, 412)
+        Me.PanelControl3.Size = New System.Drawing.Size(437, 451)
         Me.PanelControl3.TabIndex = 33
         '
         'PanelControl2
@@ -676,7 +704,7 @@ Partial Class frmWhatsapp
         Me.PanelControl2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat
         Me.PanelControl2.LookAndFeel.UseDefaultLookAndFeel = False
         Me.PanelControl2.Name = "PanelControl2"
-        Me.PanelControl2.Size = New System.Drawing.Size(433, 122)
+        Me.PanelControl2.Size = New System.Drawing.Size(433, 161)
         Me.PanelControl2.TabIndex = 31
         '
         'PictureEdit2
@@ -711,26 +739,15 @@ Partial Class frmWhatsapp
         Me.lblCliente.TabIndex = 32
         Me.lblCliente.Text = "Cliente"
         '
-        'lblTagPularLinha
+        'btnRemoverMensagem
         '
-        Me.lblTagPularLinha.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblTagPularLinha.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.lblTagPularLinha.Appearance.ForeColor = System.Drawing.Color.DarkGray
-        Me.lblTagPularLinha.Location = New System.Drawing.Point(382, 73)
-        Me.lblTagPularLinha.Name = "lblTagPularLinha"
-        Me.lblTagPularLinha.Size = New System.Drawing.Size(48, 14)
-        Me.lblTagPularLinha.TabIndex = 51
-        Me.lblTagPularLinha.Text = "<PLIN>"
-        '
-        'lblPularLinha
-        '
-        Me.lblPularLinha.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.lblPularLinha.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.lblPularLinha.Location = New System.Drawing.Point(283, 73)
-        Me.lblPularLinha.Name = "lblPularLinha"
-        Me.lblPularLinha.Size = New System.Drawing.Size(72, 14)
-        Me.lblPularLinha.TabIndex = 50
-        Me.lblPularLinha.Text = "Pular Linha:"
+        Me.btnRemoverMensagem.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnRemoverMensagem.Image = Global.telausuario.My.Resources.Resources.delete
+        Me.btnRemoverMensagem.Location = New System.Drawing.Point(220, 242)
+        Me.btnRemoverMensagem.Name = "btnRemoverMensagem"
+        Me.btnRemoverMensagem.Size = New System.Drawing.Size(96, 35)
+        Me.btnRemoverMensagem.TabIndex = 43
+        Me.btnRemoverMensagem.Text = "Remover"
         '
         'frmWhatsapp
         '
@@ -841,4 +858,5 @@ Partial Class frmWhatsapp
     Friend WithEvents btnSalvarMensagem As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents lblTagPularLinha As DevExpress.XtraEditors.LabelControl
     Friend WithEvents lblPularLinha As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents btnRemoverMensagem As DevExpress.XtraEditors.SimpleButton
 End Class

@@ -12,8 +12,6 @@ Public Class frmWhatsapp
         CarregarGrid()
         CarregarComboBox()
         lblCliente.Visible = False
-
-
     End Sub
 
     Private Sub CarregarComboBox()
@@ -53,6 +51,9 @@ Public Class frmWhatsapp
         Me.memMensagemConfig.ResetText()
         indexChangedConfigurar = -1
         TituloMsgAutomatica = ""
+        Me.btnSalvarMensagem.Image = My.Resources.apply
+        Me.btnSalvarMensagem.Text = "Salvar Mensagem"
+        Me.btnRemoverMensagem.Visible = False
 
     End Sub
 
@@ -60,11 +61,15 @@ Public Class frmWhatsapp
         Dim Index As Integer = Me.grd1.FocusedRowHandle
         If Index < 0 Then
             Limpar()
+            CarregarGrid()
+            CarregarComboBox()
             Exit Sub
         End If
+        Me.tabPrincipal.SelectedTabPageIndex = -1
         CodigoCliente = Me.grd1.GetRowCellDisplayText(Index, Me.colCodigo)
         lblCliente.Visible = True
         lblCliente.Text = Me.grd1.GetRowCellDisplayText(Index, Me.colNome)
+
 
 
         If Me.grd1.GetRowCellDisplayText(Index, Me.colCodPais).ToString <> "" Then
@@ -130,7 +135,7 @@ Public Class frmWhatsapp
         If Me.txtDDI.Text <> "" And Me.txtNumeroComDdd.Text <> "" And Me.memMensagem.Text <> "" Then
             Dim NumeroDestinatario As String = "" & Me.txtDDI.Text & "" & Me.txtNumeroComDdd.Text & " ".Trim()
             Dim MensagemDestinatario As String = Me.memMensagem.Text.Replace(" ", "%20").Replace("<EMPRE>", "" & NomeEmpresa & "").Replace("<USER>", "" & PrimeiraLetraMaiuscula(Environment.MachineName) & "").Replace("<CLI>", "" & PrimeiraLetraMaiuscula(NomeCliente) & "").Replace("<DAT>", "" & Date.Today & "").Replace("<QBLIN>", "%0A").Replace("<PLIN>", "%0A%0A")
-            Dim TituloDestinatario As String = Me.cboTitulo.Text.Replace(" ", "%20")
+            Dim TituloDestinatario As String = Me.cboTitulo.Text.Replace(" ", "%20").Replace("<EMPRE>", "" & NomeEmpresa & "").Replace("<USER>", "" & PrimeiraLetraMaiuscula(Environment.MachineName) & "").Replace("<CLI>", "" & PrimeiraLetraMaiuscula(NomeCliente) & "").Replace("<DAT>", "" & Date.Today & "").Replace("<QBLIN>", "%0A").Replace("<PLIN>", "%0A%0A")
             Dim endereco As String
             If Me.cboTitulo.Text <> "" Then
                 endereco = "https://wa.me/" & NumeroDestinatario & "?text=*" & TituloDestinatario & "*%0A%0A" & MensagemDestinatario & ""
@@ -149,7 +154,7 @@ Public Class frmWhatsapp
             CarregarGrid()
             CarregarComboBox()
         Else
-            MsgBox("Preencha todos os campos!.", MsgBoxStyle.Exclamation)
+            MsgBox("Preencha todos os campos!", MsgBoxStyle.Exclamation)
         End If
     End Sub
 
@@ -198,6 +203,10 @@ Public Class frmWhatsapp
     Private Sub cboTituloConfig_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboTituloConfig.KeyPress, memMensagemConfig.KeyPress
         If e.KeyChar = "'" Then
             e.Handled = True
+
+        ElseIf e.KeyChar = vbBack Then
+            e.Handled = False
+
         End If
     End Sub
 
@@ -210,8 +219,15 @@ Public Class frmWhatsapp
             For c = 0 To dtPesquisarMsgAutomatica.Rows.Count - 1
                 If Me.cboTituloConfig.Text = dtPesquisarMsgAutomatica.Rows.Item(c).Item("Titulo") Then
                     Me.memMensagemConfig.Text = dtPesquisarMsgAutomatica.Rows.Item(c).Item("Mensagem")
+                    Me.btnSalvarMensagem.Image = My.Resources.Alterar
+                    Me.btnSalvarMensagem.Text = "Alterar Mensagem"
+                    Me.btnRemoverMensagem.Visible = True
                 End If
             Next
+        Else
+            Me.btnSalvarMensagem.Image = My.Resources.apply
+            Me.btnSalvarMensagem.Text = "Salvar Mensagem"
+            Me.btnRemoverMensagem.Visible = False
         End If
 
     End Sub
@@ -225,6 +241,16 @@ Public Class frmWhatsapp
                     Me.memMensagem.Text = dtPesquisarMsgAutomatica.Rows.Item(c).Item("Mensagem")
                 End If
             Next
+        End If
+    End Sub
+
+    Private Sub btnRemoverMensagem_Click(sender As Object, e As EventArgs) Handles btnRemoverMensagem.Click
+        If indexChangedConfigurar <> -1 Then
+            Deletar("delete MensagemWhatsapp where Titulo = '" & TituloMsgAutomatica & "';")
+            MsgBox("Mensagem automática removida com sucesso!", MsgBoxStyle.Information)
+            Limpar()
+            CarregarGrid()
+            CarregarComboBox()
         End If
     End Sub
 End Class
