@@ -614,11 +614,11 @@ Partial Class frmWhatsapp
         Me.lblOrientacoes.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(179, Byte), Integer), CType(CType(155, Byte), Integer))
         Me.lblOrientacoes.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.lblOrientacoes.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
-        Me.lblOrientacoes.Location = New System.Drawing.Point(3, 5)
+        Me.lblOrientacoes.Location = New System.Drawing.Point(5, 5)
         Me.lblOrientacoes.Name = "lblOrientacoes"
-        Me.lblOrientacoes.Size = New System.Drawing.Size(478, 18)
+        Me.lblOrientacoes.Size = New System.Drawing.Size(357, 18)
         Me.lblOrientacoes.TabIndex = 38
-        Me.lblOrientacoes.Text = "Deixe sua mensagem Customizada adicionando esses comandos:"
+        Me.lblOrientacoes.Text = "Deixe sua mensagem automática personalizada:"
         '
         'lblObjetivoCliente
         '
@@ -685,6 +685,8 @@ Partial Class frmWhatsapp
         '
         'PanelControl3
         '
+        Me.PanelControl3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.PanelControl3.Controls.Add(Me.PanelControl2)
         Me.PanelControl3.Controls.Add(Me.grdListaClientes)
         Me.PanelControl3.Location = New System.Drawing.Point(12, 25)
@@ -733,7 +735,7 @@ Partial Class frmWhatsapp
         '
         Me.lblCliente.Appearance.Font = New System.Drawing.Font("Tahoma", 17.0!, System.Drawing.FontStyle.Bold)
         Me.lblCliente.Appearance.ForeColor = System.Drawing.Color.White
-        Me.lblCliente.Location = New System.Drawing.Point(461, 25)
+        Me.lblCliente.Location = New System.Drawing.Point(456, 30)
         Me.lblCliente.Name = "lblCliente"
         Me.lblCliente.Size = New System.Drawing.Size(82, 28)
         Me.lblCliente.TabIndex = 32

@@ -54,6 +54,8 @@ Public Class frmWhatsapp
         Me.btnSalvarMensagem.Image = My.Resources.apply
         Me.btnSalvarMensagem.Text = "Salvar Mensagem"
         Me.btnRemoverMensagem.Visible = False
+        Me.cboTituloConfig.Properties.ReadOnly = False
+        Me.btnEnviarSalvar.Enabled = True
 
     End Sub
 
@@ -173,6 +175,9 @@ Public Class frmWhatsapp
         Limpar()
         CarregarGrid()
         CarregarComboBox()
+        If tabPrincipal.SelectedTabPageIndex = 1 Then
+            btnEnviarSalvar.Enabled = False
+        End If
     End Sub
 
     Private Sub btnSalvarMensagem_Click(sender As Object, e As EventArgs) Handles btnSalvarMensagem.Click
@@ -182,21 +187,19 @@ Public Class frmWhatsapp
             'Condição para inserir ou Atualizar
             If indexChangedConfigurar = -1 Then
                 Inserir("insert into MensagemWhatsapp (Titulo, Mensagem) values ('" & Me.cboTituloConfig.Text.Trim() & "','" & Me.memMensagemConfig.Text.Trim() & "'); ")
-                MsgBox("Mensagem automática salva com sucesso!", MsgBoxStyle.Information)
-                Limpar()
-                CarregarGrid()
-                CarregarComboBox()
+                MsgBox("Mensagem automática salva com sucesso!", MsgBoxStyle.Information)       
             Else
                 MsgBox("Mensagem automática Atualizada com sucesso!", MsgBoxStyle.Information)
                 Atualizar("update MensagemWhatsapp set Titulo = '" & Me.cboTituloConfig.Text.Trim() & "', Mensagem = '" & Me.memMensagemConfig.Text.Trim() & "' where Titulo = '" & TituloMsgAutomatica & "'; ")
-                Limpar()
-                CarregarGrid()
-                CarregarComboBox()
             End If
+            Limpar()
+            CarregarGrid()
+            CarregarComboBox()
+            tabPrincipal.SelectedTabPageIndex = 0
         Else
             MsgBox("Preencha todos os campos!", MsgBoxStyle.Exclamation)
         End If
-        tabPrincipal.SelectedTabPageIndex = 0
+
 
     End Sub
 
@@ -216,6 +219,7 @@ Public Class frmWhatsapp
         indexChangedConfigurar = Me.cboTituloConfig.SelectedIndex
         TituloMsgAutomatica = Me.cboTituloConfig.Text.Trim()
         If Me.cboTituloConfig.SelectedIndex <> -1 Then
+            Me.cboTituloConfig.Properties.ReadOnly = True
             For c = 0 To dtPesquisarMsgAutomatica.Rows.Count - 1
                 If Me.cboTituloConfig.Text = dtPesquisarMsgAutomatica.Rows.Item(c).Item("Titulo") Then
                     Me.memMensagemConfig.Text = dtPesquisarMsgAutomatica.Rows.Item(c).Item("Mensagem")
@@ -225,9 +229,11 @@ Public Class frmWhatsapp
                 End If
             Next
         Else
+            Me.cboTituloConfig.Properties.ReadOnly = False
             Me.btnSalvarMensagem.Image = My.Resources.apply
             Me.btnSalvarMensagem.Text = "Salvar Mensagem"
             Me.btnRemoverMensagem.Visible = False
+            Me.memMensagemConfig.ResetText()
         End If
 
     End Sub
@@ -241,6 +247,10 @@ Public Class frmWhatsapp
                     Me.memMensagem.Text = dtPesquisarMsgAutomatica.Rows.Item(c).Item("Mensagem")
                 End If
             Next
+        Else
+            Limpar()
+            CarregarGrid()
+            CarregarComboBox()
         End If
     End Sub
 
