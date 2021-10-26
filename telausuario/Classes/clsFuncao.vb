@@ -3,6 +3,7 @@ Imports System
 Imports System.Data
 Imports System.Data.Sql
 Imports System.Data.SqlClient
+Imports System.IO
 
 Public Class clsFuncao
 
@@ -272,6 +273,116 @@ Public Class clsFuncao
         retorno = Join(resul)
         Return retorno
     End Function
+
+    Public Shared Function CheckIfFIlesExists(ByVal parURL As String, ByVal username As String, ByVal password As String) As Boolean
+        Dim request = DirectCast(System.Net.WebRequest.Create(parURL), System.Net.FtpWebRequest)
+        request.Credentials = New System.Net.NetworkCredential(username, password)
+        request.Method = System.Net.WebRequestMethods.Ftp.ListDirectory
+        Try
+            Using response As System.Net.FtpWebResponse = DirectCast(request.GetResponse(), System.Net.FtpWebResponse)
+                ' Folder exists here
+                Return True
+            End Using
+
+        Catch ex As System.Net.WebException
+            Dim response As System.Net.FtpWebResponse = DirectCast(ex.Response, System.Net.FtpWebResponse)
+            'Does not exist
+            If response.StatusCode = System.Net.FtpStatusCode.ActionNotTakenFileUnavailable Then
+                Return False
+            End If
+        End Try
+    End Function
+
+    Public Shared Function InserirImagemFtp(ByVal parCaminhoImagem As String, ByVal parURL As String, ByVal username As String, ByVal password As String) As Boolean
+        Try
+            Dim arquivoInfo As FileInfo = New FileInfo(parCaminhoImagem)
+
+            Dim request As System.Net.FtpWebRequest = CType(System.Net.WebRequest.Create(New Uri(parURL)), System.Net.FtpWebRequest)
+            request.Method = System.Net.WebRequestMethods.Ftp.UploadFile
+            request.Credentials = New System.Net.NetworkCredential(username, password)
+            request.UseBinary = True
+            request.ContentLength = arquivoInfo.Length
+
+            Using fs As FileStream = arquivoInfo.OpenRead()
+                Dim buffer As Byte() = New Byte(2047) {}
+                Dim bytesSent As Integer = 0
+                Dim bytes As Integer = 0
+
+                Using stream As Stream = request.GetRequestStream()
+
+                    While bytesSent < arquivoInfo.Length
+                        bytes = fs.Read(buffer, 0, buffer.Length)
+                        stream.Write(buffer, 0, bytes)
+                        bytesSent += bytes
+                    End While
+                End Using
+            End Using
+
+            Return True
+        Catch ex As System.Net.WebException
+
+            Dim response As System.Net.FtpWebResponse = DirectCast(ex.Response, System.Net.FtpWebResponse)
+            'Does not exist
+            If response.StatusCode = System.Net.FtpStatusCode.ActionNotTakenFileUnavailable Then
+                Return False
+            End If
+
+            Return False
+        End Try
+    End Function
+
+    Public Shared Function ExcluirImagemFtp(ByVal parCaminhoImagem As String, ByVal parURL As String, ByVal username As String, ByVal password As String) As Boolean
+        Try
+            Dim arquivoInfo As FileInfo = New FileInfo(parCaminhoImagem)
+
+            Dim request As System.Net.FtpWebRequest = CType(System.Net.WebRequest.Create(New Uri(parURL)), System.Net.FtpWebRequest)
+            request.Method = System.Net.WebRequestMethods.Ftp.DeleteFile
+            request.Credentials = New System.Net.NetworkCredential(username, password)
+            request.UseBinary = True
+            request.ContentLength = arquivoInfo.Length
+            Dim RespostaCriarPasta As System.Net.FtpWebResponse = CType(request.GetResponse(), System.Net.FtpWebResponse)
+            RespostaCriarPasta.Close()
+            Return True
+        Catch ex As System.Net.WebException
+
+            Dim response As System.Net.FtpWebResponse = DirectCast(ex.Response, System.Net.FtpWebResponse)
+            'Does not exist
+            If response.StatusCode = System.Net.FtpStatusCode.ActionNotTakenFileUnavailable Then
+                Return False
+            Else
+                MsgBox(ex.Message)
+                Return False
+            End If
+
+        End Try
+    End Function
+    Public Shared Function CriarPastaFtp(ByVal parURL As String, ByVal username As String, ByVal password As String, ByVal parTipo As String) As Boolean
+        Try
+            Dim CriarPasta As System.Net.FtpWebRequest = CType(System.Net.WebRequest.Create(New Uri(parURL)), System.Net.FtpWebRequest)
+            CriarPasta.KeepAlive = False
+            CriarPasta.UseBinary = True
+            CriarPasta.Credentials = New System.Net.NetworkCredential(username, password)
+
+            CriarPasta.Method = System.Net.WebRequestMethods.Ftp.MakeDirectory
+            Dim RespostaCriarPasta As System.Net.FtpWebResponse = CType(CriarPasta.GetResponse(), System.Net.FtpWebResponse)
+            RespostaCriarPasta.Close()
+            Return True
+        Catch ex As System.Net.WebException
+
+            Dim response As System.Net.FtpWebResponse = DirectCast(ex.Response, System.Net.FtpWebResponse)
+            'Does not exist
+            If response.StatusCode = System.Net.FtpStatusCode.ActionNotTakenFileUnavailable Then
+                Return False
+            Else
+                MsgBox("Erro ao criar " & parTipo & "!" & vbCrLf & ex.Message)
+                Return False
+            End If
+        End Try
+    End Function
+
+    
+
+
 End Class
 
 

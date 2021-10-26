@@ -43,7 +43,7 @@ Partial Class frmWhatsapp
         Me.memMensagem = New DevExpress.XtraEditors.MemoEdit()
         Me.tabPrincipal = New DevExpress.XtraTab.XtraTabControl()
         Me.tabEnviarMensagem = New DevExpress.XtraTab.XtraTabPage()
-        Me.cboTitulo = New DevExpress.XtraEditors.ComboBoxEdit()
+        Me.cboEnviarArquivo = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
         Me.Bar3 = New DevExpress.XtraBars.Bar()
         Me.btnClientes = New DevExpress.XtraBars.BarButtonItem()
@@ -54,9 +54,12 @@ Partial Class frmWhatsapp
         Me.barDockControlBottom = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlLeft = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlRight = New DevExpress.XtraBars.BarDockControl()
+        Me.lblAnexo = New DevExpress.XtraEditors.LabelControl()
+        Me.cboTitulo = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.lblWhatsapp = New DevExpress.XtraEditors.LabelControl()
         Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit()
         Me.tabConfigurações = New DevExpress.XtraTab.XtraTabPage()
+        Me.btnRemoverMensagem = New DevExpress.XtraEditors.SimpleButton()
         Me.btnSalvarMensagem = New DevExpress.XtraEditors.SimpleButton()
         Me.PanelControl4 = New DevExpress.XtraEditors.PanelControl()
         Me.lblTagPularLinha = New DevExpress.XtraEditors.LabelControl()
@@ -82,7 +85,6 @@ Partial Class frmWhatsapp
         Me.PictureEdit2 = New DevExpress.XtraEditors.PictureEdit()
         Me.lblClientesCadastrados = New DevExpress.XtraEditors.LabelControl()
         Me.lblCliente = New DevExpress.XtraEditors.LabelControl()
-        Me.btnRemoverMensagem = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.grdListaClientes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dsListaContato, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dtListaContato, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -94,8 +96,9 @@ Partial Class frmWhatsapp
         CType(Me.tabPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabPrincipal.SuspendLayout()
         Me.tabEnviarMensagem.SuspendLayout()
-        CType(Me.cboTitulo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cboEnviarArquivo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cboTitulo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabConfigurações.SuspendLayout()
         CType(Me.PanelControl4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -202,36 +205,40 @@ Partial Class frmWhatsapp
         Me.dblformatoNumero.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dblformatoNumero.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
         Me.dblformatoNumero.Appearance.ForeColor = System.Drawing.Color.DarkGray
-        Me.dblformatoNumero.Location = New System.Drawing.Point(387, 40)
+        Me.dblformatoNumero.Location = New System.Drawing.Point(390, 46)
         Me.dblformatoNumero.Name = "dblformatoNumero"
         Me.dblformatoNumero.Size = New System.Drawing.Size(80, 13)
         Me.dblformatoNumero.TabIndex = 29
         Me.dblformatoNumero.Text = "DDD+NÚMERO"
+        Me.dblformatoNumero.ToolTip = "Discagem Direta à Distância + Número de Telefone) "
         '
         'lblDDI
         '
         Me.lblDDI.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblDDI.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
         Me.lblDDI.Appearance.ForeColor = System.Drawing.Color.DarkGray
-        Me.lblDDI.Location = New System.Drawing.Point(346, 40)
+        Me.lblDDI.Location = New System.Drawing.Point(337, 46)
         Me.lblDDI.Name = "lblDDI"
-        Me.lblDDI.Size = New System.Drawing.Size(21, 13)
+        Me.lblDDI.Size = New System.Drawing.Size(40, 13)
         Me.lblDDI.TabIndex = 28
-        Me.lblDDI.Text = "DDI"
+        Me.lblDDI.Text = "DDI (?)"
+        Me.lblDDI.ToolTip = "Discagem Direta Internacional (Brasil = 55)"
+        Me.lblDDI.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information
         '
         'lblTitulo
         '
         Me.lblTitulo.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.lblTitulo.Location = New System.Drawing.Point(36, 88)
+        Me.lblTitulo.Location = New System.Drawing.Point(64, 120)
         Me.lblTitulo.Name = "lblTitulo"
-        Me.lblTitulo.Size = New System.Drawing.Size(32, 13)
+        Me.lblTitulo.Size = New System.Drawing.Size(35, 13)
         Me.lblTitulo.TabIndex = 26
-        Me.lblTitulo.Text = "Título"
+        Me.lblTitulo.Text = "Título:"
         '
         'txtNumeroComDdd
         '
         Me.txtNumeroComDdd.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtNumeroComDdd.Location = New System.Drawing.Point(376, 59)
+        Me.txtNumeroComDdd.EnterMoveNextControl = True
+        Me.txtNumeroComDdd.Location = New System.Drawing.Point(376, 65)
         Me.txtNumeroComDdd.Name = "txtNumeroComDdd"
         Me.txtNumeroComDdd.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
         Me.txtNumeroComDdd.Properties.Appearance.Options.UseFont = True
@@ -243,7 +250,7 @@ Partial Class frmWhatsapp
         '
         Me.lblNumero.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblNumero.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.lblNumero.Location = New System.Drawing.Point(282, 62)
+        Me.lblNumero.Location = New System.Drawing.Point(282, 68)
         Me.lblNumero.Name = "lblNumero"
         Me.lblNumero.Size = New System.Drawing.Size(44, 13)
         Me.lblNumero.TabIndex = 22
@@ -252,7 +259,8 @@ Partial Class frmWhatsapp
         'txtDDI
         '
         Me.txtDDI.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtDDI.Location = New System.Drawing.Point(332, 59)
+        Me.txtDDI.EnterMoveNextControl = True
+        Me.txtDDI.Location = New System.Drawing.Point(332, 65)
         Me.txtDDI.Name = "txtDDI"
         Me.txtDDI.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
         Me.txtDDI.Properties.Appearance.Options.UseFont = True
@@ -266,20 +274,21 @@ Partial Class frmWhatsapp
         'lblMensagemEnvio
         '
         Me.lblMensagemEnvio.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.lblMensagemEnvio.Location = New System.Drawing.Point(6, 113)
+        Me.lblMensagemEnvio.Location = New System.Drawing.Point(34, 146)
         Me.lblMensagemEnvio.Name = "lblMensagemEnvio"
-        Me.lblMensagemEnvio.Size = New System.Drawing.Size(62, 13)
+        Me.lblMensagemEnvio.Size = New System.Drawing.Size(65, 13)
         Me.lblMensagemEnvio.TabIndex = 23
-        Me.lblMensagemEnvio.Text = "Mensagem"
+        Me.lblMensagemEnvio.Text = "Mensagem:"
         '
         'memMensagem
         '
         Me.memMensagem.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.memMensagem.Location = New System.Drawing.Point(74, 111)
+        Me.memMensagem.EnterMoveNextControl = True
+        Me.memMensagem.Location = New System.Drawing.Point(105, 143)
         Me.memMensagem.Name = "memMensagem"
-        Me.memMensagem.Size = New System.Drawing.Size(396, 256)
+        Me.memMensagem.Size = New System.Drawing.Size(365, 224)
         Me.memMensagem.TabIndex = 3
         '
         'tabPrincipal
@@ -312,6 +321,8 @@ Partial Class frmWhatsapp
         Me.tabEnviarMensagem.Appearance.Header.Options.UseFont = True
         Me.tabEnviarMensagem.Appearance.HeaderActive.ForeColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(179, Byte), Integer), CType(CType(155, Byte), Integer))
         Me.tabEnviarMensagem.Appearance.HeaderActive.Options.UseForeColor = True
+        Me.tabEnviarMensagem.Controls.Add(Me.cboEnviarArquivo)
+        Me.tabEnviarMensagem.Controls.Add(Me.lblAnexo)
         Me.tabEnviarMensagem.Controls.Add(Me.cboTitulo)
         Me.tabEnviarMensagem.Controls.Add(Me.lblWhatsapp)
         Me.tabEnviarMensagem.Controls.Add(Me.PictureEdit1)
@@ -327,14 +338,16 @@ Partial Class frmWhatsapp
         Me.tabEnviarMensagem.Size = New System.Drawing.Size(486, 383)
         Me.tabEnviarMensagem.Text = "Enviar Mensagem"
         '
-        'cboTitulo
+        'cboEnviarArquivo
         '
-        Me.cboTitulo.Location = New System.Drawing.Point(74, 85)
-        Me.cboTitulo.MenuManager = Me.BarManager1
-        Me.cboTitulo.Name = "cboTitulo"
-        Me.cboTitulo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cboTitulo.Size = New System.Drawing.Size(396, 20)
-        Me.cboTitulo.TabIndex = 2
+        Me.cboEnviarArquivo.EnterMoveNextControl = True
+        Me.cboEnviarArquivo.Location = New System.Drawing.Point(105, 92)
+        Me.cboEnviarArquivo.MenuManager = Me.BarManager1
+        Me.cboEnviarArquivo.Name = "cboEnviarArquivo"
+        Me.cboEnviarArquivo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
+        Me.cboEnviarArquivo.Properties.CaseSensitiveSearch = True
+        Me.cboEnviarArquivo.Size = New System.Drawing.Size(365, 20)
+        Me.cboEnviarArquivo.TabIndex = 34
         '
         'BarManager1
         '
@@ -421,6 +434,26 @@ Partial Class frmWhatsapp
         Me.barDockControlRight.Location = New System.Drawing.Point(956, 0)
         Me.barDockControlRight.Size = New System.Drawing.Size(0, 487)
         '
+        'lblAnexo
+        '
+        Me.lblAnexo.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.lblAnexo.Location = New System.Drawing.Point(15, 95)
+        Me.lblAnexo.Name = "lblAnexo"
+        Me.lblAnexo.Size = New System.Drawing.Size(84, 13)
+        Me.lblAnexo.TabIndex = 33
+        Me.lblAnexo.Text = "Enviar arquivo:"
+        '
+        'cboTitulo
+        '
+        Me.cboTitulo.EnterMoveNextControl = True
+        Me.cboTitulo.Location = New System.Drawing.Point(105, 117)
+        Me.cboTitulo.MenuManager = Me.BarManager1
+        Me.cboTitulo.Name = "cboTitulo"
+        Me.cboTitulo.Properties.AutoComplete = False
+        Me.cboTitulo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cboTitulo.Size = New System.Drawing.Size(365, 20)
+        Me.cboTitulo.TabIndex = 2
+        '
         'lblWhatsapp
         '
         Me.lblWhatsapp.Appearance.Font = New System.Drawing.Font("Tahoma", 22.0!, System.Drawing.FontStyle.Bold)
@@ -458,6 +491,16 @@ Partial Class frmWhatsapp
         Me.tabConfigurações.Name = "tabConfigurações"
         Me.tabConfigurações.Size = New System.Drawing.Size(486, 383)
         Me.tabConfigurações.Text = "Configurar Mensagem Automática"
+        '
+        'btnRemoverMensagem
+        '
+        Me.btnRemoverMensagem.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnRemoverMensagem.Image = Global.telausuario.My.Resources.Resources.delete
+        Me.btnRemoverMensagem.Location = New System.Drawing.Point(220, 242)
+        Me.btnRemoverMensagem.Name = "btnRemoverMensagem"
+        Me.btnRemoverMensagem.Size = New System.Drawing.Size(96, 35)
+        Me.btnRemoverMensagem.TabIndex = 43
+        Me.btnRemoverMensagem.Text = "Remover"
         '
         'btnSalvarMensagem
         '
@@ -616,9 +659,9 @@ Partial Class frmWhatsapp
         Me.lblOrientacoes.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
         Me.lblOrientacoes.Location = New System.Drawing.Point(5, 5)
         Me.lblOrientacoes.Name = "lblOrientacoes"
-        Me.lblOrientacoes.Size = New System.Drawing.Size(357, 18)
+        Me.lblOrientacoes.Size = New System.Drawing.Size(270, 18)
         Me.lblOrientacoes.TabIndex = 38
-        Me.lblOrientacoes.Text = "Deixe sua mensagem automática personalizada:"
+        Me.lblOrientacoes.Text = "Deixe sua mensagem personalizada:"
         '
         'lblObjetivoCliente
         '
@@ -632,9 +675,12 @@ Partial Class frmWhatsapp
         '
         'cboTituloConfig
         '
+        Me.cboTituloConfig.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cboTituloConfig.Location = New System.Drawing.Point(73, 20)
         Me.cboTituloConfig.MenuManager = Me.BarManager1
         Me.cboTituloConfig.Name = "cboTituloConfig"
+        Me.cboTituloConfig.Properties.AutoComplete = False
         Me.cboTituloConfig.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cboTituloConfig.Size = New System.Drawing.Size(397, 20)
         Me.cboTituloConfig.TabIndex = 37
@@ -741,16 +787,6 @@ Partial Class frmWhatsapp
         Me.lblCliente.TabIndex = 32
         Me.lblCliente.Text = "Cliente"
         '
-        'btnRemoverMensagem
-        '
-        Me.btnRemoverMensagem.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnRemoverMensagem.Image = Global.telausuario.My.Resources.Resources.delete
-        Me.btnRemoverMensagem.Location = New System.Drawing.Point(220, 242)
-        Me.btnRemoverMensagem.Name = "btnRemoverMensagem"
-        Me.btnRemoverMensagem.Size = New System.Drawing.Size(96, 35)
-        Me.btnRemoverMensagem.TabIndex = 43
-        Me.btnRemoverMensagem.Text = "Remover"
-        '
         'frmWhatsapp
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -776,8 +812,9 @@ Partial Class frmWhatsapp
         Me.tabPrincipal.ResumeLayout(False)
         Me.tabEnviarMensagem.ResumeLayout(False)
         Me.tabEnviarMensagem.PerformLayout()
-        CType(Me.cboTitulo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cboEnviarArquivo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cboTitulo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabConfigurações.ResumeLayout(False)
         Me.tabConfigurações.PerformLayout()
@@ -861,4 +898,6 @@ Partial Class frmWhatsapp
     Friend WithEvents lblTagPularLinha As DevExpress.XtraEditors.LabelControl
     Friend WithEvents lblPularLinha As DevExpress.XtraEditors.LabelControl
     Friend WithEvents btnRemoverMensagem As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents lblAnexo As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents cboEnviarArquivo As DevExpress.XtraEditors.ComboBoxEdit
 End Class

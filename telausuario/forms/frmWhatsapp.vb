@@ -2,6 +2,7 @@
 Imports telausuario.clsFuncao
 Imports telausuario.clsBanco
 Imports telausuario.modFuncoes
+Imports Microsoft.Win32
 Public Class frmWhatsapp
     Dim bolCelular As Boolean
     Dim CodigoCliente As Integer
@@ -56,6 +57,7 @@ Public Class frmWhatsapp
         Me.btnRemoverMensagem.Visible = False
         Me.cboTituloConfig.Properties.ReadOnly = False
         Me.btnEnviarSalvar.Enabled = True
+        Me.cboEnviarArquivo.ResetText()
 
     End Sub
 
@@ -95,6 +97,39 @@ Public Class frmWhatsapp
             End If
         End If
 
+    End Sub
+
+    Private Sub VerificarArquivo(ByVal parNomeArquivo As String, ByVal parVerificar As Boolean, ByRef parRetorno As Boolean, ByVal CaminhoArquivo As String)
+        Dim strURL As String = ""
+        parRetorno = False
+
+
+        If parVerificar = True Then
+            strURL = String.Format(StringConexaoFTP & "{0}/", CNPJEmpresa)
+
+            If CheckIfFIlesExists(strURL, LoginFTP, SenhaFTP) = False Then
+                If CriarPastaFtp(strURL, LoginFTP, SenhaFTP, "" & CNPJEmpresa & "") = False Then
+                    parRetorno = False
+                    Exit Sub
+                End If
+            End If
+        End If
+
+        strURL = String.Format(StringConexaoFTP & "{0}/{1}", CNPJEmpresa, parNomeArquivo)
+
+        If ExcluirImagemFtp(CaminhoArquivo & parNomeArquivo, strURL, LoginFTP, SenhaFTP) = False Then
+            'MsgBox("Erro ao excluir imagem " & parNomeImagem & " do produto!", MsgBoxStyle.Information)
+            'parRetorno = False
+            'Exit Sub
+        End If
+
+        If InserirImagemFtp(CaminhoArquivo & parNomeArquivo, strURL, LoginFTP, SenhaFTP) = False Then
+            'MsgBox("Erro ao inserir imagem " & parNomeImagem & " do produto!", MsgBoxStyle.Information)
+            parRetorno = False
+            Exit Sub
+        Else
+            parRetorno = True
+        End If
     End Sub
 
     Private Sub txtAlterarGrid_DoubleClick(sender As Object, e As EventArgs) Handles txtAlterarGrid.DoubleClick
@@ -138,21 +173,42 @@ Public Class frmWhatsapp
             Dim NumeroDestinatario As String = "" & Me.txtDDI.Text & "" & Me.txtNumeroComDdd.Text & " ".Trim()
             Dim MensagemDestinatario As String = Me.memMensagem.Text.Replace(" ", "%20").Replace("<EMPRE>", "" & NomeEmpresa & "").Replace("<USER>", "" & PrimeiraLetraMaiuscula(Environment.MachineName) & "").Replace("<CLI>", "" & PrimeiraLetraMaiuscula(NomeCliente) & "").Replace("<DAT>", "" & Date.Today & "").Replace("<QBLIN>", "%0A").Replace("<PLIN>", "%0A%0A")
             Dim TituloDestinatario As String = Me.cboTitulo.Text.Replace(" ", "%20").Replace("<EMPRE>", "" & NomeEmpresa & "").Replace("<USER>", "" & PrimeiraLetraMaiuscula(Environment.MachineName) & "").Replace("<CLI>", "" & PrimeiraLetraMaiuscula(NomeCliente) & "").Replace("<DAT>", "" & Date.Today & "").Replace("<QBLIN>", "%0A").Replace("<PLIN>", "%0A%0A")
-            Dim endereco As String
-            If Me.cboTitulo.Text <> "" Then
-                endereco = "https://wa.me/" & NumeroDestinatario & "?text=*" & TituloDestinatario & "*%0A%0A" & MensagemDestinatario & ""
-            Else
-                endereco = "https://wa.me/" & NumeroDestinatario & "?text=" & MensagemDestinatario & ""
-            End If
+            Dim Endereco As String
 
             If bolCelular = False Then
                 Dim dtBuscaPais As DataTable = CarregarDataTable("select * from Pais where CodDDI = " & Me.txtDDI.Text & "")
                 Atualizar("update Cliente set Celular = '" & NumeroDestinatario & "', CodPais = " & dtBuscaPais.Rows.Item(0).Item("CodIBGE") & " where Codigo = " & CodigoCliente & " ")
             End If
 
-            System.Diagnostics.Process.Start(endereco)
+
+            Select Case My.Computer.FileSystem.FileExists("C:\Users\Usuario\AppData\Local\WhatsApp\Whatsapp.exe")
+                Case True
+                    If Me.cboTitulo.Text <> "" Then
+                        Endereco = "whatsapp://send?phone=" & NumeroDestinatario & "&text=*" & TituloDestinatario & "*%0A%0A" & MensagemDestinatario & ""
+                    Else
+                        Endereco = "whatsapp://send?phone=" & NumeroDestinatario & "&text=" & MensagemDestinatario & ""
+                    End If
+
+                Case False
+                    If Me.cboTitulo.Text <> "" Then
+                        Endereco = "https://wa.me/" & NumeroDestinatario & "?text=*" & TituloDestinatario & "*%0A%0A" & MensagemDestinatario & ""
+                    Else
+                        Endereco = "https://wa.me/" & NumeroDestinatario & "?text=" & MensagemDestinatario & ""
+                    End If
+            End Select
+
+            If cboEnviarArquivo.Text <> "" Then
+                Dim indexUltimaBarra As String = cboEnviarArquivo.Text.LastIndexOf("\")
+                Dim NomeArquivo As String = cboEnviarArquivo.Text.Substring(indexUltimaBarra + 1, (cboEnviarArquivo.Text.Count - 1) - (indexUltimaBarra))
+                Dim CaminhoPastaArquivo As String = cboEnviarArquivo.Text.Replace("" & NomeArquivo & "", "")
+                VerificarArquivo("" & NomeArquivo & "", True, False, "" & CaminhoPastaArquivo & "")
+            End If
+
+
+
+            System.Diagnostics.Process.Start(Endereco)
+
             tabPrincipal.SelectedTabPageIndex = 0
-            Limpar()
             CarregarGrid()
             CarregarComboBox()
         Else
@@ -203,14 +259,11 @@ Public Class frmWhatsapp
 
     End Sub
 
-    Private Sub cboTituloConfig_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboTituloConfig.KeyPress, memMensagemConfig.KeyPress
-        If e.KeyChar = "'" Then
+    Private Sub cboTituloConfig_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboTituloConfig.KeyPress, memMensagemConfig.KeyPress, memMensagem.KeyPress, cboTitulo.KeyPress
+        If e.KeyChar = "'" Or e.KeyChar = "&" Or e.KeyChar = "+" Then
             e.Handled = True
-
-        ElseIf e.KeyChar = vbBack Then
-            e.Handled = False
-
         End If
+
     End Sub
 
     Private Sub cboTituloConfig_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboTituloConfig.SelectedIndexChanged
@@ -233,9 +286,14 @@ Public Class frmWhatsapp
             Me.btnSalvarMensagem.Image = My.Resources.apply
             Me.btnSalvarMensagem.Text = "Salvar Mensagem"
             Me.btnRemoverMensagem.Visible = False
-            Me.memMensagemConfig.ResetText()
         End If
 
+    End Sub
+
+    Private Sub cboTitulo_KeyPress(sender As Object, e As KeyPressEventArgs)
+        If e.KeyChar = "&" Or e.KeyChar = "+" Then
+            e.Handled = True
+        End If
     End Sub
 
     Private Sub cboTitulo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboTitulo.SelectedIndexChanged
@@ -256,11 +314,58 @@ Public Class frmWhatsapp
 
     Private Sub btnRemoverMensagem_Click(sender As Object, e As EventArgs) Handles btnRemoverMensagem.Click
         If indexChangedConfigurar <> -1 Then
-            Deletar("delete MensagemWhatsapp where Titulo = '" & TituloMsgAutomatica & "';")
-            MsgBox("Mensagem automática removida com sucesso!", MsgBoxStyle.Information)
-            Limpar()
-            CarregarGrid()
-            CarregarComboBox()
+            Dim result As String = MsgBox("Deseja excluir essa mensagem automática?", MsgBoxStyle.YesNo)
+            If result = DialogResult.Yes Then
+                Deletar("delete MensagemWhatsapp where Titulo = '" & TituloMsgAutomatica & "';")
+                MsgBox("Mensagem automática removida com sucesso!", MsgBoxStyle.Information)
+                Limpar()
+                CarregarGrid()
+                CarregarComboBox()
+            End If
+        End If
+    End Sub
+
+    Private Sub cboEnviarArquivo_Click(sender As Object, e As EventArgs) Handles cboEnviarArquivo.Click
+        Using dialog As New OpenFileDialog
+            If dialog.ShowDialog() <> DialogResult.OK Then Return
+            Dim strCaminhoArquivo As String = dialog.FileName
+            Me.cboEnviarArquivo.Text = strCaminhoArquivo
+        End Using
+    End Sub
+
+
+    Private Sub cboEnviarArquivo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboEnviarArquivo.KeyPress
+        e.Handled = True
+    End Sub
+
+    Private Sub txtNumeroComDdd_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtNumeroComDdd.KeyPress
+        If Me.txtDDI.Text = "" Then
+
+            e.Handled = True
+            Me.txtDDI.Text = e.KeyChar
+            Me.txtDDI.Select()
+            Me.txtDDI.SelectionStart = Me.txtDDI.Text.Length
+
+        End If
+    End Sub
+
+    Private Sub txtDDI_EditValueChanged(sender As Object, e As EventArgs) Handles txtDDI.EditValueChanged
+
+    End Sub
+
+    Private Sub txtDDI_KeyPress1(sender As Object, e As KeyPressEventArgs) Handles txtDDI.KeyPress
+        'DDI's COMUNS
+        If txtDDI.Text = "5" And e.KeyChar = "5" Then
+            Me.txtNumeroComDdd.Select()
+            Me.txtNumeroComDdd.SelectionStart = Me.txtNumeroComDdd.Text.Length
+
+        ElseIf txtDDI.Text = "4" And e.KeyChar = "4" Then
+            Me.txtNumeroComDdd.Select()
+            Me.txtNumeroComDdd.SelectionStart = Me.txtNumeroComDdd.Text.Length
+
+        ElseIf txtDDI.Text = "35" And e.KeyChar = "1" Then
+            Me.txtNumeroComDdd.Select()
+            Me.txtNumeroComDdd.SelectionStart = Me.txtNumeroComDdd.Text.Length
         End If
     End Sub
 End Class
