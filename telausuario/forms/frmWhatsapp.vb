@@ -197,12 +197,12 @@ Public Class frmWhatsapp
                     End If
             End Select
 
-            If cboEnviarArquivo.Text <> "" Then
-                Dim indexUltimaBarra As String = cboEnviarArquivo.Text.LastIndexOf("\")
-                Dim NomeArquivo As String = cboEnviarArquivo.Text.Substring(indexUltimaBarra + 1, (cboEnviarArquivo.Text.Count - 1) - (indexUltimaBarra))
-                Dim CaminhoPastaArquivo As String = cboEnviarArquivo.Text.Replace("" & NomeArquivo & "", "")
-                VerificarArquivo("" & NomeArquivo & "", True, False, "" & CaminhoPastaArquivo & "")
-            End If
+            'If cboEnviarArquivo.Text <> "" Then
+            'Dim indexUltimaBarra As String = cboEnviarArquivo.Text.LastIndexOf("\")
+            'Dim NomeArquivo As String = cboEnviarArquivo.Text.Substring(indexUltimaBarra + 1, (cboEnviarArquivo.Text.Count - 1) - (indexUltimaBarra))
+            'Dim CaminhoPastaArquivo As String = cboEnviarArquivo.Text.Replace("" & NomeArquivo & "", "")
+            'VerificarArquivo("" & NomeArquivo & "", True, False, "" & CaminhoPastaArquivo & "")
+            'End If
 
             System.Diagnostics.Process.Start(Endereco)
 
@@ -330,7 +330,6 @@ Public Class frmWhatsapp
         End Using
     End Sub
 
-
     Private Sub cboEnviarArquivo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboEnviarArquivo.KeyPress
         e.Handled = True
     End Sub
@@ -344,10 +343,6 @@ Public Class frmWhatsapp
             Me.txtDDI.SelectionStart = Me.txtDDI.Text.Length
 
         End If
-    End Sub
-
-    Private Sub txtDDI_EditValueChanged(sender As Object, e As EventArgs) Handles txtDDI.EditValueChanged
-
     End Sub
 
     Private Sub txtDDI_KeyPress1(sender As Object, e As KeyPressEventArgs) Handles txtDDI.KeyPress

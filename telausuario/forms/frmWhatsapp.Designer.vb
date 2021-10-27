@@ -119,11 +119,11 @@ Partial Class frmWhatsapp
         Me.grdListaClientes.DataMember = "dtListaContato"
         Me.grdListaClientes.DataSource = Me.dsListaContato
         Me.grdListaClientes.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.grdListaClientes.Location = New System.Drawing.Point(2, 163)
+        Me.grdListaClientes.Location = New System.Drawing.Point(2, 124)
         Me.grdListaClientes.MainView = Me.grd1
         Me.grdListaClientes.Name = "grdListaClientes"
         Me.grdListaClientes.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.txtAlterarGrid})
-        Me.grdListaClientes.Size = New System.Drawing.Size(433, 286)
+        Me.grdListaClientes.Size = New System.Drawing.Size(433, 325)
         Me.grdListaClientes.TabIndex = 7
         Me.grdListaClientes.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.grd1})
         '
@@ -340,6 +340,8 @@ Partial Class frmWhatsapp
         '
         'cboEnviarArquivo
         '
+        Me.cboEnviarArquivo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cboEnviarArquivo.EnterMoveNextControl = True
         Me.cboEnviarArquivo.Location = New System.Drawing.Point(105, 92)
         Me.cboEnviarArquivo.MenuManager = Me.BarManager1
@@ -348,6 +350,7 @@ Partial Class frmWhatsapp
         Me.cboEnviarArquivo.Properties.CaseSensitiveSearch = True
         Me.cboEnviarArquivo.Size = New System.Drawing.Size(365, 20)
         Me.cboEnviarArquivo.TabIndex = 34
+        Me.cboEnviarArquivo.Visible = False
         '
         'BarManager1
         '
@@ -442,15 +445,19 @@ Partial Class frmWhatsapp
         Me.lblAnexo.Size = New System.Drawing.Size(84, 13)
         Me.lblAnexo.TabIndex = 33
         Me.lblAnexo.Text = "Enviar arquivo:"
+        Me.lblAnexo.Visible = False
         '
         'cboTitulo
         '
+        Me.cboTitulo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cboTitulo.EnterMoveNextControl = True
         Me.cboTitulo.Location = New System.Drawing.Point(105, 117)
         Me.cboTitulo.MenuManager = Me.BarManager1
         Me.cboTitulo.Name = "cboTitulo"
         Me.cboTitulo.Properties.AutoComplete = False
         Me.cboTitulo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cboTitulo.Properties.CaseSensitiveSearch = True
         Me.cboTitulo.Size = New System.Drawing.Size(365, 20)
         Me.cboTitulo.TabIndex = 2
         '
@@ -752,7 +759,7 @@ Partial Class frmWhatsapp
         Me.PanelControl2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat
         Me.PanelControl2.LookAndFeel.UseDefaultLookAndFeel = False
         Me.PanelControl2.Name = "PanelControl2"
-        Me.PanelControl2.Size = New System.Drawing.Size(433, 161)
+        Me.PanelControl2.Size = New System.Drawing.Size(433, 122)
         Me.PanelControl2.TabIndex = 31
         '
         'PictureEdit2
