@@ -204,8 +204,6 @@ Public Class frmWhatsapp
                 VerificarArquivo("" & NomeArquivo & "", True, False, "" & CaminhoPastaArquivo & "")
             End If
 
-
-
             System.Diagnostics.Process.Start(Endereco)
 
             tabPrincipal.SelectedTabPageIndex = 0
@@ -215,7 +213,6 @@ Public Class frmWhatsapp
             MsgBox("Preencha todos os campos!", MsgBoxStyle.Exclamation)
         End If
     End Sub
-
 
     Private Sub btnFechar_ItemClick_1(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnFechar.ItemClick
         Me.Close()
