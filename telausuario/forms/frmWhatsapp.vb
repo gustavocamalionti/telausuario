@@ -360,4 +360,8 @@ Public Class frmWhatsapp
             Me.txtNumeroComDdd.SelectionStart = Me.txtNumeroComDdd.Text.Length
         End If
     End Sub
+
+    Private Sub btnCriarPasta_Click(sender As Object, e As EventArgs) Handles btnCriarPasta.Click
+        clsFuncoesDropBox.CriarPastaDropBox()
+    End Sub
 End Class

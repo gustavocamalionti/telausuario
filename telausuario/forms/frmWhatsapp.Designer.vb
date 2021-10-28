@@ -85,6 +85,7 @@ Partial Class frmWhatsapp
         Me.PictureEdit2 = New DevExpress.XtraEditors.PictureEdit()
         Me.lblClientesCadastrados = New DevExpress.XtraEditors.LabelControl()
         Me.lblCliente = New DevExpress.XtraEditors.LabelControl()
+        Me.btnCriarPasta = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.grdListaClientes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dsListaContato, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dtListaContato, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -725,6 +726,7 @@ Partial Class frmWhatsapp
         Me.PanelControl1.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(18, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.PanelControl1.Appearance.Options.UseBackColor = True
         Me.PanelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.PanelControl1.Controls.Add(Me.btnCriarPasta)
         Me.PanelControl1.Controls.Add(Me.PanelControl3)
         Me.PanelControl1.Controls.Add(Me.lblCliente)
         Me.PanelControl1.Controls.Add(Me.tabPrincipal)
@@ -793,6 +795,14 @@ Partial Class frmWhatsapp
         Me.lblCliente.Size = New System.Drawing.Size(82, 28)
         Me.lblCliente.TabIndex = 32
         Me.lblCliente.Text = "Cliente"
+        '
+        'btnCriarPasta
+        '
+        Me.btnCriarPasta.Location = New System.Drawing.Point(867, 25)
+        Me.btnCriarPasta.Name = "btnCriarPasta"
+        Me.btnCriarPasta.Size = New System.Drawing.Size(75, 23)
+        Me.btnCriarPasta.TabIndex = 34
+        Me.btnCriarPasta.Text = "Criar Pasta"
         '
         'frmWhatsapp
         '
@@ -907,4 +917,5 @@ Partial Class frmWhatsapp
     Friend WithEvents btnRemoverMensagem As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents lblAnexo As DevExpress.XtraEditors.LabelControl
     Friend WithEvents cboEnviarArquivo As DevExpress.XtraEditors.ComboBoxEdit
+    Friend WithEvents btnCriarPasta As DevExpress.XtraEditors.SimpleButton
 End Class
