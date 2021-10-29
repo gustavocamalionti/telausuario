@@ -86,10 +86,10 @@ Public Class clsFuncoesDropBox
         Return ms.ToArray()
 
     End Function
-    Public Shared Function UploadDropBox(ByVal parimage As System.Drawing.Image) As String
+    Public Shared Function UploadDropBox(ByVal parimage As System.Drawing.Image, NomeArquivo As String) As String
 
         Dim dadosConta As New clsJsonDropBox.clsUpload
-        dadosConta.path = "/TestePasta/home1.png"
+        dadosConta.path = "/TestePasta/" & NomeArquivo & ""
         dadosConta.mode = "add"
         dadosConta.autorename = True
         dadosConta.mute = False
@@ -155,10 +155,10 @@ Public Class clsFuncoesDropBox
 
     End Function
 
-    Public Shared Function CriarLinkDropBox() As String
-        Dim dadosConta As New clsJsonDropBox.clsCriarLink
-        dadosConta.url = "https://www.dropbox.com/scl/fi/imcs6j69sbcpb8fptcnxg/home1.png?dl=0"
-        dadosConta.path = "/TestePasta/support.png"
+    Public Shared Function CriarLinkDropBox(NomeArquivo As String) As String
+        Dim dadosConta As New clsJsonDropBox.clsCriarLink2
+
+        dadosConta.path = "/TestePasta/" & NomeArquivo & ""
 
         Dim settings As JsonSerializerSettings = New JsonSerializerSettings()
         settings.NullValueHandling = NullValueHandling.Ignore
@@ -171,17 +171,16 @@ Public Class clsFuncoesDropBox
         'client.Headers("Content-Type") = "application/octet-stream"
         client.Headers("Content-Type") = "application/json"
         client.Headers("Authorization") = "Bearer fIC5DvLUAqwAAAAAAAAAASG3cPReUZV1gMa1tW0G-hRiT8u0Z2psf0lY2LG-oKc4"
-        client.Headers("Dropbox-API-Arg") = myData
         ServicePointManager.Expect100Continue = False
 
-        Dim strURL As String = "https://api.dropboxapi.com/2/sharing/get_shared_link_metadata"
+        Dim strURL As String = "https://api.dropboxapi.com/2/sharing/create_shared_link_with_settings"
 
         Try
             'myData = "{\""path\"": \""/tesstee/math\"",\"": false}"
             'myData = "{""path"":""/ge/32"",""autorename"":false}"
 
             Dim jsonBytes As Byte() = Encoding.UTF8.GetBytes(myData)
-            Dim jsonResult As String = Encoding.UTF8.GetString(client.UploadData(strURL, "GET", jsonBytes))
+            Dim jsonResult As String = Encoding.UTF8.GetString(client.UploadData(strURL, "POST", jsonBytes))
             Dim successResult As Linq.JObject = JsonConvert.DeserializeObject(jsonResult)
 
             'Dim filename As String = "C:\test\birthday.mp3"
@@ -217,7 +216,5 @@ Public Class clsFuncoesDropBox
 
         End Try
     End Function
-
-    
 
 End Class

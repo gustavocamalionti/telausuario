@@ -17,5 +17,11 @@
         Public Property url As String
         Public Property path As String
     End Class
+
+    Public Class clsCriarLink2
+
+        Public Property path As String
+    End Class
+
 End Namespace
 

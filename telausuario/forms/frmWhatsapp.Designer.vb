@@ -80,6 +80,7 @@ Partial Class frmWhatsapp
         Me.lblMensagemConfig = New DevExpress.XtraEditors.LabelControl()
         Me.lblTituloConfig = New DevExpress.XtraEditors.LabelControl()
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
+        Me.SimpleButton2 = New DevExpress.XtraEditors.SimpleButton()
         Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
         Me.PictureEdit3 = New DevExpress.XtraEditors.PictureEdit()
         Me.btnCriarPasta = New DevExpress.XtraEditors.SimpleButton()
@@ -90,7 +91,6 @@ Partial Class frmWhatsapp
         Me.lblCliente = New DevExpress.XtraEditors.LabelControl()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.ofdImagem = New System.Windows.Forms.OpenFileDialog()
-        Me.SimpleButton2 = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.grdListaClientes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dsListaContato, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dtListaContato, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -747,9 +747,17 @@ Partial Class frmWhatsapp
         Me.PanelControl1.Size = New System.Drawing.Size(956, 487)
         Me.PanelControl1.TabIndex = 32
         '
+        'SimpleButton2
+        '
+        Me.SimpleButton2.Location = New System.Drawing.Point(867, 61)
+        Me.SimpleButton2.Name = "SimpleButton2"
+        Me.SimpleButton2.Size = New System.Drawing.Size(75, 23)
+        Me.SimpleButton2.TabIndex = 37
+        Me.SimpleButton2.Text = "Gerar Link"
+        '
         'SimpleButton1
         '
-        Me.SimpleButton1.Location = New System.Drawing.Point(867, 54)
+        Me.SimpleButton1.Location = New System.Drawing.Point(867, 32)
         Me.SimpleButton1.Name = "SimpleButton1"
         Me.SimpleButton1.Size = New System.Drawing.Size(75, 23)
         Me.SimpleButton1.TabIndex = 36
@@ -757,15 +765,15 @@ Partial Class frmWhatsapp
         '
         'PictureEdit3
         '
-        Me.PictureEdit3.Location = New System.Drawing.Point(753, -49)
+        Me.PictureEdit3.Location = New System.Drawing.Point(793, 3)
         Me.PictureEdit3.MenuManager = Me.BarManager1
         Me.PictureEdit3.Name = "PictureEdit3"
-        Me.PictureEdit3.Size = New System.Drawing.Size(100, 96)
+        Me.PictureEdit3.Size = New System.Drawing.Size(68, 81)
         Me.PictureEdit3.TabIndex = 35
         '
         'btnCriarPasta
         '
-        Me.btnCriarPasta.Location = New System.Drawing.Point(867, 25)
+        Me.btnCriarPasta.Location = New System.Drawing.Point(867, 3)
         Me.btnCriarPasta.Name = "btnCriarPasta"
         Me.btnCriarPasta.Size = New System.Drawing.Size(75, 23)
         Me.btnCriarPasta.TabIndex = 34
@@ -836,14 +844,6 @@ Partial Class frmWhatsapp
         'ofdImagem
         '
         Me.ofdImagem.FileName = "OpenFileDialog2"
-        '
-        'SimpleButton2
-        '
-        Me.SimpleButton2.Location = New System.Drawing.Point(579, 24)
-        Me.SimpleButton2.Name = "SimpleButton2"
-        Me.SimpleButton2.Size = New System.Drawing.Size(75, 23)
-        Me.SimpleButton2.TabIndex = 37
-        Me.SimpleButton2.Text = "Upload"
         '
         'frmWhatsapp
         '

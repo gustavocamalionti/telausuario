@@ -8,6 +8,7 @@ Public Class frmWhatsapp
     Dim CodigoCliente As Integer
     Dim indexChangedConfigurar As Integer = -1
     Dim TituloMsgAutomatica As String = ""
+    Dim NomeArquivo As String = ""
     Private Sub frmWhatsapp_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Limpar()
         CarregarGrid()
@@ -58,7 +59,7 @@ Public Class frmWhatsapp
         Me.cboTituloConfig.Properties.ReadOnly = False
         Me.btnEnviarSalvar.Enabled = True
         Me.cboEnviarArquivo.ResetText()
-
+        NomeArquivo = ""
     End Sub
 
     Private Sub MostrarDados()
@@ -370,14 +371,18 @@ Public Class frmWhatsapp
         ofdImagem.ShowDialog()
         If ofdImagem.FileName <> "" Then
             Me.PictureEdit3.Image = System.Drawing.Bitmap.FromFile(ofdImagem.FileName)
+            Dim strCaminhoArquivo As String = ofdImagem.FileName
+            Dim indexUltimaBarra As String = strCaminhoArquivo.LastIndexOf("\")
+            NomeArquivo = strCaminhoArquivo.Substring(indexUltimaBarra + 1, (strCaminhoArquivo.Count - 1) - (indexUltimaBarra))
         End If
     End Sub
 
     Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
-        clsFuncoesDropBox.UploadDropBox(Me.PictureEdit3.Image)
+        clsFuncoesDropBox.UploadDropBox(Me.PictureEdit3.Image, NomeArquivo)
+
     End Sub
 
     Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles SimpleButton2.Click
-        clsFuncoesDropBox.CriarLinkDropBox()
+        clsFuncoesDropBox.CriarLinkDropBox(NomeArquivo)
     End Sub
 End Class
