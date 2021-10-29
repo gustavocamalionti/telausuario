@@ -364,4 +364,20 @@ Public Class frmWhatsapp
     Private Sub btnCriarPasta_Click(sender As Object, e As EventArgs) Handles btnCriarPasta.Click
         clsFuncoesDropBox.CriarPastaDropBox()
     End Sub
+
+    Private Sub PictureEdit3_Click(sender As Object, e As EventArgs) Handles PictureEdit3.Click
+        ofdImagem.FileName = ""
+        ofdImagem.ShowDialog()
+        If ofdImagem.FileName <> "" Then
+            Me.PictureEdit3.Image = System.Drawing.Bitmap.FromFile(ofdImagem.FileName)
+        End If
+    End Sub
+
+    Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
+        clsFuncoesDropBox.UploadDropBox(Me.PictureEdit3.Image)
+    End Sub
+
+    Private Sub PictureEdit3_EditValueChanged(sender As Object, e As EventArgs) Handles PictureEdit3.EditValueChanged
+
+    End Sub
 End Class
