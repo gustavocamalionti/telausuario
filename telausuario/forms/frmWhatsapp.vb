@@ -185,16 +185,16 @@ Public Class frmWhatsapp
             Select Case My.Computer.FileSystem.FileExists("C:\Users\Usuario\AppData\Local\WhatsApp\Whatsapp.exe")
                 Case True
                     If Me.cboTitulo.Text <> "" Then
-                        Endereco = "whatsapp://send?phone=" & NumeroDestinatario & "&text=*" & TituloDestinatario & "*%0A%0A" & MensagemDestinatario & ""
+                        Endereco = "whatsapp://send?phone=" & NumeroDestinatario & "&text=*" & TituloDestinatario & "*%0A%0A" & MensagemDestinatario & "*%0A%0ABaixe%20Clicando%20aqui:" & txtLinkDropBox.Text & ""
                     Else
-                        Endereco = "whatsapp://send?phone=" & NumeroDestinatario & "&text=" & MensagemDestinatario & ""
+                        Endereco = "whatsapp://send?phone=" & NumeroDestinatario & "&text=" & MensagemDestinatario & "*%0A%0ABaixe%20Clicando%20aqui:" & txtLinkDropBox.Text & ""
                     End If
 
                 Case False
                     If Me.cboTitulo.Text <> "" Then
-                        Endereco = "https://wa.me/" & NumeroDestinatario & "?text=*" & TituloDestinatario & "*%0A%0A" & MensagemDestinatario & ""
+                        Endereco = "https://wa.me/" & NumeroDestinatario & "?text=*" & TituloDestinatario & "*%0A%0A" & MensagemDestinatario & "*%0A%0ABaixe%20Clicando%20aqui:" & txtLinkDropBox.Text & ""
                     Else
-                        Endereco = "https://wa.me/" & NumeroDestinatario & "?text=" & MensagemDestinatario & ""
+                        Endereco = "https://wa.me/" & NumeroDestinatario & "?text=" & MensagemDestinatario & "*%0A%0ABaixe%20Clicando%20aqui:" & txtLinkDropBox.Text & ""
                     End If
             End Select
 
