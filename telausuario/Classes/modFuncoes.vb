@@ -18,7 +18,7 @@
     Public indexPedidoAtual As Integer
     Public NomeEmpresa As String = "NANO SISTEMAS"
 
-
+    Public strLinkDownloadAnexo As String
 
     Public StringConexaoFTP As String = "ftp://207.244.245.160/nanoapp.com.br/public/uploads/arquivos/empresas/cnpj/"
     Public LoginFTP As String = "ftpuser"

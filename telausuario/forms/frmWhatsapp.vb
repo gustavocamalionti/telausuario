@@ -384,5 +384,8 @@ Public Class frmWhatsapp
 
     Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles SimpleButton2.Click
         clsFuncoesDropBox.CriarLinkDropBox(NomeArquivo)
+        If strLinkDownloadAnexo <> "" Then
+            txtLinkDropBox.Text = strLinkDownloadAnexo
+        End If
     End Sub
 End Class

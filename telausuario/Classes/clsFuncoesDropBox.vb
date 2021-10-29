@@ -182,6 +182,8 @@ Public Class clsFuncoesDropBox
             Dim jsonBytes As Byte() = Encoding.UTF8.GetBytes(myData)
             Dim jsonResult As String = Encoding.UTF8.GetString(client.UploadData(strURL, "POST", jsonBytes))
             Dim successResult As Linq.JObject = JsonConvert.DeserializeObject(jsonResult)
+            strLinkDownloadAnexo = successResult("url").ToString.Replace("dl=0", "dl=1")
+
 
             'Dim filename As String = "C:\test\birthday.mp3"
 
@@ -196,6 +198,7 @@ Public Class clsFuncoesDropBox
             Dim json As String = JsonConvert.SerializeObject(successResult, Formatting.Indented)
             Return json
         Catch ex As WebException
+            strLinkDownloadAnexo = ""
             Dim strErro As String = ""
             Dim strJson As String = ""
             Try

@@ -91,6 +91,7 @@ Partial Class frmWhatsapp
         Me.lblCliente = New DevExpress.XtraEditors.LabelControl()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.ofdImagem = New System.Windows.Forms.OpenFileDialog()
+        Me.txtLinkDropBox = New DevExpress.XtraEditors.TextEdit()
         CType(Me.grdListaClientes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dsListaContato, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dtListaContato, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -119,6 +120,7 @@ Partial Class frmWhatsapp
         CType(Me.PanelControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl2.SuspendLayout()
         CType(Me.PictureEdit2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtLinkDropBox.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'grdListaClientes
@@ -732,6 +734,7 @@ Partial Class frmWhatsapp
         Me.PanelControl1.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(18, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.PanelControl1.Appearance.Options.UseBackColor = True
         Me.PanelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.PanelControl1.Controls.Add(Me.txtLinkDropBox)
         Me.PanelControl1.Controls.Add(Me.SimpleButton2)
         Me.PanelControl1.Controls.Add(Me.SimpleButton1)
         Me.PanelControl1.Controls.Add(Me.PictureEdit3)
@@ -768,7 +771,7 @@ Partial Class frmWhatsapp
         Me.PictureEdit3.Location = New System.Drawing.Point(793, 3)
         Me.PictureEdit3.MenuManager = Me.BarManager1
         Me.PictureEdit3.Name = "PictureEdit3"
-        Me.PictureEdit3.Size = New System.Drawing.Size(68, 81)
+        Me.PictureEdit3.Size = New System.Drawing.Size(68, 61)
         Me.PictureEdit3.TabIndex = 35
         '
         'btnCriarPasta
@@ -845,6 +848,14 @@ Partial Class frmWhatsapp
         '
         Me.ofdImagem.FileName = "OpenFileDialog2"
         '
+        'txtLinkDropBox
+        '
+        Me.txtLinkDropBox.Location = New System.Drawing.Point(544, 44)
+        Me.txtLinkDropBox.MenuManager = Me.BarManager1
+        Me.txtLinkDropBox.Name = "txtLinkDropBox"
+        Me.txtLinkDropBox.Size = New System.Drawing.Size(238, 20)
+        Me.txtLinkDropBox.TabIndex = 38
+        '
         'frmWhatsapp
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -891,6 +902,7 @@ Partial Class frmWhatsapp
         Me.PanelControl2.ResumeLayout(False)
         Me.PanelControl2.PerformLayout()
         CType(Me.PictureEdit2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtLinkDropBox.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -965,4 +977,5 @@ Partial Class frmWhatsapp
     Friend WithEvents ofdImagem As System.Windows.Forms.OpenFileDialog
     Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents SimpleButton2 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents txtLinkDropBox As DevExpress.XtraEditors.TextEdit
 End Class
