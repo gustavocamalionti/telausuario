@@ -12,5 +12,10 @@
         Public Property mute As Boolean
         Public Property strict_conflict As Boolean
     End Class
+
+    Public Class clsCriarLink
+        Public Property url As String
+        Public Property path As String
+    End Class
 End Namespace
 

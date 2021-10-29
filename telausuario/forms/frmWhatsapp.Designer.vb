@@ -80,16 +80,17 @@ Partial Class frmWhatsapp
         Me.lblMensagemConfig = New DevExpress.XtraEditors.LabelControl()
         Me.lblTituloConfig = New DevExpress.XtraEditors.LabelControl()
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
+        Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
+        Me.PictureEdit3 = New DevExpress.XtraEditors.PictureEdit()
         Me.btnCriarPasta = New DevExpress.XtraEditors.SimpleButton()
         Me.PanelControl3 = New DevExpress.XtraEditors.PanelControl()
         Me.PanelControl2 = New DevExpress.XtraEditors.PanelControl()
         Me.PictureEdit2 = New DevExpress.XtraEditors.PictureEdit()
         Me.lblClientesCadastrados = New DevExpress.XtraEditors.LabelControl()
         Me.lblCliente = New DevExpress.XtraEditors.LabelControl()
-        Me.PictureEdit3 = New DevExpress.XtraEditors.PictureEdit()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.ofdImagem = New System.Windows.Forms.OpenFileDialog()
-        Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
+        Me.SimpleButton2 = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.grdListaClientes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dsListaContato, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dtListaContato, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -112,12 +113,12 @@ Partial Class frmWhatsapp
         CType(Me.memMensagemConfig.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
+        CType(Me.PictureEdit3.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl3.SuspendLayout()
         CType(Me.PanelControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl2.SuspendLayout()
         CType(Me.PictureEdit2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureEdit3.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'grdListaClientes
@@ -731,6 +732,7 @@ Partial Class frmWhatsapp
         Me.PanelControl1.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(18, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.PanelControl1.Appearance.Options.UseBackColor = True
         Me.PanelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.PanelControl1.Controls.Add(Me.SimpleButton2)
         Me.PanelControl1.Controls.Add(Me.SimpleButton1)
         Me.PanelControl1.Controls.Add(Me.PictureEdit3)
         Me.PanelControl1.Controls.Add(Me.btnCriarPasta)
@@ -744,6 +746,22 @@ Partial Class frmWhatsapp
         Me.PanelControl1.Name = "PanelControl1"
         Me.PanelControl1.Size = New System.Drawing.Size(956, 487)
         Me.PanelControl1.TabIndex = 32
+        '
+        'SimpleButton1
+        '
+        Me.SimpleButton1.Location = New System.Drawing.Point(867, 54)
+        Me.SimpleButton1.Name = "SimpleButton1"
+        Me.SimpleButton1.Size = New System.Drawing.Size(75, 23)
+        Me.SimpleButton1.TabIndex = 36
+        Me.SimpleButton1.Text = "Upload"
+        '
+        'PictureEdit3
+        '
+        Me.PictureEdit3.Location = New System.Drawing.Point(753, -49)
+        Me.PictureEdit3.MenuManager = Me.BarManager1
+        Me.PictureEdit3.Name = "PictureEdit3"
+        Me.PictureEdit3.Size = New System.Drawing.Size(100, 96)
+        Me.PictureEdit3.TabIndex = 35
         '
         'btnCriarPasta
         '
@@ -811,14 +829,6 @@ Partial Class frmWhatsapp
         Me.lblCliente.TabIndex = 32
         Me.lblCliente.Text = "Cliente"
         '
-        'PictureEdit3
-        '
-        Me.PictureEdit3.Location = New System.Drawing.Point(753, -49)
-        Me.PictureEdit3.MenuManager = Me.BarManager1
-        Me.PictureEdit3.Name = "PictureEdit3"
-        Me.PictureEdit3.Size = New System.Drawing.Size(100, 96)
-        Me.PictureEdit3.TabIndex = 35
-        '
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
@@ -827,13 +837,13 @@ Partial Class frmWhatsapp
         '
         Me.ofdImagem.FileName = "OpenFileDialog2"
         '
-        'SimpleButton1
+        'SimpleButton2
         '
-        Me.SimpleButton1.Location = New System.Drawing.Point(867, 54)
-        Me.SimpleButton1.Name = "SimpleButton1"
-        Me.SimpleButton1.Size = New System.Drawing.Size(75, 23)
-        Me.SimpleButton1.TabIndex = 36
-        Me.SimpleButton1.Text = "Upload"
+        Me.SimpleButton2.Location = New System.Drawing.Point(579, 24)
+        Me.SimpleButton2.Name = "SimpleButton2"
+        Me.SimpleButton2.Size = New System.Drawing.Size(75, 23)
+        Me.SimpleButton2.TabIndex = 37
+        Me.SimpleButton2.Text = "Upload"
         '
         'frmWhatsapp
         '
@@ -874,13 +884,13 @@ Partial Class frmWhatsapp
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
         Me.PanelControl1.PerformLayout()
+        CType(Me.PictureEdit3.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl3.ResumeLayout(False)
         CType(Me.PanelControl2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl2.ResumeLayout(False)
         Me.PanelControl2.PerformLayout()
         CType(Me.PictureEdit2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureEdit3.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -954,4 +964,5 @@ Partial Class frmWhatsapp
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
     Friend WithEvents ofdImagem As System.Windows.Forms.OpenFileDialog
     Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents SimpleButton2 As DevExpress.XtraEditors.SimpleButton
 End Class

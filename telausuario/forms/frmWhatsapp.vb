@@ -43,7 +43,7 @@ Public Class frmWhatsapp
         Me.txtNumeroComDdd.ResetText()
         Me.txtDDI.ResetText()
         Me.cboTitulo.ResetText()
-        
+
         Me.lblCliente.Visible = False
         Me.lblCliente.Text = ""
         Me.cboTituloConfig.Properties.Items.Clear()
@@ -240,7 +240,7 @@ Public Class frmWhatsapp
             'Condição para inserir ou Atualizar
             If indexChangedConfigurar = -1 Then
                 Inserir("insert into MensagemWhatsapp (Titulo, Mensagem) values ('" & Me.cboTituloConfig.Text.Trim() & "','" & Me.memMensagemConfig.Text.Trim() & "'); ")
-                MsgBox("Mensagem automática salva com sucesso!", MsgBoxStyle.Information)       
+                MsgBox("Mensagem automática salva com sucesso!", MsgBoxStyle.Information)
             Else
                 MsgBox("Mensagem automática Atualizada com sucesso!", MsgBoxStyle.Information)
                 Atualizar("update MensagemWhatsapp set Titulo = '" & Me.cboTituloConfig.Text.Trim() & "', Mensagem = '" & Me.memMensagemConfig.Text.Trim() & "' where Titulo = '" & TituloMsgAutomatica & "'; ")
@@ -377,7 +377,7 @@ Public Class frmWhatsapp
         clsFuncoesDropBox.UploadDropBox(Me.PictureEdit3.Image)
     End Sub
 
-    Private Sub PictureEdit3_EditValueChanged(sender As Object, e As EventArgs) Handles PictureEdit3.EditValueChanged
-
+    Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles SimpleButton2.Click
+        clsFuncoesDropBox.CriarLinkDropBox()
     End Sub
 End Class
