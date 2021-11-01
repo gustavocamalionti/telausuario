@@ -80,8 +80,9 @@ Partial Class frmWhatsapp
         Me.lblMensagemConfig = New DevExpress.XtraEditors.LabelControl()
         Me.lblTituloConfig = New DevExpress.XtraEditors.LabelControl()
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
-        Me.SimpleButton2 = New DevExpress.XtraEditors.SimpleButton()
-        Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
+        Me.txtLinkDropBox = New DevExpress.XtraEditors.TextEdit()
+        Me.btnGerarLink = New DevExpress.XtraEditors.SimpleButton()
+        Me.btnUpload = New DevExpress.XtraEditors.SimpleButton()
         Me.PictureEdit3 = New DevExpress.XtraEditors.PictureEdit()
         Me.btnCriarPasta = New DevExpress.XtraEditors.SimpleButton()
         Me.PanelControl3 = New DevExpress.XtraEditors.PanelControl()
@@ -91,7 +92,6 @@ Partial Class frmWhatsapp
         Me.lblCliente = New DevExpress.XtraEditors.LabelControl()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.ofdImagem = New System.Windows.Forms.OpenFileDialog()
-        Me.txtLinkDropBox = New DevExpress.XtraEditors.TextEdit()
         CType(Me.grdListaClientes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dsListaContato, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dtListaContato, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -114,13 +114,13 @@ Partial Class frmWhatsapp
         CType(Me.memMensagemConfig.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
+        CType(Me.txtLinkDropBox.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureEdit3.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl3.SuspendLayout()
         CType(Me.PanelControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl2.SuspendLayout()
         CType(Me.PictureEdit2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtLinkDropBox.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'grdListaClientes
@@ -735,8 +735,8 @@ Partial Class frmWhatsapp
         Me.PanelControl1.Appearance.Options.UseBackColor = True
         Me.PanelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
         Me.PanelControl1.Controls.Add(Me.txtLinkDropBox)
-        Me.PanelControl1.Controls.Add(Me.SimpleButton2)
-        Me.PanelControl1.Controls.Add(Me.SimpleButton1)
+        Me.PanelControl1.Controls.Add(Me.btnGerarLink)
+        Me.PanelControl1.Controls.Add(Me.btnUpload)
         Me.PanelControl1.Controls.Add(Me.PictureEdit3)
         Me.PanelControl1.Controls.Add(Me.btnCriarPasta)
         Me.PanelControl1.Controls.Add(Me.PanelControl3)
@@ -750,21 +750,29 @@ Partial Class frmWhatsapp
         Me.PanelControl1.Size = New System.Drawing.Size(956, 487)
         Me.PanelControl1.TabIndex = 32
         '
-        'SimpleButton2
+        'txtLinkDropBox
         '
-        Me.SimpleButton2.Location = New System.Drawing.Point(867, 61)
-        Me.SimpleButton2.Name = "SimpleButton2"
-        Me.SimpleButton2.Size = New System.Drawing.Size(75, 23)
-        Me.SimpleButton2.TabIndex = 37
-        Me.SimpleButton2.Text = "Gerar Link"
+        Me.txtLinkDropBox.Location = New System.Drawing.Point(544, 44)
+        Me.txtLinkDropBox.MenuManager = Me.BarManager1
+        Me.txtLinkDropBox.Name = "txtLinkDropBox"
+        Me.txtLinkDropBox.Size = New System.Drawing.Size(238, 20)
+        Me.txtLinkDropBox.TabIndex = 38
         '
-        'SimpleButton1
+        'btnGerarLink
         '
-        Me.SimpleButton1.Location = New System.Drawing.Point(867, 32)
-        Me.SimpleButton1.Name = "SimpleButton1"
-        Me.SimpleButton1.Size = New System.Drawing.Size(75, 23)
-        Me.SimpleButton1.TabIndex = 36
-        Me.SimpleButton1.Text = "Upload"
+        Me.btnGerarLink.Location = New System.Drawing.Point(867, 61)
+        Me.btnGerarLink.Name = "btnGerarLink"
+        Me.btnGerarLink.Size = New System.Drawing.Size(75, 23)
+        Me.btnGerarLink.TabIndex = 37
+        Me.btnGerarLink.Text = "Gerar Link"
+        '
+        'btnUpload
+        '
+        Me.btnUpload.Location = New System.Drawing.Point(867, 32)
+        Me.btnUpload.Name = "btnUpload"
+        Me.btnUpload.Size = New System.Drawing.Size(75, 23)
+        Me.btnUpload.TabIndex = 36
+        Me.btnUpload.Text = "Upload"
         '
         'PictureEdit3
         '
@@ -848,14 +856,6 @@ Partial Class frmWhatsapp
         '
         Me.ofdImagem.FileName = "OpenFileDialog2"
         '
-        'txtLinkDropBox
-        '
-        Me.txtLinkDropBox.Location = New System.Drawing.Point(544, 44)
-        Me.txtLinkDropBox.MenuManager = Me.BarManager1
-        Me.txtLinkDropBox.Name = "txtLinkDropBox"
-        Me.txtLinkDropBox.Size = New System.Drawing.Size(238, 20)
-        Me.txtLinkDropBox.TabIndex = 38
-        '
         'frmWhatsapp
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -895,6 +895,7 @@ Partial Class frmWhatsapp
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
         Me.PanelControl1.PerformLayout()
+        CType(Me.txtLinkDropBox.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureEdit3.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl3.ResumeLayout(False)
@@ -902,7 +903,6 @@ Partial Class frmWhatsapp
         Me.PanelControl2.ResumeLayout(False)
         Me.PanelControl2.PerformLayout()
         CType(Me.PictureEdit2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtLinkDropBox.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -975,7 +975,7 @@ Partial Class frmWhatsapp
     Friend WithEvents PictureEdit3 As DevExpress.XtraEditors.PictureEdit
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
     Friend WithEvents ofdImagem As System.Windows.Forms.OpenFileDialog
-    Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents SimpleButton2 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents btnUpload As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents btnGerarLink As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents txtLinkDropBox As DevExpress.XtraEditors.TextEdit
 End Class

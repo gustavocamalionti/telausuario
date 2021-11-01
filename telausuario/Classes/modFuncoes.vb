@@ -16,9 +16,11 @@
     Public CodInterno As Double
     Public NomeProduto As String
     Public indexPedidoAtual As Integer
-    Public NomeEmpresa As String = "NANO SISTEMAS"
+    Public NomeEmpresa As String = "SISTEMAS NANO"
 
     Public strLinkDownloadAnexo As String
+    Public strCaminhoArquivo As String
+    Public mybyte As Byte()
 
     Public StringConexaoFTP As String = "ftp://207.244.245.160/nanoapp.com.br/public/uploads/arquivos/empresas/cnpj/"
     Public LoginFTP As String = "ftpuser"

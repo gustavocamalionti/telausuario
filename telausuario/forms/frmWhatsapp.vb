@@ -181,20 +181,30 @@ Public Class frmWhatsapp
                 Atualizar("update Cliente set Celular = '" & NumeroDestinatario & "', CodPais = " & dtBuscaPais.Rows.Item(0).Item("CodIBGE") & " where Codigo = " & CodigoCliente & " ")
             End If
 
+            clsFuncoesDropBox.CriarPastaDropBox()
+            clsFuncoesDropBox.UploadDropBox1(NomeArquivo)
+            clsFuncoesDropBox.CriarLinkDropBox(NomeArquivo)
+            If strLinkDownloadAnexo <> "" Then
+                txtLinkDropBox.Text = strLinkDownloadAnexo
+            End If
 
             Select Case My.Computer.FileSystem.FileExists("C:\Users\Usuario\AppData\Local\WhatsApp\Whatsapp.exe")
+
                 Case True
                     If Me.cboTitulo.Text <> "" Then
-                        Endereco = "whatsapp://send?phone=" & NumeroDestinatario & "&text=*" & TituloDestinatario & "*%0A%0A" & MensagemDestinatario & "*%0A%0ABaixe%20Clicando%20aqui:" & txtLinkDropBox.Text & ""
+                        Endereco = "whatsapp://send?phone=" & NumeroDestinatario & "&text=*" & TituloDestinatario & "*%0A%0A" & MensagemDestinatario & "*%0A%0ABaixe%20Clicando%20aqui: " & txtLinkDropBox.Text & "%0A%0ACaso%20não%20consig%20visualizar%20o%20arquivo,%20instale%20no%20seu%20dispositivo%20o%20aplicativo%20*dropbox*"
                     Else
-                        Endereco = "whatsapp://send?phone=" & NumeroDestinatario & "&text=" & MensagemDestinatario & "*%0A%0ABaixe%20Clicando%20aqui:" & txtLinkDropBox.Text & ""
+                        Endereco = "whatsapp://send?phone=" & NumeroDestinatario & "&text=" & MensagemDestinatario & "*%0A%0ABaixe%20Clicando%20aqui: " & txtLinkDropBox.Text & "%0A%0ACaso%20não%20consig%20visualizar%20o%20arquivo,%20instale%20no%20seu%20dispositivo%20o%20aplicativo%20*dropbox*"
+
                     End If
 
                 Case False
                     If Me.cboTitulo.Text <> "" Then
-                        Endereco = "https://wa.me/" & NumeroDestinatario & "?text=*" & TituloDestinatario & "*%0A%0A" & MensagemDestinatario & "*%0A%0ABaixe%20Clicando%20aqui:" & txtLinkDropBox.Text & ""
+                        Endereco = "https://wa.me/" & NumeroDestinatario & "?text=*" & TituloDestinatario & "*%0A%0A" & MensagemDestinatario & "*%0A%0ABaixe%20Clicando%20aqui: " & txtLinkDropBox.Text & "%0A%0ACaso%20não%20consiga%20visualizar%20o%20arquivo,%20instale%20no%20seu%20dispositivo%20o%20aplicativo%20*dropbox*"
+
                     Else
-                        Endereco = "https://wa.me/" & NumeroDestinatario & "?text=" & MensagemDestinatario & "*%0A%0ABaixe%20Clicando%20aqui:" & txtLinkDropBox.Text & ""
+                        Endereco = "https://wa.me/" & NumeroDestinatario & "?text=" & MensagemDestinatario & "*%0A%0ABaixe%20Clicando%20aqui: " & txtLinkDropBox.Text & "%0A%0ACaso%20não%20consig%20visualizar%20o%20arquivo,%20instale%20no%20seu%20dispositivo%20o%20aplicativo%20*dropbox*"
+
                     End If
             End Select
 
@@ -370,22 +380,27 @@ Public Class frmWhatsapp
         ofdImagem.FileName = ""
         ofdImagem.ShowDialog()
         If ofdImagem.FileName <> "" Then
-            Me.PictureEdit3.Image = System.Drawing.Bitmap.FromFile(ofdImagem.FileName)
-            Dim strCaminhoArquivo As String = ofdImagem.FileName
+            strCaminhoArquivo = ofdImagem.FileName
             Dim indexUltimaBarra As String = strCaminhoArquivo.LastIndexOf("\")
             NomeArquivo = strCaminhoArquivo.Substring(indexUltimaBarra + 1, (strCaminhoArquivo.Count - 1) - (indexUltimaBarra))
+            'Me.PictureEdit3.Image = System.Drawing.Bitmap.FromFile(ofdImagem.FileName)
         End If
     End Sub
 
-    Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
-        clsFuncoesDropBox.UploadDropBox(Me.PictureEdit3.Image, NomeArquivo)
+    Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles btnUpload.Click
+        'clsFuncoesDropBox.UploadDropBox(Me.PictureEdit3.Image, NomeArquivo)
+        clsFuncoesDropBox.UploadDropBox1(NomeArquivo)
 
     End Sub
 
-    Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles SimpleButton2.Click
+    Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles btnGerarLink.Click
         clsFuncoesDropBox.CriarLinkDropBox(NomeArquivo)
         If strLinkDownloadAnexo <> "" Then
             txtLinkDropBox.Text = strLinkDownloadAnexo
         End If
+    End Sub
+
+    Private Sub PictureEdit3_EditValueChanged(sender As Object, e As EventArgs) Handles PictureEdit3.EditValueChanged
+
     End Sub
 End Class
