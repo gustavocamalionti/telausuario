@@ -60,6 +60,7 @@ Public Class frmWhatsapp
         Me.btnEnviarSalvar.Enabled = True
         Me.cboEnviarArquivo.ResetText()
         NomeArquivo = ""
+        strCaminhoArquivo = ""
     End Sub
 
     Private Sub MostrarDados()
@@ -181,32 +182,33 @@ Public Class frmWhatsapp
                 Atualizar("update Cliente set Celular = '" & NumeroDestinatario & "', CodPais = " & dtBuscaPais.Rows.Item(0).Item("CodIBGE") & " where Codigo = " & CodigoCliente & " ")
             End If
 
-            clsFuncoesDropBox.CriarPastaDropBox()
-            clsFuncoesDropBox.UploadDropBox1(NomeArquivo)
-            clsFuncoesDropBox.CriarLinkDropBox(NomeArquivo)
-            If strLinkDownloadAnexo <> "" Then
-                txtLinkDropBox.Text = strLinkDownloadAnexo
-            End If
+            
 
             Select Case My.Computer.FileSystem.FileExists("C:\Users\Usuario\AppData\Local\WhatsApp\Whatsapp.exe")
 
                 Case True
                     If Me.cboTitulo.Text <> "" Then
-                        Endereco = "whatsapp://send?phone=" & NumeroDestinatario & "&text=*" & TituloDestinatario & "*%0A%0A" & MensagemDestinatario & "*%0A%0ABaixe%20Clicando%20aqui: " & txtLinkDropBox.Text & "%0A%0ACaso%20não%20consig%20visualizar%20o%20arquivo,%20instale%20no%20seu%20dispositivo%20o%20aplicativo%20*dropbox*"
+                        Endereco = "whatsapp://send?phone=" & NumeroDestinatario & "&text=*" & TituloDestinatario & "*%0A%0A" & MensagemDestinatario & ""
                     Else
-                        Endereco = "whatsapp://send?phone=" & NumeroDestinatario & "&text=" & MensagemDestinatario & "*%0A%0ABaixe%20Clicando%20aqui: " & txtLinkDropBox.Text & "%0A%0ACaso%20não%20consig%20visualizar%20o%20arquivo,%20instale%20no%20seu%20dispositivo%20o%20aplicativo%20*dropbox*"
+                        Endereco = "whatsapp://send?phone=" & NumeroDestinatario & "&text=" & MensagemDestinatario & ""
 
                     End If
 
                 Case False
                     If Me.cboTitulo.Text <> "" Then
-                        Endereco = "https://wa.me/" & NumeroDestinatario & "?text=*" & TituloDestinatario & "*%0A%0A" & MensagemDestinatario & "*%0A%0ABaixe%20Clicando%20aqui: " & txtLinkDropBox.Text & "%0A%0ACaso%20não%20consiga%20visualizar%20o%20arquivo,%20instale%20no%20seu%20dispositivo%20o%20aplicativo%20*dropbox*"
+                        Endereco = "https://wa.me/" & NumeroDestinatario & "?text=*" & TituloDestinatario & "*%0A%0A" & MensagemDestinatario & ""
 
                     Else
-                        Endereco = "https://wa.me/" & NumeroDestinatario & "?text=" & MensagemDestinatario & "*%0A%0ABaixe%20Clicando%20aqui: " & txtLinkDropBox.Text & "%0A%0ACaso%20não%20consig%20visualizar%20o%20arquivo,%20instale%20no%20seu%20dispositivo%20o%20aplicativo%20*dropbox*"
+                        Endereco = "https://wa.me/" & NumeroDestinatario & "?text=" & MensagemDestinatario & "
 
                     End If
             End Select
+            If cboEnviarArquivo.Text <> "" Then
+                clsFuncoesDropBox.CriarPastaDropBox()
+                clsFuncoesDropBox.UploadDropBox(NomeArquivo)
+                clsFuncoesDropBox.CriarLinkDropBox(NomeArquivo)
+                Endereco = Endereco & "*%0A%0ABaixe%20Clicando%20aqui: " & strLinkDownloadAnexo & "%0A%0ACaso%20não%20consiga%20visualizar%20o%20arquivo,%20instale%20no%20seu%20dispositivo%20o%20aplicativo%20*dropbox*"
+            End If
 
             'If cboEnviarArquivo.Text <> "" Then
             'Dim indexUltimaBarra As String = cboEnviarArquivo.Text.LastIndexOf("\")
@@ -336,8 +338,11 @@ Public Class frmWhatsapp
     Private Sub cboEnviarArquivo_Click(sender As Object, e As EventArgs) Handles cboEnviarArquivo.Click
         Using dialog As New OpenFileDialog
             If dialog.ShowDialog() <> DialogResult.OK Then Return
-            Dim strCaminhoArquivo As String = dialog.FileName
+            strCaminhoArquivo = dialog.FileName
             Me.cboEnviarArquivo.Text = strCaminhoArquivo
+            cboEnviarArquivo.Text = strCaminhoArquivo
+            Dim indexUltimaBarra As String = strCaminhoArquivo.LastIndexOf("\")
+            NomeArquivo = strCaminhoArquivo.Substring(indexUltimaBarra + 1, (strCaminhoArquivo.Count - 1) - (indexUltimaBarra))
         End Using
     End Sub
 
@@ -372,35 +377,11 @@ Public Class frmWhatsapp
         End If
     End Sub
 
-    Private Sub btnCriarPasta_Click(sender As Object, e As EventArgs) Handles btnCriarPasta.Click
-        clsFuncoesDropBox.CriarPastaDropBox()
-    End Sub
-
-    Private Sub PictureEdit3_Click(sender As Object, e As EventArgs) Handles PictureEdit3.Click
-        ofdImagem.FileName = ""
-        ofdImagem.ShowDialog()
-        If ofdImagem.FileName <> "" Then
-            strCaminhoArquivo = ofdImagem.FileName
-            Dim indexUltimaBarra As String = strCaminhoArquivo.LastIndexOf("\")
-            NomeArquivo = strCaminhoArquivo.Substring(indexUltimaBarra + 1, (strCaminhoArquivo.Count - 1) - (indexUltimaBarra))
-            'Me.PictureEdit3.Image = System.Drawing.Bitmap.FromFile(ofdImagem.FileName)
-        End If
-    End Sub
-
-    Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles btnUpload.Click
-        'clsFuncoesDropBox.UploadDropBox(Me.PictureEdit3.Image, NomeArquivo)
-        clsFuncoesDropBox.UploadDropBox1(NomeArquivo)
+    Private Sub cboEnviarArquivo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboEnviarArquivo.SelectedIndexChanged
 
     End Sub
 
-    Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles btnGerarLink.Click
-        clsFuncoesDropBox.CriarLinkDropBox(NomeArquivo)
-        If strLinkDownloadAnexo <> "" Then
-            txtLinkDropBox.Text = strLinkDownloadAnexo
-        End If
-    End Sub
-
-    Private Sub PictureEdit3_EditValueChanged(sender As Object, e As EventArgs) Handles PictureEdit3.EditValueChanged
-
+    Private Sub btnListarArquivos_Click(sender As Object, e As EventArgs) Handles btnListarArquivos.Click
+        clsFuncoesDropBox.ListarArquivosDropBox("/TestePasta")
     End Sub
 End Class

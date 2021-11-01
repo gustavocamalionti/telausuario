@@ -14,12 +14,14 @@
     End Class
 
     Public Class clsCriarLink
-        Public Property url As String
         Public Property path As String
     End Class
 
-    Public Class clsCriarLink2
+    Public Class clsDeletarArquivo
+        Public Property path As String
+    End Class
 
+    Public Class clsListarArquivos
         Public Property path As String
     End Class
 
