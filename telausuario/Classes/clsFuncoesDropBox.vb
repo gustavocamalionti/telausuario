@@ -301,14 +301,26 @@ Public Class clsFuncoesDropBox
 
             Dim jsonBytes As Byte() = Encoding.UTF8.GetBytes(myData)
             Dim jsonResult As String = Encoding.UTF8.GetString(client.UploadData(strURL, "POST", jsonBytes))
-            Dim jsonResultComReplace As String = jsonResult.Substring(0, jsonResult.IndexOf("]")).Replace("{""entries"": [", "")
+            'Dim jsonResultComReplace As String = jsonResult.Substring(0, jsonResult.IndexOf("]")).Replace("""entries"": [", "") & "}"
 
-            Dim successResult As Linq.JObject = JsonConvert.DeserializeObject(jsonResultComReplace)
-            Dim strJson As String = successResult.Item(0)("client_modified").ToString
+
+
+            Dim successResult As Linq.JObject = JsonConvert.DeserializeObject(jsonResult)
+            Dim strJson As String = successResult("entries").ToString
+
+
+
 
 
             Dim dt As New DataTable
             PopulateDataTable(strJson, dt)
+
+            Dim I As Integer
+            For I = 0 To dt.Rows.Count - 1
+                Dim data As String = dt.Rows.Item(0).Item("client_modified").ToString.Substring(0, 10)
+
+                'If data Then
+            Next
 
 
             'Dim dataBytes() As Byte = IO.File.ReadAllBytes(filename)
