@@ -317,7 +317,7 @@ Public Class clsFuncoesDropBox
 
             Dim I As Integer
             For I = 0 To dt.Rows.Count - 1
-                Dim data As String = dt.Rows.Item(0).Item("client_modified").ToString.Substring(0, 10)
+                Dim data As DateTime = dt.Rows.Item(0).Item("client_modified").ToString.Substring(0, 10)
 
                 'If data Then
             Next
