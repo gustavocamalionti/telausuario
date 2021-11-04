@@ -253,7 +253,7 @@ Public Class frmWhatsapp
                 End If
 
 
-                Endereco = Endereco & "*%0A%0ABaixe%20Clicando%20aqui: " & strLinkDownloadAnexo & "%0A%0ACaso%20não%20consiga%20visualizar%20o%20arquivo,%20instale%20no%20seu%20dispositivo%20o%20aplicativo%20*dropbox*"
+                Endereco = Endereco & "%0A%0ABaixe%20Clicando%20aqui: " & strLinkDownloadAnexo & "%0A%0ACaso%20não%20consiga%20visualizar%20o%20arquivo,%20instale%20no%20seu%20dispositivo%20o%20aplicativo%20*dropbox*"
             End If
 
             'If cboEnviarArquivo.Text <> "" Then
