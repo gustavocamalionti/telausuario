@@ -21,8 +21,9 @@
     Public strLinkDownloadAnexo As String
     Public strCaminhoArquivo As String
     Public mybyte As Byte()
+    Public dtListaArquivosDropBox As New DataTable
 
-    Public StringConexaoFTP As String = "ftp://207.244.245.160/nanoapp.com.br/public/uploads/arquivos/empresas/cnpj/"
-    Public LoginFTP As String = "ftpuser"
-    Public SenhaFTP As String = "Nano@@20221!@#"
+    'Public StringConexaoFTP As String = "ftp://207.244.245.160/nanoapp.com.br/public/uploads/arquivos/empresas/cnpj/"
+    'Public LoginFTP As String = "ftpuser"
+    'Public SenhaFTP As String = "Nano@@20221!@#"
 End Module

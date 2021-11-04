@@ -87,7 +87,6 @@ Partial Class frmWhatsapp
         Me.lblCliente = New DevExpress.XtraEditors.LabelControl()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.ofdImagem = New System.Windows.Forms.OpenFileDialog()
-        Me.btnListarArquivos = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.grdListaClientes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dsListaContato, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dtListaContato, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -726,7 +725,6 @@ Partial Class frmWhatsapp
         Me.PanelControl1.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(18, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.PanelControl1.Appearance.Options.UseBackColor = True
         Me.PanelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.PanelControl1.Controls.Add(Me.btnListarArquivos)
         Me.PanelControl1.Controls.Add(Me.PanelControl3)
         Me.PanelControl1.Controls.Add(Me.lblCliente)
         Me.PanelControl1.Controls.Add(Me.tabPrincipal)
@@ -803,14 +801,6 @@ Partial Class frmWhatsapp
         'ofdImagem
         '
         Me.ofdImagem.FileName = "OpenFileDialog2"
-        '
-        'btnListarArquivos
-        '
-        Me.btnListarArquivos.Location = New System.Drawing.Point(828, 25)
-        Me.btnListarArquivos.Name = "btnListarArquivos"
-        Me.btnListarArquivos.Size = New System.Drawing.Size(114, 34)
-        Me.btnListarArquivos.TabIndex = 34
-        Me.btnListarArquivos.Text = "Listar Arquivos"
         '
         'frmWhatsapp
         '
@@ -927,5 +917,4 @@ Partial Class frmWhatsapp
     Friend WithEvents cboEnviarArquivo As DevExpress.XtraEditors.ComboBoxEdit
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
     Friend WithEvents ofdImagem As System.Windows.Forms.OpenFileDialog
-    Friend WithEvents btnListarArquivos As DevExpress.XtraEditors.SimpleButton
 End Class

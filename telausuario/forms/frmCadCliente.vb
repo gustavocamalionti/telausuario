@@ -16,7 +16,7 @@ Public Class frmCadCliente
     End Sub
 
     Private Sub AtualizarGrid()
-        CarregarDados("select Codigo, Nome, Fantasia, CPF, RGIE, Sexo, Status, Cep, Estado, Cidade, Endereco, Numero, Complemento, Bairro, Telefone, Email, Contato, Inativo, Observacao from Cliente", grdClientesCad)
+        CarregarDados("select Codigo, Nome, Fantasia, CPF, RGIE, Sexo, Status, Cep, Estado, Cidade, Endereco, Numero, Complemento, Bairro, Telefone, Email, Contato, Inativo, Observacao, Celular from Cliente", grdClientesCad)
     End Sub
     Private Sub Limpar()
         bolStatusAlteracao = False
@@ -63,17 +63,17 @@ Public Class frmCadCliente
                   "Cidade = '" & Me.cboClienteCidade.Text & "', Endereco = '" & Me.txtClienteEndereco.Text & "', Numero = '" & Me.txtClienteNum.Text & "', " & _
                   "Complemento = '" & Me.txtClienteComp.Text & "', Bairro = '" & Me.cboClienteBairro.Text & "', Telefone = '" & Me.txtTelefone1.Text & "', " & _
                   "Email = '" & Me.txtEmail.Text & "', Contato = '" & Me.txtContato.Text & "', Inativo = '" & Me.chkInativo.Checked & "', " & _
-                  "Observacao = '" & Me.memObservacoes.Text & "'  where Codigo = " & intCodigo & ";")
+                  "Observacao = '" & Me.memObservacoes.Text & "', Celular = '" & Me.txtTelefone1.Text & "'  where Codigo = " & intCodigo & ";")
     End Sub
 
     Private Sub InserirDados()
         Inserir("insert into cliente (Nome, Fantasia, CPF, RGIE, Sexo, Status, Cep, Estado, Cidade, Endereco, Numero, Complemento, Bairro, " & _
-                "Telefone, Email, Contato, Inativo, Observacao) values ('" & Me.txtNomeRazao.Text & "', '" & Me.txtFantasia.Text & "', " & _
+                "Telefone, Email, Contato, Inativo, Observacao, Celular) values ('" & Me.txtNomeRazao.Text & "', '" & Me.txtFantasia.Text & "', " & _
                 "'" & Me.txtCpfCnpj.Text & "', '" & Me.txtRgIe.Text & "', '" & Me.cboSexo.Text & "', '" & Me.cboStatus.Text & "', " & _
                 "'" & Me.txtClienteCep.Text & "', '" & Me.cboClienteUf.Text & "', '" & Me.cboClienteCidade.Text & "', " & _
                 "'" & Me.txtClienteEndereco.Text & "', '" & Me.txtClienteNum.Text & "', '" & Me.txtClienteComp.Text & "', " & _
                 "'" & Me.cboClienteBairro.Text & "', '" & Me.txtTelefone1.Text & "', '" & Me.txtEmail.Text & "', '" & Me.txtContato.Text & "', " & _
-                "'" & Me.chkInativo.Checked & "', '" & Me.memObservacoes.Text & "');")
+                "'" & Me.chkInativo.Checked & "', '" & Me.memObservacoes.Text & "', '" & Me.txtTelefone1.Text & "');")
         AtualizarGrid()
         Limpar()
     End Sub

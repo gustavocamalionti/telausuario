@@ -25,5 +25,9 @@
         Public Property path As String
     End Class
 
+    Public Class clsRecuperarLink
+        Public Property path As String
+    End Class
+
 End Namespace
 

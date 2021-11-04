@@ -7,11 +7,11 @@ Imports System.IO
 Imports Newtonsoft.Json.Converters
 Public Class clsFuncoesDropBox
 
-    Public Shared Function CriarPastaDropBox() As String
+    Public Shared Function CriarPastaDropBox(NomePastaEmpresa As String) As String
 
 
         Dim dadosConta As New clsJsonDropBox.clsCriarPasta
-        dadosConta.path = "/TestePasta"
+        dadosConta.path = NomePastaEmpresa
         dadosConta.autorename = False
 
         Dim settings As JsonSerializerSettings = New JsonSerializerSettings()
@@ -75,10 +75,10 @@ Public Class clsFuncoesDropBox
 
     End Function
 
-    Public Shared Function UploadDropBox(NomeArquivo As String) As String
+    Public Shared Function UploadDropBox(NomeArquivo As String, NomePastaEmpresa As String) As String
 
         Dim dadosConta As New clsJsonDropBox.clsUpload
-        dadosConta.path = "/TestePasta/" & NomeArquivo & ""
+        dadosConta.path = "/" & NomePastaEmpresa & "/" & NomeArquivo & ""
         dadosConta.mode = "add"
         dadosConta.autorename = True
         dadosConta.mute = False
@@ -103,7 +103,7 @@ Public Class clsFuncoesDropBox
             'myData = "{\""path\"": \""/tesstee/math\"",\"": false}"
             'myData = "{""path"":""/ge/32"",""autorename"":false}"
 
-            converteArquivo(strCaminhoArquivo)
+            ConverteArquivo(strCaminhoArquivo)
             DeletarArquivoDropBox(dadosConta.path.ToString)
 
             Dim jsonResult As String = Encoding.UTF8.GetString(client.UploadData(strURL, "POST", mybyte))
@@ -144,10 +144,10 @@ Public Class clsFuncoesDropBox
 
     End Function
 
-    Public Shared Function CriarLinkDropBox(NomeArquivo As String) As String
+    Public Shared Function CriarLinkDropBox(NomeArquivo As String, NomePastaEmpresa As String) As String
         Dim dadosConta As New clsJsonDropBox.clsCriarLink
 
-        dadosConta.path = "/TestePasta/" & NomeArquivo & ""
+        dadosConta.path = "/" & NomePastaEmpresa & "/" & NomeArquivo & ""
 
         Dim settings As JsonSerializerSettings = New JsonSerializerSettings()
         settings.NullValueHandling = NullValueHandling.Ignore
@@ -308,19 +308,9 @@ Public Class clsFuncoesDropBox
             Dim successResult As Linq.JObject = JsonConvert.DeserializeObject(jsonResult)
             Dim strJson As String = successResult("entries").ToString
 
+            PopulateDataTable(strJson, dtListaArquivosDropBox)
 
 
-
-
-            Dim dt As New DataTable
-            PopulateDataTable(strJson, dt)
-
-            Dim I As Integer
-            For I = 0 To dt.Rows.Count - 1
-                Dim data As DateTime = dt.Rows.Item(0).Item("client_modified").ToString.Substring(0, 10)
-
-                'If data Then
-            Next
 
 
             'Dim dataBytes() As Byte = IO.File.ReadAllBytes(filename)
@@ -354,6 +344,78 @@ Public Class clsFuncoesDropBox
         End Try
     End Function
 
+    Public Shared Function RecuperarLinkDropBox(NomeArquivo As String, NomePastaEmpresa As String) As String
+        Dim dadosConta As New clsJsonDropBox.clsCriarLink
+
+        dadosConta.path = "/" & NomePastaEmpresa & "/" & NomeArquivo & ""
+
+        Dim settings As JsonSerializerSettings = New JsonSerializerSettings()
+        settings.NullValueHandling = NullValueHandling.Ignore
+
+        Dim myData As String = JsonConvert.SerializeObject(dadosConta, settings)
+
+        System.Net.ServicePointManager.SecurityProtocol = 3072
+
+        Dim client As New WebClient
+        'client.Headers("Content-Type") = "application/octet-stream"
+        client.Headers("Content-Type") = "application/json"
+        client.Headers("Authorization") = "Bearer fIC5DvLUAqwAAAAAAAAAASG3cPReUZV1gMa1tW0G-hRiT8u0Z2psf0lY2LG-oKc4"
+        ServicePointManager.Expect100Continue = False
+
+        Dim strURL As String = "https://api.dropboxapi.com/2/sharing/list_shared_links"
+
+        Try
+            'myData = "{\""path\"": \""/tesstee/math\"",\"": false}"
+            'myData = "{""path"":""/ge/32"",""autorename"":false}"
+
+            Dim jsonBytes As Byte() = Encoding.UTF8.GetBytes(myData)
+            Dim jsonResult As String = Encoding.UTF8.GetString(client.UploadData(strURL, "POST", jsonBytes))
+            Dim successResult As Linq.JObject = JsonConvert.DeserializeObject(jsonResult)
+            Dim strJsonOriginal As String = successResult("links").ToString
+            Dim strjsonEditado As String = strJsonOriginal.Substring(0, strJsonOriginal.IndexOf("link_permissions") - 8) & "}]"
+            Dim dtLinkRecuperado As New DataTable
+            PopulateDataTable(strjsonEditado, dtLinkRecuperado)
+
+            If dtLinkRecuperado.Rows.Count > 0 Then
+                strLinkDownloadAnexo = dtLinkRecuperado.Rows.Item(0).Item("url").ToString.Replace("dl=0", "dl=1")
+            End If
+
+
+
+            'Dim filename As String = "C:\test\birthday.mp3"
+
+            'Dim dataBytes() As Byte = IO.File.ReadAllBytes(filename)
+            'Dim dataStream = New MemoryStream(dataBytes)
+            'request.Content = New StreamContent(dataStream)
+
+            'request.Content.Headers.ContentType = MediaTypeHeaderValue.Parse("audio/mpeg")
+
+            ' Do the upload
+            'Dim response = httpClient.SendAsync(request).Result
+            Dim json As String = JsonConvert.SerializeObject(successResult, Formatting.Indented)
+            Return json
+        Catch ex As WebException
+            strLinkDownloadAnexo = ""
+            Dim strErro As String = ""
+            Dim strJson As String = ""
+            Try
+                Dim response As String = New StreamReader(ex.Response.GetResponseStream()).ReadToEnd()
+
+                If response.Contains("error") = True Then
+                    Dim successResult2 As Linq.JObject = JsonConvert.DeserializeObject(response)
+                    strJson = JsonConvert.SerializeObject(successResult2, Formatting.Indented)
+                    Dim strCod As String = successResult2.Item("error")("code").ToString
+                    strErro = successResult2.Item("error")("description").ToString
+
+                End If
+            Catch ex2 As Exception
+            End Try
+            MsgBox(strErro & vbCrLf & ex.Message, MsgBoxStyle.Information)
+            Return strJson
+
+
+        End Try
+    End Function
     Public Shared Function PopulateDataTable(json As String, target As DataTable, Optional settings As JsonSerializerSettings = Nothing)
         Using reader = New JsonTextReader(New StringReader(json))
             Do

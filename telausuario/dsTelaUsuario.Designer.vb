@@ -1089,6 +1089,16 @@ Partial Public Class dsTelaUsuario
         
         Private columnInativo As Global.System.Data.DataColumn
         
+        Private columnCancelamento As Global.System.Data.DataColumn
+        
+        Private columnMotivoCancelamento As Global.System.Data.DataColumn
+        
+        Private columnDetalhesCancelamento As Global.System.Data.DataColumn
+        
+        Private columnDataCancelamento As Global.System.Data.DataColumn
+        
+        Private columnCodPais As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -1405,6 +1415,46 @@ Partial Public Class dsTelaUsuario
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CancelamentoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCancelamento
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property MotivoCancelamentoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnMotivoCancelamento
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property DetalhesCancelamentoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDetalhesCancelamento
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property DataCancelamentoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDataCancelamento
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CodPaisColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCodPais
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1475,9 +1525,14 @@ Partial Public Class dsTelaUsuario
                     ByVal RG1 As String,  _
                     ByVal RG2 As String,  _
                     ByVal Contato As String,  _
-                    ByVal Inativo As Boolean) As ClienteRow
+                    ByVal Inativo As Boolean,  _
+                    ByVal Cancelamento As Boolean,  _
+                    ByVal MotivoCancelamento As String,  _
+                    ByVal DetalhesCancelamento As String,  _
+                    ByVal DataCancelamento As String,  _
+                    ByVal CodPais As String) As ClienteRow
             Dim rowClienteRow As ClienteRow = CType(Me.NewRow,ClienteRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Nome, RGIE, CPF, Endereco, Numero, Complemento, Bairro, Cep, Cidade, Estado, Telefone, Fax, Celular, Email, Data, Fantasia, Observacao, Inadimplente, Status, Nascimento, Sexo, Limite, Empresa, TelEmpresa, Salario, Credito, Marcas, CodConfig, Pessoa1, Pessoa2, RG1, RG2, Contato, Inativo}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Nome, RGIE, CPF, Endereco, Numero, Complemento, Bairro, Cep, Cidade, Estado, Telefone, Fax, Celular, Email, Data, Fantasia, Observacao, Inadimplente, Status, Nascimento, Sexo, Limite, Empresa, TelEmpresa, Salario, Credito, Marcas, CodConfig, Pessoa1, Pessoa2, RG1, RG2, Contato, Inativo, Cancelamento, MotivoCancelamento, DetalhesCancelamento, DataCancelamento, CodPais}
             rowClienteRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowClienteRow)
             Return rowClienteRow
@@ -1541,6 +1596,11 @@ Partial Public Class dsTelaUsuario
             Me.columnRG2 = MyBase.Columns("RG2")
             Me.columnContato = MyBase.Columns("Contato")
             Me.columnInativo = MyBase.Columns("Inativo")
+            Me.columnCancelamento = MyBase.Columns("Cancelamento")
+            Me.columnMotivoCancelamento = MyBase.Columns("MotivoCancelamento")
+            Me.columnDetalhesCancelamento = MyBase.Columns("DetalhesCancelamento")
+            Me.columnDataCancelamento = MyBase.Columns("DataCancelamento")
+            Me.columnCodPais = MyBase.Columns("CodPais")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1616,6 +1676,16 @@ Partial Public Class dsTelaUsuario
             MyBase.Columns.Add(Me.columnContato)
             Me.columnInativo = New Global.System.Data.DataColumn("Inativo", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnInativo)
+            Me.columnCancelamento = New Global.System.Data.DataColumn("Cancelamento", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCancelamento)
+            Me.columnMotivoCancelamento = New Global.System.Data.DataColumn("MotivoCancelamento", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMotivoCancelamento)
+            Me.columnDetalhesCancelamento = New Global.System.Data.DataColumn("DetalhesCancelamento", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDetalhesCancelamento)
+            Me.columnDataCancelamento = New Global.System.Data.DataColumn("DataCancelamento", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDataCancelamento)
+            Me.columnCodPais = New Global.System.Data.DataColumn("CodPais", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCodPais)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCodigo}, true))
             Me.columnCodigo.AutoIncrement = true
             Me.columnCodigo.AutoIncrementSeed = -1
@@ -1652,6 +1722,10 @@ Partial Public Class dsTelaUsuario
             Me.columnRG1.MaxLength = 15
             Me.columnRG2.MaxLength = 15
             Me.columnContato.MaxLength = 30
+            Me.columnMotivoCancelamento.MaxLength = 75
+            Me.columnDetalhesCancelamento.MaxLength = 2147483647
+            Me.columnDataCancelamento.MaxLength = 35
+            Me.columnCodPais.MaxLength = 4
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6737,6 +6811,81 @@ Partial Public Class dsTelaUsuario
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Cancelamento() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tableCliente.CancelamentoColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Cancelamento' in table 'Cliente' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCliente.CancelamentoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property MotivoCancelamento() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableCliente.MotivoCancelamentoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'MotivoCancelamento' in table 'Cliente' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCliente.MotivoCancelamentoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property DetalhesCancelamento() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableCliente.DetalhesCancelamentoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'DetalhesCancelamento' in table 'Cliente' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCliente.DetalhesCancelamentoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property DataCancelamento() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableCliente.DataCancelamentoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'DataCancelamento' in table 'Cliente' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCliente.DataCancelamentoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property CodPais() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableCliente.CodPaisColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CodPais' in table 'Cliente' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCliente.CodPaisColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsNomeNull() As Boolean
             Return Me.IsNull(Me.tableCliente.NomeColumn)
         End Function
@@ -7141,6 +7290,66 @@ Partial Public Class dsTelaUsuario
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetInativoNull()
             Me(Me.tableCliente.InativoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsCancelamentoNull() As Boolean
+            Return Me.IsNull(Me.tableCliente.CancelamentoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetCancelamentoNull()
+            Me(Me.tableCliente.CancelamentoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsMotivoCancelamentoNull() As Boolean
+            Return Me.IsNull(Me.tableCliente.MotivoCancelamentoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetMotivoCancelamentoNull()
+            Me(Me.tableCliente.MotivoCancelamentoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsDetalhesCancelamentoNull() As Boolean
+            Return Me.IsNull(Me.tableCliente.DetalhesCancelamentoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetDetalhesCancelamentoNull()
+            Me(Me.tableCliente.DetalhesCancelamentoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsDataCancelamentoNull() As Boolean
+            Return Me.IsNull(Me.tableCliente.DataCancelamentoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetDataCancelamentoNull()
+            Me(Me.tableCliente.DataCancelamentoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsCodPaisNull() As Boolean
+            Return Me.IsNull(Me.tableCliente.CodPaisColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetCodPaisNull()
+            Me(Me.tableCliente.CodPaisColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -11928,44 +12137,55 @@ Namespace dsTelaUsuarioTableAdapters
             tableMapping.ColumnMappings.Add("RG2", "RG2")
             tableMapping.ColumnMappings.Add("Contato", "Contato")
             tableMapping.ColumnMappings.Add("Inativo", "Inativo")
+            tableMapping.ColumnMappings.Add("Cancelamento", "Cancelamento")
+            tableMapping.ColumnMappings.Add("MotivoCancelamento", "MotivoCancelamento")
+            tableMapping.ColumnMappings.Add("DetalhesCancelamento", "DetalhesCancelamento")
+            tableMapping.ColumnMappings.Add("DataCancelamento", "DataCancelamento")
+            tableMapping.ColumnMappings.Add("CodPais", "CodPais")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Cliente] WHERE (([Codigo] = @Original_Codigo) AND ((@IsNull_No"& _ 
-                "me = 1 AND [Nome] IS NULL) OR ([Nome] = @Original_Nome)) AND ((@IsNull_RGIE = 1 "& _ 
-                "AND [RGIE] IS NULL) OR ([RGIE] = @Original_RGIE)) AND ((@IsNull_CPF = 1 AND [CPF"& _ 
-                "] IS NULL) OR ([CPF] = @Original_CPF)) AND ((@IsNull_Endereco = 1 AND [Endereco]"& _ 
-                " IS NULL) OR ([Endereco] = @Original_Endereco)) AND ((@IsNull_Numero = 1 AND [Nu"& _ 
-                "mero] IS NULL) OR ([Numero] = @Original_Numero)) AND ((@IsNull_Complemento = 1 A"& _ 
-                "ND [Complemento] IS NULL) OR ([Complemento] = @Original_Complemento)) AND ((@IsN"& _ 
-                "ull_Bairro = 1 AND [Bairro] IS NULL) OR ([Bairro] = @Original_Bairro)) AND ((@Is"& _ 
-                "Null_Cep = 1 AND [Cep] IS NULL) OR ([Cep] = @Original_Cep)) AND ((@IsNull_Cidade"& _ 
-                " = 1 AND [Cidade] IS NULL) OR ([Cidade] = @Original_Cidade)) AND ((@IsNull_Estad"& _ 
-                "o = 1 AND [Estado] IS NULL) OR ([Estado] = @Original_Estado)) AND ((@IsNull_Tele"& _ 
-                "fone = 1 AND [Telefone] IS NULL) OR ([Telefone] = @Original_Telefone)) AND ((@Is"& _ 
-                "Null_Fax = 1 AND [Fax] IS NULL) OR ([Fax] = @Original_Fax)) AND ((@IsNull_Celula"& _ 
-                "r = 1 AND [Celular] IS NULL) OR ([Celular] = @Original_Celular)) AND ((@IsNull_E"& _ 
-                "mail = 1 AND [Email] IS NULL) OR ([Email] = @Original_Email)) AND ((@IsNull_Data"& _ 
-                " = 1 AND [Data] IS NULL) OR ([Data] = @Original_Data)) AND ((@IsNull_Fantasia = "& _ 
-                "1 AND [Fantasia] IS NULL) OR ([Fantasia] = @Original_Fantasia)) AND ((@IsNull_In"& _ 
-                "adimplente = 1 AND [Inadimplente] IS NULL) OR ([Inadimplente] = @Original_Inadim"& _ 
-                "plente)) AND ((@IsNull_Status = 1 AND [Status] IS NULL) OR ([Status] = @Original"& _ 
-                "_Status)) AND ((@IsNull_Nascimento = 1 AND [Nascimento] IS NULL) OR ([Nascimento"& _ 
-                "] = @Original_Nascimento)) AND ((@IsNull_Sexo = 1 AND [Sexo] IS NULL) OR ([Sexo]"& _ 
-                " = @Original_Sexo)) AND ((@IsNull_Limite = 1 AND [Limite] IS NULL) OR ([Limite] "& _ 
-                "= @Original_Limite)) AND ((@IsNull_Empresa = 1 AND [Empresa] IS NULL) OR ([Empre"& _ 
-                "sa] = @Original_Empresa)) AND ((@IsNull_TelEmpresa = 1 AND [TelEmpresa] IS NULL)"& _ 
-                " OR ([TelEmpresa] = @Original_TelEmpresa)) AND ((@IsNull_Salario = 1 AND [Salari"& _ 
-                "o] IS NULL) OR ([Salario] = @Original_Salario)) AND ((@IsNull_Credito = 1 AND [C"& _ 
-                "redito] IS NULL) OR ([Credito] = @Original_Credito)) AND ((@IsNull_Marcas = 1 AN"& _ 
-                "D [Marcas] IS NULL) OR ([Marcas] = @Original_Marcas)) AND ((@IsNull_CodConfig = "& _ 
-                "1 AND [CodConfig] IS NULL) OR ([CodConfig] = @Original_CodConfig)) AND ((@IsNull"& _ 
-                "_Pessoa1 = 1 AND [Pessoa1] IS NULL) OR ([Pessoa1] = @Original_Pessoa1)) AND ((@I"& _ 
-                "sNull_Pessoa2 = 1 AND [Pessoa2] IS NULL) OR ([Pessoa2] = @Original_Pessoa2)) AND"& _ 
-                " ((@IsNull_RG1 = 1 AND [RG1] IS NULL) OR ([RG1] = @Original_RG1)) AND ((@IsNull_"& _ 
-                "RG2 = 1 AND [RG2] IS NULL) OR ([RG2] = @Original_RG2)) AND ((@IsNull_Contato = 1"& _ 
-                " AND [Contato] IS NULL) OR ([Contato] = @Original_Contato)) AND ((@IsNull_Inativ"& _ 
-                "o = 1 AND [Inativo] IS NULL) OR ([Inativo] = @Original_Inativo)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [Cliente] WHERE (([Codigo] = @Original_Codigo) AND ((@IsNull_Nome = 1"& _ 
+                " AND [Nome] IS NULL) OR ([Nome] = @Original_Nome)) AND ((@IsNull_RGIE = 1 AND [R"& _ 
+                "GIE] IS NULL) OR ([RGIE] = @Original_RGIE)) AND ((@IsNull_CPF = 1 AND [CPF] IS N"& _ 
+                "ULL) OR ([CPF] = @Original_CPF)) AND ((@IsNull_Endereco = 1 AND [Endereco] IS NU"& _ 
+                "LL) OR ([Endereco] = @Original_Endereco)) AND ((@IsNull_Numero = 1 AND [Numero] "& _ 
+                "IS NULL) OR ([Numero] = @Original_Numero)) AND ((@IsNull_Complemento = 1 AND [Co"& _ 
+                "mplemento] IS NULL) OR ([Complemento] = @Original_Complemento)) AND ((@IsNull_Ba"& _ 
+                "irro = 1 AND [Bairro] IS NULL) OR ([Bairro] = @Original_Bairro)) AND ((@IsNull_C"& _ 
+                "ep = 1 AND [Cep] IS NULL) OR ([Cep] = @Original_Cep)) AND ((@IsNull_Cidade = 1 A"& _ 
+                "ND [Cidade] IS NULL) OR ([Cidade] = @Original_Cidade)) AND ((@IsNull_Estado = 1 "& _ 
+                "AND [Estado] IS NULL) OR ([Estado] = @Original_Estado)) AND ((@IsNull_Telefone ="& _ 
+                " 1 AND [Telefone] IS NULL) OR ([Telefone] = @Original_Telefone)) AND ((@IsNull_F"& _ 
+                "ax = 1 AND [Fax] IS NULL) OR ([Fax] = @Original_Fax)) AND ((@IsNull_Celular = 1 "& _ 
+                "AND [Celular] IS NULL) OR ([Celular] = @Original_Celular)) AND ((@IsNull_Email ="& _ 
+                " 1 AND [Email] IS NULL) OR ([Email] = @Original_Email)) AND ((@IsNull_Data = 1 A"& _ 
+                "ND [Data] IS NULL) OR ([Data] = @Original_Data)) AND ((@IsNull_Fantasia = 1 AND "& _ 
+                "[Fantasia] IS NULL) OR ([Fantasia] = @Original_Fantasia)) AND ((@IsNull_Inadimpl"& _ 
+                "ente = 1 AND [Inadimplente] IS NULL) OR ([Inadimplente] = @Original_Inadimplente"& _ 
+                ")) AND ((@IsNull_Status = 1 AND [Status] IS NULL) OR ([Status] = @Original_Statu"& _ 
+                "s)) AND ((@IsNull_Nascimento = 1 AND [Nascimento] IS NULL) OR ([Nascimento] = @O"& _ 
+                "riginal_Nascimento)) AND ((@IsNull_Sexo = 1 AND [Sexo] IS NULL) OR ([Sexo] = @Or"& _ 
+                "iginal_Sexo)) AND ((@IsNull_Limite = 1 AND [Limite] IS NULL) OR ([Limite] = @Ori"& _ 
+                "ginal_Limite)) AND ((@IsNull_Empresa = 1 AND [Empresa] IS NULL) OR ([Empresa] = "& _ 
+                "@Original_Empresa)) AND ((@IsNull_TelEmpresa = 1 AND [TelEmpresa] IS NULL) OR (["& _ 
+                "TelEmpresa] = @Original_TelEmpresa)) AND ((@IsNull_Salario = 1 AND [Salario] IS "& _ 
+                "NULL) OR ([Salario] = @Original_Salario)) AND ((@IsNull_Credito = 1 AND [Credito"& _ 
+                "] IS NULL) OR ([Credito] = @Original_Credito)) AND ((@IsNull_Marcas = 1 AND [Mar"& _ 
+                "cas] IS NULL) OR ([Marcas] = @Original_Marcas)) AND ((@IsNull_CodConfig = 1 AND "& _ 
+                "[CodConfig] IS NULL) OR ([CodConfig] = @Original_CodConfig)) AND ((@IsNull_Pesso"& _ 
+                "a1 = 1 AND [Pessoa1] IS NULL) OR ([Pessoa1] = @Original_Pessoa1)) AND ((@IsNull_"& _ 
+                "Pessoa2 = 1 AND [Pessoa2] IS NULL) OR ([Pessoa2] = @Original_Pessoa2)) AND ((@Is"& _ 
+                "Null_RG1 = 1 AND [RG1] IS NULL) OR ([RG1] = @Original_RG1)) AND ((@IsNull_RG2 = "& _ 
+                "1 AND [RG2] IS NULL) OR ([RG2] = @Original_RG2)) AND ((@IsNull_Contato = 1 AND ["& _ 
+                "Contato] IS NULL) OR ([Contato] = @Original_Contato)) AND ((@IsNull_Inativo = 1 "& _ 
+                "AND [Inativo] IS NULL) OR ([Inativo] = @Original_Inativo)) AND ((@IsNull_Cancela"& _ 
+                "mento = 1 AND [Cancelamento] IS NULL) OR ([Cancelamento] = @Original_Cancelament"& _ 
+                "o)) AND ((@IsNull_CodPais = 1 AND [CodPais] IS NULL) OR ([CodPais] = @Original_C"& _ 
+                "odPais)) AND ((@IsNull_DataCancelamento = 1 AND [DataCancelamento] IS NULL) OR ("& _ 
+                "[DataCancelamento] = @Original_DataCancelamento)) AND ((@IsNull_MotivoCancelamen"& _ 
+                "to = 1 AND [MotivoCancelamento] IS NULL) OR ([MotivoCancelamento] = @Original_Mo"& _ 
+                "tivoCancelamento)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Codigo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Codigo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Nome", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nome", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
@@ -12034,22 +12254,33 @@ Namespace dsTelaUsuarioTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Contato", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Contato", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Inativo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Inativo", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Inativo", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Inativo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Cancelamento", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Cancelamento", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Cancelamento", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Cancelamento", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CodPais", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CodPais", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CodPais", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CodPais", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DataCancelamento", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataCancelamento", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DataCancelamento", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataCancelamento", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MotivoCancelamento", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MotivoCancelamento", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MotivoCancelamento", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MotivoCancelamento", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Cliente] ([Nome], [RGIE], [CPF], [Endereco], [Numero], [Comple"& _ 
-                "mento], [Bairro], [Cep], [Cidade], [Estado], [Telefone], [Fax], [Celular], [Emai"& _ 
-                "l], [Data], [Fantasia], [Observacao], [Inadimplente], [Status], [Nascimento], [S"& _ 
-                "exo], [Limite], [Empresa], [TelEmpresa], [Salario], [Credito], [Marcas], [CodCon"& _ 
-                "fig], [Pessoa1], [Pessoa2], [RG1], [RG2], [Contato], [Inativo]) VALUES (@Nome, @"& _ 
-                "RGIE, @CPF, @Endereco, @Numero, @Complemento, @Bairro, @Cep, @Cidade, @Estado, @"& _ 
-                "Telefone, @Fax, @Celular, @Email, @Data, @Fantasia, @Observacao, @Inadimplente, "& _ 
-                "@Status, @Nascimento, @Sexo, @Limite, @Empresa, @TelEmpresa, @Salario, @Credito,"& _ 
-                " @Marcas, @CodConfig, @Pessoa1, @Pessoa2, @RG1, @RG2, @Contato, @Inativo);"&Global.Microsoft.VisualBasic.ChrW(10)&"SELEC"& _ 
-                "T Codigo, Nome, RGIE, CPF, Endereco, Numero, Complemento, Bairro, Cep, Cidade, E"& _ 
-                "stado, Telefone, Fax, Celular, Email, Data, Fantasia, Observacao, Inadimplente, "& _ 
-                "Status, Nascimento, Sexo, Limite, Empresa, TelEmpresa, Salario, Credito, Marcas,"& _ 
-                " CodConfig, Pessoa1, Pessoa2, RG1, RG2, Contato, Inativo FROM Cliente WHERE (Cod"& _ 
-                "igo = SCOPE_IDENTITY())"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [Cliente] ([Nome], [RGIE], [CPF], [Endereco], [Numero], [Complemento]"& _ 
+                ", [Bairro], [Cep], [Cidade], [Estado], [Telefone], [Fax], [Celular], [Email], [D"& _ 
+                "ata], [Fantasia], [Observacao], [Inadimplente], [Status], [Nascimento], [Sexo], "& _ 
+                "[Limite], [Empresa], [TelEmpresa], [Salario], [Credito], [Marcas], [CodConfig], "& _ 
+                "[Pessoa1], [Pessoa2], [RG1], [RG2], [Contato], [Inativo], [Cancelamento], [CodPa"& _ 
+                "is], [DataCancelamento], [DetalhesCancelamento], [MotivoCancelamento]) VALUES (@"& _ 
+                "Nome, @RGIE, @CPF, @Endereco, @Numero, @Complemento, @Bairro, @Cep, @Cidade, @Es"& _ 
+                "tado, @Telefone, @Fax, @Celular, @Email, @Data, @Fantasia, @Observacao, @Inadimp"& _ 
+                "lente, @Status, @Nascimento, @Sexo, @Limite, @Empresa, @TelEmpresa, @Salario, @C"& _ 
+                "redito, @Marcas, @CodConfig, @Pessoa1, @Pessoa2, @RG1, @RG2, @Contato, @Inativo,"& _ 
+                " @Cancelamento, @CodPais, @DataCancelamento, @DetalhesCancelamento, @MotivoCance"& _ 
+                "lamento);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Codigo, Nome, RGIE, CPF, Endereco, Numero, Complemento, Bairro"& _ 
+                ", Cep, Cidade, Estado, Telefone, Fax, Celular, Email, Data, Fantasia, Observacao"& _ 
+                ", Inadimplente, Status, Nascimento, Sexo, Limite, Empresa, TelEmpresa, Salario, "& _ 
+                "Credito, Marcas, CodConfig, Pessoa1, Pessoa2, RG1, RG2, Contato, Inativo, Cancel"& _ 
+                "amento, CodPais, DataCancelamento, DetalhesCancelamento, MotivoCancelamento FROM"& _ 
+                " Cliente WHERE (Codigo = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nome", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nome", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RGIE", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RGIE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -12085,56 +12316,70 @@ Namespace dsTelaUsuarioTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RG2", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RG2", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Contato", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Contato", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Inativo", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Inativo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Cancelamento", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Cancelamento", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CodPais", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CodPais", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataCancelamento", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataCancelamento", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DetalhesCancelamento", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DetalhesCancelamento", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MotivoCancelamento", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MotivoCancelamento", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Cliente] SET [Nome] = @Nome, [RGIE] = @RGIE, [CPF] = @CPF, [Enderec"& _ 
-                "o] = @Endereco, [Numero] = @Numero, [Complemento] = @Complemento, [Bairro] = @Ba"& _ 
-                "irro, [Cep] = @Cep, [Cidade] = @Cidade, [Estado] = @Estado, [Telefone] = @Telefo"& _ 
-                "ne, [Fax] = @Fax, [Celular] = @Celular, [Email] = @Email, [Data] = @Data, [Fanta"& _ 
-                "sia] = @Fantasia, [Observacao] = @Observacao, [Inadimplente] = @Inadimplente, [S"& _ 
-                "tatus] = @Status, [Nascimento] = @Nascimento, [Sexo] = @Sexo, [Limite] = @Limite"& _ 
-                ", [Empresa] = @Empresa, [TelEmpresa] = @TelEmpresa, [Salario] = @Salario, [Credi"& _ 
-                "to] = @Credito, [Marcas] = @Marcas, [CodConfig] = @CodConfig, [Pessoa1] = @Pesso"& _ 
-                "a1, [Pessoa2] = @Pessoa2, [RG1] = @RG1, [RG2] = @RG2, [Contato] = @Contato, [Ina"& _ 
-                "tivo] = @Inativo WHERE (([Codigo] = @Original_Codigo) AND ((@IsNull_Nome = 1 AND"& _ 
-                " [Nome] IS NULL) OR ([Nome] = @Original_Nome)) AND ((@IsNull_RGIE = 1 AND [RGIE]"& _ 
-                " IS NULL) OR ([RGIE] = @Original_RGIE)) AND ((@IsNull_CPF = 1 AND [CPF] IS NULL)"& _ 
-                " OR ([CPF] = @Original_CPF)) AND ((@IsNull_Endereco = 1 AND [Endereco] IS NULL) "& _ 
-                "OR ([Endereco] = @Original_Endereco)) AND ((@IsNull_Numero = 1 AND [Numero] IS N"& _ 
-                "ULL) OR ([Numero] = @Original_Numero)) AND ((@IsNull_Complemento = 1 AND [Comple"& _ 
-                "mento] IS NULL) OR ([Complemento] = @Original_Complemento)) AND ((@IsNull_Bairro"& _ 
-                " = 1 AND [Bairro] IS NULL) OR ([Bairro] = @Original_Bairro)) AND ((@IsNull_Cep ="& _ 
-                " 1 AND [Cep] IS NULL) OR ([Cep] = @Original_Cep)) AND ((@IsNull_Cidade = 1 AND ["& _ 
-                "Cidade] IS NULL) OR ([Cidade] = @Original_Cidade)) AND ((@IsNull_Estado = 1 AND "& _ 
-                "[Estado] IS NULL) OR ([Estado] = @Original_Estado)) AND ((@IsNull_Telefone = 1 A"& _ 
-                "ND [Telefone] IS NULL) OR ([Telefone] = @Original_Telefone)) AND ((@IsNull_Fax ="& _ 
-                " 1 AND [Fax] IS NULL) OR ([Fax] = @Original_Fax)) AND ((@IsNull_Celular = 1 AND "& _ 
-                "[Celular] IS NULL) OR ([Celular] = @Original_Celular)) AND ((@IsNull_Email = 1 A"& _ 
-                "ND [Email] IS NULL) OR ([Email] = @Original_Email)) AND ((@IsNull_Data = 1 AND ["& _ 
-                "Data] IS NULL) OR ([Data] = @Original_Data)) AND ((@IsNull_Fantasia = 1 AND [Fan"& _ 
-                "tasia] IS NULL) OR ([Fantasia] = @Original_Fantasia)) AND ((@IsNull_Inadimplente"& _ 
-                " = 1 AND [Inadimplente] IS NULL) OR ([Inadimplente] = @Original_Inadimplente)) A"& _ 
-                "ND ((@IsNull_Status = 1 AND [Status] IS NULL) OR ([Status] = @Original_Status)) "& _ 
-                "AND ((@IsNull_Nascimento = 1 AND [Nascimento] IS NULL) OR ([Nascimento] = @Origi"& _ 
-                "nal_Nascimento)) AND ((@IsNull_Sexo = 1 AND [Sexo] IS NULL) OR ([Sexo] = @Origin"& _ 
-                "al_Sexo)) AND ((@IsNull_Limite = 1 AND [Limite] IS NULL) OR ([Limite] = @Origina"& _ 
-                "l_Limite)) AND ((@IsNull_Empresa = 1 AND [Empresa] IS NULL) OR ([Empresa] = @Ori"& _ 
-                "ginal_Empresa)) AND ((@IsNull_TelEmpresa = 1 AND [TelEmpresa] IS NULL) OR ([TelE"& _ 
-                "mpresa] = @Original_TelEmpresa)) AND ((@IsNull_Salario = 1 AND [Salario] IS NULL"& _ 
-                ") OR ([Salario] = @Original_Salario)) AND ((@IsNull_Credito = 1 AND [Credito] IS"& _ 
-                " NULL) OR ([Credito] = @Original_Credito)) AND ((@IsNull_Marcas = 1 AND [Marcas]"& _ 
-                " IS NULL) OR ([Marcas] = @Original_Marcas)) AND ((@IsNull_CodConfig = 1 AND [Cod"& _ 
-                "Config] IS NULL) OR ([CodConfig] = @Original_CodConfig)) AND ((@IsNull_Pessoa1 ="& _ 
-                " 1 AND [Pessoa1] IS NULL) OR ([Pessoa1] = @Original_Pessoa1)) AND ((@IsNull_Pess"& _ 
-                "oa2 = 1 AND [Pessoa2] IS NULL) OR ([Pessoa2] = @Original_Pessoa2)) AND ((@IsNull"& _ 
-                "_RG1 = 1 AND [RG1] IS NULL) OR ([RG1] = @Original_RG1)) AND ((@IsNull_RG2 = 1 AN"& _ 
-                "D [RG2] IS NULL) OR ([RG2] = @Original_RG2)) AND ((@IsNull_Contato = 1 AND [Cont"& _ 
-                "ato] IS NULL) OR ([Contato] = @Original_Contato)) AND ((@IsNull_Inativo = 1 AND "& _ 
-                "[Inativo] IS NULL) OR ([Inativo] = @Original_Inativo)));"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Codigo, Nome, RG"& _ 
-                "IE, CPF, Endereco, Numero, Complemento, Bairro, Cep, Cidade, Estado, Telefone, F"& _ 
-                "ax, Celular, Email, Data, Fantasia, Observacao, Inadimplente, Status, Nascimento"& _ 
-                ", Sexo, Limite, Empresa, TelEmpresa, Salario, Credito, Marcas, CodConfig, Pessoa"& _ 
-                "1, Pessoa2, RG1, RG2, Contato, Inativo FROM Cliente WHERE (Codigo = @Codigo)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [Cliente] SET [Nome] = @Nome, [RGIE] = @RGIE, [CPF] = @CPF, [Endereco] = @"& _ 
+                "Endereco, [Numero] = @Numero, [Complemento] = @Complemento, [Bairro] = @Bairro, "& _ 
+                "[Cep] = @Cep, [Cidade] = @Cidade, [Estado] = @Estado, [Telefone] = @Telefone, [F"& _ 
+                "ax] = @Fax, [Celular] = @Celular, [Email] = @Email, [Data] = @Data, [Fantasia] ="& _ 
+                " @Fantasia, [Observacao] = @Observacao, [Inadimplente] = @Inadimplente, [Status]"& _ 
+                " = @Status, [Nascimento] = @Nascimento, [Sexo] = @Sexo, [Limite] = @Limite, [Emp"& _ 
+                "resa] = @Empresa, [TelEmpresa] = @TelEmpresa, [Salario] = @Salario, [Credito] = "& _ 
+                "@Credito, [Marcas] = @Marcas, [CodConfig] = @CodConfig, [Pessoa1] = @Pessoa1, [P"& _ 
+                "essoa2] = @Pessoa2, [RG1] = @RG1, [RG2] = @RG2, [Contato] = @Contato, [Inativo] "& _ 
+                "= @Inativo, [Cancelamento] = @Cancelamento, [CodPais] = @CodPais, [DataCancelame"& _ 
+                "nto] = @DataCancelamento, [DetalhesCancelamento] = @DetalhesCancelamento, [Motiv"& _ 
+                "oCancelamento] = @MotivoCancelamento WHERE (([Codigo] = @Original_Codigo) AND (("& _ 
+                "@IsNull_Nome = 1 AND [Nome] IS NULL) OR ([Nome] = @Original_Nome)) AND ((@IsNull"& _ 
+                "_RGIE = 1 AND [RGIE] IS NULL) OR ([RGIE] = @Original_RGIE)) AND ((@IsNull_CPF = "& _ 
+                "1 AND [CPF] IS NULL) OR ([CPF] = @Original_CPF)) AND ((@IsNull_Endereco = 1 AND "& _ 
+                "[Endereco] IS NULL) OR ([Endereco] = @Original_Endereco)) AND ((@IsNull_Numero ="& _ 
+                " 1 AND [Numero] IS NULL) OR ([Numero] = @Original_Numero)) AND ((@IsNull_Complem"& _ 
+                "ento = 1 AND [Complemento] IS NULL) OR ([Complemento] = @Original_Complemento)) "& _ 
+                "AND ((@IsNull_Bairro = 1 AND [Bairro] IS NULL) OR ([Bairro] = @Original_Bairro))"& _ 
+                " AND ((@IsNull_Cep = 1 AND [Cep] IS NULL) OR ([Cep] = @Original_Cep)) AND ((@IsN"& _ 
+                "ull_Cidade = 1 AND [Cidade] IS NULL) OR ([Cidade] = @Original_Cidade)) AND ((@Is"& _ 
+                "Null_Estado = 1 AND [Estado] IS NULL) OR ([Estado] = @Original_Estado)) AND ((@I"& _ 
+                "sNull_Telefone = 1 AND [Telefone] IS NULL) OR ([Telefone] = @Original_Telefone))"& _ 
+                " AND ((@IsNull_Fax = 1 AND [Fax] IS NULL) OR ([Fax] = @Original_Fax)) AND ((@IsN"& _ 
+                "ull_Celular = 1 AND [Celular] IS NULL) OR ([Celular] = @Original_Celular)) AND ("& _ 
+                "(@IsNull_Email = 1 AND [Email] IS NULL) OR ([Email] = @Original_Email)) AND ((@I"& _ 
+                "sNull_Data = 1 AND [Data] IS NULL) OR ([Data] = @Original_Data)) AND ((@IsNull_F"& _ 
+                "antasia = 1 AND [Fantasia] IS NULL) OR ([Fantasia] = @Original_Fantasia)) AND (("& _ 
+                "@IsNull_Inadimplente = 1 AND [Inadimplente] IS NULL) OR ([Inadimplente] = @Origi"& _ 
+                "nal_Inadimplente)) AND ((@IsNull_Status = 1 AND [Status] IS NULL) OR ([Status] ="& _ 
+                " @Original_Status)) AND ((@IsNull_Nascimento = 1 AND [Nascimento] IS NULL) OR (["& _ 
+                "Nascimento] = @Original_Nascimento)) AND ((@IsNull_Sexo = 1 AND [Sexo] IS NULL) "& _ 
+                "OR ([Sexo] = @Original_Sexo)) AND ((@IsNull_Limite = 1 AND [Limite] IS NULL) OR "& _ 
+                "([Limite] = @Original_Limite)) AND ((@IsNull_Empresa = 1 AND [Empresa] IS NULL) "& _ 
+                "OR ([Empresa] = @Original_Empresa)) AND ((@IsNull_TelEmpresa = 1 AND [TelEmpresa"& _ 
+                "] IS NULL) OR ([TelEmpresa] = @Original_TelEmpresa)) AND ((@IsNull_Salario = 1 A"& _ 
+                "ND [Salario] IS NULL) OR ([Salario] = @Original_Salario)) AND ((@IsNull_Credito "& _ 
+                "= 1 AND [Credito] IS NULL) OR ([Credito] = @Original_Credito)) AND ((@IsNull_Mar"& _ 
+                "cas = 1 AND [Marcas] IS NULL) OR ([Marcas] = @Original_Marcas)) AND ((@IsNull_Co"& _ 
+                "dConfig = 1 AND [CodConfig] IS NULL) OR ([CodConfig] = @Original_CodConfig)) AND"& _ 
+                " ((@IsNull_Pessoa1 = 1 AND [Pessoa1] IS NULL) OR ([Pessoa1] = @Original_Pessoa1)"& _ 
+                ") AND ((@IsNull_Pessoa2 = 1 AND [Pessoa2] IS NULL) OR ([Pessoa2] = @Original_Pes"& _ 
+                "soa2)) AND ((@IsNull_RG1 = 1 AND [RG1] IS NULL) OR ([RG1] = @Original_RG1)) AND "& _ 
+                "((@IsNull_RG2 = 1 AND [RG2] IS NULL) OR ([RG2] = @Original_RG2)) AND ((@IsNull_C"& _ 
+                "ontato = 1 AND [Contato] IS NULL) OR ([Contato] = @Original_Contato)) AND ((@IsN"& _ 
+                "ull_Inativo = 1 AND [Inativo] IS NULL) OR ([Inativo] = @Original_Inativo)) AND ("& _ 
+                "(@IsNull_Cancelamento = 1 AND [Cancelamento] IS NULL) OR ([Cancelamento] = @Orig"& _ 
+                "inal_Cancelamento)) AND ((@IsNull_CodPais = 1 AND [CodPais] IS NULL) OR ([CodPai"& _ 
+                "s] = @Original_CodPais)) AND ((@IsNull_DataCancelamento = 1 AND [DataCancelament"& _ 
+                "o] IS NULL) OR ([DataCancelamento] = @Original_DataCancelamento)) AND ((@IsNull_"& _ 
+                "MotivoCancelamento = 1 AND [MotivoCancelamento] IS NULL) OR ([MotivoCancelamento"& _ 
+                "] = @Original_MotivoCancelamento)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Codigo, Nome, RGIE, CPF, Endereco, "& _ 
+                "Numero, Complemento, Bairro, Cep, Cidade, Estado, Telefone, Fax, Celular, Email,"& _ 
+                " Data, Fantasia, Observacao, Inadimplente, Status, Nascimento, Sexo, Limite, Emp"& _ 
+                "resa, TelEmpresa, Salario, Credito, Marcas, CodConfig, Pessoa1, Pessoa2, RG1, RG"& _ 
+                "2, Contato, Inativo, Cancelamento, CodPais, DataCancelamento, DetalhesCancelamen"& _ 
+                "to, MotivoCancelamento FROM Cliente WHERE (Codigo = @Codigo)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nome", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nome", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RGIE", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RGIE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -12170,6 +12415,11 @@ Namespace dsTelaUsuarioTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RG2", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RG2", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Contato", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Contato", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Inativo", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Inativo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Cancelamento", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Cancelamento", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CodPais", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CodPais", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataCancelamento", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataCancelamento", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DetalhesCancelamento", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DetalhesCancelamento", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MotivoCancelamento", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MotivoCancelamento", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Codigo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Codigo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Nome", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nome", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nome", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nome", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -12237,6 +12487,14 @@ Namespace dsTelaUsuarioTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Contato", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Contato", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Inativo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Inativo", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Inativo", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Inativo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Cancelamento", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Cancelamento", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Cancelamento", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Cancelamento", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CodPais", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CodPais", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CodPais", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CodPais", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DataCancelamento", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataCancelamento", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DataCancelamento", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataCancelamento", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MotivoCancelamento", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MotivoCancelamento", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MotivoCancelamento", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MotivoCancelamento", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Codigo", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Codigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
@@ -12256,7 +12514,8 @@ Namespace dsTelaUsuarioTableAdapters
             Me._commandCollection(0).CommandText = "SELECT Codigo, Nome, RGIE, CPF, Endereco, Numero, Complemento, Bairro, Cep, Cidad"& _ 
                 "e, Estado, Telefone, Fax, Celular, Email, Data, Fantasia, Observacao, Inadimplen"& _ 
                 "te, Status, Nascimento, Sexo, Limite, Empresa, TelEmpresa, Salario, Credito, Mar"& _ 
-                "cas, CodConfig, Pessoa1, Pessoa2, RG1, RG2, Contato, Inativo FROM dbo.Cliente"
+                "cas, CodConfig, Pessoa1, Pessoa2, RG1, RG2, Contato, Inativo, Cancelamento, CodP"& _ 
+                "ais, DataCancelamento, DetalhesCancelamento, MotivoCancelamento FROM Cliente"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -12350,7 +12609,11 @@ Namespace dsTelaUsuarioTableAdapters
                     ByVal Original_RG1 As String,  _
                     ByVal Original_RG2 As String,  _
                     ByVal Original_Contato As String,  _
-                    ByVal Original_Inativo As Global.System.Nullable(Of Boolean)) As Integer
+                    ByVal Original_Inativo As Global.System.Nullable(Of Boolean),  _
+                    ByVal Original_Cancelamento As Global.System.Nullable(Of Boolean),  _
+                    ByVal Original_CodPais As String,  _
+                    ByVal Original_DataCancelamento As String,  _
+                    ByVal Original_MotivoCancelamento As String) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_Codigo,Integer)
             If (Original_Nome Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
@@ -12583,6 +12846,34 @@ Namespace dsTelaUsuarioTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(65).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(66).Value = Global.System.DBNull.Value
             End If
+            If (Original_Cancelamento.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(67).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(68).Value = CType(Original_Cancelamento.Value,Boolean)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(67).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(68).Value = Global.System.DBNull.Value
+            End If
+            If (Original_CodPais Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(69).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(70).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(69).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(70).Value = CType(Original_CodPais,String)
+            End If
+            If (Original_DataCancelamento Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(71).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(72).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(71).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(72).Value = CType(Original_DataCancelamento,String)
+            End If
+            If (Original_MotivoCancelamento Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(73).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(74).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(73).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(74).Value = CType(Original_MotivoCancelamento,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -12636,7 +12927,12 @@ Namespace dsTelaUsuarioTableAdapters
                     ByVal RG1 As String,  _
                     ByVal RG2 As String,  _
                     ByVal Contato As String,  _
-                    ByVal Inativo As Global.System.Nullable(Of Boolean)) As Integer
+                    ByVal Inativo As Global.System.Nullable(Of Boolean),  _
+                    ByVal Cancelamento As Global.System.Nullable(Of Boolean),  _
+                    ByVal CodPais As String,  _
+                    ByVal DataCancelamento As String,  _
+                    ByVal DetalhesCancelamento As String,  _
+                    ByVal MotivoCancelamento As String) As Integer
             If (Nome Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -12807,6 +13103,31 @@ Namespace dsTelaUsuarioTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(33).Value = Global.System.DBNull.Value
             End If
+            If (Cancelamento.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(34).Value = CType(Cancelamento.Value,Boolean)
+            Else
+                Me.Adapter.InsertCommand.Parameters(34).Value = Global.System.DBNull.Value
+            End If
+            If (CodPais Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(35).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(35).Value = CType(CodPais,String)
+            End If
+            If (DataCancelamento Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(36).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(36).Value = CType(DataCancelamento,String)
+            End If
+            If (DetalhesCancelamento Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(37).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(37).Value = CType(DetalhesCancelamento,String)
+            End If
+            If (MotivoCancelamento Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(38).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(38).Value = CType(MotivoCancelamento,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -12861,6 +13182,11 @@ Namespace dsTelaUsuarioTableAdapters
                     ByVal RG2 As String,  _
                     ByVal Contato As String,  _
                     ByVal Inativo As Global.System.Nullable(Of Boolean),  _
+                    ByVal Cancelamento As Global.System.Nullable(Of Boolean),  _
+                    ByVal CodPais As String,  _
+                    ByVal DataCancelamento As String,  _
+                    ByVal DetalhesCancelamento As String,  _
+                    ByVal MotivoCancelamento As String,  _
                     ByVal Original_Codigo As Integer,  _
                     ByVal Original_Nome As String,  _
                     ByVal Original_RGIE As String,  _
@@ -12895,6 +13221,10 @@ Namespace dsTelaUsuarioTableAdapters
                     ByVal Original_RG2 As String,  _
                     ByVal Original_Contato As String,  _
                     ByVal Original_Inativo As Global.System.Nullable(Of Boolean),  _
+                    ByVal Original_Cancelamento As Global.System.Nullable(Of Boolean),  _
+                    ByVal Original_CodPais As String,  _
+                    ByVal Original_DataCancelamento As String,  _
+                    ByVal Original_MotivoCancelamento As String,  _
                     ByVal Codigo As Integer) As Integer
             If (Nome Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
@@ -13066,239 +13396,292 @@ Namespace dsTelaUsuarioTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(33).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(34).Value = CType(Original_Codigo,Integer)
-            If (Original_Nome Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(1,Object)
+            If (Cancelamento.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(Cancelamento.Value,Boolean)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(34).Value = Global.System.DBNull.Value
+            End If
+            If (CodPais Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(35).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(CodPais,String)
+            End If
+            If (DataCancelamento Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(36).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(Original_Nome,String)
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(DataCancelamento,String)
             End If
-            If (Original_RGIE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(1,Object)
+            If (DetalhesCancelamento Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(37).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(DetalhesCancelamento,String)
+            End If
+            If (MotivoCancelamento Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(38).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(Original_RGIE,String)
+                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(MotivoCancelamento,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(39).Value = CType(Original_Codigo,Integer)
+            If (Original_Nome Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(41).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(Original_Nome,String)
+            End If
+            If (Original_RGIE Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(43).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(Original_RGIE,String)
             End If
             If (Original_CPF Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(40).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(45).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(Original_CPF,String)
+                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(Original_CPF,String)
             End If
             If (Original_Endereco Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(42).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(47).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(Original_Endereco,String)
+                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(Original_Endereco,String)
             End If
             If (Original_Numero Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(44).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(49).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(Original_Numero,String)
+                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(Original_Numero,String)
             End If
             If (Original_Complemento Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(46).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(51).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(Original_Complemento,String)
+                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(Original_Complemento,String)
             End If
             If (Original_Bairro Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(48).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(53).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(Original_Bairro,String)
+                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(Original_Bairro,String)
             End If
             If (Original_Cep Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(50).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(55).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(Original_Cep,String)
+                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(Original_Cep,String)
             End If
             If (Original_Cidade Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(52).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(57).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(Original_Cidade,String)
+                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(Original_Cidade,String)
             End If
             If (Original_Estado Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(54).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(59).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(Original_Estado,String)
+                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(Original_Estado,String)
             End If
             If (Original_Telefone Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(56).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(61).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(Original_Telefone,String)
+                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(61).Value = CType(Original_Telefone,String)
             End If
             If (Original_Fax Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(58).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(63).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(Original_Fax,String)
+                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(63).Value = CType(Original_Fax,String)
             End If
             If (Original_Celular Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(60).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(64).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(65).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(Original_Celular,String)
+                Me.Adapter.UpdateCommand.Parameters(64).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(65).Value = CType(Original_Celular,String)
             End If
             If (Original_Email Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(61).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(62).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(66).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(67).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(61).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(Original_Email,String)
+                Me.Adapter.UpdateCommand.Parameters(66).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(67).Value = CType(Original_Email,String)
             End If
             If (Original_Data.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(63).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(64).Value = CType(Original_Data.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(68).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(69).Value = CType(Original_Data.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(63).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(64).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(68).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(69).Value = Global.System.DBNull.Value
             End If
             If (Original_Fantasia Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(65).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(66).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(70).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(71).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(65).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(66).Value = CType(Original_Fantasia,String)
+                Me.Adapter.UpdateCommand.Parameters(70).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(71).Value = CType(Original_Fantasia,String)
             End If
             If (Original_Inadimplente.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(67).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(68).Value = CType(Original_Inadimplente.Value,Boolean)
+                Me.Adapter.UpdateCommand.Parameters(72).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(73).Value = CType(Original_Inadimplente.Value,Boolean)
             Else
-                Me.Adapter.UpdateCommand.Parameters(67).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(68).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(72).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(73).Value = Global.System.DBNull.Value
             End If
             If (Original_Status Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(69).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(70).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(74).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(75).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(69).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(70).Value = CType(Original_Status,String)
+                Me.Adapter.UpdateCommand.Parameters(74).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(75).Value = CType(Original_Status,String)
             End If
             If (Original_Nascimento.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(71).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(72).Value = CType(Original_Nascimento.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(76).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(77).Value = CType(Original_Nascimento.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(71).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(72).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(76).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(77).Value = Global.System.DBNull.Value
             End If
             If (Original_Sexo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(73).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(74).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(78).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(79).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(73).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(74).Value = CType(Original_Sexo,String)
+                Me.Adapter.UpdateCommand.Parameters(78).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(79).Value = CType(Original_Sexo,String)
             End If
             If (Original_Limite Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(75).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(76).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(80).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(81).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(75).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(76).Value = CType(Original_Limite,String)
+                Me.Adapter.UpdateCommand.Parameters(80).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(81).Value = CType(Original_Limite,String)
             End If
             If (Original_Empresa Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(77).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(78).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(82).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(83).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(77).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(78).Value = CType(Original_Empresa,String)
+                Me.Adapter.UpdateCommand.Parameters(82).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(83).Value = CType(Original_Empresa,String)
             End If
             If (Original_TelEmpresa Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(79).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(80).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(84).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(85).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(79).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(80).Value = CType(Original_TelEmpresa,String)
+                Me.Adapter.UpdateCommand.Parameters(84).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(85).Value = CType(Original_TelEmpresa,String)
             End If
             If (Original_Salario Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(81).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(82).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(86).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(87).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(81).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(82).Value = CType(Original_Salario,String)
+                Me.Adapter.UpdateCommand.Parameters(86).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(87).Value = CType(Original_Salario,String)
             End If
             If (Original_Credito Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(83).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(84).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(88).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(89).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(83).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(84).Value = CType(Original_Credito,String)
+                Me.Adapter.UpdateCommand.Parameters(88).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(89).Value = CType(Original_Credito,String)
             End If
             If (Original_Marcas Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(85).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(86).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(90).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(91).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(85).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(86).Value = CType(Original_Marcas,String)
+                Me.Adapter.UpdateCommand.Parameters(90).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(91).Value = CType(Original_Marcas,String)
             End If
             If (Original_CodConfig.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(87).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(88).Value = CType(Original_CodConfig.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(92).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(93).Value = CType(Original_CodConfig.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(87).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(88).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(92).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(93).Value = Global.System.DBNull.Value
             End If
             If (Original_Pessoa1 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(89).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(90).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(94).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(95).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(89).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(90).Value = CType(Original_Pessoa1,String)
+                Me.Adapter.UpdateCommand.Parameters(94).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(95).Value = CType(Original_Pessoa1,String)
             End If
             If (Original_Pessoa2 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(91).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(92).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(96).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(97).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(91).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(92).Value = CType(Original_Pessoa2,String)
+                Me.Adapter.UpdateCommand.Parameters(96).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(97).Value = CType(Original_Pessoa2,String)
             End If
             If (Original_RG1 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(93).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(94).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(98).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(99).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(93).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(94).Value = CType(Original_RG1,String)
+                Me.Adapter.UpdateCommand.Parameters(98).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(99).Value = CType(Original_RG1,String)
             End If
             If (Original_RG2 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(95).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(96).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(100).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(101).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(95).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(96).Value = CType(Original_RG2,String)
+                Me.Adapter.UpdateCommand.Parameters(100).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(101).Value = CType(Original_RG2,String)
             End If
             If (Original_Contato Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(97).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(98).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(102).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(103).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(97).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(98).Value = CType(Original_Contato,String)
+                Me.Adapter.UpdateCommand.Parameters(102).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(103).Value = CType(Original_Contato,String)
             End If
             If (Original_Inativo.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(99).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(100).Value = CType(Original_Inativo.Value,Boolean)
+                Me.Adapter.UpdateCommand.Parameters(104).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(105).Value = CType(Original_Inativo.Value,Boolean)
             Else
-                Me.Adapter.UpdateCommand.Parameters(99).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(100).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(104).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(105).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(101).Value = CType(Codigo,Integer)
+            If (Original_Cancelamento.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(106).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(107).Value = CType(Original_Cancelamento.Value,Boolean)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(106).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(107).Value = Global.System.DBNull.Value
+            End If
+            If (Original_CodPais Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(108).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(109).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(108).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(109).Value = CType(Original_CodPais,String)
+            End If
+            If (Original_DataCancelamento Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(110).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(111).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(110).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(111).Value = CType(Original_DataCancelamento,String)
+            End If
+            If (Original_MotivoCancelamento Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(112).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(113).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(112).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(113).Value = CType(Original_MotivoCancelamento,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(114).Value = CType(Codigo,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -13353,6 +13736,11 @@ Namespace dsTelaUsuarioTableAdapters
                     ByVal RG2 As String,  _
                     ByVal Contato As String,  _
                     ByVal Inativo As Global.System.Nullable(Of Boolean),  _
+                    ByVal Cancelamento As Global.System.Nullable(Of Boolean),  _
+                    ByVal CodPais As String,  _
+                    ByVal DataCancelamento As String,  _
+                    ByVal DetalhesCancelamento As String,  _
+                    ByVal MotivoCancelamento As String,  _
                     ByVal Original_Codigo As Integer,  _
                     ByVal Original_Nome As String,  _
                     ByVal Original_RGIE As String,  _
@@ -13386,8 +13774,12 @@ Namespace dsTelaUsuarioTableAdapters
                     ByVal Original_RG1 As String,  _
                     ByVal Original_RG2 As String,  _
                     ByVal Original_Contato As String,  _
-                    ByVal Original_Inativo As Global.System.Nullable(Of Boolean)) As Integer
-            Return Me.Update(Nome, RGIE, CPF, Endereco, Numero, Complemento, Bairro, Cep, Cidade, Estado, Telefone, Fax, Celular, Email, Data, Fantasia, Observacao, Inadimplente, Status, Nascimento, Sexo, Limite, Empresa, TelEmpresa, Salario, Credito, Marcas, CodConfig, Pessoa1, Pessoa2, RG1, RG2, Contato, Inativo, Original_Codigo, Original_Nome, Original_RGIE, Original_CPF, Original_Endereco, Original_Numero, Original_Complemento, Original_Bairro, Original_Cep, Original_Cidade, Original_Estado, Original_Telefone, Original_Fax, Original_Celular, Original_Email, Original_Data, Original_Fantasia, Original_Inadimplente, Original_Status, Original_Nascimento, Original_Sexo, Original_Limite, Original_Empresa, Original_TelEmpresa, Original_Salario, Original_Credito, Original_Marcas, Original_CodConfig, Original_Pessoa1, Original_Pessoa2, Original_RG1, Original_RG2, Original_Contato, Original_Inativo, Original_Codigo)
+                    ByVal Original_Inativo As Global.System.Nullable(Of Boolean),  _
+                    ByVal Original_Cancelamento As Global.System.Nullable(Of Boolean),  _
+                    ByVal Original_CodPais As String,  _
+                    ByVal Original_DataCancelamento As String,  _
+                    ByVal Original_MotivoCancelamento As String) As Integer
+            Return Me.Update(Nome, RGIE, CPF, Endereco, Numero, Complemento, Bairro, Cep, Cidade, Estado, Telefone, Fax, Celular, Email, Data, Fantasia, Observacao, Inadimplente, Status, Nascimento, Sexo, Limite, Empresa, TelEmpresa, Salario, Credito, Marcas, CodConfig, Pessoa1, Pessoa2, RG1, RG2, Contato, Inativo, Cancelamento, CodPais, DataCancelamento, DetalhesCancelamento, MotivoCancelamento, Original_Codigo, Original_Nome, Original_RGIE, Original_CPF, Original_Endereco, Original_Numero, Original_Complemento, Original_Bairro, Original_Cep, Original_Cidade, Original_Estado, Original_Telefone, Original_Fax, Original_Celular, Original_Email, Original_Data, Original_Fantasia, Original_Inadimplente, Original_Status, Original_Nascimento, Original_Sexo, Original_Limite, Original_Empresa, Original_TelEmpresa, Original_Salario, Original_Credito, Original_Marcas, Original_CodConfig, Original_Pessoa1, Original_Pessoa2, Original_RG1, Original_RG2, Original_Contato, Original_Inativo, Original_Cancelamento, Original_CodPais, Original_DataCancelamento, Original_MotivoCancelamento, Original_Codigo)
         End Function
     End Class
     
