@@ -4,6 +4,7 @@ Imports telausuario.clsBanco
 Imports telausuario.modFuncoes
 Imports Microsoft.Win32
 Imports System.Threading
+Imports System.IO
 Public Class frmWhatsapp
     Dim bolCelular As Boolean
     Dim CodigoCliente As Integer
@@ -52,7 +53,14 @@ Public Class frmWhatsapp
             Dim I As Integer
             For I = 0 To dtListaArquivosDropBox.Rows.Count - 1
                 If dtListaArquivosDropBox.Rows.Item(I).Item("name").ToString = nomeArquivo Then
-                    Return True
+                    Dim file As FileInfo = New FileInfo(strCaminhoArquivo)
+
+                    If dtListaArquivosDropBox.Rows.Item(I).Item("size") = file.Length Then
+                        Return True
+                    Else
+                        Return False
+                    End If
+
                 End If
             Next
             Return False
@@ -121,6 +129,17 @@ Public Class frmWhatsapp
 
 
         Dim NumeroCelular As String = Me.grd1.GetRowCellDisplayText(Index, Me.colCelular)
+        Dim NumeroCelularSemCaracter As String = ""
+
+        'Retirar Caracteres
+        Dim I As Integer
+        For I = 0 To NumeroCelular.Count - 1
+            If IsNumeric(NumeroCelular.Substring(I, 1)) = True Then
+                NumeroCelularSemCaracter = NumeroCelularSemCaracter & NumeroCelular.Substring(I, 1)
+            End If
+        Next
+
+
         If Me.grd1.GetRowCellDisplayText(Index, Me.colCodPais).ToString <> "" Then
             Dim dtPesquisarPais As DataTable = CarregarDataTable("select * from Pais where CodIBGE = " & Me.grd1.GetRowCellDisplayText(Index, Me.colCodPais) & "")
 
@@ -133,15 +152,24 @@ Public Class frmWhatsapp
 
             'Verificar se o Numero de Celular já possui DDI
 
-            Dim VerificarPrimeirosDigitos As String = NumeroCelular.Substring(0, QuantidadeCaracterDDI).ToString
+            Dim VerificarPrimeirosDigitos As String = NumeroCelularSemCaracter.Substring(0, QuantidadeCaracterDDI).ToString
             If VerificarPrimeirosDigitos = Me.txtDDI.Text Then
-                Me.txtNumeroComDdd.Text = NumeroCelular.Substring(QuantidadeCaracterDDI, NumeroCelular.Count - QuantidadeCaracterDDI)
+                Me.txtNumeroComDdd.Text = NumeroCelularSemCaracter.Substring(QuantidadeCaracterDDI, NumeroCelularSemCaracter.Count - QuantidadeCaracterDDI)
             Else
-                Me.txtNumeroComDdd.Text = NumeroCelular
+                Me.txtNumeroComDdd.Text = NumeroCelularSemCaracter
             End If
         Else
-            Me.txtNumeroComDdd.Text = NumeroCelular
-        End If
+            If NumeroCelularSemCaracter.Substring(0, 2) = "55" Then
+                Me.txtDDI.Text = "55"
+                Me.txtNumeroComDdd.Text = NumeroCelularSemCaracter.Substring(2, NumeroCelularSemCaracter.Count - 2)
+
+            Else
+                Me.txtDDI.Text = "55"
+                Me.txtNumeroComDdd.Text = NumeroCelularSemCaracter
+            End If
+
+
+            End If
 
     End Sub
 
@@ -366,17 +394,27 @@ Public Class frmWhatsapp
 
             'Verificacao
             Try
+                Dim file As FileInfo = New FileInfo(strCaminhoArquivo)
+
+                'retorna o tamanho em bytes
+                If file.Length > 1 * 10 ^ 8 Then
+                    indexUltimaBarraAntesVerificacao = ""
+                    NomeArquivo = ""
+                    strCaminhoArquivo = ""
+                    MsgBox("Tamanho do arquivo maior que 100MB", MsgBoxStyle.Exclamation)
+                    Exit Sub
+                End If
+
+                'Se no nome do arquivo conter espaços, eles serão substituidos por -
+                file = Nothing
                 My.Computer.FileSystem.RenameFile(strCaminhoArquivo, NomeArquivo.Replace(" ", "-"))
                 strCaminhoArquivo = strCaminhoArquivo.Replace(NomeArquivo, NomeArquivo.Replace(" ", "-"))
 
-            Catch
-
-            Finally
-                NomeArquivo = NomeArquivo.Replace(" ", "-")
-                Me.cboEnviarArquivo.Text = strCaminhoArquivo
-
+            Catch ex As Exception
             End Try
-            
+            NomeArquivo = NomeArquivo.Replace(" ", "-")
+            Me.cboEnviarArquivo.Text = strCaminhoArquivo
+
 
         End Using
     End Sub
