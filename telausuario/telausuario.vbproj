@@ -561,6 +561,15 @@
   <ItemGroup>
     <None Include="Resources\message-send1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circulo-branco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\oie_4205435ON2iUvkY.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circulotesteborda.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

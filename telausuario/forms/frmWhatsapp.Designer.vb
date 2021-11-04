@@ -81,12 +81,13 @@ Partial Class frmWhatsapp
         Me.lblTituloConfig = New DevExpress.XtraEditors.LabelControl()
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
         Me.PanelControl3 = New DevExpress.XtraEditors.PanelControl()
-        Me.PanelControl2 = New DevExpress.XtraEditors.PanelControl()
-        Me.PictureEdit2 = New DevExpress.XtraEditors.PictureEdit()
-        Me.lblClientesCadastrados = New DevExpress.XtraEditors.LabelControl()
         Me.lblCliente = New DevExpress.XtraEditors.LabelControl()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.ofdImagem = New System.Windows.Forms.OpenFileDialog()
+        Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
+        Me.PanelControl5 = New DevExpress.XtraEditors.PanelControl()
+        Me.PictureEdit2 = New DevExpress.XtraEditors.PictureEdit()
+        Me.LabelControl5 = New DevExpress.XtraEditors.LabelControl()
         CType(Me.grdListaClientes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dsListaContato, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dtListaContato, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -111,21 +112,23 @@ Partial Class frmWhatsapp
         Me.PanelControl1.SuspendLayout()
         CType(Me.PanelControl3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl3.SuspendLayout()
-        CType(Me.PanelControl2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.PanelControl2.SuspendLayout()
+        CType(Me.PanelControl5, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelControl5.SuspendLayout()
         CType(Me.PictureEdit2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'grdListaClientes
         '
+        Me.grdListaClientes.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.grdListaClientes.DataMember = "dtListaContato"
         Me.grdListaClientes.DataSource = Me.dsListaContato
-        Me.grdListaClientes.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.grdListaClientes.Location = New System.Drawing.Point(2, 124)
+        Me.grdListaClientes.Location = New System.Drawing.Point(2, 94)
         Me.grdListaClientes.MainView = Me.grd1
         Me.grdListaClientes.Name = "grdListaClientes"
         Me.grdListaClientes.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.txtAlterarGrid})
-        Me.grdListaClientes.Size = New System.Drawing.Size(433, 325)
+        Me.grdListaClientes.Size = New System.Drawing.Size(435, 370)
         Me.grdListaClientes.TabIndex = 7
         Me.grdListaClientes.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.grd1})
         '
@@ -474,7 +477,7 @@ Partial Class frmWhatsapp
         'PictureEdit1
         '
         Me.PictureEdit1.EditValue = Global.telausuario.My.Resources.Resources.Message_Bubble_icon1
-        Me.PictureEdit1.Location = New System.Drawing.Point(6, 7)
+        Me.PictureEdit1.Location = New System.Drawing.Point(6, 12)
         Me.PictureEdit1.Name = "PictureEdit1"
         Me.PictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.PictureEdit1.Properties.Appearance.Options.UseBackColor = True
@@ -740,55 +743,19 @@ Partial Class frmWhatsapp
         '
         Me.PanelControl3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.PanelControl3.Controls.Add(Me.PanelControl2)
+        Me.PanelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.PanelControl3.Controls.Add(Me.PanelControl5)
         Me.PanelControl3.Controls.Add(Me.grdListaClientes)
-        Me.PanelControl3.Location = New System.Drawing.Point(12, 25)
+        Me.PanelControl3.Location = New System.Drawing.Point(13, 12)
         Me.PanelControl3.Name = "PanelControl3"
-        Me.PanelControl3.Size = New System.Drawing.Size(437, 451)
+        Me.PanelControl3.Size = New System.Drawing.Size(437, 464)
         Me.PanelControl3.TabIndex = 33
-        '
-        'PanelControl2
-        '
-        Me.PanelControl2.Appearance.BackColor = System.Drawing.Color.White
-        Me.PanelControl2.Appearance.Options.UseBackColor = True
-        Me.PanelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.PanelControl2.Controls.Add(Me.PictureEdit2)
-        Me.PanelControl2.Controls.Add(Me.lblClientesCadastrados)
-        Me.PanelControl2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PanelControl2.Location = New System.Drawing.Point(2, 2)
-        Me.PanelControl2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat
-        Me.PanelControl2.LookAndFeel.UseDefaultLookAndFeel = False
-        Me.PanelControl2.Name = "PanelControl2"
-        Me.PanelControl2.Size = New System.Drawing.Size(433, 122)
-        Me.PanelControl2.TabIndex = 31
-        '
-        'PictureEdit2
-        '
-        Me.PictureEdit2.EditValue = Global.telausuario.My.Resources.Resources.Nano
-        Me.PictureEdit2.Location = New System.Drawing.Point(3, 3)
-        Me.PictureEdit2.MenuManager = Me.BarManager1
-        Me.PictureEdit2.Name = "PictureEdit2"
-        Me.PictureEdit2.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
-        Me.PictureEdit2.Properties.Appearance.Options.UseBackColor = True
-        Me.PictureEdit2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.PictureEdit2.Size = New System.Drawing.Size(118, 113)
-        Me.PictureEdit2.TabIndex = 2
-        '
-        'lblClientesCadastrados
-        '
-        Me.lblClientesCadastrados.Appearance.Font = New System.Drawing.Font("Tahoma", 17.0!, System.Drawing.FontStyle.Bold)
-        Me.lblClientesCadastrados.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(248, Byte), Integer), CType(CType(146, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblClientesCadastrados.Location = New System.Drawing.Point(127, 43)
-        Me.lblClientesCadastrados.Name = "lblClientesCadastrados"
-        Me.lblClientesCadastrados.Size = New System.Drawing.Size(297, 28)
-        Me.lblClientesCadastrados.TabIndex = 1
-        Me.lblClientesCadastrados.Text = "CLIENTES CADASTRADOS"
         '
         'lblCliente
         '
         Me.lblCliente.Appearance.Font = New System.Drawing.Font("Tahoma", 17.0!, System.Drawing.FontStyle.Bold)
         Me.lblCliente.Appearance.ForeColor = System.Drawing.Color.White
-        Me.lblCliente.Location = New System.Drawing.Point(456, 30)
+        Me.lblCliente.Location = New System.Drawing.Point(456, 27)
         Me.lblCliente.Name = "lblCliente"
         Me.lblCliente.Size = New System.Drawing.Size(82, 28)
         Me.lblCliente.TabIndex = 32
@@ -801,6 +768,56 @@ Partial Class frmWhatsapp
         'ofdImagem
         '
         Me.ofdImagem.FileName = "OpenFileDialog2"
+        '
+        'LabelControl1
+        '
+        Me.LabelControl1.Appearance.Font = New System.Drawing.Font("Tahoma", 22.0!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl1.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(248, Byte), Integer), CType(CType(146, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.LabelControl1.Location = New System.Drawing.Point(178, 12)
+        Me.LabelControl1.Name = "LabelControl1"
+        Me.LabelControl1.Size = New System.Drawing.Size(144, 35)
+        Me.LabelControl1.TabIndex = 1
+        Me.LabelControl1.Text = "CLIENTES"
+        '
+        'PanelControl5
+        '
+        Me.PanelControl5.Appearance.BackColor = System.Drawing.Color.White
+        Me.PanelControl5.Appearance.Options.UseBackColor = True
+        Me.PanelControl5.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple
+        Me.PanelControl5.Controls.Add(Me.PictureEdit2)
+        Me.PanelControl5.Controls.Add(Me.LabelControl5)
+        Me.PanelControl5.Controls.Add(Me.LabelControl1)
+        Me.PanelControl5.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PanelControl5.Location = New System.Drawing.Point(0, 0)
+        Me.PanelControl5.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat
+        Me.PanelControl5.LookAndFeel.UseDefaultLookAndFeel = False
+        Me.PanelControl5.Name = "PanelControl5"
+        Me.PanelControl5.Size = New System.Drawing.Size(437, 95)
+        Me.PanelControl5.TabIndex = 34
+        '
+        'PictureEdit2
+        '
+        Me.PictureEdit2.Dock = System.Windows.Forms.DockStyle.Left
+        Me.PictureEdit2.EditValue = Global.telausuario.My.Resources.Resources.Nano
+        Me.PictureEdit2.Location = New System.Drawing.Point(2, 2)
+        Me.PictureEdit2.MenuManager = Me.BarManager1
+        Me.PictureEdit2.Name = "PictureEdit2"
+        Me.PictureEdit2.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.PictureEdit2.Properties.Appearance.Options.UseBackColor = True
+        Me.PictureEdit2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple
+        Me.PictureEdit2.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch
+        Me.PictureEdit2.Size = New System.Drawing.Size(95, 91)
+        Me.PictureEdit2.TabIndex = 2
+        '
+        'LabelControl5
+        '
+        Me.LabelControl5.Appearance.Font = New System.Drawing.Font("Tahoma", 22.0!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl5.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(248, Byte), Integer), CType(CType(146, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.LabelControl5.Location = New System.Drawing.Point(146, 53)
+        Me.LabelControl5.Name = "LabelControl5"
+        Me.LabelControl5.Size = New System.Drawing.Size(220, 35)
+        Me.LabelControl5.TabIndex = 2
+        Me.LabelControl5.Text = "CADASTRADOS"
         '
         'frmWhatsapp
         '
@@ -843,9 +860,9 @@ Partial Class frmWhatsapp
         Me.PanelControl1.PerformLayout()
         CType(Me.PanelControl3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl3.ResumeLayout(False)
-        CType(Me.PanelControl2, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.PanelControl2.ResumeLayout(False)
-        Me.PanelControl2.PerformLayout()
+        CType(Me.PanelControl5, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelControl5.ResumeLayout(False)
+        Me.PanelControl5.PerformLayout()
         CType(Me.PictureEdit2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -876,8 +893,6 @@ Partial Class frmWhatsapp
     Friend WithEvents txtNumeroComDdd As DevExpress.XtraEditors.TextEdit
     Friend WithEvents tabConfigurações As DevExpress.XtraTab.XtraTabPage
     Friend WithEvents PanelControl1 As DevExpress.XtraEditors.PanelControl
-    Friend WithEvents PanelControl2 As DevExpress.XtraEditors.PanelControl
-    Friend WithEvents lblClientesCadastrados As DevExpress.XtraEditors.LabelControl
     Friend WithEvents PictureEdit1 As DevExpress.XtraEditors.PictureEdit
     Friend WithEvents BarManager1 As DevExpress.XtraBars.BarManager
     Friend WithEvents Bar3 As DevExpress.XtraBars.Bar
@@ -890,7 +905,6 @@ Partial Class frmWhatsapp
     Friend WithEvents barDockControlLeft As DevExpress.XtraBars.BarDockControl
     Friend WithEvents barDockControlRight As DevExpress.XtraBars.BarDockControl
     Friend WithEvents lblCliente As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents PictureEdit2 As DevExpress.XtraEditors.PictureEdit
     Friend WithEvents cboTitulo As DevExpress.XtraEditors.ComboBoxEdit
     Friend WithEvents PanelControl3 As DevExpress.XtraEditors.PanelControl
     Friend WithEvents cboTituloConfig As DevExpress.XtraEditors.ComboBoxEdit
@@ -917,4 +931,8 @@ Partial Class frmWhatsapp
     Friend WithEvents cboEnviarArquivo As DevExpress.XtraEditors.ComboBoxEdit
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
     Friend WithEvents ofdImagem As System.Windows.Forms.OpenFileDialog
+    Friend WithEvents PanelControl5 As DevExpress.XtraEditors.PanelControl
+    Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents PictureEdit2 As DevExpress.XtraEditors.PictureEdit
+    Friend WithEvents LabelControl5 As DevExpress.XtraEditors.LabelControl
 End Class

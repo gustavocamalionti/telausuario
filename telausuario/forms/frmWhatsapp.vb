@@ -460,4 +460,42 @@ Public Class frmWhatsapp
     End Sub
 
 
+    Private Sub lblClientesCadastrados_Click(sender As Object, e As EventArgs)
+
+    End Sub
+    Private Sub PanelControl2_Paint(sender As Object, e As PaintEventArgs)
+
+    End Sub
+
+    Private Sub PictureEdit2_EditValueChanged(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub grdListaClientes_Click(sender As Object, e As EventArgs) Handles grdListaClientes.Click
+
+    End Sub
+
+    Private Sub PanelControl5_Paint(sender As Object, e As PaintEventArgs) Handles PanelControl5.Paint
+
+    End Sub
+
+    Private Sub LabelControl1_Click(sender As Object, e As EventArgs) Handles LabelControl1.Click
+
+    End Sub
+
+    Private Sub PanelControl1_Paint(sender As Object, e As PaintEventArgs) Handles PanelControl1.Paint
+
+    End Sub
+
+    Private Sub PanelControl2_Paint_1(sender As Object, e As PaintEventArgs)
+
+    End Sub
+
+    Private Sub LabelControl2_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub PictureEdit2_EditValueChanged_1(sender As Object, e As EventArgs) Handles PictureEdit2.EditValueChanged
+
+    End Sub
 End Class
