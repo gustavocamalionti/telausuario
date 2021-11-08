@@ -81,13 +81,13 @@ Partial Class frmWhatsapp
         Me.lblTituloConfig = New DevExpress.XtraEditors.LabelControl()
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
         Me.PanelControl3 = New DevExpress.XtraEditors.PanelControl()
-        Me.lblCliente = New DevExpress.XtraEditors.LabelControl()
-        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.ofdImagem = New System.Windows.Forms.OpenFileDialog()
-        Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
         Me.PanelControl5 = New DevExpress.XtraEditors.PanelControl()
         Me.PictureEdit2 = New DevExpress.XtraEditors.PictureEdit()
         Me.LabelControl5 = New DevExpress.XtraEditors.LabelControl()
+        Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
+        Me.lblCliente = New DevExpress.XtraEditors.LabelControl()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.ofdImagem = New System.Windows.Forms.OpenFileDialog()
         CType(Me.grdListaClientes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dsListaContato, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dtListaContato, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -751,34 +751,6 @@ Partial Class frmWhatsapp
         Me.PanelControl3.Size = New System.Drawing.Size(437, 464)
         Me.PanelControl3.TabIndex = 33
         '
-        'lblCliente
-        '
-        Me.lblCliente.Appearance.Font = New System.Drawing.Font("Tahoma", 17.0!, System.Drawing.FontStyle.Bold)
-        Me.lblCliente.Appearance.ForeColor = System.Drawing.Color.White
-        Me.lblCliente.Location = New System.Drawing.Point(456, 27)
-        Me.lblCliente.Name = "lblCliente"
-        Me.lblCliente.Size = New System.Drawing.Size(82, 28)
-        Me.lblCliente.TabIndex = 32
-        Me.lblCliente.Text = "Cliente"
-        '
-        'OpenFileDialog1
-        '
-        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        '
-        'ofdImagem
-        '
-        Me.ofdImagem.FileName = "OpenFileDialog2"
-        '
-        'LabelControl1
-        '
-        Me.LabelControl1.Appearance.Font = New System.Drawing.Font("Tahoma", 22.0!, System.Drawing.FontStyle.Bold)
-        Me.LabelControl1.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(248, Byte), Integer), CType(CType(146, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.LabelControl1.Location = New System.Drawing.Point(178, 12)
-        Me.LabelControl1.Name = "LabelControl1"
-        Me.LabelControl1.Size = New System.Drawing.Size(144, 35)
-        Me.LabelControl1.TabIndex = 1
-        Me.LabelControl1.Text = "CLIENTES"
-        '
         'PanelControl5
         '
         Me.PanelControl5.Appearance.BackColor = System.Drawing.Color.White
@@ -818,6 +790,34 @@ Partial Class frmWhatsapp
         Me.LabelControl5.Size = New System.Drawing.Size(220, 35)
         Me.LabelControl5.TabIndex = 2
         Me.LabelControl5.Text = "CADASTRADOS"
+        '
+        'LabelControl1
+        '
+        Me.LabelControl1.Appearance.Font = New System.Drawing.Font("Tahoma", 22.0!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl1.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(248, Byte), Integer), CType(CType(146, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.LabelControl1.Location = New System.Drawing.Point(178, 12)
+        Me.LabelControl1.Name = "LabelControl1"
+        Me.LabelControl1.Size = New System.Drawing.Size(144, 35)
+        Me.LabelControl1.TabIndex = 1
+        Me.LabelControl1.Text = "CLIENTES"
+        '
+        'lblCliente
+        '
+        Me.lblCliente.Appearance.Font = New System.Drawing.Font("Tahoma", 17.0!, System.Drawing.FontStyle.Bold)
+        Me.lblCliente.Appearance.ForeColor = System.Drawing.Color.White
+        Me.lblCliente.Location = New System.Drawing.Point(456, 27)
+        Me.lblCliente.Name = "lblCliente"
+        Me.lblCliente.Size = New System.Drawing.Size(82, 28)
+        Me.lblCliente.TabIndex = 32
+        Me.lblCliente.Text = "Cliente"
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
+        'ofdImagem
+        '
+        Me.ofdImagem.FileName = "OpenFileDialog2"
         '
         'frmWhatsapp
         '

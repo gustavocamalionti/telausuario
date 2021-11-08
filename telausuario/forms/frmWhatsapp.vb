@@ -167,9 +167,7 @@ Public Class frmWhatsapp
                 Me.txtDDI.Text = "55"
                 Me.txtNumeroComDdd.Text = NumeroCelularSemCaracter
             End If
-
-
-            End If
+        End If
 
     End Sub
 
@@ -448,54 +446,5 @@ Public Class frmWhatsapp
             Me.txtNumeroComDdd.Select()
             Me.txtNumeroComDdd.SelectionStart = Me.txtNumeroComDdd.Text.Length
         End If
-    End Sub
-
-    Private Sub cboEnviarArquivo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboEnviarArquivo.SelectedIndexChanged
-
-    End Sub
-
-    Private Sub btnListarArquivos_Click(sender As Object, e As EventArgs)
-
-
-    End Sub
-
-
-    Private Sub lblClientesCadastrados_Click(sender As Object, e As EventArgs)
-
-    End Sub
-    Private Sub PanelControl2_Paint(sender As Object, e As PaintEventArgs)
-
-    End Sub
-
-    Private Sub PictureEdit2_EditValueChanged(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub grdListaClientes_Click(sender As Object, e As EventArgs) Handles grdListaClientes.Click
-
-    End Sub
-
-    Private Sub PanelControl5_Paint(sender As Object, e As PaintEventArgs) Handles PanelControl5.Paint
-
-    End Sub
-
-    Private Sub LabelControl1_Click(sender As Object, e As EventArgs) Handles LabelControl1.Click
-
-    End Sub
-
-    Private Sub PanelControl1_Paint(sender As Object, e As PaintEventArgs) Handles PanelControl1.Paint
-
-    End Sub
-
-    Private Sub PanelControl2_Paint_1(sender As Object, e As PaintEventArgs)
-
-    End Sub
-
-    Private Sub LabelControl2_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub PictureEdit2_EditValueChanged_1(sender As Object, e As EventArgs) Handles PictureEdit2.EditValueChanged
-
     End Sub
 End Class
