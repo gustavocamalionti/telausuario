@@ -7,7 +7,7 @@ Imports System.IO
 
 Public Class frmWhatsappDrive
     Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
-
+        clsGoogleDriveApi.CriarPastaGoogleDrive("TestePasta")
     End Sub
 
     Private Sub frmWhatsappDrive_Load(sender As Object, e As EventArgs) Handles MyBase.Load

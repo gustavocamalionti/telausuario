@@ -124,9 +124,10 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\ClassesJson.vb" />
     <Compile Include="Classes\clsFuncoesDropBox.vb" />
     <Compile Include="Classes\clsJsonDropBox.vb" />
-    <Compile Include="Classes\frmGoogleDriveApi.vb" />
+    <Compile Include="Classes\clsGoogleDriveApi.vb" />
     <Compile Include="Classes\modBloqueios.vb" />
     <Compile Include="Classes\clsBanco.vb" />
     <Compile Include="Classes\modFuncoes.vb" />

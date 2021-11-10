@@ -22,6 +22,8 @@
     Public strCaminhoArquivo As String
     Public mybyte As Byte()
     Public dtListaArquivosDropBox As New DataTable
+    Public AccessToken As String
+    Public RefreshToken As String
 
     'Public StringConexaoFTP As String = "ftp://207.244.245.160/nanoapp.com.br/public/uploads/arquivos/empresas/cnpj/"
     'Public LoginFTP As String = "ftpuser"

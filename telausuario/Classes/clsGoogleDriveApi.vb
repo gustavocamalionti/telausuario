@@ -5,78 +5,55 @@ Imports System.Collections.Generic
 Imports System.Text
 Imports System.IO
 Imports Newtonsoft.Json.Converters
-Public Class frmGoogleDriveApi
+Public Class clsGoogleDriveApi
 
 
-    Public Shared Function CriarPastaDropBox(NomePastaEmpresa As String) As String
+    Public Shared Function CriarPastaGoogleDrive(NomePastaEmpresa As String) As String
 
+        Dim dadosToken As New ClassesJson.clsAccessToken
 
-        Dim dadosConta As New clsJsonDropBox.clsCriarPasta
-        dadosConta.path = NomePastaEmpresa
-        dadosConta.autorename = False
+        'dadosToken.grant_type = "application/x-www-form-urlencoded"
+        dadosToken.client_id = "613336258335-9te99rs60c16dt7m80121caddmd0057j.apps.googleusercontent.com"
 
-        Dim settings As JsonSerializerSettings = New JsonSerializerSettings()
-        settings.NullValueHandling = NullValueHandling.Ignore
+        ' dadosNFe.client_id = "3200249308754173"
+        dadosToken.client_secret = "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"
+        'dadosToken.code = Me.TextEdit1.Text
+        dadosToken.redirect_uri = "https://webhook.site/1f292bc4-db0f-47c5-9fcc-368854b9eba8"
+        dadosToken.response_type = "code"
+        dadosToken.scope = "email profile"
 
-        Dim myData As String = JsonConvert.SerializeObject(dadosConta, settings)
-
-        System.Net.ServicePointManager.SecurityProtocol = 3072
+        Dim myData As String = JsonConvert.SerializeObject(dadosToken)
 
         Dim client As New WebClient
-        client.Headers("Content-Type") = "application/json"
-        client.Headers("Accept") = "application/json"
-        client.Headers("Authorization") = "Bearer fIC5DvLUAqwAAAAAAAAAASG3cPReUZV1gMa1tW0G-hRiT8u0Z2psf0lY2LG-oKc4"
+        'client.BaseAddress = "https://oauth2.googleapis.com/token"
+        'client.Headers("Authorization") = "Basic " & apiKey
+        'client.Headers("Accept") = "application/json"
+        'client.Headers("Content-Type") = "application/json"
+
+        'client.Headers("Response_Type") = "code"
+
         ServicePointManager.Expect100Continue = False
 
-        Dim strURL As String = "https://api.dropboxapi.com/2/files/create_folder_v2"
+        'Dim strURL As String = "https://accounts.google.com/o/oauth2/auth"
+        Dim strURL As String = "https://accounts.google.com/o/oauth2/auth"
 
         Try
-            'myData = "{\""path\"": \""/tesstee/math\"",\"": false}"
-            'myData = "{""path"":""/ge/32"",""autorename"":false}"
-
             Dim jsonBytes As Byte() = Encoding.UTF8.GetBytes(myData)
+
             Dim jsonResult As String = Encoding.UTF8.GetString(client.UploadData(strURL, "POST", jsonBytes))
+
             Dim successResult As Linq.JObject = JsonConvert.DeserializeObject(jsonResult)
+            'Me.MemoEdit1.Text = jsonResult
+            AccessToken = successResult("access_token")
+            RefreshToken = successResult("refresh_token")
 
-            'Dim filename As String = "C:\test\birthday.mp3"
-
-            'Dim dataBytes() As Byte = IO.File.ReadAllBytes(filename)
-            'Dim dataStream = New MemoryStream(dataBytes)
-            'request.Content = New StreamContent(dataStream)
-
-            'request.Content.Headers.ContentType = MediaTypeHeaderValue.Parse("audio/mpeg")
-
-            ' Do the upload
-            'Dim response = httpClient.SendAsync(request).Result
-            Dim json As String = JsonConvert.SerializeObject(successResult, Formatting.Indented)
-            Return json
         Catch ex As WebException
-            Dim strErro As String = ""
-            Dim strJson As String = ""
-            Try
-                Dim response As String = New StreamReader(ex.Response.GetResponseStream()).ReadToEnd()
-
-                If response.Contains("error") = True Then
-                    Dim successResult2 As Linq.JObject = JsonConvert.DeserializeObject(response)
-                    strJson = JsonConvert.SerializeObject(successResult2, Formatting.Indented)
-                    Dim strCod As String = successResult2.Item("error")("code").ToString
-                    strErro = successResult2.Item("error")("description").ToString
-
-                End If
-            Catch ex2 As Exception
-            End Try
-            If ex.Message = "O servidor remoto retornou um erro: (409) Conflito." Then 'pasta já foi criada
-                Exit Function
-            End If
-            MsgBox(strErro & vbCrLf & ex.Message, MsgBoxStyle.Information)
-            Return strJson
-
-
+            Dim str As String = "teste"
         End Try
 
     End Function
 
-    Public Shared Function UploadDropBox(NomeArquivo As String, NomePastaEmpresa As String) As String
+    Public Shared Function UploadGoogleDrive(NomeArquivo As String, NomePastaEmpresa As String) As String
 
         Dim dadosConta As New clsJsonDropBox.clsUpload
         dadosConta.path = "/" & NomePastaEmpresa & "/" & NomeArquivo & ""
@@ -105,7 +82,7 @@ Public Class frmGoogleDriveApi
             'myData = "{""path"":""/ge/32"",""autorename"":false}"
 
             ConverteArquivo(strCaminhoArquivo)
-            DeletarArquivoDropBox(dadosConta.path.ToString)
+            DeletarArquivoGoogleDrive(dadosConta.path.ToString)
 
             Dim jsonResult As String = Encoding.UTF8.GetString(client.UploadData(strURL, "POST", mybyte))
             Dim successResult As Linq.JObject = JsonConvert.DeserializeObject(jsonResult)
@@ -145,7 +122,72 @@ Public Class frmGoogleDriveApi
 
     End Function
 
-    Public Shared Function CriarLinkDropBox(NomeArquivo As String, NomePastaEmpresa As String) As String
+    Public Shared Function ReceberToken(NomeArquivo As String, NomePastaEmpresa As String) As String
+        Dim dadosConta As New clsJsonDropBox.clsCriarLink
+
+        dadosConta.path = "/" & NomePastaEmpresa & "/" & NomeArquivo & ""
+
+        Dim settings As JsonSerializerSettings = New JsonSerializerSettings()
+        settings.NullValueHandling = NullValueHandling.Ignore
+
+        Dim myData As String = JsonConvert.SerializeObject(dadosConta, settings)
+
+        System.Net.ServicePointManager.SecurityProtocol = 3072
+
+        Dim client As New WebClient
+        'client.Headers("Content-Type") = "application/octet-stream"
+        client.Headers("Content-Type") = "application/json"
+        client.Headers("Authorization") = "Bearer fIC5DvLUAqwAAAAAAAAAASG3cPReUZV1gMa1tW0G-hRiT8u0Z2psf0lY2LG-oKc4"
+        ServicePointManager.Expect100Continue = False
+
+        Dim strURL As String = "https://api.dropboxapi.com/2/sharing/create_shared_link_with_settings"
+
+        Try
+            'myData = "{\""path\"": \""/tesstee/math\"",\"": false}"
+            'myData = "{""path"":""/ge/32"",""autorename"":false}"
+
+            Dim jsonBytes As Byte() = Encoding.UTF8.GetBytes(myData)
+            Dim jsonResult As String = Encoding.UTF8.GetString(client.UploadData(strURL, "POST", jsonBytes))
+            Dim successResult As Linq.JObject = JsonConvert.DeserializeObject(jsonResult)
+            strLinkDownloadAnexo = successResult("url").ToString.Replace("dl=0", "dl=1")
+
+
+            'Dim filename As String = "C:\test\birthday.mp3"
+
+            'Dim dataBytes() As Byte = IO.File.ReadAllBytes(filename)
+            'Dim dataStream = New MemoryStream(dataBytes)
+            'request.Content = New StreamContent(dataStream)
+
+            'request.Content.Headers.ContentType = MediaTypeHeaderValue.Parse("audio/mpeg")
+
+            ' Do the upload
+            'Dim response = httpClient.SendAsync(request).Result
+            Dim json As String = JsonConvert.SerializeObject(successResult, Formatting.Indented)
+            Return json
+        Catch ex As WebException
+            strLinkDownloadAnexo = ""
+            Dim strErro As String = ""
+            Dim strJson As String = ""
+            Try
+                Dim response As String = New StreamReader(ex.Response.GetResponseStream()).ReadToEnd()
+
+                If response.Contains("error") = True Then
+                    Dim successResult2 As Linq.JObject = JsonConvert.DeserializeObject(response)
+                    strJson = JsonConvert.SerializeObject(successResult2, Formatting.Indented)
+                    Dim strCod As String = successResult2.Item("error")("code").ToString
+                    strErro = successResult2.Item("error")("description").ToString
+
+                End If
+            Catch ex2 As Exception
+            End Try
+            MsgBox(strErro & vbCrLf & ex.Message, MsgBoxStyle.Information)
+            Return strJson
+
+
+        End Try
+    End Function
+
+    Public Shared Function CriarLinkGoogleDrive(NomeArquivo As String, NomePastaEmpresa As String) As String
         Dim dadosConta As New clsJsonDropBox.clsCriarLink
 
         dadosConta.path = "/" & NomePastaEmpresa & "/" & NomeArquivo & ""
@@ -214,7 +256,7 @@ Public Class frmGoogleDriveApi
         mybyte = File.ReadAllBytes(caminho)
     End Function
 
-    Public Shared Function DeletarArquivoDropBox(ByVal caminho As String)
+    Public Shared Function DeletarArquivoGoogleDrive(ByVal caminho As String)
         Dim dadosConta As New clsJsonDropBox.clsDeletarArquivo
 
         dadosConta.path = caminho
@@ -276,7 +318,7 @@ Public Class frmGoogleDriveApi
         End Try
     End Function
 
-    Public Shared Function ListarArquivosDropBox(ByVal CaminhoPastaEmpresa As String)
+    Public Shared Function ListarArquivosGoogleDrive(ByVal CaminhoPastaEmpresa As String)
         Dim dadosConta As New clsJsonDropBox.clsListarArquivos
 
         dadosConta.path = CaminhoPastaEmpresa
@@ -345,7 +387,7 @@ Public Class frmGoogleDriveApi
         End Try
     End Function
 
-    Public Shared Function RecuperarLinkDropBox(NomeArquivo As String, NomePastaEmpresa As String) As String
+    Public Shared Function RecuperarLinkGoogleDrive(NomeArquivo As String, NomePastaEmpresa As String) As String
         Dim dadosConta As New clsJsonDropBox.clsCriarLink
 
         dadosConta.path = "/" & NomePastaEmpresa & "/" & NomeArquivo & ""
@@ -429,5 +471,4 @@ Public Class frmGoogleDriveApi
         End Using
     End Function
 
-End Class
 End Class

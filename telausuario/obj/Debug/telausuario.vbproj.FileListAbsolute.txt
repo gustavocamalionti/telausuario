@@ -91,3 +91,4 @@ C:\Users\Usuario\Downloads\telausuario-main (6)\telausuario-main\telausuario\obj
 C:\Users\Usuario\Downloads\telausuario-main (6)\telausuario-main\telausuario\obj\Debug\telausuario.relEtiquetaArdoxGarantia.resources
 C:\Users\Usuario\Downloads\telausuario-main (6)\telausuario-main\telausuario\obj\Debug\telausuario.vbproj.GenerateResource.Cache
 C:\Users\Usuario\Downloads\telausuario-main (6)\telausuario-main\telausuario\obj\Debug\telausuario.exe.licenses
+C:\Users\Usuario\Documents\Visual Studio 2013\Projects\telausuario\telausuario\obj\Debug\telausuario.frmWhatsappDrive.resources
