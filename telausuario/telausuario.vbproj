@@ -124,10 +124,8 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\ClassesJson.vb" />
     <Compile Include="Classes\clsFuncoesDropBox.vb" />
     <Compile Include="Classes\clsJsonDropBox.vb" />
-    <Compile Include="Classes\clsGoogleDriveApi.vb" />
     <Compile Include="Classes\modBloqueios.vb" />
     <Compile Include="Classes\clsBanco.vb" />
     <Compile Include="Classes\modFuncoes.vb" />
@@ -198,12 +196,6 @@
       <DependentUpon>WebBrowser.vb</DependentUpon>
     </Compile>
     <Compile Include="Desafios\WebBrowser.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forms\frmWhatsappDrive.Designer.vb">
-      <DependentUpon>frmWhatsappDrive.vb</DependentUpon>
-    </Compile>
-    <Compile Include="forms\frmWhatsappDrive.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -312,9 +304,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmWhatsapp.resx">
       <DependentUpon>frmWhatsapp.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="forms\frmWhatsappDrive.resx">
-      <DependentUpon>frmWhatsappDrive.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\menu.resx">
       <DependentUpon>menu.vb</DependentUpon>
