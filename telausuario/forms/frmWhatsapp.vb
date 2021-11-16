@@ -5,6 +5,7 @@ Imports telausuario.modFuncoes
 Imports Microsoft.Win32
 Imports System.Threading
 Imports System.IO
+
 Public Class frmWhatsapp
     Dim bolCelular As Boolean
     Dim CodigoCliente As Integer
@@ -12,61 +13,57 @@ Public Class frmWhatsapp
     Dim TituloMsgAutomatica As String = ""
     Dim NomeArquivo As String = ""
 
-    Private mThreadExcluirArquivosDropBox As Thread
+    Private mThreadExcluirArquivosFtp As Thread
     Private Sub frmWhatsapp_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Limpar()
         CarregarGrid()
         CarregarComboBox()
         lblCliente.Visible = False
 
-        IniciaThreadExcluirArquivosDropBox()
+        IniciaThreadExcluirArquivosftp()
 
     End Sub
 
-    Public Sub IniciaThreadExcluirArquivosDropBox()
-        mThreadExcluirArquivosDropBox = New Threading.Thread(AddressOf VerificaExcluirArquivosDropBox)
-        mThreadExcluirArquivosDropBox.Start()
+    Public Sub IniciaThreadExcluirArquivosftp()
+        mThreadExcluirArquivosFtp = New Threading.Thread(AddressOf VerificaExcluirArquivosFtp)
+        mThreadExcluirArquivosFtp.Start()
     End Sub
-    Private Sub VerificaExcluirArquivosDropBox()
-        clsFuncoesDropBox.CriarPastaDropBox("/" & NomeEmpresa & "")
-        clsFuncoesDropBox.ListarArquivosDropBox("/" & NomeEmpresa & "")
-
-        'Deletar arquivos
-        Dim I As Integer
-        For I = 0 To dtListaArquivosDropBox.Rows.Count - 1
-            Dim data As DateTime = dtListaArquivosDropBox.Rows.Item(I).Item("client_modified").ToString.Substring(0, 10)
-            Dim dataParaExclusao As DateTime = data.AddDays(2)
-            If Today >= dataParaExclusao Then
-                clsFuncoesDropBox.DeletarArquivoDropBox("/" & NomeEmpresa & "/" & dtListaArquivosDropBox.Rows.Item(I).Item("name").ToString & "")
-            End If
-
-            'If data Then
-        Next
-
-
+    Private Sub VerificaExcluirArquivosFtp()
+        AnaliseArquivosFtp(StringConexaoFTP & CNPJEmpresa, LoginFTP, SenhaFTP)
     End Sub
 
-    Public Shared Function VerificarArquivoDropbox(nomeArquivo As String) As Boolean
-        dtListaArquivosDropBox.Clear()
-        clsFuncoesDropBox.ListarArquivosDropBox("/" & NomeEmpresa & "")
-        If dtListaArquivosDropBox.Rows.Count > 0 Then
-            Dim I As Integer
-            For I = 0 To dtListaArquivosDropBox.Rows.Count - 1
-                If dtListaArquivosDropBox.Rows.Item(I).Item("name").ToString = nomeArquivo Then
-                    Dim file As FileInfo = New FileInfo(strCaminhoArquivo)
+    Private Sub VerificarArquivo(ByVal parNomeArquivo As String, ByVal parVerificar As Boolean, ByRef parRetorno As Boolean, ByVal CaminhoArquivo As String)
+        Dim strURL As String = ""
+        parRetorno = False
 
-                    If dtListaArquivosDropBox.Rows.Item(I).Item("size") = file.Length Then
-                        Return True
-                    Else
-                        Return False
-                    End If
 
+        If parVerificar = True Then
+            strURL = String.Format(StringConexaoFTP & "{0}/", CNPJEmpresa)
+
+            If CheckIfFIlesExists(strURL, LoginFTP, SenhaFTP) = False Then
+                If CriarPastaFtp(strURL, LoginFTP, SenhaFTP, "" & CNPJEmpresa & "") = False Then
+                    parRetorno = False
+                    Exit Sub
                 End If
-            Next
-            Return False
+            End If
         End If
-        Return False
-    End Function
+
+        strURL = String.Format(StringConexaoFTP & "{0}/{1}", CNPJEmpresa, parNomeArquivo)
+
+        If ExcluirImagemFtp(CaminhoArquivo & parNomeArquivo, strURL, LoginFTP, SenhaFTP) = False Then
+            'MsgBox("Erro ao excluir imagem " & parNomeImagem & " do produto!", MsgBoxStyle.Information)
+            'parRetorno = False
+            'Exit Sub
+        End If
+
+        If InserirImagemFtp(CaminhoArquivo & parNomeArquivo, strURL, LoginFTP, SenhaFTP) = False Then
+            'MsgBox("Erro ao inserir imagem " & parNomeImagem & " do produto!", MsgBoxStyle.Information)
+            parRetorno = False
+            Exit Sub
+        Else
+            parRetorno = True
+        End If
+    End Sub
     Private Sub CarregarComboBox()
         Dim dtPesquisarMsgAutomatica As DataTable = CarregarDataTable("select * from MensagemWhatsapp")
 
@@ -241,25 +238,18 @@ Public Class frmWhatsapp
 
                     End If
             End Select
+            
+
             If cboEnviarArquivo.Text <> "" Then
-                VerificarArquivoDropbox(NomeArquivo)
-                If VerificarArquivoDropbox(NomeArquivo) = False Then
-                    clsFuncoesDropBox.UploadDropBox(NomeArquivo, NomeEmpresa)
-                    clsFuncoesDropBox.CriarLinkDropBox(NomeArquivo, NomeEmpresa)
-                Else
-                    clsFuncoesDropBox.RecuperarLinkDropBox(NomeArquivo, NomeEmpresa)
-                End If
+                Dim indexUltimaBarra As String = cboEnviarArquivo.Text.LastIndexOf("\")
+                Dim NomeArquivo As String = cboEnviarArquivo.Text.Substring(indexUltimaBarra + 1, (cboEnviarArquivo.Text.Count - 1) - (indexUltimaBarra))
+                NomeArquivo = removeAcentos(NomeArquivo)
+                Dim CaminhoPastaArquivo As String = cboEnviarArquivo.Text.Replace("" & NomeArquivo & "", "")
+                VerificarArquivo("" & NomeArquivo & "", True, False, "" & CaminhoPastaArquivo & "")
+                strLinkDownloadAnexo = "https://nanoapp.com.br/whatsapp/cnpj/" & CNPJEmpresa & "/" & NomeArquivo & ""
+                Endereco = Endereco & "%0A%0ABaixe%20Clicando%20aqui: " & strLinkDownloadAnexo & ""
 
-
-                Endereco = Endereco & "%0A%0ABaixe%20Clicando%20aqui: " & strLinkDownloadAnexo & "%0A%0ACaso%20não%20consiga%20visualizar%20o%20arquivo,%20instale%20no%20seu%20dispositivo%20o%20aplicativo%20*dropbox*"
             End If
-
-            'If cboEnviarArquivo.Text <> "" Then
-            'Dim indexUltimaBarra As String = cboEnviarArquivo.Text.LastIndexOf("\")
-            'Dim NomeArquivo As String = cboEnviarArquivo.Text.Substring(indexUltimaBarra + 1, (cboEnviarArquivo.Text.Count - 1) - (indexUltimaBarra))
-            'Dim CaminhoPastaArquivo As String = cboEnviarArquivo.Text.Replace("" & NomeArquivo & "", "")
-            'VerificarArquivo("" & NomeArquivo & "", True, False, "" & CaminhoPastaArquivo & "")
-            'End If
 
             System.Diagnostics.Process.Start(Endereco)
 
@@ -387,8 +377,10 @@ Public Class frmWhatsapp
             If dialog.ShowDialog() <> DialogResult.OK Then Return
             strCaminhoArquivo = dialog.FileName
 
+
             Dim indexUltimaBarraAntesVerificacao As String = strCaminhoArquivo.LastIndexOf("\")
             NomeArquivo = strCaminhoArquivo.Substring(indexUltimaBarraAntesVerificacao + 1, (strCaminhoArquivo.Count - 1) - (indexUltimaBarraAntesVerificacao))
+
 
             'Verificacao
             Try
@@ -405,16 +397,22 @@ Public Class frmWhatsapp
 
                 'Se no nome do arquivo conter espaços, eles serão substituidos por -
                 file = Nothing
-                My.Computer.FileSystem.RenameFile(strCaminhoArquivo, NomeArquivo.Replace(" ", "-"))
-                strCaminhoArquivo = strCaminhoArquivo.Replace(NomeArquivo, NomeArquivo.Replace(" ", "-"))
+
+                My.Computer.FileSystem.RenameFile(strCaminhoArquivo, removeAcentos(NomeArquivo.Replace(" ", "-")))
+                strCaminhoArquivo = strCaminhoArquivo.Replace(NomeArquivo, removeAcentos(NomeArquivo).Replace(" ", "-"))
+
 
             Catch ex As Exception
             End Try
-            NomeArquivo = NomeArquivo.Replace(" ", "-")
+            NomeArquivo = removeAcentos(NomeArquivo).Replace(" ", "-")
             Me.cboEnviarArquivo.Text = strCaminhoArquivo
 
 
         End Using
+    End Sub
+
+    Private Sub cboEnviarArquivo_ClientSizeChanged(sender As Object, e As EventArgs) Handles cboEnviarArquivo.ClientSizeChanged
+
     End Sub
 
     Private Sub cboEnviarArquivo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboEnviarArquivo.KeyPress
@@ -446,5 +444,21 @@ Public Class frmWhatsapp
             Me.txtNumeroComDdd.Select()
             Me.txtNumeroComDdd.SelectionStart = Me.txtNumeroComDdd.Text.Length
         End If
+    End Sub
+
+    Private Sub cboEnviarArquivo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboEnviarArquivo.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
+        Dim listaArquivos As Array = AnaliseArquivosFtp(StringConexaoFTP & CNPJEmpresa, LoginFTP, SenhaFTP)
+    End Sub
+
+    Private Sub SimpleButton2_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub PanelControl1_Paint(sender As Object, e As PaintEventArgs) Handles PanelControl1.Paint
+
     End Sub
 End Class

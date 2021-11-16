@@ -4,6 +4,7 @@ Imports System.Data
 Imports System.Data.Sql
 Imports System.Data.SqlClient
 Imports System.IO
+Imports System.Reflection
 
 Public Class clsFuncao
 
@@ -380,8 +381,68 @@ Public Class clsFuncao
         End Try
     End Function
 
-    
+    Public Shared Function removeAcentos(ByVal texto As String) As String
+        Dim vPos As Byte
 
+        Const vComAcento = "ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜàáâãäåçèéêëìíîïòóôõöùúûü"
+        Const vSemAcento = "AAAAAACEEEEIIIIOOOOOUUUUaaaaaaceeeeiiiiooooouuuu"
+
+        For i = 1 To Len(texto)
+            vPos = InStr(1, vComAcento, Mid(texto, i, 1))
+            If vPos > 0 Then
+                Mid(texto, i, 1) = Mid(vSemAcento, vPos, 1)
+            End If
+        Next
+        removeAcentos = texto
+    End Function
+
+    Public Shared Function AnaliseArquivosFtp(ByVal parURL As String, ByVal username As String, ByVal password As String) As Array
+
+        Dim request As System.Net.FtpWebRequest = CType(System.Net.WebRequest.Create(New Uri(parURL)), System.Net.FtpWebRequest)
+        request.Credentials = New System.Net.NetworkCredential(username, password)
+        request.Method = System.Net.WebRequestMethods.Ftp.ListDirectoryDetails
+        Dim sr As New StreamReader(request.GetResponse().GetResponseStream())
+        Dim str As String = sr.ReadLine()
+
+        Dim dtItens As New DataTable
+        dtItens.Columns.Add(New DataColumn("Coluna1", GetType(String)))
+        Dim I As Integer = 0
+        While Not str Is Nothing
+            dtItens.Rows.Add()
+            dtItens.Rows.Item(I).Item("Coluna1") = str
+            I += 1
+            str = sr.ReadLine()
+        End While
+        sr.Close()
+        sr = Nothing
+        Dim list = dtItens.Rows.Cast(Of DataRow).ToList
+        request = Nothing
+
+        Dim z As Integer = 0
+        For z = 2 To dtItens.Rows.Count - 1
+            Dim item As String = dtItens.Rows.Item(z).Item("Coluna1").ToString
+            Dim BuscaData As Array = item.Split()
+
+            Dim NomeArquivo As String = BuscaData(14).ToString
+            Dim dataModificacao As Date = DataArquivoFtp(parURL & "/" & NomeArquivo, LoginFTP, SenhaFTP).ToString
+            Dim dtDataLimite As Date = dataModificacao.AddMonths(2)
+
+            Dim DiferencaData As Integer = DateDiff(DateInterval.Month, Today, dtDataLimite)
+            If DiferencaData <= 0 Then
+                ExcluirImagemFtp(parURL & "/" & NomeArquivo, StringConexaoFTP & CNPJEmpresa, LoginFTP, SenhaFTP)
+            End If
+        Next
+    End Function
+
+    Public Shared Function DataArquivoFtp(sAdresse As String, sUser As String, sPass As String) As DateTime
+        Dim uriFTPFile As Uri = New Uri(sAdresse)
+        Dim ftpRequest As System.Net.FtpWebRequest = CType(System.Net.WebRequest.Create(uriFTPFile), System.Net.FtpWebRequest)
+        ftpRequest.Credentials = New System.Net.NetworkCredential(sUser, sPass)
+        ftpRequest.Method = System.Net.WebRequestMethods.Ftp.GetDateTimestamp
+        Dim ftpResponse As System.Net.FtpWebResponse = CType(ftpRequest.GetResponse(), System.Net.FtpWebResponse)
+        Dim dtLastModified As DateTime = ftpResponse.LastModified
+        Return dtLastModified
+    End Function
 
 End Class
 

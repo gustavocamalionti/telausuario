@@ -25,7 +25,7 @@
     Public AccessToken As String
     Public RefreshToken As String
 
-    'Public StringConexaoFTP As String = "ftp://207.244.245.160/nanoapp.com.br/public/uploads/arquivos/empresas/cnpj/"
-    'Public LoginFTP As String = "ftpuser"
-    'Public SenhaFTP As String = "Nano@@20221!@#"
+    Public StringConexaoFTP As String = "ftp://ftp.nanoapp.com.br/whatsapp/cnpj/"
+    Public LoginFTP As String = "nanoapp"
+    Public SenhaFTP As String = "Erp@2019era"
 End Module
