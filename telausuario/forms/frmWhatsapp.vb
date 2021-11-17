@@ -450,7 +450,7 @@ Public Class frmWhatsapp
 
     End Sub
 
-    Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
+    Private Sub SimpleButton1_Click(sender As Object, e As EventArgs)
         Dim listaArquivos As Array = AnaliseArquivosFtp(StringConexaoFTP & CNPJEmpresa, LoginFTP, SenhaFTP)
     End Sub
 

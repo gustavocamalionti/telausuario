@@ -420,10 +420,14 @@ Public Class clsFuncao
 
         Dim z As Integer = 0
         For z = 2 To dtItens.Rows.Count - 1
-            Dim item As String = dtItens.Rows.Item(z).Item("Coluna1").ToString
-            Dim BuscaData As Array = item.Split()
-
-            Dim NomeArquivo As String = BuscaData(14).ToString
+            Dim item As String = dtItens.Rows.Item(z).Item("Coluna1").ToString.Replace(" ", "/")
+            Dim BuscaData As Array = item.Split("/")
+            Dim NomeArquivo As String
+            Try
+                Dim PosNomeArquivo As Integer = BuscaData.Length - 1
+                NomeArquivo = BuscaData(PosNomeArquivo).ToString
+            Catch
+            End Try
             Dim dataModificacao As Date = DataArquivoFtp(parURL & "/" & NomeArquivo, LoginFTP, SenhaFTP).ToString
             Dim dtDataLimite As Date = dataModificacao.AddMonths(2)
 
