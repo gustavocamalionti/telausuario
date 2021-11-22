@@ -2,6 +2,7 @@
 Imports telausuario.clsFuncao
 Imports telausuario.clsBanco
 Imports telausuario.modFuncoes
+Imports telausuario.clsWebHook
 Imports Microsoft.Win32
 Imports System.Threading
 Imports System.IO
@@ -446,19 +447,12 @@ Public Class frmWhatsapp
         End If
     End Sub
 
-    Private Sub cboEnviarArquivo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboEnviarArquivo.SelectedIndexChanged
-
-    End Sub
-
     Private Sub SimpleButton1_Click(sender As Object, e As EventArgs)
         Dim listaArquivos As Array = AnaliseArquivosFtp(StringConexaoFTP & CNPJEmpresa, LoginFTP, SenhaFTP)
     End Sub
 
-    Private Sub SimpleButton2_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub PanelControl1_Paint(sender As Object, e As PaintEventArgs) Handles PanelControl1.Paint
-
+    Private Sub SimpleButton1_Click_1(sender As Object, e As EventArgs) Handles SimpleButton1.Click
+        WHClick()
+        WHListarEventos()
     End Sub
 End Class

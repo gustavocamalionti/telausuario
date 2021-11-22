@@ -7,8 +7,6 @@ Imports System.IO
 Imports System.Reflection
 
 Public Class clsFuncao
-
-
     'conexao com o banco para select no campo
     Public Shared Function CarregarDados(ByVal parQuery As String, ByVal parGrid As DevExpress.XtraGrid.GridControl) As Boolean
         parQuery = "SET DATEFORMAT dmy " & parQuery
@@ -397,7 +395,6 @@ Public Class clsFuncao
     End Function
 
     Public Shared Function AnaliseArquivosFtp(ByVal parURL As String, ByVal username As String, ByVal password As String) As Array
-
         Dim request As System.Net.FtpWebRequest = CType(System.Net.WebRequest.Create(New Uri(parURL)), System.Net.FtpWebRequest)
         request.Credentials = New System.Net.NetworkCredential(username, password)
         request.Method = System.Net.WebRequestMethods.Ftp.ListDirectoryDetails
@@ -447,7 +444,6 @@ Public Class clsFuncao
         Dim dtLastModified As DateTime = ftpResponse.LastModified
         Return dtLastModified
     End Function
-
 End Class
 
 

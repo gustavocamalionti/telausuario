@@ -124,6 +124,8 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\clsJson.vb" />
+    <Compile Include="Classes\clsWebHook.vb" />
     <Compile Include="Classes\modBloqueios.vb" />
     <Compile Include="Classes\clsBanco.vb" />
     <Compile Include="Classes\modFuncoes.vb" />
