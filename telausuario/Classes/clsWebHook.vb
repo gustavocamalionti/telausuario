@@ -164,7 +164,7 @@ Public Class clsWebHook
 
         ServicePointManager.Expect100Continue = False
 
-        Dim strURL As String = "https://webhook.site/ebcd180e-e2f2-4ff2-ae84-b1745e1d959c/token"
+        Dim strURL As String = "https://hookb.in/3OY01nNwPXi7yakkygb8"
 
         Try
             'myData = "{\""path\"": \""/tesstee/math\"",\"": false}"
@@ -202,7 +202,7 @@ Public Class clsWebHook
         Dim tempcookies As New CookieContainer
         Dim encoding As New UTF8Encoding
 
-        Dim postreq As HttpWebRequest = DirectCast(HttpWebRequest.Create("https://webhook.site/ebcd180e-e2f2-4ff2-ae84-b1745e1d959c/send_request"), HttpWebRequest)
+        Dim postreq As HttpWebRequest = DirectCast(HttpWebRequest.Create("https://hookb.in/3OY01nNwPXi7yakkygb8"), HttpWebRequest)
         postreq.Method = "GET"
         postreq.KeepAlive = True
         postreq.CookieContainer = tempcookies
