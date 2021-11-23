@@ -412,9 +412,6 @@ Public Class frmWhatsapp
         End Using
     End Sub
 
-    Private Sub cboEnviarArquivo_ClientSizeChanged(sender As Object, e As EventArgs) Handles cboEnviarArquivo.ClientSizeChanged
-
-    End Sub
 
     Private Sub cboEnviarArquivo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboEnviarArquivo.KeyPress
         e.Handled = True
@@ -452,7 +449,13 @@ Public Class frmWhatsapp
     End Sub
 
     Private Sub SimpleButton1_Click_1(sender As Object, e As EventArgs) Handles SimpleButton1.Click
+        WHPost()
+        WHGet()
         WHClick()
         WHListarEventos()
+    End Sub
+
+    Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles SimpleButton2.Click
+
     End Sub
 End Class

@@ -186,6 +186,12 @@
     <Compile Include="forms\frmLogin.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="forms\frmSelecionarNumero.Designer.vb">
+      <DependentUpon>frmSelecionarNumero.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmSelecionarNumero.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="forms\frmWhatsapp.Designer.vb">
       <DependentUpon>frmWhatsapp.vb</DependentUpon>
     </Compile>
@@ -301,6 +307,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmLogin.resx">
       <DependentUpon>frmLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmSelecionarNumero.resx">
+      <DependentUpon>frmSelecionarNumero.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmWhatsapp.resx">
       <DependentUpon>frmWhatsapp.vb</DependentUpon>
@@ -569,6 +578,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\circulotesteborda.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salvar_18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancelar_18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\share_18.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

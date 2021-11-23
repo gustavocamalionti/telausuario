@@ -63,6 +63,10 @@ telausuario
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
+</member><member name="P:telausuario.My.Resources.Resources.cancelar_18">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
 </member><member name="P:telausuario.My.Resources.Resources.circulo_branco">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -227,7 +231,15 @@ telausuario
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
+</member><member name="P:telausuario.My.Resources.Resources.salvar_18">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
 </member><member name="P:telausuario.My.Resources.Resources.Senha">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:telausuario.My.Resources.Resources.share_18">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

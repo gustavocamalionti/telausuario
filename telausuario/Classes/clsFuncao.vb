@@ -444,6 +444,7 @@ Public Class clsFuncao
         Dim dtLastModified As DateTime = ftpResponse.LastModified
         Return dtLastModified
     End Function
+
 End Class
 
 
