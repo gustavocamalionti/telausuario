@@ -21,7 +21,7 @@ Public Class frmWhatsapp
         CarregarComboBox()
         lblCliente.Visible = False
 
-        IniciaThreadExcluirArquivosftp()
+        'IniciaThreadExcluirArquivosftp()
 
     End Sub
 
@@ -448,14 +448,8 @@ Public Class frmWhatsapp
         Dim listaArquivos As Array = AnaliseArquivosFtp(StringConexaoFTP & CNPJEmpresa, LoginFTP, SenhaFTP)
     End Sub
 
-    Private Sub SimpleButton1_Click_1(sender As Object, e As EventArgs) Handles SimpleButton1.Click
-        WHPost()
-        WHGet()
-        WHClick()
-        WHListarEventos()
-    End Sub
 
-    Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles SimpleButton2.Click
+    Private Sub SimpleButton2_Click(sender As Object, e As EventArgs)
 
     End Sub
 End Class

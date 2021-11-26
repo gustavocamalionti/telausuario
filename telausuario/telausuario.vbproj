@@ -30,7 +30,7 @@
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
@@ -124,7 +124,9 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\clsFuncaoDropBox.vb" />
     <Compile Include="Classes\clsJson.vb" />
+    <Compile Include="Classes\clsJsonDropBox.vb" />
     <Compile Include="Classes\clsWebHook.vb" />
     <Compile Include="Classes\modBloqueios.vb" />
     <Compile Include="Classes\clsBanco.vb" />
@@ -143,6 +145,12 @@
     </Compile>
     <Compile Include="dsTelaUsuario.vb">
       <DependentUpon>dsTelaUsuario.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="forms-teste\frmDropBoxTeste.Designer.vb">
+      <DependentUpon>frmDropBoxTeste.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms-teste\frmDropBoxTeste.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="forms\frmCancelamento.designer.vb">
       <DependentUpon>frmCancelamento.vb</DependentUpon>
@@ -190,6 +198,12 @@
       <DependentUpon>frmSelecionarNumero.vb</DependentUpon>
     </Compile>
     <Compile Include="forms\frmSelecionarNumero.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms-teste\frmWebHookTeste.Designer.vb">
+      <DependentUpon>frmWebHookTeste.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms-teste\frmWebHookTeste.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="forms\frmWhatsapp.Designer.vb">
@@ -287,6 +301,9 @@
     <EmbeddedResource Include="Desafios\gato-rato.resx">
       <DependentUpon>gato-rato.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms-teste\frmDropBoxTeste.resx">
+      <DependentUpon>frmDropBoxTeste.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\frmCadPedido.resx">
       <DependentUpon>frmCadPedido.vb</DependentUpon>
     </EmbeddedResource>
@@ -310,6 +327,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmSelecionarNumero.resx">
       <DependentUpon>frmSelecionarNumero.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms-teste\frmWebHookTeste.resx">
+      <DependentUpon>frmWebHookTeste.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmWhatsapp.resx">
       <DependentUpon>frmWhatsapp.vb</DependentUpon>

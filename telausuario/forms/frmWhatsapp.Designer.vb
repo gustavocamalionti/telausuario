@@ -80,7 +80,6 @@ Partial Class frmWhatsapp
         Me.lblMensagemConfig = New DevExpress.XtraEditors.LabelControl()
         Me.lblTituloConfig = New DevExpress.XtraEditors.LabelControl()
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
-        Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
         Me.PanelControl3 = New DevExpress.XtraEditors.PanelControl()
         Me.PanelControl5 = New DevExpress.XtraEditors.PanelControl()
         Me.PictureEdit2 = New DevExpress.XtraEditors.PictureEdit()
@@ -89,7 +88,6 @@ Partial Class frmWhatsapp
         Me.lblCliente = New DevExpress.XtraEditors.LabelControl()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.ofdImagem = New System.Windows.Forms.OpenFileDialog()
-        Me.SimpleButton2 = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.grdListaClientes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dsListaContato, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dtListaContato, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -730,8 +728,6 @@ Partial Class frmWhatsapp
         Me.PanelControl1.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(18, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.PanelControl1.Appearance.Options.UseBackColor = True
         Me.PanelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.PanelControl1.Controls.Add(Me.SimpleButton2)
-        Me.PanelControl1.Controls.Add(Me.SimpleButton1)
         Me.PanelControl1.Controls.Add(Me.PanelControl3)
         Me.PanelControl1.Controls.Add(Me.lblCliente)
         Me.PanelControl1.Controls.Add(Me.tabPrincipal)
@@ -742,14 +738,6 @@ Partial Class frmWhatsapp
         Me.PanelControl1.Name = "PanelControl1"
         Me.PanelControl1.Size = New System.Drawing.Size(956, 487)
         Me.PanelControl1.TabIndex = 32
-        '
-        'SimpleButton1
-        '
-        Me.SimpleButton1.Location = New System.Drawing.Point(693, 24)
-        Me.SimpleButton1.Name = "SimpleButton1"
-        Me.SimpleButton1.Size = New System.Drawing.Size(75, 23)
-        Me.SimpleButton1.TabIndex = 34
-        Me.SimpleButton1.Text = "SimpleButton1"
         '
         'PanelControl3
         '
@@ -830,14 +818,6 @@ Partial Class frmWhatsapp
         'ofdImagem
         '
         Me.ofdImagem.FileName = "OpenFileDialog2"
-        '
-        'SimpleButton2
-        '
-        Me.SimpleButton2.Location = New System.Drawing.Point(793, 24)
-        Me.SimpleButton2.Name = "SimpleButton2"
-        Me.SimpleButton2.Size = New System.Drawing.Size(75, 23)
-        Me.SimpleButton2.TabIndex = 35
-        Me.SimpleButton2.Text = "SimpleButton2"
         '
         'frmWhatsapp
         '
@@ -955,6 +935,4 @@ Partial Class frmWhatsapp
     Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents PictureEdit2 As DevExpress.XtraEditors.PictureEdit
     Friend WithEvents LabelControl5 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents SimpleButton2 As DevExpress.XtraEditors.SimpleButton
 End Class

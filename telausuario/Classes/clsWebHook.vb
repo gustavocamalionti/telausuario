@@ -6,119 +6,8 @@ Imports System.Text
 Imports System.IO
 Imports Newtonsoft.Json.Converters
 Public Class clsWebHook
-    Public Shared Function WHListarEventos() As String
-        Dim dadosConta As New clsJson.clsWBListarEventos
 
-        'dadosConta.Type = "extract_jsonpath"
-
-        Dim settings As JsonSerializerSettings = New JsonSerializerSettings()
-        settings.NullValueHandling = NullValueHandling.Ignore
-
-        Dim myData As String = JsonConvert.SerializeObject(dadosConta, settings)
-
-        System.Net.ServicePointManager.SecurityProtocol = 3072
-
-        Dim client As New WebClient
-        'client.Headers("Content-Type") = "application/octet-stream"
-        client.Headers("Content-Type") = "application/json"
-        client.Headers("Accept") = "application/json"
-
-        ServicePointManager.Expect100Continue = False
-
-        Dim strURL As String = "https://hookb.in/oXrn6RWl7KtBnPZZnjpo"
-
-
-        Try
-            'myData = "{\""path\"": \""/tesstee/math\"",\"": false}"
-            'myData = "{""path"":""/ge/32"",""autorename"":false}"
-
-            Dim jsonBytes As Byte() = Encoding.UTF8.GetBytes(myData)
-            Dim webClient As New System.Net.WebClient
-            Dim jsonResult As String = webClient.DownloadString(strURL)
-            'Dim jsonResult As String = Encoding.UTF8.downloadString(client.UploadData(strURL, "POST", jsonBytes))
-
-            Dim successResult As Linq.JObject = JsonConvert.DeserializeObject(jsonResult)
-            'Dim strJson As String = successResult("click").ToString
-
-
-            'Dim filename As String = "C:\test\birthday.mp3"
-
-            'Dim dataBytes() As Byte = IO.File.ReadAllBytes(filename)
-            'Dim dataStream = New MemoryStream(dataBytes)
-            'request.Content = New StreamContent(dataStream)
-
-            'request.Content.Headers.ContentType = MediaTypeHeaderValue.Parse("audio/mpeg")
-
-            ' Do the upload
-            'Dim response = httpClient.SendAsync(request).Result
-
-        Catch ex As WebException
-            strLinkDownloadAnexo = ""
-            Dim strErro As String = ""
-            Dim strJson As String = ""
-            Try
-                Dim response As String = New StreamReader(ex.Response.GetResponseStream()).ReadToEnd()
-            Catch
-            End Try
-            MsgBox(strErro & vbCrLf & ex.Message, MsgBoxStyle.Information)
-            Return strJson
-
-        End Try
-    End Function
-
-    Public Shared Function WHClick() As String
-        Dim dadosConta As New clsJson.clsWBClick
-
-        dadosConta.click = True
-
-        Dim settings As JsonSerializerSettings = New JsonSerializerSettings()
-        settings.NullValueHandling = NullValueHandling.Ignore
-
-        Dim myData As String = JsonConvert.SerializeObject(dadosConta, settings)
-
-        System.Net.ServicePointManager.SecurityProtocol = 3072
-
-        Dim client As New WebClient
-        'client.Headers("Content-Type") = "application/octet-stream"
-        client.Headers("Content-Type") = "application/json"
-
-        ServicePointManager.Expect100Continue = False
-
-        Dim strURL As String = "https://hookb.in/oXrn6RWl7KtBnPZZnjpo"
-
-        Try
-            'myData = "{\""path\"": \""/tesstee/math\"",\"": false}"
-            'myData = "{""path"":""/ge/32"",""autorename"":false}"
-
-            Dim jsonBytes As Byte() = Encoding.UTF8.GetBytes(myData)
-            Dim jsonResult As String = Encoding.UTF8.GetString(client.UploadData(strURL, "POST", jsonBytes))
-
-            'Dim filename As String = "C:\test\birthday.mp3"
-
-            'Dim dataBytes() As Byte = IO.File.ReadAllBytes(filename)
-            'Dim dataStream = New MemoryStream(dataBytes)
-            'request.Content = New StreamContent(dataStream)
-
-            'request.Content.Headers.ContentType = MediaTypeHeaderValue.Parse("audio/mpeg")
-
-            ' Do the upload
-            'Dim response = httpClient.SendAsync(request).Result
-
-        Catch ex As WebException
-            strLinkDownloadAnexo = ""
-            Dim strErro As String = ""
-            Dim strJson As String = ""
-            Try
-                Dim response As String = New StreamReader(ex.Response.GetResponseStream()).ReadToEnd()
-            Catch
-            End Try
-            MsgBox(strErro & vbCrLf & ex.Message, MsgBoxStyle.Information)
-            Return strJson
-
-        End Try
-    End Function
-
-    Public Shared Function WHPost() As String
+    Public Shared Function WHPost(parStatusClick As Boolean) As String
 
         'Dim httpWebRequest As HttpWebRequest = WebRequest.Create("https://webhook.site/ebcd180e-e2f2-4ff2-ae84-b1745e1d959c/token")
 
@@ -148,7 +37,7 @@ Public Class clsWebHook
 
         Dim dadosConta As New clsJson.clsWBClick
 
-        dadosConta.click = True
+        dadosConta.click = parStatusClick
 
         Dim settings As JsonSerializerSettings = New JsonSerializerSettings()
         settings.NullValueHandling = NullValueHandling.Ignore
@@ -160,11 +49,14 @@ Public Class clsWebHook
         Dim client As New WebClient
         'client.Headers("Content-Type") = "application/octet-stream"
         client.Headers("Content-Type") = "application/json"
+        client.Headers("curl") = "4ae6zsh56luvva4eel2bzzyxosv9e7thdn8dy0qjzqwoge5njo"
+
+
 
 
         ServicePointManager.Expect100Continue = False
 
-        Dim strURL As String = "https://hookb.in/3OY01nNwPXi7yakkygb8"
+        Dim strURL As String = "https://events.hookdeck.com/e/src_9sHAtslS1HXXjxYez4tgmG5O"
 
         Try
             'myData = "{\""path\"": \""/tesstee/math\"",\"": false}"
@@ -172,6 +64,8 @@ Public Class clsWebHook
 
             Dim jsonBytes As Byte() = Encoding.UTF8.GetBytes(myData)
             Dim jsonResult As String = Encoding.UTF8.GetString(client.UploadData(strURL, "POST", jsonBytes))
+            Dim successResult As Linq.JObject = JsonConvert.DeserializeObject(jsonResult)
+            Dim resultado As String = ""
 
             'Dim filename As String = "C:\test\birthday.mp3"
 
@@ -198,21 +92,45 @@ Public Class clsWebHook
         End Try
     End Function
 
-    Public Shared Function WHGet() As String
-        Dim tempcookies As New CookieContainer
-        Dim encoding As New UTF8Encoding
+    Public Shared Function WHGetListEvents() As String
+        'A data enviada no link, é uma data fixa ou a data atual sempre?
+        Dim request As HttpWebRequest = CType(WebRequest.Create("https://api.hookdeck.com/2021-08-01/events?limit=10"), HttpWebRequest)
+        Dim user As String = "4ae6zsh56luvva4eel2bzzyxosv9e7thdn8dy0qjzqwoge5njo"
+        Dim password As String = ""
+        Dim encoded As String = System.Convert.ToBase64String(System.Text.Encoding.GetEncoding("ISO-8859-1").GetBytes(user + ":" + password))
+        request.Headers.Add("Authorization", "Basic " + encoded)
+        request.ContentType = "application/json"
+        request.Method = "GET"
+        request.Headers.Add("limit", "50")
+        Dim response As HttpWebResponse
+        response = CType(request.GetResponse(), HttpWebResponse)
+        Dim responseStream As Stream = response.GetResponseStream()
+        Dim responseStr As String = New StreamReader(responseStream).ReadToEnd()
+        Dim successResult As Linq.JObject = JsonConvert.DeserializeObject(responseStr)
 
-        Dim postreq As HttpWebRequest = DirectCast(HttpWebRequest.Create("https://hookb.in/3OY01nNwPXi7yakkygb8"), HttpWebRequest)
-        postreq.Method = "GET"
-        postreq.KeepAlive = True
-        postreq.CookieContainer = tempcookies
-        postreq.UserAgent = "Mozilla/5.0 (Windows; U; Windows NT 6.1; ru; rv:1.9.2.3) Gecko/20100401 Firefox/4.0 (.NET CLR 3.5.30729"
-        postreq.ContentType = "application/json"
-        Dim postresponse As HttpWebResponse
-        postresponse = DirectCast(postreq.GetResponse, HttpWebResponse)
-        tempcookies.Add(postresponse.Cookies)
+        'Dim postreqreader As New StreamReader(postresponse.GetResponseStream())
+        'Dim thepage As String = postreqreader.ReadToEnd
 
-        Dim postreqreader As New StreamReader(postresponse.GetResponseStream())
-        Dim thepage As String = postreqreader.ReadToEnd
     End Function
+
+    Public Shared Function WHGetEspecificEvent(idEvento As String) As String
+        Dim request As HttpWebRequest = CType(WebRequest.Create("https://api.hookdeck.com/2021-08-01/events/" & idEvento & ""), HttpWebRequest)
+        Dim user As String = "4ae6zsh56luvva4eel2bzzyxosv9e7thdn8dy0qjzqwoge5njo"
+        Dim password As String = ""
+        Dim encoded As String = System.Convert.ToBase64String(System.Text.Encoding.GetEncoding("ISO-8859-1").GetBytes(user + ":" + password))
+        request.Headers.Add("Authorization", "Basic " + encoded)
+        request.ContentType = "application/json"
+        request.Method = "GET"
+        request.ContentLength = 0
+        Dim response As HttpWebResponse
+        response = CType(request.GetResponse(), HttpWebResponse)
+        Dim responseStream As Stream = response.GetResponseStream()
+        Dim responseStr As String = New StreamReader(responseStream).ReadToEnd()
+        Dim successResult As Linq.JObject = JsonConvert.DeserializeObject(responseStr)
+
+        'Dim postreqreader As New StreamReader(postresponse.GetResponseStream())
+        'Dim thepage As String = postreqreader.ReadToEnd
+
+    End Function
+
 End Class
