@@ -132,10 +132,17 @@
     <Compile Include="Classes\clsBanco.vb" />
     <Compile Include="Classes\modFuncoes.vb" />
     <Compile Include="Classes\clsFuncao.vb" />
+    <Compile Include="Desafios\Class1.vb" />
     <Compile Include="Desafios\jogo-da-velha.Designer.vb">
       <DependentUpon>jogo-da-velha.vb</DependentUpon>
     </Compile>
     <Compile Include="Desafios\jogo-da-velha.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Desafios\XtraForm1.Designer.vb">
+      <DependentUpon>XtraForm1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Desafios\XtraForm1.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="dsTelaUsuario.Designer.vb">
@@ -300,6 +307,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Desafios\gato-rato.resx">
       <DependentUpon>gato-rato.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Desafios\XtraForm1.resx">
+      <DependentUpon>XtraForm1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms-teste\frmDropBoxTeste.resx">
       <DependentUpon>frmDropBoxTeste.vb</DependentUpon>

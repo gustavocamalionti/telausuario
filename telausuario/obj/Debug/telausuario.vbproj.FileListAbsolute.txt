@@ -125,3 +125,4 @@ C:\Users\Usuario\Documents\Visual Studio 2013\Projects\telausuario\telausuario\o
 C:\Users\Usuario\Documents\Visual Studio 2013\Projects\telausuario\telausuario\obj\Debug\telausuario.vbprojResolveAssemblyReference.cache
 C:\Users\Usuario\Documents\Visual Studio 2013\Projects\telausuario\telausuario\obj\Debug\telausuario.frmWebHookTeste.resources
 C:\Users\Usuario\Documents\Visual Studio 2013\Projects\telausuario\telausuario\obj\Debug\telausuario.frmDropBoxTeste.resources
+C:\Users\Usuario\Documents\Visual Studio 2013\Projects\telausuario\telausuario\obj\Debug\telausuario.XtraForm1.resources

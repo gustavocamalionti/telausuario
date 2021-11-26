@@ -21,7 +21,7 @@
     Public strLinkDownloadAnexo As String
     Public strCaminhoArquivo As String
     Public mybyte As Byte()
-    Public dtListaArquivosDropBox As New DataTable
+
     Public AccessToken As String
     Public RefreshToken As String
 

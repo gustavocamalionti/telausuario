@@ -5,6 +5,9 @@ Imports System.Data.Sql
 Imports System.Data.SqlClient
 Imports System.IO
 Imports System.Reflection
+Imports System.IO.Compression
+Imports System.Text
+
 
 Public Class clsFuncao
     'conexao com o banco para select no campo
@@ -100,6 +103,63 @@ Public Class clsFuncao
 
     End Function
 
+    Public Shared Function CriarBackupBanco(ByVal parQuery As String) As Boolean
+        Try
+            parQuery = "SET DATEFORMAT dmy " & parQuery
+            Dim conexao As New SqlConnection(My.Settings.dsTelaUsuario)
+            Dim cmd As SqlCommand
+            conexao.Open()
+            cmd = New SqlCommand(parQuery, conexao)
+            cmd.ExecuteNonQuery()
+            cmd.UpdatedRowSource = UpdateRowSource.Both
+            conexao.Close()
+            Return True
+        Catch
+            MsgBox("ERRO. O SISTEMA PODE NÃO FUNCIONAR DIREITO.", MsgBoxStyle.Information)
+            Return False
+        End Try
+
+    End Function
+
+
+
+    Public Shared Function compactarArquivo(ByVal arquivoOrigem As String, ByVal arquivoDestino As String)
+
+
+        ' Descompacta a string compactada previamente.  primeiro , cria a entrada do arquivo stream
+        Dim streamFonte As New FileStream(arquivoOrigem, FileMode.Open, FileAccess.Read)
+
+        ' ----- Cria a saida do arquivo stream
+        Dim streamDestino As New FileStream(arquivoDestino, FileMode.Create, FileAccess.Write)
+
+        ' ----- Os bytes serão processados por um compressor de streams
+        Dim streamCompactado As New GZipStream(streamDestino, CompressionMode.Compress, True)
+
+        Try
+            ' ----- Processa os bytes de um arquivo para outro
+            Const tamanhoBloco As Integer = 4096
+            Dim buffer(tamanhoBloco) As Byte
+            Dim bytesLidos As Integer
+
+            Do
+                bytesLidos = streamFonte.Read(buffer, 0, tamanhoBloco)
+
+                If (bytesLidos = 0) Then Exit Do
+
+                streamCompactado.Write(buffer, 0, bytesLidos)
+            Loop
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+
+            ' ----- Fecha todos os streams
+            streamFonte.Close()
+            streamCompactado.Close()
+            streamDestino.Close()
+        End Try
+
+    End Function
     Public Shared Function BuscaCep(ByVal cep As String) As Hashtable
         Dim ds As DataSet
         Dim _resultado As String

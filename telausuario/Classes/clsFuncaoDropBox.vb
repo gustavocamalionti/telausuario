@@ -75,10 +75,10 @@ Public Class clsFuncaoDropBox
 
     End Function
 
-    Public Shared Function UploadDropBox(NomeArquivo As String, NomePastaEmpresa As String) As String
-
+    Public Shared Function UploadDropBox(NomeArquivo As String, CaminhoPastaDropbox As String) As String
+        strCaminhoArquivo = "C:\NANO\BD\dbTeste5.zip"
         Dim dadosConta As New clsJsonDropBox.clsUpload
-        dadosConta.path = "/" & NomePastaEmpresa & "/" & NomeArquivo & ""
+        dadosConta.path = "/" & CaminhoPastaDropbox & "/" & NomeArquivo & ""
         dadosConta.mode = "add"
         dadosConta.autorename = True
         dadosConta.mute = False
@@ -144,10 +144,10 @@ Public Class clsFuncaoDropBox
 
     End Function
 
-    Public Shared Function CriarLinkDropBox(NomeArquivo As String, NomePastaEmpresa As String) As String
+    Public Shared Function CriarLinkDropBox(NomeArquivo As String, CaminhoPastaDropbox As String) As String
         Dim dadosConta As New clsJsonDropBox.clsCriarLink
 
-        dadosConta.path = "/" & NomePastaEmpresa & "/" & NomeArquivo & ""
+        dadosConta.path = "/" & CaminhoPastaDropbox & "/" & NomeArquivo & ""
 
         Dim settings As JsonSerializerSettings = New JsonSerializerSettings()
         settings.NullValueHandling = NullValueHandling.Ignore
@@ -275,10 +275,11 @@ Public Class clsFuncaoDropBox
         End Try
     End Function
 
-    Public Shared Function ListarArquivosDropBox(ByVal CaminhoPastaEmpresa As String)
+    Public Shared Function ListarArquivosDropBox(ByVal CaminhoPastaDropbox As String) As DataTable
+        Dim dtListaArquivosDropBox As New DataTable
         Dim dadosConta As New clsJsonDropBox.clsListarArquivos
 
-        dadosConta.path = CaminhoPastaEmpresa
+        dadosConta.path = CaminhoPastaDropbox
 
         Dim settings As JsonSerializerSettings = New JsonSerializerSettings()
         settings.NullValueHandling = NullValueHandling.Ignore
@@ -310,9 +311,6 @@ Public Class clsFuncaoDropBox
 
             PopulateDataTable(strJson, dtListaArquivosDropBox)
 
-
-
-
             'Dim dataBytes() As Byte = IO.File.ReadAllBytes(filename)
             'Dim dataStream = New MemoryStream(dataBytes)
             'request.Content = New StreamContent(dataStream)
@@ -321,8 +319,8 @@ Public Class clsFuncaoDropBox
 
             ' Do the upload
             'Dim response = httpClient.SendAsync(request).Result
-            Dim json As String = JsonConvert.SerializeObject(successResult, Formatting.Indented)
-            Return json
+            'Dim json As String = JsonConvert.SerializeObject(successResult, Formatting.Indented)
+            Return dtListaArquivosDropBox
         Catch ex As WebException
             strLinkDownloadAnexo = ""
             Dim strErro As String = ""
@@ -339,7 +337,7 @@ Public Class clsFuncaoDropBox
                 End If
             Catch ex2 As Exception
             End Try
-            Return strJson
+            'Return strJson
 
         End Try
     End Function
@@ -359,7 +357,7 @@ Public Class clsFuncaoDropBox
         Dim client As New WebClient
         'client.Headers("Content-Type") = "application/octet-stream"
         client.Headers("Content-Type") = "application/json"
-        client.Headers("Authorization") = "Bearer fIC5DvLUAqwAAAAAAAAAASG3cPReUZV1gMa1tW0G-hRiT8u0Z2psf0lY2LG-oKc4"
+        client.Headers("Authorization") = "Bearer tsS3SIRj_SAAAAAAAAAAAZe_nOphlq6s7LwWc6JA5MAAdtcscgk9pVaP0IWPSiuR"
         ServicePointManager.Expect100Continue = False
 
         Dim strURL As String = "https://api.dropboxapi.com/2/sharing/list_shared_links"
@@ -416,7 +414,7 @@ Public Class clsFuncaoDropBox
 
         End Try
     End Function
-    Public Shared Function PopulateDataTable(json As String, target As DataTable, Optional settings As JsonSerializerSettings = Nothing)
+    Public Shared Function PopulateDataTable(ByVal json As String, ByRef target As DataTable, Optional settings As JsonSerializerSettings = Nothing)
         Using reader = New JsonTextReader(New StringReader(json))
             Do
                 If reader.TokenType = JsonToken.StartArray Then
