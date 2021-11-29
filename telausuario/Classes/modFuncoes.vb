@@ -17,6 +17,7 @@
     Public NomeProduto As String
     Public indexPedidoAtual As Integer
     Public NomeEmpresa As String = "SISTEMAS NANO"
+    Public strCaminhoArquivoZip As String
 
     Public strLinkDownloadAnexo As String
     Public strCaminhoArquivo As String

@@ -6,5 +6,6 @@
     Public Class clsWBListarEventos
         Public Property Type As String
     End Class
+
 End Class
 

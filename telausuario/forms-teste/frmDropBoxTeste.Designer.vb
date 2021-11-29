@@ -25,7 +25,7 @@ Partial Class frmDropBoxTeste
         Me.PanelControl7 = New DevExpress.XtraEditors.PanelControl()
         Me.lblStatus = New DevExpress.XtraEditors.LabelControl()
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
-        Me.btnDownload = New DevExpress.XtraEditors.SimpleButton()
+        Me.btnUltimoBackup = New DevExpress.XtraEditors.SimpleButton()
         Me.PanelControl2 = New DevExpress.XtraEditors.PanelControl()
         Me.btnListarArquivos = New DevExpress.XtraEditors.SimpleButton()
         Me.PanelControl4 = New DevExpress.XtraEditors.PanelControl()
@@ -34,6 +34,10 @@ Partial Class frmDropBoxTeste
         Me.btnBackupBanco = New DevExpress.XtraEditors.SimpleButton()
         Me.PanelControl6 = New DevExpress.XtraEditors.PanelControl()
         Me.btnCriarPasta = New DevExpress.XtraEditors.SimpleButton()
+        Me.PanelControl8 = New DevExpress.XtraEditors.PanelControl()
+        Me.btnVerificacoes = New DevExpress.XtraEditors.SimpleButton()
+        Me.PanelControl9 = New DevExpress.XtraEditors.PanelControl()
+        Me.btnFuncaoCompleta = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.PanelControl3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl3.SuspendLayout()
         CType(Me.grd1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -50,25 +54,30 @@ Partial Class frmDropBoxTeste
         Me.PanelControl5.SuspendLayout()
         CType(Me.PanelControl6, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl6.SuspendLayout()
+        CType(Me.PanelControl8, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelControl8.SuspendLayout()
+        CType(Me.PanelControl9, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelControl9.SuspendLayout()
         Me.SuspendLayout()
         '
         'PanelControl3
         '
+        Me.PanelControl3.Controls.Add(Me.PanelControl9)
         Me.PanelControl3.Controls.Add(Me.grd1)
         Me.PanelControl3.Controls.Add(Me.PanelControl7)
         Me.PanelControl3.Dock = System.Windows.Forms.DockStyle.Right
         Me.PanelControl3.Location = New System.Drawing.Point(196, 0)
         Me.PanelControl3.Name = "PanelControl3"
-        Me.PanelControl3.Size = New System.Drawing.Size(549, 205)
+        Me.PanelControl3.Size = New System.Drawing.Size(549, 248)
         Me.PanelControl3.TabIndex = 6
         '
         'grd1
         '
-        Me.grd1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.grd1.Dock = System.Windows.Forms.DockStyle.Left
         Me.grd1.Location = New System.Drawing.Point(2, 2)
         Me.grd1.MainView = Me.grdListagem
         Me.grd1.Name = "grd1"
-        Me.grd1.Size = New System.Drawing.Size(545, 163)
+        Me.grd1.Size = New System.Drawing.Size(416, 206)
         Me.grd1.TabIndex = 8
         Me.grd1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.grdListagem})
         '
@@ -83,7 +92,7 @@ Partial Class frmDropBoxTeste
         Me.PanelControl7.Appearance.Options.UseBackColor = True
         Me.PanelControl7.Controls.Add(Me.lblStatus)
         Me.PanelControl7.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PanelControl7.Location = New System.Drawing.Point(2, 165)
+        Me.PanelControl7.Location = New System.Drawing.Point(2, 208)
         Me.PanelControl7.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat
         Me.PanelControl7.LookAndFeel.UseDefaultLookAndFeel = False
         Me.PanelControl7.Name = "PanelControl7"
@@ -106,27 +115,27 @@ Partial Class frmDropBoxTeste
         '
         'PanelControl1
         '
-        Me.PanelControl1.Controls.Add(Me.btnDownload)
+        Me.PanelControl1.Controls.Add(Me.btnUltimoBackup)
         Me.PanelControl1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PanelControl1.Location = New System.Drawing.Point(0, 165)
+        Me.PanelControl1.Location = New System.Drawing.Point(0, 208)
         Me.PanelControl1.Name = "PanelControl1"
         Me.PanelControl1.Size = New System.Drawing.Size(196, 40)
         Me.PanelControl1.TabIndex = 7
         '
-        'btnDownload
+        'btnUltimoBackup
         '
-        Me.btnDownload.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnDownload.Location = New System.Drawing.Point(2, 2)
-        Me.btnDownload.Name = "btnDownload"
-        Me.btnDownload.Size = New System.Drawing.Size(192, 36)
-        Me.btnDownload.TabIndex = 6
-        Me.btnDownload.Text = "Download"
+        Me.btnUltimoBackup.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnUltimoBackup.Location = New System.Drawing.Point(2, 2)
+        Me.btnUltimoBackup.Name = "btnUltimoBackup"
+        Me.btnUltimoBackup.Size = New System.Drawing.Size(192, 36)
+        Me.btnUltimoBackup.TabIndex = 6
+        Me.btnUltimoBackup.Text = "Ultimo Backup"
         '
         'PanelControl2
         '
         Me.PanelControl2.Controls.Add(Me.btnListarArquivos)
         Me.PanelControl2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PanelControl2.Location = New System.Drawing.Point(0, 120)
+        Me.PanelControl2.Location = New System.Drawing.Point(0, 163)
         Me.PanelControl2.Name = "PanelControl2"
         Me.PanelControl2.Size = New System.Drawing.Size(196, 45)
         Me.PanelControl2.TabIndex = 8
@@ -144,7 +153,7 @@ Partial Class frmDropBoxTeste
         '
         Me.PanelControl4.Controls.Add(Me.btnUpload)
         Me.PanelControl4.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PanelControl4.Location = New System.Drawing.Point(0, 80)
+        Me.PanelControl4.Location = New System.Drawing.Point(0, 123)
         Me.PanelControl4.Name = "PanelControl4"
         Me.PanelControl4.Size = New System.Drawing.Size(196, 40)
         Me.PanelControl4.TabIndex = 9
@@ -162,7 +171,7 @@ Partial Class frmDropBoxTeste
         '
         Me.PanelControl5.Controls.Add(Me.btnBackupBanco)
         Me.PanelControl5.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PanelControl5.Location = New System.Drawing.Point(0, 40)
+        Me.PanelControl5.Location = New System.Drawing.Point(0, 83)
         Me.PanelControl5.Name = "PanelControl5"
         Me.PanelControl5.Size = New System.Drawing.Size(196, 40)
         Me.PanelControl5.TabIndex = 10
@@ -180,7 +189,7 @@ Partial Class frmDropBoxTeste
         '
         Me.PanelControl6.Controls.Add(Me.btnCriarPasta)
         Me.PanelControl6.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PanelControl6.Location = New System.Drawing.Point(0, 0)
+        Me.PanelControl6.Location = New System.Drawing.Point(0, 43)
         Me.PanelControl6.Name = "PanelControl6"
         Me.PanelControl6.Size = New System.Drawing.Size(196, 40)
         Me.PanelControl6.TabIndex = 11
@@ -194,11 +203,48 @@ Partial Class frmDropBoxTeste
         Me.btnCriarPasta.TabIndex = 2
         Me.btnCriarPasta.Text = "Criar Pasta"
         '
+        'PanelControl8
+        '
+        Me.PanelControl8.Controls.Add(Me.btnVerificacoes)
+        Me.PanelControl8.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.PanelControl8.Location = New System.Drawing.Point(0, 3)
+        Me.PanelControl8.Name = "PanelControl8"
+        Me.PanelControl8.Size = New System.Drawing.Size(196, 40)
+        Me.PanelControl8.TabIndex = 12
+        '
+        'btnVerificacoes
+        '
+        Me.btnVerificacoes.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnVerificacoes.Location = New System.Drawing.Point(2, 2)
+        Me.btnVerificacoes.Name = "btnVerificacoes"
+        Me.btnVerificacoes.Size = New System.Drawing.Size(192, 36)
+        Me.btnVerificacoes.TabIndex = 3
+        Me.btnVerificacoes.Text = "Verificações"
+        '
+        'PanelControl9
+        '
+        Me.PanelControl9.Controls.Add(Me.btnFuncaoCompleta)
+        Me.PanelControl9.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanelControl9.Location = New System.Drawing.Point(418, 2)
+        Me.PanelControl9.Name = "PanelControl9"
+        Me.PanelControl9.Size = New System.Drawing.Size(129, 206)
+        Me.PanelControl9.TabIndex = 9
+        '
+        'btnFuncaoCompleta
+        '
+        Me.btnFuncaoCompleta.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnFuncaoCompleta.Location = New System.Drawing.Point(2, 2)
+        Me.btnFuncaoCompleta.Name = "btnFuncaoCompleta"
+        Me.btnFuncaoCompleta.Size = New System.Drawing.Size(125, 202)
+        Me.btnFuncaoCompleta.TabIndex = 0
+        Me.btnFuncaoCompleta.Text = "Função Completa"
+        '
         'frmDropBoxTeste
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(745, 205)
+        Me.ClientSize = New System.Drawing.Size(745, 248)
+        Me.Controls.Add(Me.PanelControl8)
         Me.Controls.Add(Me.PanelControl6)
         Me.Controls.Add(Me.PanelControl5)
         Me.Controls.Add(Me.PanelControl4)
@@ -224,6 +270,10 @@ Partial Class frmDropBoxTeste
         Me.PanelControl5.ResumeLayout(False)
         CType(Me.PanelControl6, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl6.ResumeLayout(False)
+        CType(Me.PanelControl8, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelControl8.ResumeLayout(False)
+        CType(Me.PanelControl9, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelControl9.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -232,7 +282,7 @@ Partial Class frmDropBoxTeste
     Friend WithEvents grdListagem As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents PanelControl7 As DevExpress.XtraEditors.PanelControl
     Friend WithEvents PanelControl1 As DevExpress.XtraEditors.PanelControl
-    Friend WithEvents btnDownload As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents btnUltimoBackup As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents PanelControl2 As DevExpress.XtraEditors.PanelControl
     Friend WithEvents btnListarArquivos As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents PanelControl4 As DevExpress.XtraEditors.PanelControl
@@ -242,4 +292,8 @@ Partial Class frmDropBoxTeste
     Friend WithEvents PanelControl6 As DevExpress.XtraEditors.PanelControl
     Friend WithEvents btnCriarPasta As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents lblStatus As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents PanelControl8 As DevExpress.XtraEditors.PanelControl
+    Friend WithEvents btnVerificacoes As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents PanelControl9 As DevExpress.XtraEditors.PanelControl
+    Friend WithEvents btnFuncaoCompleta As DevExpress.XtraEditors.SimpleButton
 End Class

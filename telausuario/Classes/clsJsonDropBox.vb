@@ -4,6 +4,10 @@
         Public Property autorename As Boolean
     End Class
 
+    Public Class clsDownload
+        Public Property path As String
+    End Class
+
 
     Public Class clsUpload
         Public Property path As String
