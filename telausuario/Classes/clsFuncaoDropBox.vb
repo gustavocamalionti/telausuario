@@ -494,7 +494,9 @@ Public Class clsFuncaoDropBox
     End Function
 
     Public Shared Function BackupNuvemAutomatico()
+        '
         'Verificação
+        CriarPastaDropBox("/backup/" & CNPJEmpresa & "")
         Dim dt As DataTable = ListarArquivosDropBox("/backup/" + CNPJEmpresa)
         Dim DatDataAnalise As Date
 
@@ -512,8 +514,7 @@ Public Class clsFuncaoDropBox
             'Exit Function - Tirar o comentario para valer a verificação
         End If
 
-        'CRIAR PASTA DROPBOX
-        CriarPastaDropBox("/backup/" & CNPJEmpresa & "")
+
 
         'BACKUP BANCO
         '''''''teste
