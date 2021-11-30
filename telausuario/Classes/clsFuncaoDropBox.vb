@@ -518,18 +518,17 @@ Public Class clsFuncaoDropBox
 
         'BACKUP BANCO
         '''''''teste
-        NomeDoBancoSql = "dbTeste5"
-        Dim strCaminhoArquivoBak As String = "C:\NANO\BD\" & NomeDoBancoSql & ".bak"
-        Dim bolExistBak As Boolean = My.Computer.FileSystem.FileExists(strCaminhoArquivoBak)
+        VerificarPastaBackupAutomatico("C:\NANO\BD\BackupAutomatico")
+        ExcluirArquivosPastaBackup("C:\NANO\BD\BackupAutomatico\")
+        NomeDoBancoSql = "dbTeste5" 'teste 
 
-        If bolExistBak = True Then
-            My.Computer.FileSystem.DeleteFile(strCaminhoArquivoBak)
-        End If
+        Dim strCaminhoArquivoBak As String = "C:\NANO\BD\BackupAutomatico\" & NomeDoBancoSql & ".bak"
+        Dim bolExistBak As Boolean = My.Computer.FileSystem.FileExists(strCaminhoArquivoBak)
 
         CriarBackupBanco("backup database " & NomeDoBancoSql & " to disk = '" & strCaminhoArquivoBak & "'")
 
         '''''''''No projeto oficial, criar uma string do tipo dim mesmo para strCaminhoArquivoZip
-        strCaminhoArquivoZip = "C:\NANO\BD\" & NomeDoBancoSql & My.Computer.Clock.LocalTime.ToString.Replace(" ", "").Replace(":", "").Replace("/", "") & ".zip"
+        strCaminhoArquivoZip = "C:\NANO\BD\BackupAutomatico\" & NomeDoBancoSql & My.Computer.Clock.LocalTime.ToString.Replace(" ", "").Replace(":", "").Replace("/", "") & ".zip"
 
         compactarArquivo(strCaminhoArquivoBak, strCaminhoArquivoZip)
 
@@ -539,8 +538,7 @@ Public Class clsFuncaoDropBox
 
         UploadDropBox(NomeArquivo, "backup/" & CNPJEmpresa & "")
 
-        My.Computer.FileSystem.DeleteFile(strCaminhoArquivoZip)
-        My.Computer.FileSystem.DeleteFile(strCaminhoArquivoBak)
+        ExcluirArquivosPastaBackup("C:\NANO\BD\BackupAutomatico\")
 
         'Pegar o Último backup do banco do cliente'
         Dim dt2 As DataTable = ListarArquivosDropBox("/backup/" + CNPJEmpresa)
@@ -551,7 +549,8 @@ Public Class clsFuncaoDropBox
         Dim datDataHoraEnvio As Date
         Dim intDiferencaFusoHorario As Integer
 
-        For I = 0 To dt.Rows.Count - 1
+
+        For I = 0 To dt2.Rows.Count - 1
             DatDataAnalise = dt2.Rows.Item(I).Item("client_modified")
 
             If DatDataAnalise > datUltimaData Then
@@ -577,6 +576,7 @@ Public Class clsFuncaoDropBox
         End If
 
     End Function
+
 
 End Class
 

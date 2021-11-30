@@ -505,6 +505,31 @@ Public Class clsFuncao
         Return dtLastModified
     End Function
 
+    Public Shared Function VerificarPastaBackupAutomatico(ByVal parDiretorioPasta As String)
+        'Criar Pasta/Verificar Pasta
+        If Not IO.Directory.Exists(parDiretorioPasta) Then
+            System.IO.Directory.CreateDirectory(parDiretorioPasta)
+        End If
+
+    End Function
+
+    Public Shared Function ExcluirArquivosPastaBackup(ByVal parDiretorioPasta As String)
+
+        Dim vetListaArquivos As Array = {}
+
+        vetListaArquivos = System.IO.Directory.GetFiles(parDiretorioPasta)
+
+        Dim I As Integer
+        For I = 0 To vetListaArquivos.Length - 1
+            Try
+                System.IO.File.Delete(vetListaArquivos(I))
+            Catch ExIO As Exception
+                Debug.Print(ExIO.Message)
+            End Try
+        Next
+
+    End Function
+
 End Class
 
 

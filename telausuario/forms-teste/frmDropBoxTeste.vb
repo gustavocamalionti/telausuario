@@ -122,10 +122,6 @@ Public Class frmDropBoxTeste
         End If
     End Sub
 
-    Private Sub frmDropBoxTeste_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
-
     Private Sub btn_Click(sender As Object, e As EventArgs) Handles btnFuncaoCompleta.Click
         BackupNuvemAutomatico()
     End Sub
