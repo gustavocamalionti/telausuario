@@ -499,11 +499,21 @@ Public Class clsFuncaoDropBox
         CriarPastaDropBox("/backup/" & CNPJEmpresa & "")
         Dim dt As DataTable = ListarArquivosDropBox("/backup/" + CNPJEmpresa)
         Dim DatDataAnalise As Date
-
         Dim I As Integer
+
+
         For I = 0 To dt.Rows.Count - 1
             DatDataAnalise = dt.Rows.Item(I).Item("client_modified")
-            If DateDiff(DateInterval.Day, DatDataAnalise, Today) < 1 Then
+            Dim tes2te As String = DateDiff(DateInterval.Month, DatDataAnalise, My.Computer.Clock.LocalTime).ToString
+            If DateDiff(DateInterval.Month, DatDataAnalise, My.Computer.Clock.LocalTime) >= 2 Then
+                DeletarArquivoDropBox("/backup/" & CNPJEmpresa & "/" & dt.Rows.Item(I).Item("name") & "")
+            End If
+        Next
+
+
+        For I = 0 To dt.Rows.Count - 1
+            DatDataAnalise = dt.Rows.Item(I).Item("client_modified")
+            If DateDiff(DateInterval.Day, DatDataAnalise, My.Computer.Clock.LocalTime) < 1 Then
                 'Exit Function - tirar o comentario para valer a verificacao
             End If
         Next
@@ -513,8 +523,6 @@ Public Class clsFuncaoDropBox
         If My.Computer.Clock.LocalTime.TimeOfDay < datHoraBackupProgramado.TimeOfDay Then
             'Exit Function - Tirar o comentario para valer a verificação
         End If
-
-
 
         'BACKUP BANCO
         '''''''teste
@@ -537,7 +545,6 @@ Public Class clsFuncaoDropBox
         Dim NomeArquivo As String = strCaminhoArquivoZip.Substring(indexUltimaBarra + 1, (strCaminhoArquivoZip.Count - 1) - (indexUltimaBarra))
 
         UploadDropBox(NomeArquivo, "backup/" & CNPJEmpresa & "")
-
         ExcluirArquivosPastaBackup("C:\NANO\BD\BackupAutomatico\")
 
         'Pegar o Último backup do banco do cliente'
@@ -574,9 +581,7 @@ Public Class clsFuncaoDropBox
             MsgBox("FALSO")
             'Enviar ou atualizar no banco todas as informações do último backup com status FALSO 
         End If
-
     End Function
-
 
 End Class
 

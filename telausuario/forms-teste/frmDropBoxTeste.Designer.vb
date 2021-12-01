@@ -20,6 +20,8 @@ Partial Class frmDropBoxTeste
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.PanelControl3 = New DevExpress.XtraEditors.PanelControl()
+        Me.PanelControl9 = New DevExpress.XtraEditors.PanelControl()
+        Me.btnFuncaoCompleta = New DevExpress.XtraEditors.SimpleButton()
         Me.grd1 = New DevExpress.XtraGrid.GridControl()
         Me.grdListagem = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.PanelControl7 = New DevExpress.XtraEditors.PanelControl()
@@ -36,10 +38,10 @@ Partial Class frmDropBoxTeste
         Me.btnCriarPasta = New DevExpress.XtraEditors.SimpleButton()
         Me.PanelControl8 = New DevExpress.XtraEditors.PanelControl()
         Me.btnVerificacoes = New DevExpress.XtraEditors.SimpleButton()
-        Me.PanelControl9 = New DevExpress.XtraEditors.PanelControl()
-        Me.btnFuncaoCompleta = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.PanelControl3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl3.SuspendLayout()
+        CType(Me.PanelControl9, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelControl9.SuspendLayout()
         CType(Me.grd1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grdListagem, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl7, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -56,8 +58,6 @@ Partial Class frmDropBoxTeste
         Me.PanelControl6.SuspendLayout()
         CType(Me.PanelControl8, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl8.SuspendLayout()
-        CType(Me.PanelControl9, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.PanelControl9.SuspendLayout()
         Me.SuspendLayout()
         '
         'PanelControl3
@@ -70,6 +70,24 @@ Partial Class frmDropBoxTeste
         Me.PanelControl3.Name = "PanelControl3"
         Me.PanelControl3.Size = New System.Drawing.Size(549, 248)
         Me.PanelControl3.TabIndex = 6
+        '
+        'PanelControl9
+        '
+        Me.PanelControl9.Controls.Add(Me.btnFuncaoCompleta)
+        Me.PanelControl9.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanelControl9.Location = New System.Drawing.Point(418, 2)
+        Me.PanelControl9.Name = "PanelControl9"
+        Me.PanelControl9.Size = New System.Drawing.Size(129, 206)
+        Me.PanelControl9.TabIndex = 9
+        '
+        'btnFuncaoCompleta
+        '
+        Me.btnFuncaoCompleta.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnFuncaoCompleta.Location = New System.Drawing.Point(2, 2)
+        Me.btnFuncaoCompleta.Name = "btnFuncaoCompleta"
+        Me.btnFuncaoCompleta.Size = New System.Drawing.Size(125, 202)
+        Me.btnFuncaoCompleta.TabIndex = 0
+        Me.btnFuncaoCompleta.Text = "Função Completa"
         '
         'grd1
         '
@@ -221,24 +239,6 @@ Partial Class frmDropBoxTeste
         Me.btnVerificacoes.TabIndex = 3
         Me.btnVerificacoes.Text = "Verificações"
         '
-        'PanelControl9
-        '
-        Me.PanelControl9.Controls.Add(Me.btnFuncaoCompleta)
-        Me.PanelControl9.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PanelControl9.Location = New System.Drawing.Point(418, 2)
-        Me.PanelControl9.Name = "PanelControl9"
-        Me.PanelControl9.Size = New System.Drawing.Size(129, 206)
-        Me.PanelControl9.TabIndex = 9
-        '
-        'btnFuncaoCompleta
-        '
-        Me.btnFuncaoCompleta.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnFuncaoCompleta.Location = New System.Drawing.Point(2, 2)
-        Me.btnFuncaoCompleta.Name = "btnFuncaoCompleta"
-        Me.btnFuncaoCompleta.Size = New System.Drawing.Size(125, 202)
-        Me.btnFuncaoCompleta.TabIndex = 0
-        Me.btnFuncaoCompleta.Text = "Função Completa"
-        '
         'frmDropBoxTeste
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -255,6 +255,8 @@ Partial Class frmDropBoxTeste
         Me.Text = "frmDropBox"
         CType(Me.PanelControl3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl3.ResumeLayout(False)
+        CType(Me.PanelControl9, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelControl9.ResumeLayout(False)
         CType(Me.grd1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grdListagem, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl7, System.ComponentModel.ISupportInitialize).EndInit()
@@ -272,8 +274,6 @@ Partial Class frmDropBoxTeste
         Me.PanelControl6.ResumeLayout(False)
         CType(Me.PanelControl8, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl8.ResumeLayout(False)
-        CType(Me.PanelControl9, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.PanelControl9.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
