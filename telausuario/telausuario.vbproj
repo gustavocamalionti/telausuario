@@ -153,6 +153,12 @@
     <Compile Include="dsTelaUsuario.vb">
       <DependentUpon>dsTelaUsuario.xsd</DependentUpon>
     </Compile>
+    <Compile Include="forms-teste\frmBackupAutomatico.Designer.vb">
+      <DependentUpon>frmBackupAutomatico.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms-teste\frmBackupAutomatico.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="forms-teste\frmDropBoxTeste.Designer.vb">
       <DependentUpon>frmDropBoxTeste.vb</DependentUpon>
     </Compile>
@@ -310,6 +316,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Desafios\XtraForm1.resx">
       <DependentUpon>XtraForm1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms-teste\frmBackupAutomatico.resx">
+      <DependentUpon>frmBackupAutomatico.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms-teste\frmDropBoxTeste.resx">
       <DependentUpon>frmDropBoxTeste.vb</DependentUpon>
