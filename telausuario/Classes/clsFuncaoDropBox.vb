@@ -108,6 +108,8 @@ Public Class clsFuncaoDropBox
             ConverteArquivo(strCaminhoArquivoZip)
             DeletarArquivoDropBox(dadosConta.path.ToString)
 
+            ' Dim jsonResult As String = Encoding.UTF8.GetString(client.DownloadData(strURL))
+
             Dim jsonResult As String = Encoding.UTF8.GetString(client.UploadData(strURL, "POST", mybyte))
             Dim successResult As Linq.JObject = JsonConvert.DeserializeObject(jsonResult)
             Dim strId As String = successResult("id").ToString
@@ -149,7 +151,7 @@ Public Class clsFuncaoDropBox
     Public Shared Function downloadDropBox(NomeArquivo As String, CaminhoPastaDropbox As String) As String
 
         Dim dadosConta As New clsJsonDropBox.clsDownload
-
+        dadosConta.path = CaminhoPastaDropbox + "/" + NomeArquivo
        
         Dim settings As JsonSerializerSettings = New JsonSerializerSettings()
         settings.NullValueHandling = NullValueHandling.Ignore
@@ -161,7 +163,7 @@ Public Class clsFuncaoDropBox
         Dim client As New WebClient
         'client.Headers("Content-Type") = "application/octet-stream"
         client.Headers("Authorization") = "Bearer fIC5DvLUAqwAAAAAAAAAASG3cPReUZV1gMa1tW0G-hRiT8u0Z2psf0lY2LG-oKc4"
-        client.Headers("Dropbox-API-Arg") = "/backup/36916588000175/dbTeste5-29112021-141137.zip"
+        client.Headers("Dropbox-API-Arg") = myData
         ServicePointManager.Expect100Continue = False
 
         Dim strURL As String = "https://content.dropboxapi.com/2/files/download"
@@ -170,10 +172,15 @@ Public Class clsFuncaoDropBox
             'myData = "{\""path\"": \""/tesstee/math\"",\"": false}"
             'myData = "{""path"":""/ge/32"",""autorename"":false}"
 
-            Dim jsonBytes As Byte() = Encoding.UTF8.GetBytes(myData)
-            Dim jsonResult As String = Encoding.UTF8.GetString(client.UploadData(strURL, "POST", jsonBytes))
+            'Dim jsonBytes As Byte() = Encoding.UTF8.GetBytes("TESTE")
+
+            Dim jsonResult As String = Encoding.UTF8.GetString(client.DownloadData(strURL))
+            Dim jsonBytes As Byte() = Encoding.UTF8.GetBytes(jsonResult)
+
+            ' Dim jsonResult As String = Encoding.UTF8.GetString(client.UploadData(strURL, "POST", Nothing))
             Dim successResult As Linq.JObject = JsonConvert.DeserializeObject(jsonResult)
-            strLinkDownloadAnexo = successResult("url").ToString.Replace("dl=0", "dl=1")
+
+            System.IO.File.WriteAllBytes("C:\NANO\BD\teste.zip", jsonBytes)
 
 
             'Dim filename As String = "C:\test\birthday.mp3"
@@ -211,10 +218,10 @@ Public Class clsFuncaoDropBox
         End Try
     End Function
 
-    Public Shared Function CriarLinkDropBox(NomeArquivo As String, CaminhoPastaDropbox As String) As String
+    Public Shared Function CriarLinkDropBox(NomeArquivo As String, NomePastaDropBox As String) As String
         Dim dadosConta As New clsJsonDropBox.clsCriarLink
 
-        dadosConta.path = "/" & CaminhoPastaDropbox & "/" & NomeArquivo & ""
+        dadosConta.path = NomePastaDropBox + "/" + NomeArquivo
 
         Dim settings As JsonSerializerSettings = New JsonSerializerSettings()
         settings.NullValueHandling = NullValueHandling.Ignore
@@ -229,7 +236,7 @@ Public Class clsFuncaoDropBox
         client.Headers("Authorization") = "Bearer fIC5DvLUAqwAAAAAAAAAASG3cPReUZV1gMa1tW0G-hRiT8u0Z2psf0lY2LG-oKc4"
         ServicePointManager.Expect100Continue = False
 
-        Dim strURL As String = "https://api.dropboxapi.com/2/sharing/create_shared_link_with_settings"
+        Dim strURL As String = "https://api.dropboxapi.com/2/sharing/create_shared_link"
 
         Try
             'myData = "{\""path\"": \""/tesstee/math\"",\"": false}"
@@ -239,6 +246,7 @@ Public Class clsFuncaoDropBox
             Dim jsonResult As String = Encoding.UTF8.GetString(client.UploadData(strURL, "POST", jsonBytes))
             Dim successResult As Linq.JObject = JsonConvert.DeserializeObject(jsonResult)
             strLinkDownloadAnexo = successResult("url").ToString.Replace("dl=0", "dl=1")
+            Return strLinkDownloadAnexo
 
 
             'Dim filename As String = "C:\test\birthday.mp3"
@@ -251,8 +259,6 @@ Public Class clsFuncaoDropBox
 
             ' Do the upload
             'Dim response = httpClient.SendAsync(request).Result
-            Dim json As String = JsonConvert.SerializeObject(successResult, Formatting.Indented)
-            Return json
         Catch ex As WebException
             strLinkDownloadAnexo = ""
             Dim strErro As String = ""
@@ -272,6 +278,44 @@ Public Class clsFuncaoDropBox
             MsgBox(strErro & vbCrLf & ex.Message, MsgBoxStyle.Information)
             Return strJson
 
+
+        End Try
+    End Function
+
+    Public Shared Function RemoverLinkDropBox(NomeArquivo As String, NomePastaDropBox As String) As Boolean
+        Dim dadosConta As New clsJsonDropBox.clsRemoverLink
+
+        dadosConta.file = NomePastaDropBox + "/" + NomeArquivo
+
+        Dim settings As JsonSerializerSettings = New JsonSerializerSettings()
+        settings.NullValueHandling = NullValueHandling.Ignore
+
+        Dim myData As String = JsonConvert.SerializeObject(dadosConta, settings)
+
+        System.Net.ServicePointManager.SecurityProtocol = 3072
+
+        Dim client As New WebClient
+        'client.Headers("Content-Type") = "application/octet-stream"
+        client.Headers("Content-Type") = "application/json"
+        client.Headers("Authorization") = "Bearer fIC5DvLUAqwAAAAAAAAAASG3cPReUZV1gMa1tW0G-hRiT8u0Z2psf0lY2LG-oKc4"
+        ServicePointManager.Expect100Continue = False
+
+        Dim strURL As String = "https://api.dropboxapi.com/2/sharing/revoke_shared_link"
+
+        Try
+            'myData = "{\""path\"": \""/tesstee/math\"",\"": false}"
+            'myData = "{""path"":""/ge/32"",""autorename"":false}"
+
+            Dim jsonBytes As Byte() = Encoding.UTF8.GetBytes(myData)
+            Dim jsonResult As String = Encoding.UTF8.GetString(client.UploadData(strURL, "POST", jsonBytes))
+            Dim successResult As Linq.JObject = JsonConvert.DeserializeObject(jsonResult)
+            Return True
+
+        Catch ex As WebException
+            strLinkDownloadAnexo = ""
+            Dim strErro As String = ""
+            Dim strJson As String = ""
+            Return False
 
         End Try
     End Function
@@ -369,7 +413,7 @@ Public Class clsFuncaoDropBox
 
             Dim jsonBytes As Byte() = Encoding.UTF8.GetBytes(myData)
             Dim jsonResult As String = Encoding.UTF8.GetString(client.UploadData(strURL, "POST", jsonBytes))
-            'Dim jsonResultComReplace As String = jsonResult.Substring(0, jsonResult.IndexOf("]")).Replace("""entries"": [", "") & "}"
+            Dim jsonResultComReplace As String = jsonResult.Substring(0, jsonResult.IndexOf("]")).Replace("""entries"": [", "") & "}"
 
 
 
@@ -581,6 +625,32 @@ Public Class clsFuncaoDropBox
             MsgBox("FALSO")
             'Enviar ou atualizar no banco todas as informações do último backup com status FALSO 
         End If
+    End Function
+
+    Public Shared Function PegarUltimoBackup(ByVal parCNPJEmpresa As String)
+        Dim datUltimaData As Date
+        Dim strNomeUltimaData As String = ""
+        Dim datDataHoraEnvio As Date
+        Dim intDiferencaFusoHorario As Integer
+        Dim DatDataAnalise As Date
+
+
+        Dim dt As DataTable = ListarArquivosDropBox("/backup/" + parCNPJEmpresa)
+        For I = 0 To dt.Rows.Count - 1
+            DatDataAnalise = dt.Rows.Item(I).Item("client_modified")
+
+            If DatDataAnalise > datUltimaData Then
+                datUltimaData = DatDataAnalise
+                strNomeUltimaData = dt.Rows.Item(I).Item("name")
+
+                'REVER ESSA LINHA DE COMANDO COM O KLEBER
+                intDiferencaFusoHorario = CInt(DateDiff(DateInterval.Second, dt.Rows.Item(I).Item("client_modified"), My.Computer.Clock.LocalTime).ToString)
+                datDataHoraEnvio = DateAdd(DateInterval.Second, intDiferencaFusoHorario, dt.Rows.Item(I).Item("client_modified"))
+            End If
+        Next
+        Dim strlinkDownload As String = ""
+        strlinkDownload = CriarLinkDropBox(strNomeUltimaData, "/backup/" & parCNPJEmpresa & "")
+        Process.Start(strlinkDownload)
     End Function
 
 End Class

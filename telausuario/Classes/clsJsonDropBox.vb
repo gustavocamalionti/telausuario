@@ -8,6 +8,10 @@
         Public Property path As String
     End Class
 
+    Public Class clsRemoverLink
+        Public Property file As String
+    End Class
+
 
     Public Class clsUpload
         Public Property path As String

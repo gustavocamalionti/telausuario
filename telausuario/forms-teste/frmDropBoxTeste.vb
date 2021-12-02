@@ -12,13 +12,13 @@ Imports System.Text
 
 
 Public Class frmDropBoxTeste
-    Private Sub btnCriarPasta_Click(sender As Object, e As EventArgs) Handles btnCriarPasta.Click
+    Private Sub btnCriarPasta_Click(sender As Object, e As EventArgs)
         CriarPastaDropBox("/backup/" & CNPJEmpresa & "")
 
         MsgBox("OPERAÇÃO REALIZADA", MsgBoxStyle.Information)
     End Sub
 
-    Private Sub btnBackupBanco_Click(sender As Object, e As EventArgs) Handles btnBackupBanco.Click
+    Private Sub btnBackupBanco_Click(sender As Object, e As EventArgs)
 
         'teste
         NomeDoBancoSql = "dbTeste5"
@@ -42,7 +42,7 @@ Public Class frmDropBoxTeste
         MsgBox("OPERAÇÃO REALIZADA", MsgBoxStyle.Information)
     End Sub
 
-    Private Sub btnUpload_Click(sender As Object, e As EventArgs) Handles btnUpload.Click
+    Private Sub btnUpload_Click(sender As Object, e As EventArgs)
         Dim indexUltimaBarra As String = strCaminhoArquivoZip.LastIndexOf("\")
         Dim NomeArquivo As String = strCaminhoArquivoZip.Substring(indexUltimaBarra + 1, (strCaminhoArquivoZip.Count - 1) - (indexUltimaBarra))
 
@@ -65,7 +65,7 @@ Public Class frmDropBoxTeste
 
     End Sub
 
-    Private Sub btnUltimobackup_Click(sender As Object, e As EventArgs) Handles btnUltimoBackup.Click
+    Private Sub btnUltimobackup_Click(sender As Object, e As EventArgs)
         Dim dt As DataTable = ListarArquivosDropBox("/backup/" + CNPJEmpresa)
         Dim DatDataAnalise As Date
 
@@ -92,7 +92,7 @@ Public Class frmDropBoxTeste
 
     End Sub
 
-    Private Sub btnVerificacoes_Click(sender As Object, e As EventArgs) Handles btnVerificacoes.Click
+    Private Sub btnVerificacoes_Click(sender As Object, e As EventArgs)
         'Dim strNomeBancoAtual As String = CarregarDataTable("SELECT DB_NAME() AS [Current Database];").Rows.Item(0).Item("Current Database").ToString
         'Dim strNomeBancoRecomendado As String = "db" + (PrimeiraLetraMaiuscula(NomeEmpresa)).Replace(" ", "")
 
@@ -126,4 +126,7 @@ Public Class frmDropBoxTeste
         BackupNuvemAutomatico()
     End Sub
 
+    Private Sub btnDownload_Click(sender As Object, e As EventArgs) Handles btnDownload.Click
+        PegarUltimoBackup(CNPJEmpresa)
+    End Sub
 End Class

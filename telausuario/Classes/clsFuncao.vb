@@ -123,6 +123,7 @@ Public Class clsFuncao
 
 
 
+
     Public Shared Function compactarArquivo(ByVal arquivoOrigem As String, ByVal arquivoDestino As String)
 
 
