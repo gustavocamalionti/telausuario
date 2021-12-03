@@ -9,8 +9,6 @@ Imports System.IO
 Imports System.IO.Compression
 Imports System.Text
 
-
-
 Public Class frmDropBoxTeste
     Private Sub btnCriarPasta_Click(sender As Object, e As EventArgs)
         CriarPastaDropBox("/backup/" & CNPJEmpresa & "")
@@ -24,8 +22,6 @@ Public Class frmDropBoxTeste
         NomeDoBancoSql = "dbTeste5"
         Dim strCaminhoArquivoBak As String = "C:\NANO\BD\" & NomeDoBancoSql & ".bak"
         Dim bolExistBak As Boolean = My.Computer.FileSystem.FileExists(strCaminhoArquivoBak)
-
-
 
         If bolExistBak = True Then
             My.Computer.FileSystem.DeleteFile(strCaminhoArquivoBak)
@@ -112,10 +108,7 @@ Public Class frmDropBoxTeste
                 Exit Sub
             End If
         Next
-
         Dim datHoraBackupProgramado As DateTime = "17:30"
-
-
         'CONFIGURAÇÃO DE BACKUP PROGRAMADO
         If My.Computer.Clock.LocalTime.TimeOfDay < datHoraBackupProgramado.TimeOfDay Then
             Exit Sub
@@ -128,5 +121,13 @@ Public Class frmDropBoxTeste
 
     Private Sub btnDownload_Click(sender As Object, e As EventArgs) Handles btnDownload.Click
         PegarUltimoBackup(CNPJEmpresa)
+    End Sub
+
+    Private Sub btnLocalizarBackup_Click(sender As Object, e As EventArgs) Handles btnLocalizarBackup.Click
+        frmBackupAutomatico.ShowDialog()
+    End Sub
+
+    Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
+
     End Sub
 End Class

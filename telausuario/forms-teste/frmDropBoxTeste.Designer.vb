@@ -30,6 +30,8 @@ Partial Class frmDropBoxTeste
         Me.btnDownload = New DevExpress.XtraEditors.SimpleButton()
         Me.PanelControl2 = New DevExpress.XtraEditors.PanelControl()
         Me.btnListarArquivos = New DevExpress.XtraEditors.SimpleButton()
+        Me.btnLocalizarBackup = New DevExpress.XtraEditors.SimpleButton()
+        Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.PanelControl3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl3.SuspendLayout()
         CType(Me.PanelControl9, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -151,11 +153,31 @@ Partial Class frmDropBoxTeste
         Me.btnListarArquivos.TabIndex = 5
         Me.btnListarArquivos.Text = "Listar Backups"
         '
+        'btnLocalizarBackup
+        '
+        Me.btnLocalizarBackup.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.btnLocalizarBackup.Location = New System.Drawing.Point(0, 166)
+        Me.btnLocalizarBackup.Name = "btnLocalizarBackup"
+        Me.btnLocalizarBackup.Size = New System.Drawing.Size(196, 36)
+        Me.btnLocalizarBackup.TabIndex = 14
+        Me.btnLocalizarBackup.Text = "Localizar Backup"
+        '
+        'SimpleButton1
+        '
+        Me.SimpleButton1.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.SimpleButton1.Location = New System.Drawing.Point(0, 130)
+        Me.SimpleButton1.Name = "SimpleButton1"
+        Me.SimpleButton1.Size = New System.Drawing.Size(196, 36)
+        Me.SimpleButton1.TabIndex = 15
+        Me.SimpleButton1.Text = "Teste"
+        '
         'frmDropBoxTeste
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(745, 287)
+        Me.Controls.Add(Me.SimpleButton1)
+        Me.Controls.Add(Me.btnLocalizarBackup)
         Me.Controls.Add(Me.PanelControl10)
         Me.Controls.Add(Me.PanelControl2)
         Me.Controls.Add(Me.PanelControl3)
@@ -188,4 +210,6 @@ Partial Class frmDropBoxTeste
     Friend WithEvents btnDownload As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents PanelControl2 As DevExpress.XtraEditors.PanelControl
     Friend WithEvents btnListarArquivos As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents btnLocalizarBackup As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
 End Class

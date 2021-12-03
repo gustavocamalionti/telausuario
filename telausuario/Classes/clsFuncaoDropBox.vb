@@ -358,8 +358,10 @@ Public Class clsFuncaoDropBox
     End Function
 
     Public Shared Function BackupNuvemAutomatico()
-        '
         'Verificação
+
+        Dim dtClient As DataTable = CarregarDataTable("select * from config where CNPJ = ''")
+
         CriarPastaDropBox("/backup/" & CNPJEmpresa & "")
         Dim dt As DataTable = ListarArquivosDropBox("/backup/" + CNPJEmpresa)
         Dim DatDataAnalise As Date
@@ -472,5 +474,10 @@ Public Class clsFuncaoDropBox
         Process.Start(strlinkDownload)
     End Function
 
+    Public Shared Function BackupEspecifico(ByVal parNomeArquivo As String, ByVal parCNPJEmpresa As String)
+        Dim strLinkDownload As String
+        strLinkDownload = CriarLinkDropBox(parNomeArquivo, "/backup/" & parCNPJEmpresa & "")
+        Process.Start(strLinkDownload)
+    End Function
 End Class
 

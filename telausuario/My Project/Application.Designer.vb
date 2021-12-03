@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.telausuario.frmBackupAutomatico
+            Me.MainForm = Global.telausuario.frmDropBoxTeste
         End Sub
     End Class
 End Namespace

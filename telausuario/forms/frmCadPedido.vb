@@ -1741,4 +1741,8 @@ Public Class frmCadPedido
     Private Sub txtNome_EditValueChanged(sender As Object, e As EventArgs) Handles txtNome.EditValueChanged
 
     End Sub
+
+    Private Sub grdPedidoAtual_Click(sender As Object, e As EventArgs) Handles grdPedidoAtual.Click
+
+    End Sub
 End Class
