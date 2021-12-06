@@ -69,7 +69,7 @@ Public Class frmBackupAutomatico
     End Sub
 
     Private Sub btnRelatorioGeral_Click(sender As Object, e As EventArgs) Handles btnRelatorioGeral.Click
-        Dim dtListaEmpresas As DataTable = ListarArquivosDropBox("/backup/")
+        Dim dtListaEmpresas As DataTable = ListarArquivosDropBox("/Aplicativos/SQL Backup Master/")
         Dim I As Integer
 
         Dim dtBackupUltimoResultado As New DataTable

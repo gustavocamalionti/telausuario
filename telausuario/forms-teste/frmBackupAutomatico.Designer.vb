@@ -20,7 +20,7 @@ Partial Class frmBackupAutomatico
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
         Me.Bar3 = New DevExpress.XtraBars.Bar()
         Me.btnDownload = New DevExpress.XtraBars.BarButtonItem()
@@ -138,6 +138,7 @@ Partial Class frmBackupAutomatico
         Me.grd1.OptionsView.EnableAppearanceEvenRow = True
         Me.grd1.OptionsView.EnableAppearanceOddRow = True
         Me.grd1.OptionsView.ShowAutoFilterRow = True
+        Me.grd1.OptionsView.ShowFooter = True
         Me.grd1.OptionsView.ShowGroupPanel = False
         '
         'btnRemoverPesquisarGrid
@@ -145,7 +146,7 @@ Partial Class frmBackupAutomatico
         Me.btnRemoverPesquisarGrid.Location = New System.Drawing.Point(371, 18)
         Me.btnRemoverPesquisarGrid.MenuManager = Me.BarManager1
         Me.btnRemoverPesquisarGrid.Name = "btnRemoverPesquisarGrid"
-        Me.btnRemoverPesquisarGrid.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Global.telausuario.My.Resources.Resources.Lupa_Azul_12x12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject2, "", Nothing, Nothing, True)})
+        Me.btnRemoverPesquisarGrid.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Global.telausuario.My.Resources.Resources.Lupa_Azul_12x12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, "", Nothing, Nothing, True)})
         Me.btnRemoverPesquisarGrid.Size = New System.Drawing.Size(20, 20)
         Me.btnRemoverPesquisarGrid.TabIndex = 33
         '

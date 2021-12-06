@@ -294,7 +294,7 @@ Public Class clsFuncaoDropBox
         Dim client As New WebClient
         'client.Headers("Content-Type") = "application/octet-stream"
         client.Headers("Content-Type") = "application/json"
-        client.Headers("Authorization") = "Bearer fIC5DvLUAqwAAAAAAAAAASG3cPReUZV1gMa1tW0G-hRiT8u0Z2psf0lY2LG-oKc4"
+        client.Headers("Authorization") = "Bearer sl.A9qMn38AIoyf0Ul9MHbQk1jYheVz8sLdh76J24NEE2F3f42mGC5tqGpVJSkaBVAY09Aj_J2sSGw3a02QzKi9jAN_hhyurK_j20gcBqX97aBKbpuT8FOYQl_mYvAtSpAZXUXkeFkwzs1B"
         ServicePointManager.Expect100Continue = False
 
         Dim strURL As String = "https://api.dropboxapi.com/2/files/list_folder"
@@ -489,25 +489,19 @@ Public Class clsFuncaoDropBox
         dtInformacoesBackup.Columns.Add("Cnpj")
         dtInformacoesBackup.Columns.Add("Empresa")
         dtInformacoesBackup.Rows.Add(0)
-        Dim dtNomeEmpresa As DataTable = CarregarDataTable("select Nome from Cliente where Cnpj = " & parCNPJEmpresa & "")
+        'Dim dtNomeEmpresa As DataTable = CarregarDataTable("select Nome from Cliente where Cnpj = '" & parCNPJEmpresa & "'")
 
-        Dim dt As DataTable = ListarArquivosDropBox("/backup/" + parCNPJEmpresa)
-        For I = 0 To dt.Rows.Count - 1
-            DatDataAnalise = dt.Rows.Item(I).Item("client_modified")
+        Dim dt As DataTable = ListarArquivosDropBox("/Aplicativos/SQL Backup Master/" + parCNPJEmpresa)
+        datDataHoraEnvio = dt.Rows.Item(dt.Rows.Count - 1).Item("client_modified")
 
-            If DatDataAnalise > datUltimaData Then
-                datUltimaData = DatDataAnalise
-                intDiferencaFusoHorario = -10798
-                datDataHoraEnvio = DateAdd(DateInterval.Second, intDiferencaFusoHorario, dt.Rows.Item(I).Item("client_modified"))
+        intDiferencaFusoHorario = -10798
+        datDataHoraEnvio = DateAdd(DateInterval.Second, intDiferencaFusoHorario, dt.Rows.Item(dt.Rows.Count - 1).Item("client_modified"))
 
-                dtInformacoesBackup.Rows.Item(0).Item("data") = datDataHoraEnvio
-                dtInformacoesBackup.Rows.Item(0).Item("nome") = dt.Rows.Item(I).Item("name")
-                dtInformacoesBackup.Rows.Item(0).Item("cnpj") = parCNPJEmpresa
-                dtInformacoesBackup.Rows.Item(0).Item("Empresa") = dtNomeEmpresa.Rows.Item(0).Item(0)
-                'REVER ESSA LINHA DE COMANDO COM O KLEBER
-
-            End If
-        Next
+        dtInformacoesBackup.Rows.Item(0).Item("data") = datDataHoraEnvio
+        dtInformacoesBackup.Rows.Item(0).Item("nome") = dt.Rows.Item(dt.Rows.Count - 1).Item("name")
+        dtInformacoesBackup.Rows.Item(0).Item("cnpj") = parCNPJEmpresa
+            'dtInformacoesBackup.Rows.Item(0).Item("Empresa") = dtNomeEmpresa.Rows.Item(0).Item(0)
+            'REVER ESSA LINHA DE COMANDO COM O KLEBER
 
         Return dtInformacoesBackup
 
