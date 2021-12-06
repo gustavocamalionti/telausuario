@@ -23,6 +23,9 @@ Partial Class frmBackupAutomatico
         Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
         Me.Bar3 = New DevExpress.XtraBars.Bar()
+        Me.btnDownload = New DevExpress.XtraBars.BarButtonItem()
+        Me.btnUltimoBackup = New DevExpress.XtraBars.BarButtonItem()
+        Me.btnFechar = New DevExpress.XtraBars.BarButtonItem()
         Me.barDockControlTop = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlBottom = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlLeft = New DevExpress.XtraBars.BarDockControl()
@@ -33,18 +36,12 @@ Partial Class frmBackupAutomatico
         Me.txtRemoverCodigo = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
         Me.btnListar1 = New DevExpress.XtraEditors.SimpleButton()
-        Me.dsListarArquivos = New System.Data.DataSet()
-        Me.tbListar = New System.Data.DataTable()
-        Me.btnDownload = New DevExpress.XtraBars.BarButtonItem()
-        Me.btnUltimoBackup = New DevExpress.XtraBars.BarButtonItem()
-        Me.btnFechar = New DevExpress.XtraBars.BarButtonItem()
+        Me.btnRelatorioGeral = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grdListagem, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grd1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnRemoverPesquisarGrid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtRemoverCodigo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.dsListarArquivos, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.tbListar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'BarManager1
@@ -71,6 +68,27 @@ Partial Class frmBackupAutomatico
         Me.Bar3.OptionsBar.DrawDragBorder = False
         Me.Bar3.OptionsBar.UseWholeRow = True
         Me.Bar3.Text = "Status bar"
+        '
+        'btnDownload
+        '
+        Me.btnDownload.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
+        Me.btnDownload.Caption = "Download"
+        Me.btnDownload.Id = 0
+        Me.btnDownload.Name = "btnDownload"
+        '
+        'btnUltimoBackup
+        '
+        Me.btnUltimoBackup.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
+        Me.btnUltimoBackup.Caption = "Último Backup"
+        Me.btnUltimoBackup.Id = 1
+        Me.btnUltimoBackup.Name = "btnUltimoBackup"
+        '
+        'btnFechar
+        '
+        Me.btnFechar.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
+        Me.btnFechar.Caption = "Fechar"
+        Me.btnFechar.Id = 2
+        Me.btnFechar.Name = "btnFechar"
         '
         'barDockControlTop
         '
@@ -124,7 +142,7 @@ Partial Class frmBackupAutomatico
         '
         'btnRemoverPesquisarGrid
         '
-        Me.btnRemoverPesquisarGrid.Location = New System.Drawing.Point(451, 18)
+        Me.btnRemoverPesquisarGrid.Location = New System.Drawing.Point(371, 18)
         Me.btnRemoverPesquisarGrid.MenuManager = Me.BarManager1
         Me.btnRemoverPesquisarGrid.Name = "btnRemoverPesquisarGrid"
         Me.btnRemoverPesquisarGrid.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Global.telausuario.My.Resources.Resources.Lupa_Azul_12x12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject2, "", Nothing, Nothing, True)})
@@ -134,7 +152,7 @@ Partial Class frmBackupAutomatico
         'txtRemoverCodigo
         '
         Me.txtRemoverCodigo.EnterMoveNextControl = True
-        Me.txtRemoverCodigo.Location = New System.Drawing.Point(82, 18)
+        Me.txtRemoverCodigo.Location = New System.Drawing.Point(84, 18)
         Me.txtRemoverCodigo.MenuManager = Me.BarManager1
         Me.txtRemoverCodigo.Name = "txtRemoverCodigo"
         Me.txtRemoverCodigo.Properties.Appearance.Options.UseTextOptions = True
@@ -143,7 +161,7 @@ Partial Class frmBackupAutomatico
         Me.txtRemoverCodigo.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtRemoverCodigo.Properties.AppearanceFocused.Options.UseBackColor = True
         Me.txtRemoverCodigo.Properties.MaxLength = 10
-        Me.txtRemoverCodigo.Size = New System.Drawing.Size(372, 20)
+        Me.txtRemoverCodigo.Size = New System.Drawing.Size(290, 20)
         Me.txtRemoverCodigo.TabIndex = 32
         '
         'LabelControl1
@@ -157,47 +175,27 @@ Partial Class frmBackupAutomatico
         'btnListar1
         '
         Me.btnListar1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnListar1.Location = New System.Drawing.Point(496, 12)
+        Me.btnListar1.Location = New System.Drawing.Point(509, 12)
         Me.btnListar1.Name = "btnListar1"
-        Me.btnListar1.Size = New System.Drawing.Size(75, 33)
+        Me.btnListar1.Size = New System.Drawing.Size(62, 33)
         Me.btnListar1.TabIndex = 35
         Me.btnListar1.Text = "Listar"
         '
-        'dsListarArquivos
+        'btnRelatorioGeral
         '
-        Me.dsListarArquivos.DataSetName = "dsListarArquivos"
-        Me.dsListarArquivos.Tables.AddRange(New System.Data.DataTable() {Me.tbListar})
-        '
-        'tbListar
-        '
-        Me.tbListar.TableName = "tbListar"
-        '
-        'btnDownload
-        '
-        Me.btnDownload.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
-        Me.btnDownload.Caption = "Download"
-        Me.btnDownload.Id = 0
-        Me.btnDownload.Name = "btnDownload"
-        '
-        'btnUltimoBackup
-        '
-        Me.btnUltimoBackup.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
-        Me.btnUltimoBackup.Caption = "Último Backup"
-        Me.btnUltimoBackup.Id = 1
-        Me.btnUltimoBackup.Name = "btnUltimoBackup"
-        '
-        'btnFechar
-        '
-        Me.btnFechar.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
-        Me.btnFechar.Caption = "Fechar"
-        Me.btnFechar.Id = 2
-        Me.btnFechar.Name = "btnFechar"
+        Me.btnRelatorioGeral.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnRelatorioGeral.Location = New System.Drawing.Point(412, 12)
+        Me.btnRelatorioGeral.Name = "btnRelatorioGeral"
+        Me.btnRelatorioGeral.Size = New System.Drawing.Size(91, 33)
+        Me.btnRelatorioGeral.TabIndex = 40
+        Me.btnRelatorioGeral.Text = "Relatório Geral"
         '
         'frmBackupAutomatico
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(587, 661)
+        Me.Controls.Add(Me.btnRelatorioGeral)
         Me.Controls.Add(Me.btnListar1)
         Me.Controls.Add(Me.grdListagem)
         Me.Controls.Add(Me.btnRemoverPesquisarGrid)
@@ -215,8 +213,6 @@ Partial Class frmBackupAutomatico
         CType(Me.grd1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnRemoverPesquisarGrid.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtRemoverCodigo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.dsListarArquivos, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.tbListar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -233,9 +229,8 @@ Partial Class frmBackupAutomatico
     Friend WithEvents txtRemoverCodigo As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents btnListar1 As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents dsListarArquivos As System.Data.DataSet
-    Friend WithEvents tbListar As System.Data.DataTable
     Friend WithEvents btnDownload As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents btnUltimoBackup As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents btnFechar As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents btnRelatorioGeral As DevExpress.XtraEditors.SimpleButton
 End Class

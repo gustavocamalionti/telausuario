@@ -23,7 +23,20 @@ Public Class frmBackupAutomatico
 
     Private Sub btnListar1_Click(sender As Object, e As EventArgs) Handles btnListar1.Click
         Dim strCnpjCliente As String = CNPJEmpresa
-        Dim dt As DataTable = ListarArquivosDropBox("/backup/" & strCnpjCliente & "/")
+        Dim dt As New DataTable
+
+
+        dt.Columns.Add("name")
+        dt.Columns.Add("id")
+        dt.Columns.Add("client_modified")
+        dt.Columns.Add("size")
+        dt = ListarArquivosDropBox("/backup/" & strCnpjCliente & "/")
+        dt.Columns.Add("Cnpj")
+        Dim I As Integer
+        For I = 0 To dt.Rows.Count - 1
+            dt.Rows.Item(I).Item("Cnpj") = strCnpjCliente
+        Next
+
         dt.Columns.Remove(".tag")
         dt.Columns.Remove("path_lower")
         dt.Columns.Remove("path_display")
@@ -31,11 +44,13 @@ Public Class frmBackupAutomatico
         dt.Columns.Remove("is_downloadable")
         dt.Columns.Remove("content_hash")
         dt.Columns.Remove("server_modified")
+        grd1.Columns.Clear()
         grdListagem.DataSource = dt
+
     End Sub
 
     Private Sub BarButtonItem2_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnUltimoBackup.ItemClick
-        PegarUltimoBackup(CNPJEmpresa)
+        DownloadUltimoBackup(CNPJEmpresa)
     End Sub
 
     Private Sub BarButtonItem1_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnDownload.ItemClick
@@ -53,4 +68,25 @@ Public Class frmBackupAutomatico
         Me.Close()
     End Sub
 
+    Private Sub btnRelatorioGeral_Click(sender As Object, e As EventArgs) Handles btnRelatorioGeral.Click
+        Dim dtListaEmpresas As DataTable = ListarArquivosDropBox("/backup/")
+        Dim I As Integer
+
+        Dim dtBackupUltimoResultado As New DataTable
+        Dim dtRelatorioGeral As New DataTable
+        dtRelatorioGeral.Columns.Add("data")
+        dtRelatorioGeral.Columns.Add("Empresa")
+        dtRelatorioGeral.Columns.Add("Cnpj")
+        dtRelatorioGeral.Columns.Add("nome")
+
+
+
+        For I = 0 To dtListaEmpresas.Rows.Count - 1
+            dtBackupUltimoResultado = ListarUltimoBackup(dtListaEmpresas.Rows.Item(I).Item("name"))
+            dtRelatorioGeral.ImportRow(dtBackupUltimoResultado.Rows.Item(0))
+        Next
+
+        grd1.Columns.Clear()
+        grdListagem.DataSource = dtRelatorioGeral
+    End Sub
 End Class

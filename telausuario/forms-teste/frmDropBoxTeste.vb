@@ -120,14 +120,11 @@ Public Class frmDropBoxTeste
     End Sub
 
     Private Sub btnDownload_Click(sender As Object, e As EventArgs) Handles btnDownload.Click
-        PegarUltimoBackup(CNPJEmpresa)
+        DownloadUltimoBackup(CNPJEmpresa)
     End Sub
 
     Private Sub btnLocalizarBackup_Click(sender As Object, e As EventArgs) Handles btnLocalizarBackup.Click
         frmBackupAutomatico.ShowDialog()
     End Sub
 
-    Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
-
-    End Sub
 End Class

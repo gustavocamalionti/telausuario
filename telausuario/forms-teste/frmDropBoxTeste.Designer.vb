@@ -31,7 +31,7 @@ Partial Class frmDropBoxTeste
         Me.PanelControl2 = New DevExpress.XtraEditors.PanelControl()
         Me.btnListarArquivos = New DevExpress.XtraEditors.SimpleButton()
         Me.btnLocalizarBackup = New DevExpress.XtraEditors.SimpleButton()
-        Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
+        Me.btnRelatorio = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.PanelControl3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl3.SuspendLayout()
         CType(Me.PanelControl9, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -162,21 +162,21 @@ Partial Class frmDropBoxTeste
         Me.btnLocalizarBackup.TabIndex = 14
         Me.btnLocalizarBackup.Text = "Localizar Backup"
         '
-        'SimpleButton1
+        'btnRelatorio
         '
-        Me.SimpleButton1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.SimpleButton1.Location = New System.Drawing.Point(0, 130)
-        Me.SimpleButton1.Name = "SimpleButton1"
-        Me.SimpleButton1.Size = New System.Drawing.Size(196, 36)
-        Me.SimpleButton1.TabIndex = 15
-        Me.SimpleButton1.Text = "Teste"
+        Me.btnRelatorio.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.btnRelatorio.Location = New System.Drawing.Point(0, 130)
+        Me.btnRelatorio.Name = "btnRelatorio"
+        Me.btnRelatorio.Size = New System.Drawing.Size(196, 36)
+        Me.btnRelatorio.TabIndex = 15
+        Me.btnRelatorio.Text = "Relatório "
         '
         'frmDropBoxTeste
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(745, 287)
-        Me.Controls.Add(Me.SimpleButton1)
+        Me.Controls.Add(Me.btnRelatorio)
         Me.Controls.Add(Me.btnLocalizarBackup)
         Me.Controls.Add(Me.PanelControl10)
         Me.Controls.Add(Me.PanelControl2)
@@ -211,5 +211,5 @@ Partial Class frmDropBoxTeste
     Friend WithEvents PanelControl2 As DevExpress.XtraEditors.PanelControl
     Friend WithEvents btnListarArquivos As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents btnLocalizarBackup As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents btnRelatorio As DevExpress.XtraEditors.SimpleButton
 End Class

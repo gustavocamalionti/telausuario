@@ -362,6 +362,7 @@ Public Class clsFuncaoDropBox
 
         Dim dtClient As DataTable = CarregarDataTable("select * from config where CNPJ = ''")
 
+        CNPJEmpresa = "85787288000149"
         CriarPastaDropBox("/backup/" & CNPJEmpresa & "")
         Dim dt As DataTable = ListarArquivosDropBox("/backup/" + CNPJEmpresa)
         Dim DatDataAnalise As Date
@@ -449,7 +450,7 @@ Public Class clsFuncaoDropBox
         End If
     End Function
 
-    Public Shared Function PegarUltimoBackup(ByVal parCNPJEmpresa As String)
+    Public Shared Function DownloadUltimoBackup(ByVal parCNPJEmpresa As String)
         Dim datUltimaData As Date
         Dim strNomeUltimaData As String = ""
         Dim datDataHoraEnvio As Date
@@ -472,6 +473,46 @@ Public Class clsFuncaoDropBox
         Dim strlinkDownload As String = ""
         strlinkDownload = CriarLinkDropBox(strNomeUltimaData, "/backup/" & parCNPJEmpresa & "")
         Process.Start(strlinkDownload)
+    End Function
+
+    Public Shared Function ListarUltimoBackup(ByVal parCNPJEmpresa As String) As DataTable
+        Dim datUltimaData As New Date
+        Dim strNomeUltimaData As String = ""
+        Dim datDataHoraEnvio As Date
+        Dim intDiferencaFusoHorario As Integer
+        Dim DatDataAnalise As Date
+
+
+        Dim dtInformacoesBackup As New DataTable
+        dtInformacoesBackup.Columns.Add("nome")
+        dtInformacoesBackup.Columns.Add("data")
+        dtInformacoesBackup.Columns.Add("Cnpj")
+        dtInformacoesBackup.Columns.Add("Empresa")
+        dtInformacoesBackup.Rows.Add(0)
+        Dim dtNomeEmpresa As DataTable = CarregarDataTable("select Nome from Cliente where Cnpj = " & parCNPJEmpresa & "")
+
+        Dim dt As DataTable = ListarArquivosDropBox("/backup/" + parCNPJEmpresa)
+        For I = 0 To dt.Rows.Count - 1
+            DatDataAnalise = dt.Rows.Item(I).Item("client_modified")
+
+            If DatDataAnalise > datUltimaData Then
+                datUltimaData = DatDataAnalise
+                intDiferencaFusoHorario = -10798
+                datDataHoraEnvio = DateAdd(DateInterval.Second, intDiferencaFusoHorario, dt.Rows.Item(I).Item("client_modified"))
+
+                dtInformacoesBackup.Rows.Item(0).Item("data") = datDataHoraEnvio
+                dtInformacoesBackup.Rows.Item(0).Item("nome") = dt.Rows.Item(I).Item("name")
+                dtInformacoesBackup.Rows.Item(0).Item("cnpj") = parCNPJEmpresa
+                dtInformacoesBackup.Rows.Item(0).Item("Empresa") = dtNomeEmpresa.Rows.Item(0).Item(0)
+                'REVER ESSA LINHA DE COMANDO COM O KLEBER
+
+            End If
+        Next
+
+        Return dtInformacoesBackup
+
+
+
     End Function
 
     Public Shared Function BackupEspecifico(ByVal parNomeArquivo As String, ByVal parCNPJEmpresa As String)
