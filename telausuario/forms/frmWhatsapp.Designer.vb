@@ -128,7 +128,7 @@ Partial Class frmWhatsapp
         Me.grdListaClientes.MainView = Me.grd1
         Me.grdListaClientes.Name = "grdListaClientes"
         Me.grdListaClientes.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.txtAlterarGrid})
-        Me.grdListaClientes.Size = New System.Drawing.Size(435, 370)
+        Me.grdListaClientes.Size = New System.Drawing.Size(435, 372)
         Me.grdListaClientes.TabIndex = 7
         Me.grdListaClientes.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.grd1})
         '
@@ -293,7 +293,7 @@ Partial Class frmWhatsapp
         Me.memMensagem.EnterMoveNextControl = True
         Me.memMensagem.Location = New System.Drawing.Point(105, 143)
         Me.memMensagem.Name = "memMensagem"
-        Me.memMensagem.Size = New System.Drawing.Size(365, 224)
+        Me.memMensagem.Size = New System.Drawing.Size(365, 226)
         Me.memMensagem.TabIndex = 3
         '
         'tabPrincipal
@@ -316,7 +316,7 @@ Partial Class frmWhatsapp
         Me.tabPrincipal.Location = New System.Drawing.Point(455, 70)
         Me.tabPrincipal.Name = "tabPrincipal"
         Me.tabPrincipal.SelectedTabPage = Me.tabEnviarMensagem
-        Me.tabPrincipal.Size = New System.Drawing.Size(492, 411)
+        Me.tabPrincipal.Size = New System.Drawing.Size(492, 413)
         Me.tabPrincipal.TabIndex = 30
         Me.tabPrincipal.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.tabEnviarMensagem, Me.tabConfigurações})
         '
@@ -340,7 +340,7 @@ Partial Class frmWhatsapp
         Me.tabEnviarMensagem.Controls.Add(Me.lblTitulo)
         Me.tabEnviarMensagem.Controls.Add(Me.txtNumeroComDdd)
         Me.tabEnviarMensagem.Name = "tabEnviarMensagem"
-        Me.tabEnviarMensagem.Size = New System.Drawing.Size(486, 383)
+        Me.tabEnviarMensagem.Size = New System.Drawing.Size(486, 385)
         Me.tabEnviarMensagem.Text = "Enviar Mensagem"
         '
         'cboEnviarArquivo
@@ -424,22 +424,22 @@ Partial Class frmWhatsapp
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 487)
-        Me.barDockControlBottom.Size = New System.Drawing.Size(956, 35)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 489)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(956, 33)
         '
         'barDockControlLeft
         '
         Me.barDockControlLeft.CausesValidation = False
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
         Me.barDockControlLeft.Location = New System.Drawing.Point(0, 0)
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 487)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 489)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
         Me.barDockControlRight.Location = New System.Drawing.Point(956, 0)
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 487)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 489)
         '
         'lblAnexo
         '
@@ -736,7 +736,7 @@ Partial Class frmWhatsapp
         Me.PanelControl1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat
         Me.PanelControl1.LookAndFeel.UseDefaultLookAndFeel = False
         Me.PanelControl1.Name = "PanelControl1"
-        Me.PanelControl1.Size = New System.Drawing.Size(956, 487)
+        Me.PanelControl1.Size = New System.Drawing.Size(956, 489)
         Me.PanelControl1.TabIndex = 32
         '
         'PanelControl3
@@ -748,7 +748,7 @@ Partial Class frmWhatsapp
         Me.PanelControl3.Controls.Add(Me.grdListaClientes)
         Me.PanelControl3.Location = New System.Drawing.Point(13, 12)
         Me.PanelControl3.Name = "PanelControl3"
-        Me.PanelControl3.Size = New System.Drawing.Size(437, 464)
+        Me.PanelControl3.Size = New System.Drawing.Size(437, 466)
         Me.PanelControl3.TabIndex = 33
         '
         'PanelControl5

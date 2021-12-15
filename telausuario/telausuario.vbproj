@@ -231,6 +231,12 @@
     <Compile Include="Desafios\WebBrowser.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="forms\frmWhatsapp2.Designer.vb">
+      <DependentUpon>frmWhatsapp2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmWhatsapp2.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -352,6 +358,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmWhatsapp.resx">
       <DependentUpon>frmWhatsapp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmWhatsapp2.resx">
+      <DependentUpon>frmWhatsapp2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\menu.resx">
       <DependentUpon>menu.vb</DependentUpon>
