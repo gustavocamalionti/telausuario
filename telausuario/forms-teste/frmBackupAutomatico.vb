@@ -2,7 +2,7 @@
 Imports telausuario.clsBanco
 Imports telausuario.modFuncoes
 Imports telausuario.clsWebHook
-Imports telausuario.clsFuncaoDropBox
+Imports telausuario.clsDropBoxFuncao
 Imports Microsoft.Win32
 Imports System.Threading
 Imports System.IO

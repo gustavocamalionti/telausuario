@@ -124,9 +124,11 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\clsFuncaoDropBox.vb" />
+    <Compile Include="Classes\clsDropBoxFuncao.vb" />
     <Compile Include="Classes\clsJson.vb" />
-    <Compile Include="Classes\clsJsonDropBox.vb" />
+    <Compile Include="Classes\clsDropBoxJson.vb" />
+    <Compile Include="Classes\clsStoneJson.vb" />
+    <Compile Include="Classes\clsStone.vb" />
     <Compile Include="Classes\clsWebHook.vb" />
     <Compile Include="Classes\modBloqueios.vb" />
     <Compile Include="Classes\clsBanco.vb" />
@@ -163,6 +165,12 @@
       <DependentUpon>frmDropBoxTeste.vb</DependentUpon>
     </Compile>
     <Compile Include="forms-teste\frmDropBoxTeste.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms-teste\frmStones.Designer.vb">
+      <DependentUpon>frmStones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms-teste\frmStones.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="forms\frmCancelamento.designer.vb">
@@ -328,6 +336,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms-teste\frmDropBoxTeste.resx">
       <DependentUpon>frmDropBoxTeste.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms-teste\frmStones.resx">
+      <DependentUpon>frmStones.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmCadPedido.resx">
       <DependentUpon>frmCadPedido.vb</DependentUpon>

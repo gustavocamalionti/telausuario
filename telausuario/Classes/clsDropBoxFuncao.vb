@@ -7,7 +7,7 @@ Imports System.IO
 Imports Newtonsoft.Json.Converters
 
 Imports telausuario.clsFuncao
-Public Class clsFuncaoDropBox
+Public Class clsDropBoxFuncao
 
     Public Shared Function CriarPastaDropBox(NomePastaEmpresa As String) As String
 
@@ -500,12 +500,10 @@ Public Class clsFuncaoDropBox
         dtInformacoesBackup.Rows.Item(0).Item("data") = datDataHoraEnvio
         dtInformacoesBackup.Rows.Item(0).Item("nome") = dt.Rows.Item(dt.Rows.Count - 1).Item("name")
         dtInformacoesBackup.Rows.Item(0).Item("cnpj") = parCNPJEmpresa
-            'dtInformacoesBackup.Rows.Item(0).Item("Empresa") = dtNomeEmpresa.Rows.Item(0).Item(0)
-            'REVER ESSA LINHA DE COMANDO COM O KLEBER
+        'dtInformacoesBackup.Rows.Item(0).Item("Empresa") = dtNomeEmpresa.Rows.Item(0).Item(0)
+        'REVER ESSA LINHA DE COMANDO COM O KLEBER
 
         Return dtInformacoesBackup
-
-
 
     End Function
 

@@ -26,6 +26,10 @@
     Public AccessToken As String
     Public RefreshToken As String
 
+    Public strStoneChave As String = "MDBkMDZkNzItYmIxOC00MzgwLWIzNzItYjc0ZTQyZTQyYmVm"
+    Public dtStoneToken As New DataTable
+
+
     Public StringConexaoFTP As String = "ftp://ftp.nanoapp.com.br/whatsapp/cnpj/"
     Public LoginFTP As String = "nanoapp"
     Public SenhaFTP As String = "Erp@2019era"
