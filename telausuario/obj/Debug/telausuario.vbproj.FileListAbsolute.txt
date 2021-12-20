@@ -122,10 +122,10 @@ C:\Users\Usuario\Documents\Visual Studio 2013\Projects\telausuario\telausuario\o
 C:\Users\Usuario\Documents\Visual Studio 2013\Projects\telausuario\telausuario\obj\Debug\telausuario.relEtiquetaArdoxGarantia.resources
 C:\Users\Usuario\Documents\Visual Studio 2013\Projects\telausuario\telausuario\obj\Debug\telausuario.vbproj.GenerateResource.Cache
 C:\Users\Usuario\Documents\Visual Studio 2013\Projects\telausuario\telausuario\obj\Debug\telausuario.exe.licenses
-C:\Users\Usuario\Documents\Visual Studio 2013\Projects\telausuario\telausuario\obj\Debug\telausuario.vbprojResolveAssemblyReference.cache
 C:\Users\Usuario\Documents\Visual Studio 2013\Projects\telausuario\telausuario\obj\Debug\telausuario.frmWebHookTeste.resources
 C:\Users\Usuario\Documents\Visual Studio 2013\Projects\telausuario\telausuario\obj\Debug\telausuario.frmDropBoxTeste.resources
 C:\Users\Usuario\Documents\Visual Studio 2013\Projects\telausuario\telausuario\obj\Debug\telausuario.XtraForm1.resources
 C:\Users\Usuario\Documents\Visual Studio 2013\Projects\telausuario\telausuario\obj\Debug\telausuario.frmBackupAutomatico.resources
 C:\Users\Usuario\Documents\Visual Studio 2013\Projects\telausuario\telausuario\obj\Debug\telausuario.frmWhatsapp2.resources
 C:\Users\Usuario\Documents\Visual Studio 2013\Projects\telausuario\telausuario\obj\Debug\telausuario.frmStones.resources
+C:\Users\Usuario\Documents\Visual Studio 2013\Projects\telausuario\telausuario\obj\Debug\telausuario.vbprojResolveAssemblyReference.cache
