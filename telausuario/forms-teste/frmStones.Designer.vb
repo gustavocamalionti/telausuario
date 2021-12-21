@@ -41,7 +41,9 @@ Partial Class frmStones
         Me.PanelControl20 = New DevExpress.XtraEditors.PanelControl()
         Me.PanelControl19 = New DevExpress.XtraEditors.PanelControl()
         Me.PanelControl18 = New DevExpress.XtraEditors.PanelControl()
+        Me.btnConsultarTransacao = New DevExpress.XtraEditors.SimpleButton()
         Me.PanelControl17 = New DevExpress.XtraEditors.PanelControl()
+        Me.btnListarTransações = New DevExpress.XtraEditors.SimpleButton()
         Me.PanelControl16 = New DevExpress.XtraEditors.PanelControl()
         Me.btnExcluirPreTransacao = New DevExpress.XtraEditors.SimpleButton()
         Me.PanelControl15 = New DevExpress.XtraEditors.PanelControl()
@@ -49,8 +51,7 @@ Partial Class frmStones
         Me.PanelControl14 = New DevExpress.XtraEditors.PanelControl()
         Me.btnCriarPreTransacoes = New DevExpress.XtraEditors.SimpleButton()
         Me.PanelControl12 = New DevExpress.XtraEditors.PanelControl()
-        Me.btnListarTransações = New DevExpress.XtraEditors.SimpleButton()
-        Me.btnConsultarTransacao = New DevExpress.XtraEditors.SimpleButton()
+        Me.btnWebHook = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
         CType(Me.PanelControl10, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -74,6 +75,7 @@ Partial Class frmStones
         CType(Me.PanelControl13, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl13.SuspendLayout()
         CType(Me.PanelControl21, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelControl21.SuspendLayout()
         CType(Me.PanelControl20, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl19, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl18, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -266,6 +268,7 @@ Partial Class frmStones
         '
         'PanelControl21
         '
+        Me.PanelControl21.Controls.Add(Me.btnWebHook)
         Me.PanelControl21.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelControl21.Location = New System.Drawing.Point(2, 303)
         Me.PanelControl21.Name = "PanelControl21"
@@ -297,6 +300,15 @@ Partial Class frmStones
         Me.PanelControl18.Size = New System.Drawing.Size(277, 42)
         Me.PanelControl18.TabIndex = 10
         '
+        'btnConsultarTransacao
+        '
+        Me.btnConsultarTransacao.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnConsultarTransacao.Location = New System.Drawing.Point(2, 2)
+        Me.btnConsultarTransacao.Name = "btnConsultarTransacao"
+        Me.btnConsultarTransacao.Size = New System.Drawing.Size(273, 38)
+        Me.btnConsultarTransacao.TabIndex = 10
+        Me.btnConsultarTransacao.Text = "Consultar Transação"
+        '
         'PanelControl17
         '
         Me.PanelControl17.Controls.Add(Me.btnListarTransações)
@@ -305,6 +317,15 @@ Partial Class frmStones
         Me.PanelControl17.Name = "PanelControl17"
         Me.PanelControl17.Size = New System.Drawing.Size(277, 42)
         Me.PanelControl17.TabIndex = 9
+        '
+        'btnListarTransações
+        '
+        Me.btnListarTransações.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnListarTransações.Location = New System.Drawing.Point(2, 2)
+        Me.btnListarTransações.Name = "btnListarTransações"
+        Me.btnListarTransações.Size = New System.Drawing.Size(273, 38)
+        Me.btnListarTransações.TabIndex = 9
+        Me.btnListarTransações.Text = "Listar Transações"
         '
         'PanelControl16
         '
@@ -368,23 +389,14 @@ Partial Class frmStones
         Me.PanelControl12.Size = New System.Drawing.Size(20, 345)
         Me.PanelControl12.TabIndex = 2
         '
-        'btnListarTransações
+        'btnWebHook
         '
-        Me.btnListarTransações.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnListarTransações.Location = New System.Drawing.Point(2, 2)
-        Me.btnListarTransações.Name = "btnListarTransações"
-        Me.btnListarTransações.Size = New System.Drawing.Size(273, 38)
-        Me.btnListarTransações.TabIndex = 9
-        Me.btnListarTransações.Text = "Listar Transações"
-        '
-        'btnConsultarTransacao
-        '
-        Me.btnConsultarTransacao.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnConsultarTransacao.Location = New System.Drawing.Point(2, 2)
-        Me.btnConsultarTransacao.Name = "btnConsultarTransacao"
-        Me.btnConsultarTransacao.Size = New System.Drawing.Size(273, 38)
-        Me.btnConsultarTransacao.TabIndex = 10
-        Me.btnConsultarTransacao.Text = "Consultar Transação"
+        Me.btnWebHook.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnWebHook.Location = New System.Drawing.Point(2, 2)
+        Me.btnWebHook.Name = "btnWebHook"
+        Me.btnWebHook.Size = New System.Drawing.Size(273, 36)
+        Me.btnWebHook.TabIndex = 11
+        Me.btnWebHook.Text = "WebHook"
         '
         'frmStones
         '
@@ -417,6 +429,7 @@ Partial Class frmStones
         CType(Me.PanelControl13, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl13.ResumeLayout(False)
         CType(Me.PanelControl21, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelControl21.ResumeLayout(False)
         CType(Me.PanelControl20, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl19, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl18, System.ComponentModel.ISupportInitialize).EndInit()
@@ -465,4 +478,5 @@ Partial Class frmStones
     Friend WithEvents btnExcluirPreTransacao As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents btnListarTransações As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents btnConsultarTransacao As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents btnWebHook As DevExpress.XtraEditors.SimpleButton
 End Class

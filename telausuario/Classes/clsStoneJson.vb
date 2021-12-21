@@ -67,6 +67,11 @@
  
     End Class
 
+    Public Class clsStoneWebhookPreTransacao
+        Public Property establishment_id As String
+        Public Property postback_url As String
+    End Class
+
     Public Class clsPayment
         Public Property type As Integer
         'Public Property installment As String

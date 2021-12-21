@@ -634,6 +634,72 @@ Public Class clsStone
         End Try
     End Function
 
+    Public Shared Function StoneWebhookPreTransacao(ByVal parToken As String, ByVal parEstablishment_id As String, ByVal parPostback_url As String) As String
+        Dim body As New clsStoneJson.clsStoneWebhookPreTransacao
+        'body.establishment_id = parEstablishment_id
+        body.establishment_id = parEstablishment_id
+        body.postback_url = parPostback_url
+        Dim settings As JsonSerializerSettings = New JsonSerializerSettings()
+        settings.NullValueHandling = NullValueHandling.Ignore
+
+        Dim myData As String = JsonConvert.SerializeObject(body, settings)
+
+        System.Net.ServicePointManager.SecurityProtocol = 3072
+
+        Dim client As New WebClient
+        client.Headers("Accept") = "application/json"
+        client.Headers("Content-Type") = "application/json"
+        client.Headers("Authorization") = "Bearer " + parToken
+        ServicePointManager.Expect100Continue = False
+
+        Dim strURL As String = "https://api.siclospag.com.br/connect/v1/webhook/pre-transaction-status"
+
+        Try
+            'myData = "{\""path\"": \""/tesstee/math\"",\"": false}"
+            'myData = "{""path"":""/ge/32"",""autorename"":false}"
+
+            Dim jsonBytes As Byte() = Encoding.UTF8.GetBytes(myData)
+            Dim jsonResult As String = Encoding.UTF8.GetString(client.UploadData(strURL, "POST", jsonBytes))
+            Dim successResult As Linq.JObject = JsonConvert.DeserializeObject(jsonResult)
+
+            'Dim filename As String = "C:\test\birthday.mp3"
+
+            'Dim dataBytes() As Byte = IO.File.ReadAllBytes(filename)
+            'Dim dataStream = New MemoryStream(dataBytes)
+            'request.Content = New StreamContent(dataStream)
+
+            'request.Content.Headers.ContentType = MediaTypeHeaderValue.Parse("audio/mpeg")
+
+            ' Do the upload
+            'Dim response = httpClient.SendAsync(request).Result
+            Dim json As String = JsonConvert.SerializeObject(successResult, Formatting.Indented)
+            Return json
+        Catch ex As WebException
+            Dim strErro As String = ""
+            Dim strJson As String = ""
+            Try
+                Dim response As String = New StreamReader(ex.Response.GetResponseStream()).ReadToEnd()
+
+                If response.Contains("error") = True Then
+                    Dim successResult2 As Linq.JObject = JsonConvert.DeserializeObject(response)
+                    strJson = JsonConvert.SerializeObject(successResult2, Formatting.Indented)
+                    Dim strCod As String = successResult2.Item("error")("code").ToString
+                    strErro = successResult2.Item("error")("description").ToString
+
+                End If
+            Catch ex2 As Exception
+            End Try
+            If ex.Message = "O servidor remoto retornou um erro: (409) Conflito." Then 'pasta já foi criada
+                Exit Function
+            End If
+            MsgBox(strErro & vbCrLf & ex.Message, MsgBoxStyle.Information)
+            Return strJson
+
+
+        End Try
+
+    End Function
+
     Public Shared Function StoneDeletarPreTransacao(ByVal parToken As String, ByVal parPre_transaction_id As String) As Boolean
 
         Try

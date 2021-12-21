@@ -22,7 +22,6 @@ Public Class frmStones
     End Sub
 
     Private Sub btnConsultarTodosEstabelecimentos_Click(sender As Object, e As EventArgs) Handles btnConsultarTodosEstabelecimentos.Click
-
         StoneConsultarTodosEstabelecimento(token)
     End Sub
 
@@ -54,7 +53,7 @@ Public Class frmStones
 
     Private Sub btnCriarTransacao_Click(sender As Object, e As EventArgs) Handles btnCriarPreTransacoes.Click
 
-        strIdPreTransacao = StoneCriarPreTransacoes(token, strIdEstabelecimento, strIdPos, 100, "TESTE CRÉDITO: 1 PARCELA.", 2)
+        strIdPreTransacao = StoneCriarPreTransacoes(token, strIdEstabelecimento, strIdPos, 100, "TESTE CRÉDITO GUSTAVO: 1 PARCELA.", 2)
     End Sub
 
     Private Sub btnConsultarPreTransacoes_Click(sender As Object, e As EventArgs) Handles btnListarPreTransacoes.Click
@@ -81,5 +80,9 @@ Public Class frmStones
         StoneConsultaTransacaoID(token, strIdPreTransacao)
         'StoneConsultaTransacaoID(token, "fc0e39d9-9b16-466c-a95b-2caed8d0b14b")
 
+    End Sub
+
+    Private Sub btnWebHook_Click(sender As Object, e As EventArgs) Handles btnWebHook.Click
+        StoneWebhookPreTransacao(token, strIdEstabelecimento, "https://webhook.site/c8345d23-f2be-4790-b2fc-fcf3b9a3cfae")
     End Sub
 End Class
