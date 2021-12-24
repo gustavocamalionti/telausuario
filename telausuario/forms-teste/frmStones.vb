@@ -9,7 +9,7 @@ Public Class frmStones
     Dim token As String
     Dim dtPreTransacoes As DataTable
 
-    Private Sub btnToken_Click(sender As Object, e As EventArgs) Handles btnToken.Click
+    Private Sub btnToken_Click(sender As Object, e As EventArgs)
         'Dim datData As new DateTime = dtStoneToken.Rows.Item(0).Item("data").ToString
         'If datData <> "" And datData.Date <= DateDiff(DateInterval.Hour, My.Computer.Clock.LocalTime.Date, datData) Then
         'End If
@@ -17,20 +17,20 @@ Public Class frmStones
         token = dtStoneToken.Rows.Item(0).Item("token").ToString
     End Sub
 
-    Private Sub btnRegistrarEstabelecimento_Click(sender As Object, e As EventArgs) Handles btnRegistrarEstabelecimento.Click
+    Private Sub btnRegistrarEstabelecimento_Click(sender As Object, e As EventArgs)
         StoneRegistrarEstabelecimento(token, "Sistemas Nano", "Eder", "14566555000100", "211732177", 1238)
     End Sub
 
-    Private Sub btnConsultarTodosEstabelecimentos_Click(sender As Object, e As EventArgs) Handles btnConsultarTodosEstabelecimentos.Click
+    Private Sub btnConsultarTodosEstabelecimentos_Click(sender As Object, e As EventArgs)
         StoneConsultarTodosEstabelecimento(token)
     End Sub
 
-    Private Sub btnDeletarEstabelecimento_Click(sender As Object, e As EventArgs) Handles btnDeletarEstabelecimento.Click
+    Private Sub btnDeletarEstabelecimento_Click(sender As Object, e As EventArgs)
 
         StoneDeletarEstabelecimento(token, "db4362a6-7710-4f52-ab97-4ddcf59bd18b")
     End Sub
 
-    Private Sub btnConsultarEstabelecimento_Click(sender As Object, e As EventArgs) Handles btnConsultarEstabelecimento.Click
+    Private Sub btnConsultarEstabelecimento_Click(sender As Object, e As EventArgs)
 
         Dim dtListagemEstabelecimento As DataTable = StoneConsultarTodosEstabelecimento(token)
         Dim I As Integer
@@ -41,7 +41,7 @@ Public Class frmStones
         Next
     End Sub
 
-    Private Sub btnConfigurarAtivarPos_Click(sender As Object, e As EventArgs) Handles btnConfigurarAtivarPos.Click
+    Private Sub btnConfigurarAtivarPos_Click(sender As Object, e As EventArgs)
 
 
         StoneConfigurarPos(token, strIdEstabelecimento, 0, 1, False, 0, False, 0, True, False, 1500)
@@ -51,17 +51,17 @@ Public Class frmStones
         strIdPos = dtPos.Rows.Item(0).Item(0).ToString
     End Sub
 
-    Private Sub btnCriarTransacao_Click(sender As Object, e As EventArgs) Handles btnCriarPreTransacoes.Click
+    Private Sub btnCriarTransacao_Click(sender As Object, e As EventArgs)
 
         strIdPreTransacao = StoneCriarPreTransacoes(token, strIdEstabelecimento, strIdPos, 100, "TESTE CRÉDITO GUSTAVO: 1 PARCELA.", 2)
     End Sub
 
-    Private Sub btnConsultarPreTransacoes_Click(sender As Object, e As EventArgs) Handles btnListarPreTransacoes.Click
+    Private Sub btnConsultarPreTransacoes_Click(sender As Object, e As EventArgs)
 
         dtPreTransacoes = StoneConsultaPreTransacoes(token, strIdEstabelecimento, "20211220")
     End Sub
 
-    Private Sub btnExcluirPreTransacao_Click(sender As Object, e As EventArgs) Handles btnExcluirPreTransacao.Click
+    Private Sub btnExcluirPreTransacao_Click(sender As Object, e As EventArgs)
 
         For I = 0 To dtPreTransacoes.Rows.Count - 1
             StoneDeletarPreTransacao(token, dtPreTransacoes.Rows.Item(I).Item(0).ToString)
@@ -69,20 +69,24 @@ Public Class frmStones
 
     End Sub
 
-    Private Sub btnListarTransações_Click(sender As Object, e As EventArgs) Handles btnListarTransações.Click
+    Private Sub btnListarTransações_Click(sender As Object, e As EventArgs)
 
         'StoneListarTransacoes(token, strIdEstabelecimento, "day", "20211220", 1)
 
     End Sub
 
-    Private Sub btnConsultarTransacao_Click(sender As Object, e As EventArgs) Handles btnConsultarTransacao.Click
+    Private Sub btnConsultarTransacao_Click(sender As Object, e As EventArgs)
 
         StoneConsultaTransacaoID(token, strIdPreTransacao)
         'StoneConsultaTransacaoID(token, "fc0e39d9-9b16-466c-a95b-2caed8d0b14b")
 
     End Sub
 
-    Private Sub btnWebHook_Click(sender As Object, e As EventArgs) Handles btnWebHook.Click
+    Private Sub btnWebHook_Click(sender As Object, e As EventArgs)
         StoneWebhookPreTransacao(token, strIdEstabelecimento, "https://webhook.site/c8345d23-f2be-4790-b2fc-fcf3b9a3cfae")
+    End Sub
+
+    Private Sub RegistrarEstabelecimento_Paint(sender As Object, e As PaintEventArgs) Handles RegistrarEstabelecimento.Paint
+
     End Sub
 End Class
