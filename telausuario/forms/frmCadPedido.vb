@@ -1698,7 +1698,7 @@ Public Class frmCadPedido
                 MsgBox("Item não encontrado.", MsgBoxStyle.Exclamation)
             End If
         End If
-        
+
     End Sub
 
     Private Sub txtAddProduto_Leave(sender As Object, e As EventArgs) Handles txtAddProduto.Leave

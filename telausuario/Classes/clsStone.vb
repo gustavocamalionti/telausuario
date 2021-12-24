@@ -122,7 +122,7 @@ Public Class clsStone
 
     End Function
 
-    Public Shared Function StoneConsultarTodosEstabelecimento(ByVal parToken As String) As DataTable
+    Public Shared Function StoneConsultarTodosEstabelecimento(ByVal parToken As String, ByRef parRetorno As String) As DataTable
         Dim dtListaInformacao As New DataTable
         dtListaInformacao.Columns.Add("establishment_is_active")
         dtListaInformacao.Columns.Add("id")
@@ -156,7 +156,7 @@ Public Class clsStone
             'Dim strStoneIdEstabelecimento1 As String = successResult.Item("establishments")(1)("id").ToString
             Dim teste As String = ""
             Dim strJson As String = successResult.Item("establishments").ToString
-
+            parRetorno = strJson
             PopulateDtEstabelecimento(successResult, dtListaInformacao)
 
             Return dtListaInformacao
@@ -733,7 +733,26 @@ Public Class clsStone
         Dim responseStream As Stream = response.GetResponseStream()
         Dim responseStr As String = New StreamReader(responseStream).ReadToEnd()
         Dim successResult As Linq.JObject = JsonConvert.DeserializeObject(responseStr)
+        Dim json As String = JsonConvert.SerializeObject(successResult, Formatting.Indented)
 
+        Return json
+        'Dim postreqreader As New StreamReader(postresponse.GetResponseStream())
+
+    End Function
+
+    Public Shared Function StoneConsultaEstabelecimentoEspecifico(ByVal parToken As String, ByVal parEstablishmentId As String) As String
+
+        Dim request As HttpWebRequest = CType(WebRequest.Create("https://api.siclospag.com.br/connect/v1/establishment/get-single/" + parEstablishmentId), HttpWebRequest)
+        request.Headers.Add("Authorization", "Bearer " + parToken)
+        request.Accept = "application/json"
+        request.Method = "GET"
+        Dim response As HttpWebResponse
+        response = CType(request.GetResponse(), HttpWebResponse)
+        Dim responseStream As Stream = response.GetResponseStream()
+        Dim responseStr As String = New StreamReader(responseStream).ReadToEnd()
+        Dim successResult As Linq.JObject = JsonConvert.DeserializeObject(responseStr)
+        Dim json As String = JsonConvert.SerializeObject(successResult, Formatting.Indented)
+        Return json
         'Dim postreqreader As New StreamReader(postresponse.GetResponseStream())
 
     End Function
