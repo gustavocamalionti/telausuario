@@ -64,7 +64,7 @@ Partial Class frmStones
         Me.btnCadEstab = New DevExpress.XtraEditors.CheckButton()
         Me.rtbRetorno = New System.Windows.Forms.RichTextBox()
         Me.PanelControl22 = New DevExpress.XtraEditors.PanelControl()
-        Me.GridListagem = New DevExpress.XtraGrid.GridControl()
+        Me.GridListagemEstab = New DevExpress.XtraGrid.GridControl()
         Me.dsListagem = New System.Data.DataSet()
         Me.Grid1 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
@@ -78,18 +78,9 @@ Partial Class frmStones
         Me.txtRazaoSocial = New DevExpress.XtraEditors.TextEdit()
         Me.lblRazaoSocial = New DevExpress.XtraEditors.LabelControl()
         Me.RegistrarPos = New DevExpress.XtraTab.XtraTabPage()
-        Me.TextEdit8 = New DevExpress.XtraEditors.TextEdit()
-        Me.PanelControl23 = New DevExpress.XtraEditors.PanelControl()
-        Me.GridControl2 = New DevExpress.XtraGrid.GridControl()
-        Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.LabelControl6 = New DevExpress.XtraEditors.LabelControl()
-        Me.MemoEdit2 = New DevExpress.XtraEditors.MemoEdit()
-        Me.TextEdit6 = New DevExpress.XtraEditors.TextEdit()
-        Me.TextEdit7 = New DevExpress.XtraEditors.TextEdit()
-        Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
-        Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl()
-        Me.LabelControl4 = New DevExpress.XtraEditors.LabelControl()
-        Me.LabelControl5 = New DevExpress.XtraEditors.LabelControl()
+        Me.btnDesativarPOS = New DevExpress.XtraEditors.CheckButton()
+        Me.btnConsultarConfiguração = New DevExpress.XtraEditors.CheckButton()
+        Me.rdgConfigurarPos = New DevExpress.XtraEditors.RadioGroup()
         Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
         Me.Bar3 = New DevExpress.XtraBars.Bar()
         Me.BarButtonItem1 = New DevExpress.XtraBars.BarButtonItem()
@@ -98,6 +89,21 @@ Partial Class frmStones
         Me.barDockControlBottom = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlLeft = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlRight = New DevExpress.XtraBars.BarDockControl()
+        Me.txtNumeroSerie = New DevExpress.XtraEditors.TextEdit()
+        Me.txtNomeIdentificacao = New DevExpress.XtraEditors.TextEdit()
+        Me.txtNumeroIdentificacao = New DevExpress.XtraEditors.TextEdit()
+        Me.btnAtivarPos = New DevExpress.XtraEditors.CheckButton()
+        Me.btnListarPos = New DevExpress.XtraEditors.CheckButton()
+        Me.btnConfigurarPos = New DevExpress.XtraEditors.CheckButton()
+        Me.rtbPosRetorno = New System.Windows.Forms.RichTextBox()
+        Me.PanelControl23 = New DevExpress.XtraEditors.PanelControl()
+        Me.GridListagemPos = New DevExpress.XtraGrid.GridControl()
+        Me.grid2 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.LabelControl6 = New DevExpress.XtraEditors.LabelControl()
+        Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
+        Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl()
+        Me.LabelControl4 = New DevExpress.XtraEditors.LabelControl()
+        Me.LabelControl5 = New DevExpress.XtraEditors.LabelControl()
         CType(Me.XtraTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.XtraTabControl1.SuspendLayout()
         Me.Testes.SuspendLayout()
@@ -142,7 +148,7 @@ Partial Class frmStones
         CType(Me.txtIdEstabelecimento.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl22, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl22.SuspendLayout()
-        CType(Me.GridListagem, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridListagemEstab, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dsListagem, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Grid1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtStoneCode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -150,15 +156,15 @@ Partial Class frmStones
         CType(Me.txtNomeFantasia.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtRazaoSocial.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.RegistrarPos.SuspendLayout()
-        CType(Me.TextEdit8.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.rdgConfigurarPos.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtNumeroSerie.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtNomeIdentificacao.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtNumeroIdentificacao.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl23, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl23.SuspendLayout()
-        CType(Me.GridControl2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.MemoEdit2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TextEdit6.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TextEdit7.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridListagemPos, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grid2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'XtraTabControl1
@@ -167,7 +173,7 @@ Partial Class frmStones
         Me.XtraTabControl1.Location = New System.Drawing.Point(0, 0)
         Me.XtraTabControl1.Name = "XtraTabControl1"
         Me.XtraTabControl1.SelectedTabPage = Me.Testes
-        Me.XtraTabControl1.Size = New System.Drawing.Size(821, 549)
+        Me.XtraTabControl1.Size = New System.Drawing.Size(947, 551)
         Me.XtraTabControl1.TabIndex = 1
         Me.XtraTabControl1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.Testes, Me.RegistrarEstabelecimento, Me.RegistrarPos})
         '
@@ -175,7 +181,7 @@ Partial Class frmStones
         '
         Me.Testes.Controls.Add(Me.PanelControl1)
         Me.Testes.Name = "Testes"
-        Me.Testes.Size = New System.Drawing.Size(815, 521)
+        Me.Testes.Size = New System.Drawing.Size(941, 523)
         Me.Testes.Text = "Testes "
         '
         'PanelControl1
@@ -506,20 +512,20 @@ Partial Class frmStones
         Me.RegistrarEstabelecimento.Controls.Add(Me.txtRazaoSocial)
         Me.RegistrarEstabelecimento.Controls.Add(Me.lblRazaoSocial)
         Me.RegistrarEstabelecimento.Name = "RegistrarEstabelecimento"
-        Me.RegistrarEstabelecimento.Size = New System.Drawing.Size(815, 521)
+        Me.RegistrarEstabelecimento.Size = New System.Drawing.Size(941, 523)
         Me.RegistrarEstabelecimento.Text = "Estabelecimento"
         '
         'txtIdEstabelecimento
         '
-        Me.txtIdEstabelecimento.Location = New System.Drawing.Point(112, 112)
+        Me.txtIdEstabelecimento.Location = New System.Drawing.Point(190, 112)
         Me.txtIdEstabelecimento.Name = "txtIdEstabelecimento"
         Me.txtIdEstabelecimento.Properties.ReadOnly = True
-        Me.txtIdEstabelecimento.Size = New System.Drawing.Size(408, 20)
+        Me.txtIdEstabelecimento.Size = New System.Drawing.Size(265, 20)
         Me.txtIdEstabelecimento.TabIndex = 141
         '
         'lblIdEstabelecimento
         '
-        Me.lblIdEstabelecimento.Location = New System.Drawing.Point(15, 115)
+        Me.lblIdEstabelecimento.Location = New System.Drawing.Point(93, 115)
         Me.lblIdEstabelecimento.Name = "lblIdEstabelecimento"
         Me.lblIdEstabelecimento.Size = New System.Drawing.Size(91, 13)
         Me.lblIdEstabelecimento.TabIndex = 140
@@ -527,13 +533,13 @@ Partial Class frmStones
         '
         'btnInativarEstab
         '
-        Me.btnInativarEstab.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.btnInativarEstab.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.btnInativarEstab.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.btnInativarEstab.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
         Me.btnInativarEstab.Appearance.Options.UseBackColor = True
         Me.btnInativarEstab.Appearance.Options.UseFont = True
         Me.btnInativarEstab.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.btnInativarEstab.Location = New System.Drawing.Point(637, 469)
+        Me.btnInativarEstab.Location = New System.Drawing.Point(644, 467)
         Me.btnInativarEstab.Name = "btnInativarEstab"
         Me.btnInativarEstab.Size = New System.Drawing.Size(170, 45)
         Me.btnInativarEstab.TabIndex = 139
@@ -541,13 +547,13 @@ Partial Class frmStones
         '
         'btnListarEstab
         '
-        Me.btnListarEstab.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.btnListarEstab.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.btnListarEstab.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.btnListarEstab.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
         Me.btnListarEstab.Appearance.Options.UseBackColor = True
         Me.btnListarEstab.Appearance.Options.UseFont = True
         Me.btnListarEstab.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.btnListarEstab.Location = New System.Drawing.Point(461, 469)
+        Me.btnListarEstab.Location = New System.Drawing.Point(292, 467)
         Me.btnListarEstab.Name = "btnListarEstab"
         Me.btnListarEstab.Size = New System.Drawing.Size(170, 45)
         Me.btnListarEstab.TabIndex = 138
@@ -555,13 +561,13 @@ Partial Class frmStones
         '
         'btnConsultarEstab
         '
-        Me.btnConsultarEstab.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.btnConsultarEstab.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.btnConsultarEstab.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.btnConsultarEstab.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
         Me.btnConsultarEstab.Appearance.Options.UseBackColor = True
         Me.btnConsultarEstab.Appearance.Options.UseFont = True
         Me.btnConsultarEstab.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.btnConsultarEstab.Location = New System.Drawing.Point(285, 469)
+        Me.btnConsultarEstab.Location = New System.Drawing.Point(468, 467)
         Me.btnConsultarEstab.Name = "btnConsultarEstab"
         Me.btnConsultarEstab.Size = New System.Drawing.Size(170, 45)
         Me.btnConsultarEstab.TabIndex = 137
@@ -569,7 +575,7 @@ Partial Class frmStones
         '
         'btnCadEstab
         '
-        Me.btnCadEstab.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.btnCadEstab.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.btnCadEstab.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.btnCadEstab.Appearance.BorderColor = System.Drawing.Color.Gainsboro
         Me.btnCadEstab.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
@@ -577,7 +583,7 @@ Partial Class frmStones
         Me.btnCadEstab.Appearance.Options.UseBorderColor = True
         Me.btnCadEstab.Appearance.Options.UseFont = True
         Me.btnCadEstab.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.btnCadEstab.Location = New System.Drawing.Point(109, 469)
+        Me.btnCadEstab.Location = New System.Drawing.Point(116, 467)
         Me.btnCadEstab.Name = "btnCadEstab"
         Me.btnCadEstab.Size = New System.Drawing.Size(170, 45)
         Me.btnCadEstab.TabIndex = 136
@@ -585,33 +591,35 @@ Partial Class frmStones
         '
         'rtbRetorno
         '
-        Me.rtbRetorno.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.rtbRetorno.Location = New System.Drawing.Point(112, 138)
+        Me.rtbRetorno.Location = New System.Drawing.Point(190, 138)
         Me.rtbRetorno.Name = "rtbRetorno"
-        Me.rtbRetorno.Size = New System.Drawing.Size(694, 166)
+        Me.rtbRetorno.Size = New System.Drawing.Size(618, 168)
         Me.rtbRetorno.TabIndex = 135
         Me.rtbRetorno.Text = ""
         '
         'PanelControl22
         '
-        Me.PanelControl22.Controls.Add(Me.GridListagem)
-        Me.PanelControl22.Location = New System.Drawing.Point(109, 308)
+        Me.PanelControl22.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.PanelControl22.Controls.Add(Me.GridListagemEstab)
+        Me.PanelControl22.Location = New System.Drawing.Point(190, 308)
         Me.PanelControl22.Name = "PanelControl22"
-        Me.PanelControl22.Size = New System.Drawing.Size(699, 155)
+        Me.PanelControl22.Size = New System.Drawing.Size(748, 155)
         Me.PanelControl22.TabIndex = 13
         '
-        'GridListagem
+        'GridListagemEstab
         '
-        Me.GridListagem.DataSource = Me.dsListagem
-        Me.GridListagem.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GridListagem.Location = New System.Drawing.Point(2, 2)
-        Me.GridListagem.MainView = Me.Grid1
-        Me.GridListagem.Name = "GridListagem"
-        Me.GridListagem.Size = New System.Drawing.Size(695, 151)
-        Me.GridListagem.TabIndex = 0
-        Me.GridListagem.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.Grid1})
+        Me.GridListagemEstab.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GridListagemEstab.DataSource = Me.dsListagem
+        Me.GridListagemEstab.Location = New System.Drawing.Point(2, 2)
+        Me.GridListagemEstab.MainView = Me.Grid1
+        Me.GridListagemEstab.Name = "GridListagemEstab"
+        Me.GridListagemEstab.Size = New System.Drawing.Size(744, 151)
+        Me.GridListagemEstab.TabIndex = 0
+        Me.GridListagemEstab.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.Grid1})
         '
         'dsListagem
         '
@@ -619,7 +627,7 @@ Partial Class frmStones
         '
         'Grid1
         '
-        Me.Grid1.GridControl = Me.GridListagem
+        Me.Grid1.GridControl = Me.GridListagemEstab
         Me.Grid1.Name = "Grid1"
         Me.Grid1.OptionsView.EnableAppearanceEvenRow = True
         Me.Grid1.OptionsView.EnableAppearanceOddRow = True
@@ -627,7 +635,7 @@ Partial Class frmStones
         '
         'LabelControl2
         '
-        Me.LabelControl2.Location = New System.Drawing.Point(64, 308)
+        Me.LabelControl2.Location = New System.Drawing.Point(145, 310)
         Me.LabelControl2.Name = "LabelControl2"
         Me.LabelControl2.Size = New System.Drawing.Size(42, 13)
         Me.LabelControl2.TabIndex = 12
@@ -635,14 +643,14 @@ Partial Class frmStones
         '
         'txtStoneCode
         '
-        Me.txtStoneCode.Location = New System.Drawing.Point(112, 86)
+        Me.txtStoneCode.Location = New System.Drawing.Point(190, 86)
         Me.txtStoneCode.Name = "txtStoneCode"
-        Me.txtStoneCode.Size = New System.Drawing.Size(270, 20)
+        Me.txtStoneCode.Size = New System.Drawing.Size(265, 20)
         Me.txtStoneCode.TabIndex = 10
         '
         'lblRetorno
         '
-        Me.lblRetorno.Location = New System.Drawing.Point(67, 141)
+        Me.lblRetorno.Location = New System.Drawing.Point(145, 141)
         Me.lblRetorno.Name = "lblRetorno"
         Me.lblRetorno.Size = New System.Drawing.Size(39, 13)
         Me.lblRetorno.TabIndex = 9
@@ -650,7 +658,7 @@ Partial Class frmStones
         '
         'lblStoneCode
         '
-        Me.lblStoneCode.Location = New System.Drawing.Point(50, 89)
+        Me.lblStoneCode.Location = New System.Drawing.Point(128, 89)
         Me.lblStoneCode.Name = "lblStoneCode"
         Me.lblStoneCode.Size = New System.Drawing.Size(56, 13)
         Me.lblStoneCode.TabIndex = 6
@@ -658,14 +666,14 @@ Partial Class frmStones
         '
         'txtCnpj
         '
-        Me.txtCnpj.Location = New System.Drawing.Point(112, 62)
+        Me.txtCnpj.Location = New System.Drawing.Point(190, 62)
         Me.txtCnpj.Name = "txtCnpj"
-        Me.txtCnpj.Size = New System.Drawing.Size(161, 20)
+        Me.txtCnpj.Size = New System.Drawing.Size(265, 20)
         Me.txtCnpj.TabIndex = 5
         '
         'lblCnpj
         '
-        Me.lblCnpj.Location = New System.Drawing.Point(58, 65)
+        Me.lblCnpj.Location = New System.Drawing.Point(136, 65)
         Me.lblCnpj.Name = "lblCnpj"
         Me.lblCnpj.Size = New System.Drawing.Size(48, 13)
         Me.lblCnpj.TabIndex = 4
@@ -673,14 +681,14 @@ Partial Class frmStones
         '
         'txtNomeFantasia
         '
-        Me.txtNomeFantasia.Location = New System.Drawing.Point(112, 36)
+        Me.txtNomeFantasia.Location = New System.Drawing.Point(190, 36)
         Me.txtNomeFantasia.Name = "txtNomeFantasia"
-        Me.txtNomeFantasia.Size = New System.Drawing.Size(408, 20)
+        Me.txtNomeFantasia.Size = New System.Drawing.Size(441, 20)
         Me.txtNomeFantasia.TabIndex = 3
         '
         'lblNomeFantasia
         '
-        Me.lblNomeFantasia.Location = New System.Drawing.Point(6, 39)
+        Me.lblNomeFantasia.Location = New System.Drawing.Point(84, 39)
         Me.lblNomeFantasia.Name = "lblNomeFantasia"
         Me.lblNomeFantasia.Size = New System.Drawing.Size(100, 13)
         Me.lblNomeFantasia.TabIndex = 2
@@ -688,14 +696,14 @@ Partial Class frmStones
         '
         'txtRazaoSocial
         '
-        Me.txtRazaoSocial.Location = New System.Drawing.Point(112, 10)
+        Me.txtRazaoSocial.Location = New System.Drawing.Point(190, 10)
         Me.txtRazaoSocial.Name = "txtRazaoSocial"
-        Me.txtRazaoSocial.Size = New System.Drawing.Size(408, 20)
+        Me.txtRazaoSocial.Size = New System.Drawing.Size(441, 20)
         Me.txtRazaoSocial.TabIndex = 1
         '
         'lblRazaoSocial
         '
-        Me.lblRazaoSocial.Location = New System.Drawing.Point(46, 13)
+        Me.lblRazaoSocial.Location = New System.Drawing.Point(124, 13)
         Me.lblRazaoSocial.Name = "lblRazaoSocial"
         Me.lblRazaoSocial.Size = New System.Drawing.Size(60, 13)
         Me.lblRazaoSocial.TabIndex = 0
@@ -703,113 +711,62 @@ Partial Class frmStones
         '
         'RegistrarPos
         '
-        Me.RegistrarPos.Controls.Add(Me.TextEdit8)
+        Me.RegistrarPos.Controls.Add(Me.btnDesativarPOS)
+        Me.RegistrarPos.Controls.Add(Me.btnConsultarConfiguração)
+        Me.RegistrarPos.Controls.Add(Me.rdgConfigurarPos)
+        Me.RegistrarPos.Controls.Add(Me.txtNumeroSerie)
+        Me.RegistrarPos.Controls.Add(Me.txtNomeIdentificacao)
+        Me.RegistrarPos.Controls.Add(Me.txtNumeroIdentificacao)
+        Me.RegistrarPos.Controls.Add(Me.btnAtivarPos)
+        Me.RegistrarPos.Controls.Add(Me.btnListarPos)
+        Me.RegistrarPos.Controls.Add(Me.btnConfigurarPos)
+        Me.RegistrarPos.Controls.Add(Me.rtbPosRetorno)
         Me.RegistrarPos.Controls.Add(Me.PanelControl23)
         Me.RegistrarPos.Controls.Add(Me.LabelControl6)
-        Me.RegistrarPos.Controls.Add(Me.MemoEdit2)
-        Me.RegistrarPos.Controls.Add(Me.TextEdit6)
-        Me.RegistrarPos.Controls.Add(Me.TextEdit7)
         Me.RegistrarPos.Controls.Add(Me.LabelControl1)
         Me.RegistrarPos.Controls.Add(Me.LabelControl3)
         Me.RegistrarPos.Controls.Add(Me.LabelControl4)
         Me.RegistrarPos.Controls.Add(Me.LabelControl5)
         Me.RegistrarPos.Name = "RegistrarPos"
-        Me.RegistrarPos.Size = New System.Drawing.Size(815, 619)
+        Me.RegistrarPos.Size = New System.Drawing.Size(941, 523)
         Me.RegistrarPos.Text = "POS"
         '
-        'TextEdit8
+        'btnDesativarPOS
         '
-        Me.TextEdit8.Location = New System.Drawing.Point(164, 64)
-        Me.TextEdit8.Name = "TextEdit8"
-        Me.TextEdit8.Size = New System.Drawing.Size(270, 20)
-        Me.TextEdit8.TabIndex = 26
+        Me.btnDesativarPOS.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.btnDesativarPOS.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.btnDesativarPOS.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.btnDesativarPOS.Appearance.Options.UseBackColor = True
+        Me.btnDesativarPOS.Appearance.Options.UseFont = True
+        Me.btnDesativarPOS.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.btnDesativarPOS.Location = New System.Drawing.Point(563, 463)
+        Me.btnDesativarPOS.Name = "btnDesativarPOS"
+        Me.btnDesativarPOS.Size = New System.Drawing.Size(170, 45)
+        Me.btnDesativarPOS.TabIndex = 155
+        Me.btnDesativarPOS.Text = "Desativar POS"
         '
-        'PanelControl23
+        'btnConsultarConfiguração
         '
-        Me.PanelControl23.Controls.Add(Me.GridControl2)
-        Me.PanelControl23.Location = New System.Drawing.Point(592, 10)
-        Me.PanelControl23.Name = "PanelControl23"
-        Me.PanelControl23.Size = New System.Drawing.Size(406, 344)
-        Me.PanelControl23.TabIndex = 25
+        Me.btnConsultarConfiguração.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.btnConsultarConfiguração.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.btnConsultarConfiguração.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.btnConsultarConfiguração.Appearance.Options.UseBackColor = True
+        Me.btnConsultarConfiguração.Appearance.Options.UseFont = True
+        Me.btnConsultarConfiguração.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.btnConsultarConfiguração.Location = New System.Drawing.Point(739, 463)
+        Me.btnConsultarConfiguração.Name = "btnConsultarConfiguração"
+        Me.btnConsultarConfiguração.Size = New System.Drawing.Size(170, 45)
+        Me.btnConsultarConfiguração.TabIndex = 154
+        Me.btnConsultarConfiguração.Text = "Consultar Configuração"
         '
-        'GridControl2
+        'rdgConfigurarPos
         '
-        Me.GridControl2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GridControl2.Location = New System.Drawing.Point(2, 2)
-        Me.GridControl2.MainView = Me.GridView2
-        Me.GridControl2.Name = "GridControl2"
-        Me.GridControl2.Size = New System.Drawing.Size(402, 340)
-        Me.GridControl2.TabIndex = 0
-        Me.GridControl2.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView2})
-        '
-        'GridView2
-        '
-        Me.GridView2.GridControl = Me.GridControl2
-        Me.GridView2.Name = "GridView2"
-        Me.GridView2.OptionsView.EnableAppearanceEvenRow = True
-        Me.GridView2.OptionsView.EnableAppearanceOddRow = True
-        Me.GridView2.OptionsView.ShowGroupPanel = False
-        '
-        'LabelControl6
-        '
-        Me.LabelControl6.Location = New System.Drawing.Point(546, 16)
-        Me.LabelControl6.Name = "LabelControl6"
-        Me.LabelControl6.Size = New System.Drawing.Size(42, 13)
-        Me.LabelControl6.TabIndex = 24
-        Me.LabelControl6.Text = "Listagem"
-        '
-        'MemoEdit2
-        '
-        Me.MemoEdit2.Location = New System.Drawing.Point(164, 90)
-        Me.MemoEdit2.Name = "MemoEdit2"
-        Me.MemoEdit2.Size = New System.Drawing.Size(361, 264)
-        Me.MemoEdit2.TabIndex = 22
-        '
-        'TextEdit6
-        '
-        Me.TextEdit6.Location = New System.Drawing.Point(164, 38)
-        Me.TextEdit6.Name = "TextEdit6"
-        Me.TextEdit6.Size = New System.Drawing.Size(361, 20)
-        Me.TextEdit6.TabIndex = 21
-        '
-        'TextEdit7
-        '
-        Me.TextEdit7.Location = New System.Drawing.Point(164, 12)
-        Me.TextEdit7.Name = "TextEdit7"
-        Me.TextEdit7.Size = New System.Drawing.Size(361, 20)
-        Me.TextEdit7.TabIndex = 20
-        '
-        'LabelControl1
-        '
-        Me.LabelControl1.Location = New System.Drawing.Point(119, 93)
-        Me.LabelControl1.Name = "LabelControl1"
-        Me.LabelControl1.Size = New System.Drawing.Size(39, 13)
-        Me.LabelControl1.TabIndex = 19
-        Me.LabelControl1.Text = "Retorno"
-        '
-        'LabelControl3
-        '
-        Me.LabelControl3.Location = New System.Drawing.Point(21, 67)
-        Me.LabelControl3.Name = "LabelControl3"
-        Me.LabelControl3.Size = New System.Drawing.Size(137, 13)
-        Me.LabelControl3.TabIndex = 15
-        Me.LabelControl3.Text = "Número de Série da Máquina"
-        '
-        'LabelControl4
-        '
-        Me.LabelControl4.Location = New System.Drawing.Point(6, 41)
-        Me.LabelControl4.Name = "LabelControl4"
-        Me.LabelControl4.Size = New System.Drawing.Size(152, 13)
-        Me.LabelControl4.TabIndex = 13
-        Me.LabelControl4.Text = "Nome de Identificação do Caixa"
-        '
-        'LabelControl5
-        '
-        Me.LabelControl5.Location = New System.Drawing.Point(21, 15)
-        Me.LabelControl5.Name = "LabelControl5"
-        Me.LabelControl5.Size = New System.Drawing.Size(137, 13)
-        Me.LabelControl5.TabIndex = 11
-        Me.LabelControl5.Text = "N° de Identificação do Caixa"
+        Me.rdgConfigurarPos.Location = New System.Drawing.Point(700, 13)
+        Me.rdgConfigurarPos.MenuManager = Me.BarManager1
+        Me.rdgConfigurarPos.Name = "rdgConfigurarPos"
+        Me.rdgConfigurarPos.Properties.Items.AddRange(New DevExpress.XtraEditors.Controls.RadioGroupItem() {New DevExpress.XtraEditors.Controls.RadioGroupItem(Nothing, "Vínculo Aberto "), New DevExpress.XtraEditors.Controls.RadioGroupItem(Nothing, "Vínculo Fechado"), New DevExpress.XtraEditors.Controls.RadioGroupItem(Nothing, "Vínculo Misto")})
+        Me.rdgConfigurarPos.Size = New System.Drawing.Size(108, 70)
+        Me.rdgConfigurarPos.TabIndex = 153
         '
         'BarManager1
         '
@@ -855,34 +812,179 @@ Partial Class frmStones
         Me.barDockControlTop.CausesValidation = False
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
-        Me.barDockControlTop.Size = New System.Drawing.Size(821, 0)
+        Me.barDockControlTop.Size = New System.Drawing.Size(947, 0)
         '
         'barDockControlBottom
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 549)
-        Me.barDockControlBottom.Size = New System.Drawing.Size(821, 25)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 551)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(947, 25)
         '
         'barDockControlLeft
         '
         Me.barDockControlLeft.CausesValidation = False
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
         Me.barDockControlLeft.Location = New System.Drawing.Point(0, 0)
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 549)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 551)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(821, 0)
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 549)
+        Me.barDockControlRight.Location = New System.Drawing.Point(947, 0)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 551)
+        '
+        'txtNumeroSerie
+        '
+        Me.txtNumeroSerie.Location = New System.Drawing.Point(190, 67)
+        Me.txtNumeroSerie.Name = "txtNumeroSerie"
+        Me.txtNumeroSerie.Size = New System.Drawing.Size(161, 20)
+        Me.txtNumeroSerie.TabIndex = 149
+        '
+        'txtNomeIdentificacao
+        '
+        Me.txtNomeIdentificacao.Location = New System.Drawing.Point(190, 41)
+        Me.txtNomeIdentificacao.Name = "txtNomeIdentificacao"
+        Me.txtNomeIdentificacao.Size = New System.Drawing.Size(408, 20)
+        Me.txtNomeIdentificacao.TabIndex = 148
+        '
+        'txtNumeroIdentificacao
+        '
+        Me.txtNumeroIdentificacao.Location = New System.Drawing.Point(190, 15)
+        Me.txtNumeroIdentificacao.Name = "txtNumeroIdentificacao"
+        Me.txtNumeroIdentificacao.Size = New System.Drawing.Size(408, 20)
+        Me.txtNumeroIdentificacao.TabIndex = 147
+        '
+        'btnAtivarPos
+        '
+        Me.btnAtivarPos.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.btnAtivarPos.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.btnAtivarPos.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.btnAtivarPos.Appearance.Options.UseBackColor = True
+        Me.btnAtivarPos.Appearance.Options.UseFont = True
+        Me.btnAtivarPos.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.btnAtivarPos.Location = New System.Drawing.Point(387, 463)
+        Me.btnAtivarPos.Name = "btnAtivarPos"
+        Me.btnAtivarPos.Size = New System.Drawing.Size(170, 45)
+        Me.btnAtivarPos.TabIndex = 145
+        Me.btnAtivarPos.Text = "Ativar POS"
+        '
+        'btnListarPos
+        '
+        Me.btnListarPos.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.btnListarPos.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.btnListarPos.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.btnListarPos.Appearance.Options.UseBackColor = True
+        Me.btnListarPos.Appearance.Options.UseFont = True
+        Me.btnListarPos.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.btnListarPos.Location = New System.Drawing.Point(211, 463)
+        Me.btnListarPos.Name = "btnListarPos"
+        Me.btnListarPos.Size = New System.Drawing.Size(170, 45)
+        Me.btnListarPos.TabIndex = 144
+        Me.btnListarPos.Text = "Listar POS"
+        '
+        'btnConfigurarPos
+        '
+        Me.btnConfigurarPos.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.btnConfigurarPos.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.btnConfigurarPos.Appearance.BorderColor = System.Drawing.Color.Gainsboro
+        Me.btnConfigurarPos.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.btnConfigurarPos.Appearance.Options.UseBackColor = True
+        Me.btnConfigurarPos.Appearance.Options.UseBorderColor = True
+        Me.btnConfigurarPos.Appearance.Options.UseFont = True
+        Me.btnConfigurarPos.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.btnConfigurarPos.Location = New System.Drawing.Point(35, 463)
+        Me.btnConfigurarPos.Name = "btnConfigurarPos"
+        Me.btnConfigurarPos.Size = New System.Drawing.Size(170, 45)
+        Me.btnConfigurarPos.TabIndex = 143
+        Me.btnConfigurarPos.Text = "Configurar POS "
+        '
+        'rtbPosRetorno
+        '
+        Me.rtbPosRetorno.Location = New System.Drawing.Point(190, 93)
+        Me.rtbPosRetorno.Name = "rtbPosRetorno"
+        Me.rtbPosRetorno.Size = New System.Drawing.Size(618, 168)
+        Me.rtbPosRetorno.TabIndex = 142
+        Me.rtbPosRetorno.Text = ""
+        '
+        'PanelControl23
+        '
+        Me.PanelControl23.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.PanelControl23.Controls.Add(Me.GridListagemPos)
+        Me.PanelControl23.Location = New System.Drawing.Point(190, 267)
+        Me.PanelControl23.Name = "PanelControl23"
+        Me.PanelControl23.Size = New System.Drawing.Size(744, 190)
+        Me.PanelControl23.TabIndex = 141
+        '
+        'GridListagemPos
+        '
+        Me.GridListagemPos.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GridListagemPos.DataSource = Me.dsListagem
+        Me.GridListagemPos.Location = New System.Drawing.Point(2, 2)
+        Me.GridListagemPos.MainView = Me.grid2
+        Me.GridListagemPos.Name = "GridListagemPos"
+        Me.GridListagemPos.Size = New System.Drawing.Size(740, 186)
+        Me.GridListagemPos.TabIndex = 0
+        Me.GridListagemPos.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.grid2})
+        '
+        'grid2
+        '
+        Me.grid2.GridControl = Me.GridListagemPos
+        Me.grid2.Name = "grid2"
+        Me.grid2.OptionsView.EnableAppearanceEvenRow = True
+        Me.grid2.OptionsView.EnableAppearanceOddRow = True
+        Me.grid2.OptionsView.ShowGroupPanel = False
+        '
+        'LabelControl6
+        '
+        Me.LabelControl6.Location = New System.Drawing.Point(145, 269)
+        Me.LabelControl6.Name = "LabelControl6"
+        Me.LabelControl6.Size = New System.Drawing.Size(42, 13)
+        Me.LabelControl6.TabIndex = 140
+        Me.LabelControl6.Text = "Listagem"
+        '
+        'LabelControl1
+        '
+        Me.LabelControl1.Location = New System.Drawing.Point(145, 96)
+        Me.LabelControl1.Name = "LabelControl1"
+        Me.LabelControl1.Size = New System.Drawing.Size(39, 13)
+        Me.LabelControl1.TabIndex = 19
+        Me.LabelControl1.Text = "Retorno"
+        '
+        'LabelControl3
+        '
+        Me.LabelControl3.Location = New System.Drawing.Point(49, 70)
+        Me.LabelControl3.Name = "LabelControl3"
+        Me.LabelControl3.Size = New System.Drawing.Size(137, 13)
+        Me.LabelControl3.TabIndex = 15
+        Me.LabelControl3.Text = "Número de Série da Máquina"
+        '
+        'LabelControl4
+        '
+        Me.LabelControl4.Location = New System.Drawing.Point(34, 44)
+        Me.LabelControl4.Name = "LabelControl4"
+        Me.LabelControl4.Size = New System.Drawing.Size(152, 13)
+        Me.LabelControl4.TabIndex = 13
+        Me.LabelControl4.Text = "Nome de Identificação do Caixa"
+        '
+        'LabelControl5
+        '
+        Me.LabelControl5.Location = New System.Drawing.Point(49, 18)
+        Me.LabelControl5.Name = "LabelControl5"
+        Me.LabelControl5.Size = New System.Drawing.Size(137, 13)
+        Me.LabelControl5.TabIndex = 11
+        Me.LabelControl5.Text = "N° de Identificação do Caixa"
         '
         'frmStones
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(821, 574)
+        Me.ClientSize = New System.Drawing.Size(947, 576)
         Me.Controls.Add(Me.XtraTabControl1)
         Me.Controls.Add(Me.barDockControlLeft)
         Me.Controls.Add(Me.barDockControlRight)
@@ -936,7 +1038,7 @@ Partial Class frmStones
         CType(Me.txtIdEstabelecimento.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl22, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl22.ResumeLayout(False)
-        CType(Me.GridListagem, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridListagemEstab, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dsListagem, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Grid1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtStoneCode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -945,15 +1047,15 @@ Partial Class frmStones
         CType(Me.txtRazaoSocial.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.RegistrarPos.ResumeLayout(False)
         Me.RegistrarPos.PerformLayout()
-        CType(Me.TextEdit8.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.rdgConfigurarPos.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtNumeroSerie.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtNomeIdentificacao.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtNumeroIdentificacao.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl23, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl23.ResumeLayout(False)
-        CType(Me.GridControl2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.MemoEdit2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TextEdit6.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TextEdit7.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridListagemPos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grid2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -994,7 +1096,7 @@ Partial Class frmStones
     Friend WithEvents PanelControl12 As DevExpress.XtraEditors.PanelControl
     Friend WithEvents RegistrarEstabelecimento As DevExpress.XtraTab.XtraTabPage
     Friend WithEvents PanelControl22 As DevExpress.XtraEditors.PanelControl
-    Friend WithEvents GridListagem As DevExpress.XtraGrid.GridControl
+    Friend WithEvents GridListagemEstab As DevExpress.XtraGrid.GridControl
     Friend WithEvents Grid1 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents LabelControl2 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents txtStoneCode As DevExpress.XtraEditors.TextEdit
@@ -1011,14 +1113,6 @@ Partial Class frmStones
     Friend WithEvents LabelControl3 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl4 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl5 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents TextEdit8 As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents PanelControl23 As DevExpress.XtraEditors.PanelControl
-    Friend WithEvents GridControl2 As DevExpress.XtraGrid.GridControl
-    Friend WithEvents GridView2 As DevExpress.XtraGrid.Views.Grid.GridView
-    Friend WithEvents LabelControl6 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents MemoEdit2 As DevExpress.XtraEditors.MemoEdit
-    Friend WithEvents TextEdit6 As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents TextEdit7 As DevExpress.XtraEditors.TextEdit
     Friend WithEvents btnInativarEstab As DevExpress.XtraEditors.CheckButton
     Friend WithEvents btnListarEstab As DevExpress.XtraEditors.CheckButton
     Friend WithEvents btnConsultarEstab As DevExpress.XtraEditors.CheckButton
@@ -1035,4 +1129,18 @@ Partial Class frmStones
     Friend WithEvents dsListagem As System.Data.DataSet
     Friend WithEvents txtIdEstabelecimento As DevExpress.XtraEditors.TextEdit
     Friend WithEvents lblIdEstabelecimento As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents txtNumeroSerie As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtNomeIdentificacao As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtNumeroIdentificacao As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents btnAtivarPos As DevExpress.XtraEditors.CheckButton
+    Friend WithEvents btnListarPos As DevExpress.XtraEditors.CheckButton
+    Friend WithEvents btnConfigurarPos As DevExpress.XtraEditors.CheckButton
+    Friend WithEvents rtbPosRetorno As System.Windows.Forms.RichTextBox
+    Friend WithEvents PanelControl23 As DevExpress.XtraEditors.PanelControl
+    Friend WithEvents GridListagemPos As DevExpress.XtraGrid.GridControl
+    Friend WithEvents grid2 As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents LabelControl6 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents rdgConfigurarPos As DevExpress.XtraEditors.RadioGroup
+    Friend WithEvents btnDesativarPOS As DevExpress.XtraEditors.CheckButton
+    Friend WithEvents btnConsultarConfiguração As DevExpress.XtraEditors.CheckButton
 End Class

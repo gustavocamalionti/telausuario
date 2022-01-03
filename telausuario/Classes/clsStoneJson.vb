@@ -36,7 +36,6 @@
 
     Public Class clsAtivarPos
         Public Property cashier_number As String
-        Public Property pdv_number As String
         Public Property pos_link_label As String
         Public Property pos_serial_number_to_link As String
 

@@ -180,7 +180,7 @@ Public Class clsStone
         End Try
     End Function
 
-    Public Shared Function StoneConsultarPos(ByVal parToken As String, ByVal parIdEstabelecimento As String) As DataTable
+    Public Shared Function StoneConsultarPos(ByVal parToken As String, ByVal parIdEstabelecimento As String, ByRef parRetorno As String) As DataTable
         Dim dtListaPos As New DataTable
         dtListaPos.Columns.Add("pos_reference_id")
         dtListaPos.Columns.Add("pos_serial_number")
@@ -211,7 +211,7 @@ Public Class clsStone
             'Dim strStoneIdReferencePos As String = successResult.Item("available_pos_list")(0)("pos_reference_id").ToString
             Dim teste As String = ""
             PopulateDtPos(successResult, dtListaPos)
-
+            parRetorno = json
             Return dtListaPos
         Catch ex As WebException
             Dim strErro As String = ""
@@ -307,11 +307,11 @@ Public Class clsStone
 
     End Function
 
-    Public Shared Function StoneAtivarPos(ByVal parToken As String, ByVal parEstablishment_id As String, ByVal parCashier_number As String, ByVal parPdv_number As String, ByVal parPos_link_label As String, ByVal parPos_serial_number_to_link As String) As String
+    Public Shared Function StoneAtivarPos(ByVal parToken As String, ByVal parEstablishment_id As String, ByVal parCashier_number As String, ByVal parPos_link_label As String, ByVal parPos_serial_number_to_link As String) As String
         Dim body As New clsStoneJson.clsAtivarPos
         'body.establishment_id = parEstablishment_id
         body.cashier_number = parCashier_number
-        body.pdv_number = parPdv_number
+
         body.pos_link_label = parPos_link_label
         body.pos_serial_number_to_link = parPos_serial_number_to_link
 
@@ -376,6 +376,60 @@ Public Class clsStone
 
     End Function
 
+    Public Shared Function StoneConsultarConfiguracaoPos(ByVal parToken As String, ByVal parEstablishment_id As String) As String
+
+        System.Net.ServicePointManager.SecurityProtocol = 3072
+        Dim client As New WebClient
+        client.Headers("Authorization") = "Bearer " + parToken
+        client.Headers("Accept") = "application/json"
+
+        ServicePointManager.Expect100Continue = False
+        Dim strURL As String = "https://api.siclospag.com.br/connect/v1/pos/control-configuration/" + parEstablishment_id
+        Try
+            Dim jsonResult As String = Encoding.UTF8.GetString(client.DownloadData(strURL))
+            Dim successResult As Linq.JObject = JsonConvert.DeserializeObject(jsonResult)
+            Dim json As String = JsonConvert.SerializeObject(successResult, Formatting.Indented)
+            'Dim strStoneIdReferencePos As String = successResult.Item("available_pos_list")(0)("pos_reference_id").ToString
+            Return json
+
+        Catch ex As WebException
+            Dim strErro As String = ""
+            Dim strJson As String = ""
+            Try
+                Dim response As String = New StreamReader(ex.Response.GetResponseStream()).ReadToEnd()
+
+                If response.Contains("error") = True Then
+                    Dim successResult2 As Linq.JObject = JsonConvert.DeserializeObject(response)
+                    strJson = JsonConvert.SerializeObject(successResult2, Formatting.Indented)
+                    Dim strCod As String = successResult2.Item("error")("code").ToString
+                    strErro = successResult2.Item("error")("description").ToString
+                    strErro = ""
+                End If
+            Catch ex2 As Exception
+            End Try
+            MsgBox(strErro & vbCrLf & ex.Message, MsgBoxStyle.Information)
+
+        End Try
+    End Function
+
+    Public Shared Function StoneDesativarPos(ByVal parToken As String, ByVal parPos_reference_id As String) As String
+
+         Try
+            Dim request As HttpWebRequest = CType(WebRequest.Create("https://api.siclospag.com.br/connect/v1/pos/deactivate-pos-link/" + parPos_reference_id), HttpWebRequest)
+            request.Headers.Add("Authorization", "Bearer " + parToken)
+            request.Accept = "application/json"
+            request.Method = "PUT"
+            Dim response As HttpWebResponse
+            response = CType(request.GetResponse(), HttpWebResponse)
+            Dim responseStream As Stream = response.GetResponseStream()
+            Dim responseStr As String = New StreamReader(responseStream).ReadToEnd()
+            Dim successResult As Linq.JObject = JsonConvert.DeserializeObject(responseStr)
+            Dim json As String = JsonConvert.SerializeObject(successResult, Formatting.Indented)
+            Return json
+        Catch ex As Exception
+            Return "ERRO"
+        End Try
+    End Function
     Public Shared Function StoneCriarPreTransacoes(ByVal parToken As String, ByVal parestablishment As String, ByVal parReferenceId As String, ByVal parAmount As Integer, ByVal parInformation_title As String, ByVal parType As Integer) As String
         Dim body As New clsStoneJson.clsCriarPreTransacoes
         body.pos_reference_id = parReferenceId
@@ -581,22 +635,7 @@ Public Class clsStone
 
     End Function
 
-    Public Shared Function StoneConsultaTransacaoID(ByVal parToken As String, ByVal parIdTransacao As String) As DataTable
-        Dim dtListaPos As New DataTable
-        dtListaPos.Columns.Add("pos_reference_id")
-        dtListaPos.Columns.Add("pos_serial_number")
-        dtListaPos.Columns.Add("is_linked")
-
-
-        '   "id": "db4362a6-7710-4f52-ab97-4ddcf59bd18b",
-        '"is_establishment_to_production": true,
-        '"legal_name": "Sistemas Nano",
-        '"business_name": "Eder",
-        '"is_cnpj": true,
-        '"document": "14566555000100",
-        '"stone_code": null,
-        '"establishment_is_active": false,
-        '"mamba_released": true,
+    Public Shared Function StoneConsultaTransacaoID(ByVal parToken As String, ByVal parIdTransacao As String) As String
 
         System.Net.ServicePointManager.SecurityProtocol = 3072
         Dim client As New WebClient
@@ -610,10 +649,8 @@ Public Class clsStone
             Dim successResult As Linq.JObject = JsonConvert.DeserializeObject(jsonResult)
             Dim json As String = JsonConvert.SerializeObject(successResult, Formatting.Indented)
             'Dim strStoneIdReferencePos As String = successResult.Item("available_pos_list")(0)("pos_reference_id").ToString
-            Dim teste As String = ""
-            PopulateDtPos(successResult, dtListaPos)
+            Return json
 
-            Return dtListaPos
         Catch ex As WebException
             Dim strErro As String = ""
             Dim strJson As String = ""
