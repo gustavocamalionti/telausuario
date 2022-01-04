@@ -13,11 +13,11 @@ Public Class frmStones
         StoneToken()
         token = dtStoneToken.Rows.Item(0).Item("token").ToString
 
-        txtCnpj.Text = "14566555000100"
-        txtNomeFantasia.Text = "Sistemas Nano"
-        txtRazaoSocial.Text = "Era Systems Soluções"
-        txtStoneCode.Text = "211732177"
-        rdgConfigurarPos.SelectedIndex = 1
+        Me.txtCnpj.Text = "14566555000100"
+        Me.txtNomeFantasia.Text = "Sistemas Nano"
+        Me.txtRazaoSocial.Text = "Era Systems Soluções"
+        Me.txtStoneCode.Text = "211732177"
+        Me.rdgConfigurarPos.SelectedIndex = 1
 
         Dim strRetorno As String
         Dim dtListagemEstabelecimento As DataTable = StoneConsultarTodosEstabelecimento(token, strRetorno)
@@ -33,12 +33,12 @@ Public Class frmStones
     End Sub
 
     Private Sub Limpar()
-        rtbRetorno.ResetText()
-        rtbPosRetorno.ResetText()
-        Grid1.Columns.Clear()
-        grid2.Columns.Clear()
+        Me.rtbRetorno.ResetText()
+        Me.rtbPosRetorno.ResetText()
+        Me.Grid1.Columns.Clear()
+        Me.grid2.Columns.Clear()
 
-        rdgConfigurarPos.SelectedIndex = 1
+        Me.rdgConfigurarPos.SelectedIndex = 1
     End Sub
 
     Private Sub btnToken_Click(sender As Object, e As EventArgs) Handles btnToken.Click
@@ -110,7 +110,7 @@ Public Class frmStones
 
     Private Sub btnCadEstab_CheckedChanged(sender As Object, e As EventArgs) Handles btnCadEstab.CheckedChanged
         Limpar()
-        rtbRetorno.Text = StoneRegistrarEstabelecimento(token, txtRazaoSocial.Text, txtNomeFantasia.Text, txtCnpj.Text, txtStoneCode.Text, 1238)
+        Me.rtbRetorno.Text = StoneRegistrarEstabelecimento(token, Me.txtRazaoSocial.Text, Me.txtNomeFantasia.Text, Me.txtCnpj.Text, Me.txtStoneCode.Text, 1238)
     End Sub
 
     Private Sub btnCriarPreTransacoes_Click(sender As Object, e As EventArgs) Handles btnCriarPreTransacoes.Click
@@ -135,10 +135,10 @@ Public Class frmStones
 
     Private Sub btnConsultarEstab_CheckedChanged(sender As Object, e As EventArgs) Handles btnConsultarEstab.CheckedChanged
         Dim index As Integer
-        index = Grid1.FocusedRowHandle
-        Dim idEstabelecimento As String = Grid1.GetRowCellValue(index, "id")
+        index = Me.Grid1.FocusedRowHandle
+        Dim idEstabelecimento As String = Me.Grid1.GetRowCellValue(index, "id")
         If idEstabelecimento <> "" Then
-            rtbRetorno.Text = StoneConsultaEstabelecimentoEspecifico(token, idEstabelecimento)
+            Me.rtbRetorno.Text = StoneConsultaEstabelecimentoEspecifico(token, idEstabelecimento)
         Else
             MsgBox("Liste os Estabelecimento na tabela.", MsgBoxStyle.Exclamation)
         End If
@@ -149,11 +149,11 @@ Public Class frmStones
 
         Dim index As Integer
         index = Grid1.FocusedRowHandle
-        Dim idEstabelecimento As String = Grid1.GetRowCellValue(index, "id")
+        Dim idEstabelecimento As String = Me.Grid1.GetRowCellValue(index, "id")
         If idEstabelecimento <> "" Then
             Dim answer As String = MsgBox("Deseja Inativar esse estabelecimento?", MsgBoxStyle.YesNo).ToString
             If answer = "Yes" Then
-                rtbRetorno.Text = StoneDeletarEstabelecimento(token, idEstabelecimento)
+                Me.rtbRetorno.Text = StoneDeletarEstabelecimento(token, idEstabelecimento)
 
             End If
         Else
@@ -165,14 +165,14 @@ Public Class frmStones
 
     Private Sub btnConfigurarPos_CheckedChanged(sender As Object, e As EventArgs) Handles btnConfigurarPos.CheckedChanged
         Limpar()
-        If rdgConfigurarPos.SelectedIndex = 0 Then 'Aberto
-            rtbPosRetorno.Text = StoneConfigurarPos(token, strIdEstabelecimento, 1, False, False, 0, False, 0, True, False, 1500)
+        If Me.rdgConfigurarPos.SelectedIndex = 0 Then 'Aberto
+            Me.rtbPosRetorno.Text = StoneConfigurarPos(token, strIdEstabelecimento, 1, False, False, 0, False, 0, True, False, 1500)
 
-        ElseIf rdgConfigurarPos.SelectedIndex = 1 Then 'Exclusivo
-            rtbPosRetorno.Text = StoneConfigurarPos(token, strIdEstabelecimento, 0, 1, False, 0, False, 0, True, False, 1500)
+        ElseIf Me.rdgConfigurarPos.SelectedIndex = 1 Then 'Exclusivo
+            Me.rtbPosRetorno.Text = StoneConfigurarPos(token, strIdEstabelecimento, 0, 1, False, 0, False, 0, True, False, 1500)
 
         Else 'Misto
-            rtbPosRetorno.Text = StoneConfigurarPos(token, strIdEstabelecimento, 0, False, 1, 0, 1, 0, True, False, 1500)
+            Me.rtbPosRetorno.Text = StoneConfigurarPos(token, strIdEstabelecimento, 0, False, 1, 0, 1, 0, True, False, 1500)
         End If
 
     End Sub
@@ -181,15 +181,15 @@ Public Class frmStones
         Limpar()
         Dim strRetorno As String
         Dim dtListagem As DataTable = StoneConsultarPos(token, strIdEstabelecimento, strRetorno)
-        rtbPosRetorno.Text = strRetorno
-        GridListagemPos.DataSource = dtListagem
+        Me.rtbPosRetorno.Text = strRetorno
+        Me.GridListagemPos.DataSource = dtListagem
     End Sub
 
     Private Sub btnAtivarPos_CheckedChanged(sender As Object, e As EventArgs) Handles btnAtivarPos.CheckedChanged
-        If txtNumeroIdentificacao.Text = "" Or txtNomeIdentificacao.Text = "" Or txtNumeroSerie.Text = "" Then
+        If Me.txtNumeroIdentificacao.Text = "" Or Me.txtNomeIdentificacao.Text = "" Or Me.txtNumeroSerie.Text = "" Then
             MsgBox("Preencha todos os campos", MsgBoxStyle.Information)
         Else
-            rtbPosRetorno.Text = StoneAtivarPos(token, strIdEstabelecimento, txtNumeroIdentificacao.Text, txtNomeIdentificacao.Text, txtNumeroSerie.Text)
+            Me.rtbPosRetorno.Text = StoneAtivarPos(token, strIdEstabelecimento, Me.txtNumeroIdentificacao.Text, Me.txtNomeIdentificacao.Text, Me.txtNumeroSerie.Text)
         End If
 
     End Sub
@@ -197,13 +197,13 @@ Public Class frmStones
 
     Private Sub btnDesativarPOS_CheckedChanged(sender As Object, e As EventArgs) Handles btnDesativarPOS.CheckedChanged
         Dim index As Integer
-        index = grid2.FocusedRowHandle
-        Dim ReferenceId As String = grid2.GetRowCellValue(index, "pos_reference_id")
-        rtbPosRetorno.Text = StoneDesativarPos(token, ReferenceId)
+        index = Me.grid2.FocusedRowHandle
+        Dim ReferenceId As String = Me.grid2.GetRowCellValue(index, "pos_reference_id")
+        Me.rtbPosRetorno.Text = StoneDesativarPos(token, ReferenceId)
     End Sub
 
     Private Sub btnConsultarConfiguração_CheckedChanged(sender As Object, e As EventArgs) Handles btnConsultarConfiguração.CheckedChanged
         Limpar()
-        rtbPosRetorno.Text = StoneConsultarConfiguracaoPos(token, strIdEstabelecimento)
+        Me.rtbPosRetorno.Text = StoneConsultarConfiguracaoPos(token, strIdEstabelecimento)
     End Sub
 End Class
