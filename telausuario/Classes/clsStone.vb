@@ -796,10 +796,10 @@ Public Class clsStone
 
 
 
-    Public Shared Function PopulateDtEstabelecimento(ByVal jsonResults As Linq.JObject, ByRef target As DataTable, Optional settings As JsonSerializerSettings = Nothing)
+    Public Shared Function PopulateDtEstabelecimento(ByVal jsonResults2 As Linq.JObject, ByRef target As DataTable, Optional settings As JsonSerializerSettings = Nothing)
         Dim I As Integer
         Dim Z As Integer
-        For I = 0 To jsonResults.Item("establishments").Count - 1
+        For I = 0 To jsonResults2.Item("establishments").Count - 1
             target.Rows.Add(0)
             target.Rows.Item(I).Item("establishment_is_active") = jsonResults.Item("establishments")(I)("establishment_is_active").ToString
             target.Rows.Item(I).Item("id") = jsonResults.Item("establishments")(I)("id").ToString

@@ -26,7 +26,7 @@ Public Class clsDropBoxFuncao
         Dim client As New WebClient
         client.Headers("Content-Type") = "application/json"
         client.Headers("Accept") = "application/json"
-        client.Headers("Authorization") = "Bearer fIC5DvLUAqwAAAAAAAAAASG3cPReUZV1gMa1tW0G-hRiT8u0Z2psf0lY2LG-oKc4"
+        client.Headers("Authorization") = "Bearer sl.A_rshf5-D_nMdBQTsM7H_yhvbks4bcM2ylT7YvaOCTENtpnvBV8u_SI9gJUj2sYfaC1H86HdDOV-obtdT2dBZT7wAXm7OPemcsD97unJqxwQgD6U6x2MP758mtMEeA3QWJnxahkAZ-so"
         ServicePointManager.Expect100Continue = False
 
         Dim strURL As String = "https://api.dropboxapi.com/2/files/create_folder_v2"
@@ -94,7 +94,7 @@ Public Class clsDropBoxFuncao
         Dim client As New WebClient
         client.Headers("Content-Type") = "application/octet-stream"
 
-        client.Headers("Authorization") = "Bearer fIC5DvLUAqwAAAAAAAAAASG3cPReUZV1gMa1tW0G-hRiT8u0Z2psf0lY2LG-oKc4"
+        client.Headers("Authorization") = "Bearer sl.A_rshf5-D_nMdBQTsM7H_yhvbks4bcM2ylT7YvaOCTENtpnvBV8u_SI9gJUj2sYfaC1H86HdDOV-obtdT2dBZT7wAXm7OPemcsD97unJqxwQgD6U6x2MP758mtMEeA3QWJnxahkAZ-so"
         client.Headers("Dropbox-API-Arg") = myData
 
         ServicePointManager.Expect100Continue = False
@@ -163,7 +163,7 @@ Public Class clsDropBoxFuncao
         Dim client As New WebClient
         'client.Headers("Content-Type") = "application/octet-stream"
         client.Headers("Content-Type") = "application/json"
-        client.Headers("Authorization") = "Bearer fIC5DvLUAqwAAAAAAAAAASG3cPReUZV1gMa1tW0G-hRiT8u0Z2psf0lY2LG-oKc4"
+        client.Headers("Authorization") = "Bearer sl.A_rshf5-D_nMdBQTsM7H_yhvbks4bcM2ylT7YvaOCTENtpnvBV8u_SI9gJUj2sYfaC1H86HdDOV-obtdT2dBZT7wAXm7OPemcsD97unJqxwQgD6U6x2MP758mtMEeA3QWJnxahkAZ-so"
         ServicePointManager.Expect100Continue = False
 
         Dim strURL As String = "https://api.dropboxapi.com/2/sharing/create_shared_link"
@@ -231,7 +231,7 @@ Public Class clsDropBoxFuncao
         Dim client As New WebClient
         'client.Headers("Content-Type") = "application/octet-stream"
         client.Headers("Content-Type") = "application/json"
-        client.Headers("Authorization") = "Bearer fIC5DvLUAqwAAAAAAAAAASG3cPReUZV1gMa1tW0G-hRiT8u0Z2psf0lY2LG-oKc4"
+        client.Headers("Authorization") = "Bearer sl.A_rshf5-D_nMdBQTsM7H_yhvbks4bcM2ylT7YvaOCTENtpnvBV8u_SI9gJUj2sYfaC1H86HdDOV-obtdT2dBZT7wAXm7OPemcsD97unJqxwQgD6U6x2MP758mtMEeA3QWJnxahkAZ-so"
         ServicePointManager.Expect100Continue = False
 
         Dim strURL As String = "https://api.dropboxapi.com/2/files/delete_v2"
@@ -294,7 +294,7 @@ Public Class clsDropBoxFuncao
         Dim client As New WebClient
         'client.Headers("Content-Type") = "application/octet-stream"
         client.Headers("Content-Type") = "application/json"
-        client.Headers("Authorization") = "Bearer sl.A9qMn38AIoyf0Ul9MHbQk1jYheVz8sLdh76J24NEE2F3f42mGC5tqGpVJSkaBVAY09Aj_J2sSGw3a02QzKi9jAN_hhyurK_j20gcBqX97aBKbpuT8FOYQl_mYvAtSpAZXUXkeFkwzs1B"
+        client.Headers("Authorization") = "Bearer sl.A_rshf5-D_nMdBQTsM7H_yhvbks4bcM2ylT7YvaOCTENtpnvBV8u_SI9gJUj2sYfaC1H86HdDOV-obtdT2dBZT7wAXm7OPemcsD97unJqxwQgD6U6x2MP758mtMEeA3QWJnxahkAZ-so"
         ServicePointManager.Expect100Continue = False
 
         Dim strURL As String = "https://api.dropboxapi.com/2/files/list_folder"
