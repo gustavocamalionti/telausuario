@@ -104,6 +104,8 @@ Partial Class frmStones
         Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl4 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl5 = New DevExpress.XtraEditors.LabelControl()
+        Me.btnConsultarExtrato = New DevExpress.XtraEditors.SimpleButton()
+        Me.btnReativarEstab = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.XtraTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.XtraTabControl1.SuspendLayout()
         Me.Testes.SuspendLayout()
@@ -132,7 +134,9 @@ Partial Class frmStones
         CType(Me.PanelControl21, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl21.SuspendLayout()
         CType(Me.PanelControl20, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelControl20.SuspendLayout()
         CType(Me.PanelControl19, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelControl19.SuspendLayout()
         CType(Me.PanelControl18, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl18.SuspendLayout()
         CType(Me.PanelControl17, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -379,6 +383,7 @@ Partial Class frmStones
         '
         'PanelControl20
         '
+        Me.PanelControl20.Controls.Add(Me.btnReativarEstab)
         Me.PanelControl20.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelControl20.Location = New System.Drawing.Point(2, 254)
         Me.PanelControl20.Name = "PanelControl20"
@@ -387,6 +392,7 @@ Partial Class frmStones
         '
         'PanelControl19
         '
+        Me.PanelControl19.Controls.Add(Me.btnConsultarExtrato)
         Me.PanelControl19.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelControl19.Location = New System.Drawing.Point(2, 212)
         Me.PanelControl19.Name = "PanelControl19"
@@ -980,6 +986,24 @@ Partial Class frmStones
         Me.LabelControl5.TabIndex = 11
         Me.LabelControl5.Text = "N° de Identificação do Caixa"
         '
+        'btnConsultarExtrato
+        '
+        Me.btnConsultarExtrato.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnConsultarExtrato.Location = New System.Drawing.Point(2, 2)
+        Me.btnConsultarExtrato.Name = "btnConsultarExtrato"
+        Me.btnConsultarExtrato.Size = New System.Drawing.Size(273, 38)
+        Me.btnConsultarExtrato.TabIndex = 11
+        Me.btnConsultarExtrato.Text = "Consultar Extrato"
+        '
+        'btnReativarEstab
+        '
+        Me.btnReativarEstab.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnReativarEstab.Location = New System.Drawing.Point(2, 2)
+        Me.btnReativarEstab.Name = "btnReativarEstab"
+        Me.btnReativarEstab.Size = New System.Drawing.Size(273, 45)
+        Me.btnReativarEstab.TabIndex = 12
+        Me.btnReativarEstab.Text = "Reativar Estabelecimento"
+        '
         'frmStones
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1021,7 +1045,9 @@ Partial Class frmStones
         CType(Me.PanelControl21, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl21.ResumeLayout(False)
         CType(Me.PanelControl20, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelControl20.ResumeLayout(False)
         CType(Me.PanelControl19, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelControl19.ResumeLayout(False)
         CType(Me.PanelControl18, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl18.ResumeLayout(False)
         CType(Me.PanelControl17, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1143,4 +1169,6 @@ Partial Class frmStones
     Friend WithEvents rdgConfigurarPos As DevExpress.XtraEditors.RadioGroup
     Friend WithEvents btnDesativarPOS As DevExpress.XtraEditors.CheckButton
     Friend WithEvents btnConsultarConfiguração As DevExpress.XtraEditors.CheckButton
+    Friend WithEvents btnConsultarExtrato As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents btnReativarEstab As DevExpress.XtraEditors.SimpleButton
 End Class

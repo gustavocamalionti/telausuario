@@ -607,8 +607,8 @@ Public Class clsStone
             Dim successResult As Linq.JObject = JsonConvert.DeserializeObject(jsonResult)
             Dim json As String = JsonConvert.SerializeObject(successResult, Formatting.Indented)
 
-            PopulateDtPreTransacao(successResult, dtListarTransacoes)
-            Return dtListarTransacoes
+            'PopulateDtPreTransacao(successResult, dtListarTransacoes)
+            'Return dtListarTransacoes
 
         Catch ex As WebException
             Dim strErro As String = ""
@@ -759,6 +759,57 @@ Public Class clsStone
 
     End Function
 
+    Public Shared Function StoneReativarEstabelecimento(ByVal parToken As String, ByVal parEstablishment_id As String, ByVal parStoneCode As String) As String
+        Dim body As New clsStoneJson.clsStoneReativarEstabelecimento
+        body.establishment_id = parEstablishment_id
+        body.stone_code = parStoneCode
+        Dim settings As JsonSerializerSettings = New JsonSerializerSettings()
+        settings.NullValueHandling = NullValueHandling.Ignore
+
+        Dim myData As String = JsonConvert.SerializeObject(body, settings)
+        System.Net.ServicePointManager.SecurityProtocol = 3072
+
+        Dim client As New WebClient
+        client.Headers("Accept") = "application/json"
+        client.Headers("Content-Type") = "application/json"
+        client.Headers("Authorization") = "Bearer " + parToken
+        ServicePointManager.Expect100Continue = False
+
+        Dim strURL As String = "https://api.siclospag.com.br/connect/v1/establishment/reactivate-establishment"
+
+        Try
+            Dim jsonBytes As Byte() = Encoding.UTF8.GetBytes(myData)
+            Dim jsonResult As String = Encoding.UTF8.GetString(client.UploadData(strURL, "PUT", jsonBytes))
+            Dim successResult As Linq.JObject = JsonConvert.DeserializeObject(jsonResult)
+
+            Dim json As String = JsonConvert.SerializeObject(successResult, Formatting.Indented)
+            Return json
+        Catch ex As WebException
+            Dim strErro As String = ""
+            Dim strJson As String = ""
+            Try
+                Dim response As String = New StreamReader(ex.Response.GetResponseStream()).ReadToEnd()
+
+                If response.Contains("error") = True Then
+                    Dim successResult2 As Linq.JObject = JsonConvert.DeserializeObject(response)
+                    strJson = JsonConvert.SerializeObject(successResult2, Formatting.Indented)
+                    Dim strCod As String = successResult2.Item("error")("code").ToString
+                    strErro = successResult2.Item("error")("description").ToString
+
+                End If
+            Catch ex2 As Exception
+            End Try
+            If ex.Message = "O servidor remoto retornou um erro: (409) Conflito." Then 'pasta já foi criada
+                Exit Function
+            End If
+            MsgBox(strErro & vbCrLf & ex.Message, MsgBoxStyle.Information)
+            Return strJson
+
+
+        End Try
+
+    End Function
+
     Public Shared Function StoneDeletarEstabelecimento(ByVal parToken As String, ByVal parEstablishmentId As String) As String
 
         Dim request As HttpWebRequest = CType(WebRequest.Create("https://api.siclospag.com.br/connect/v1/establishment/deactivate-establishment/" + parEstablishmentId), HttpWebRequest)
@@ -791,6 +842,58 @@ Public Class clsStone
         Dim json As String = JsonConvert.SerializeObject(successResult, Formatting.Indented)
         Return json
         'Dim postreqreader As New StreamReader(postresponse.GetResponseStream())
+
+    End Function
+
+    Public Shared Function StoneConsultarExtrato(ByVal parToken As String, ByVal parEstablishment_id As String, _
+                                                 ByVal parInitial_date As String, ByVal parTill_date As String, _
+                                                 ByVal parIs_establishment As Boolean) As String
+        Dim body As New clsStoneJson.clsStoneConsultarExtrato
+        body.provider_id = parEstablishment_id
+        body.initial_date = parInitial_date
+        body.till_date = parTill_date
+        body.is_establishment = parIs_establishment
+        Dim settings As JsonSerializerSettings = New JsonSerializerSettings()
+        settings.NullValueHandling = NullValueHandling.Ignore
+        Dim myData As String = JsonConvert.SerializeObject(body, settings)
+        System.Net.ServicePointManager.SecurityProtocol = 3072
+
+        Dim client As New WebClient
+        client.Headers("Accept") = "application/json"
+        client.Headers("Content-Type") = "application/json"
+        client.Headers("Authorization") = "Bearer " + parToken
+        ServicePointManager.Expect100Continue = False
+
+        Dim strURL As String = "https://api.siclospag.com.br/connect/v1/finance/extract"
+
+        Try
+            Dim jsonBytes As Byte() = Encoding.UTF8.GetBytes(myData)
+            Dim jsonResult As String = Encoding.UTF8.GetString(client.UploadData(strURL, "POST", jsonBytes))
+            Dim successResult As Linq.JObject = JsonConvert.DeserializeObject(jsonResult)
+            Dim json As String = JsonConvert.SerializeObject(successResult, Formatting.Indented)
+            Return json
+        Catch ex As WebException
+            Dim strErro As String = ""
+            Dim strJson As String = ""
+            Try
+                Dim response As String = New StreamReader(ex.Response.GetResponseStream()).ReadToEnd()
+                If response.Contains("error") = True Then
+                    Dim successResult2 As Linq.JObject = JsonConvert.DeserializeObject(response)
+                    strJson = JsonConvert.SerializeObject(successResult2, Formatting.Indented)
+                    Dim strCod As String = successResult2.Item("error")("code").ToString
+                    strErro = successResult2.Item("error")("description").ToString
+
+                End If
+            Catch ex2 As Exception
+            End Try
+            If ex.Message = "O servidor remoto retornou um erro: (409) Conflito." Then 'pasta já foi criada
+                Exit Function
+            End If
+            MsgBox(strErro & vbCrLf & ex.Message, MsgBoxStyle.Information)
+            Return strJson
+
+
+        End Try
 
     End Function
 

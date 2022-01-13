@@ -9,6 +9,8 @@ Public Class frmStones
     Dim token As String
     Dim dtPreTransacoes As DataTable
 
+    Dim dtListagem As DataTable
+
     Private Sub frmStones_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         StoneToken()
         token = dtStoneToken.Rows.Item(0).Item("token").ToString
@@ -93,7 +95,7 @@ Public Class frmStones
 
     Private Sub btnListarTransações_Click(sender As Object, e As EventArgs) Handles btnListarTransações.Click
 
-        'StoneListarTransacoes(token, strIdEstabelecimento, "day", "20211220", 1)
+        StoneListarTransacoes(token, "a0902f3f-b1cd-4ed4-b75e-88315093df17", "month", "202201", 1)
 
     End Sub
 
@@ -105,7 +107,9 @@ Public Class frmStones
     End Sub
 
     Private Sub btnWebHook_Click(sender As Object, e As EventArgs) Handles btnWebHook.Click
-        StoneWebhookPreTransacao(token, strIdEstabelecimento, "https://webhook.site/c8345d23-f2be-4790-b2fc-fcf3b9a3cfae")
+        'StoneWebhookPreTransacao(token, strIdEstabelecimento, "	https://webhook.site/d3227af5-bc8a-4cfb-9d06-e13eaeb8f98e?")
+        StoneWebhookPreTransacao(token, "3033a2b6-c393-48eb-84c5-8eaafb8bbb6f", "https://webhook.site/d3227af5-bc8a-4cfb-9d06-e13eaeb8f98e?")
+
     End Sub
 
     Private Sub btnCadEstab_CheckedChanged(sender As Object, e As EventArgs) Handles btnCadEstab.CheckedChanged
@@ -180,7 +184,8 @@ Public Class frmStones
     Private Sub btnListarPos_CheckedChanged(sender As Object, e As EventArgs) Handles btnListarPos.CheckedChanged
         Limpar()
         Dim strRetorno As String
-        Dim dtListagem As DataTable = StoneConsultarPos(token, strIdEstabelecimento, strRetorno)
+        dtListagem = StoneConsultarPos(token, strIdEstabelecimento, strRetorno)
+        strIdPos = dtListagem.Rows.Item(0).Item("")
         Me.rtbPosRetorno.Text = strRetorno
         Me.GridListagemPos.DataSource = dtListagem
     End Sub
@@ -205,5 +210,13 @@ Public Class frmStones
     Private Sub btnConsultarConfiguração_CheckedChanged(sender As Object, e As EventArgs) Handles btnConsultarConfiguração.CheckedChanged
         Limpar()
         Me.rtbPosRetorno.Text = StoneConsultarConfiguracaoPos(token, strIdEstabelecimento)
+    End Sub
+
+    Private Sub btnConsultarExtrato_Click(sender As Object, e As EventArgs) Handles btnConsultarExtrato.Click
+        StoneConsultarExtrato(token, "3033a2b6-c393-48eb-84c5-8eaafb8bbb6f", "20220101", "20220113", True)
+    End Sub
+
+    Private Sub btnReativarEstab_Click(sender As Object, e As EventArgs) Handles btnReativarEstab.Click
+        StoneReativarEstabelecimento(token, "a0902f3f-b1cd-4ed4-b75e-88315093df17", "211732177")
     End Sub
 End Class

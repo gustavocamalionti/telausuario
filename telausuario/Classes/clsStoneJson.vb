@@ -76,4 +76,18 @@
         'Public Property installment As String
         'Public Property installment_type As Integer
     End Class
+
+    Public Class clsStoneConsultarExtrato
+        Public Property provider_id As String
+        Public Property initial_date As String
+        Public Property till_date As String
+        Public Property is_establishment As Boolean
+    End Class
+
+    Public Class clsStoneReativarEstabelecimento
+        Public Property establishment_id As String
+        Public Property stone_code As String
+
+
+    End Class
 End Class
