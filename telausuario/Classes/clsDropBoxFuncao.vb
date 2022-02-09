@@ -294,7 +294,7 @@ Public Class clsDropBoxFuncao
         Dim client As New WebClient
         'client.Headers("Content-Type") = "application/octet-stream"
         client.Headers("Content-Type") = "application/json"
-        client.Headers("Authorization") = "Bearer sl.A_rshf5-D_nMdBQTsM7H_yhvbks4bcM2ylT7YvaOCTENtpnvBV8u_SI9gJUj2sYfaC1H86HdDOV-obtdT2dBZT7wAXm7OPemcsD97unJqxwQgD6U6x2MP758mtMEeA3QWJnxahkAZ-so"
+        client.Headers("Authorization") = "Bearer x6WGvLq6q0EAAAAAAAAAARfyFk1wRSk0YHlvFoAAi6YtG-eqwnGH_qI2HzAlBZHD"
         ServicePointManager.Expect100Continue = False
 
         Dim strURL As String = "https://api.dropboxapi.com/2/files/list_folder"

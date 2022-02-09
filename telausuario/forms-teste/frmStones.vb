@@ -213,7 +213,7 @@ Public Class frmStones
     End Sub
 
     Private Sub btnConsultarExtrato_Click(sender As Object, e As EventArgs) Handles btnConsultarExtrato.Click
-        StoneConsultarExtrato(token, "a0902f3f-b1cd-4ed4-b75e-88315093df17", "20220101", "20220113", True)
+        StoneConsultarExtrato(token, "a0902f3f-b1cd-4ed4-b75e-88315093df17", "20220117", "20220217", True)
     End Sub
 
     Private Sub btnReativarEstab_Click(sender As Object, e As EventArgs) Handles btnReativarEstab.Click
