@@ -32,6 +32,7 @@ Partial Class frmDropBoxTeste
         Me.btnListarArquivos = New DevExpress.XtraEditors.SimpleButton()
         Me.btnLocalizarBackup = New DevExpress.XtraEditors.SimpleButton()
         Me.btnRelatorio = New DevExpress.XtraEditors.SimpleButton()
+        Me.btnEnviarArquivoGrande = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.PanelControl3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl3.SuspendLayout()
         CType(Me.PanelControl9, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -171,11 +172,21 @@ Partial Class frmDropBoxTeste
         Me.btnRelatorio.TabIndex = 15
         Me.btnRelatorio.Text = "Relatório "
         '
+        'btnEnviarArquivoGrande
+        '
+        Me.btnEnviarArquivoGrande.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.btnEnviarArquivoGrande.Location = New System.Drawing.Point(0, 94)
+        Me.btnEnviarArquivoGrande.Name = "btnEnviarArquivoGrande"
+        Me.btnEnviarArquivoGrande.Size = New System.Drawing.Size(196, 36)
+        Me.btnEnviarArquivoGrande.TabIndex = 16
+        Me.btnEnviarArquivoGrande.Text = "Enviar Arquivo Grande"
+        '
         'frmDropBoxTeste
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(745, 287)
+        Me.Controls.Add(Me.btnEnviarArquivoGrande)
         Me.Controls.Add(Me.btnRelatorio)
         Me.Controls.Add(Me.btnLocalizarBackup)
         Me.Controls.Add(Me.PanelControl10)
@@ -212,4 +223,5 @@ Partial Class frmDropBoxTeste
     Friend WithEvents btnListarArquivos As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents btnLocalizarBackup As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents btnRelatorio As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents btnEnviarArquivoGrande As DevExpress.XtraEditors.SimpleButton
 End Class

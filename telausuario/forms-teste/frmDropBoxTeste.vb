@@ -9,6 +9,7 @@ Imports System.IO
 Imports System.IO.Compression
 Imports System.Text
 
+
 Public Class frmDropBoxTeste
     Private Sub btnCriarPasta_Click(sender As Object, e As EventArgs)
         CriarPastaDropBox("/backup/" & CNPJEmpresa & "")
@@ -127,7 +128,23 @@ Public Class frmDropBoxTeste
         frmBackupAutomatico.ShowDialog()
     End Sub
 
-    Private Sub frmDropBoxTeste_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+
+    Private Sub btnEnviarArquivoGrande_Click(sender As Object, e As EventArgs) Handles btnEnviarArquivoGrande.Click
+        strCaminhoArquivoZip = "C:\Users\Usuario\Downloads\TesteDividirArquivo\dbDiskBrejaSincIndaia.zip"
+        Dim indexUltimaBarra As String = strCaminhoArquivoZip.LastIndexOf("\")
+        Dim NomeArquivo As String = strCaminhoArquivoZip.Substring(indexUltimaBarra + 1, (strCaminhoArquivoZip.Count - 1) - (indexUltimaBarra))
+        CNPJEmpresa = "85787288000149"
+
+        Dim file As FileInfo = New FileInfo(strCaminhoArquivoZip)
+        Dim intTamanhoArquivo = file.Length
+
+        If intTamanhoArquivo >= "136314880" Then
+            Dim bolEnviarMaisArquivo As Boolean = UploadSessionStartDropbox(NomeArquivo, "backup/" & CNPJEmpresa & "")
+            UploadSessionAppendDropbox(NomeArquivo, "backup/" & CNPJEmpresa & "")
+        Else
+            UploadDropBox(NomeArquivo, "backup/" & CNPJEmpresa & "")
+        End If
 
     End Sub
 End Class

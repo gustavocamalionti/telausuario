@@ -26,7 +26,7 @@ Public Class clsDropBoxFuncao
         Dim client As New WebClient
         client.Headers("Content-Type") = "application/json"
         client.Headers("Accept") = "application/json"
-        client.Headers("Authorization") = "Bearer sl.A_rshf5-D_nMdBQTsM7H_yhvbks4bcM2ylT7YvaOCTENtpnvBV8u_SI9gJUj2sYfaC1H86HdDOV-obtdT2dBZT7wAXm7OPemcsD97unJqxwQgD6U6x2MP758mtMEeA3QWJnxahkAZ-so"
+        client.Headers("Authorization") = "Bearer tHkvlKuuhpsAAAAAAAAAAQfokQX9OELh3m1-L0uCUxo4PaEGyXMnFAXJG-n7h62v"
         ServicePointManager.Expect100Continue = False
 
         Dim strURL As String = "https://api.dropboxapi.com/2/files/create_folder_v2"
@@ -94,7 +94,7 @@ Public Class clsDropBoxFuncao
         Dim client As New WebClient
         client.Headers("Content-Type") = "application/octet-stream"
 
-        client.Headers("Authorization") = "Bearer sl.A_rshf5-D_nMdBQTsM7H_yhvbks4bcM2ylT7YvaOCTENtpnvBV8u_SI9gJUj2sYfaC1H86HdDOV-obtdT2dBZT7wAXm7OPemcsD97unJqxwQgD6U6x2MP758mtMEeA3QWJnxahkAZ-so"
+        client.Headers("Authorization") = "Bearer tHkvlKuuhpsAAAAAAAAAAQfokQX9OELh3m1-L0uCUxo4PaEGyXMnFAXJG-n7h62v"
         client.Headers("Dropbox-API-Arg") = myData
 
         ServicePointManager.Expect100Continue = False
@@ -107,6 +107,141 @@ Public Class clsDropBoxFuncao
 
             ConverteArquivo(strCaminhoArquivoZip)
             DeletarArquivoDropBox(dadosConta.path.ToString)
+
+            ' Dim jsonResult As String = Encoding.UTF8.GetString(client.DownloadData(strURL))
+
+            Dim jsonResult As String = Encoding.UTF8.GetString(client.UploadData(strURL, "POST", mybyte))
+            Dim successResult As Linq.JObject = JsonConvert.DeserializeObject(jsonResult)
+            Dim strId As String = successResult("id").ToString
+
+            'Dim filename As String = "C:\test\birthday.mp3"
+
+            'Dim dataBytes() As Byte = IO.File.ReadAllBytes(filename)
+            'Dim dataStream = New MemoryStream(dataBytes)
+            'request.Content = New StreamContent(dataStream)
+
+            'request.Content.Headers.ContentType = MediaTypeHeaderValue.Parse("audio/mpeg")
+
+            ' Do the upload
+            'Dim response = httpClient.SendAsync(request).Result
+            Dim json As String = JsonConvert.SerializeObject(successResult, Formatting.Indented)
+            Return json
+        Catch ex As WebException
+            Dim strErro As String = ""
+            Dim strJson As String = ""
+            Try
+                Dim response As String = New StreamReader(ex.Response.GetResponseStream()).ReadToEnd()
+
+                If response.Contains("error") = True Then
+                    Dim successResult2 As Linq.JObject = JsonConvert.DeserializeObject(response)
+                    strJson = JsonConvert.SerializeObject(successResult2, Formatting.Indented)
+                    Dim strCod As String = successResult2.Item("error")("code").ToString
+                    strErro = successResult2.Item("error")("description").ToString
+
+                End If
+            Catch ex2 As Exception
+            End Try
+
+            MsgBox(strErro & vbCrLf & ex.Message, MsgBoxStyle.Information)
+            Return strJson
+        End Try
+
+    End Function
+
+    Public Shared Function UploadSessionStartDropbox(NomeArquivo As String, CaminhoPastaDropbox As String) As Boolean
+
+        Dim dadosConta As New clsJsonDropBox.clsUploadSessionStart
+        dadosConta.close = False
+        Dim settings As JsonSerializerSettings = New JsonSerializerSettings()
+        settings.NullValueHandling = NullValueHandling.Ignore
+
+        System.Net.ServicePointManager.SecurityProtocol = 3072
+        Dim myData As String = JsonConvert.SerializeObject(dadosConta, settings)
+
+        Dim client As New WebClient
+        client.Headers("Content-Type") = "application/octet-stream"
+
+        client.Headers("Authorization") = "Bearer tHkvlKuuhpsAAAAAAAAAAQfokQX9OELh3m1-L0uCUxo4PaEGyXMnFAXJG-n7h62v"
+        client.Headers("Dropbox-API-Arg") = myData
+
+        ServicePointManager.Expect100Continue = False
+
+        Dim strURL As String = "https://content.dropboxapi.com/2/files/upload_session/start"
+
+        Try
+            'myData = "{\""path\"": \""/tesstee/math\"",\"": false}"
+            'myData = "{""path"":""/ge/32"",""autorename"":false}"
+
+            ConverteArquivo(strCaminhoArquivoZip)
+
+            ' Dim jsonResult As String = Encoding.UTF8.GetString(client.DownloadData(strURL))
+
+            Dim jsonResult As String = Encoding.UTF8.GetString(client.UploadData(strURL, "POST", mybyte))
+            Dim successResult As Linq.JObject = JsonConvert.DeserializeObject(jsonResult)
+            Dim strId As String = successResult("id").ToString
+
+            'Dim filename As String = "C:\test\birthday.mp3"
+
+            'Dim dataBytes() As Byte = IO.File.ReadAllBytes(filename)
+            'Dim dataStream = New MemoryStream(dataBytes)
+            'request.Content = New StreamContent(dataStream)
+
+            'request.Content.Headers.ContentType = MediaTypeHeaderValue.Parse("audio/mpeg")
+
+            ' Do the upload
+            'Dim response = httpClient.SendAsync(request).Result
+            Dim json As String = JsonConvert.SerializeObject(successResult, Formatting.Indented)
+            Return json
+        Catch ex As WebException
+            Dim strErro As String = ""
+            Dim strJson As String = ""
+            Try
+                Dim response As String = New StreamReader(ex.Response.GetResponseStream()).ReadToEnd()
+
+                If response.Contains("error") = True Then
+                    Dim successResult2 As Linq.JObject = JsonConvert.DeserializeObject(response)
+                    strJson = JsonConvert.SerializeObject(successResult2, Formatting.Indented)
+                    Dim strCod As String = successResult2.Item("error")("code").ToString
+                    strErro = successResult2.Item("error")("description").ToString
+
+                End If
+            Catch ex2 As Exception
+            End Try
+
+            MsgBox(strErro & vbCrLf & ex.Message, MsgBoxStyle.Information)
+            Return strJson
+        End Try
+
+    End Function
+
+    Public Shared Function UploadSessionAppendDropbox(NomeArquivo As String, CaminhoPastaDropbox As String) As String
+
+        Dim dadosConta As New clsJsonDropBox.clsUploadSessionAppend
+        dadosConta.close = False
+        dadosConta.cursor.offset = 0
+        dadosConta.cursor.session_id = ""
+
+        Dim settings As JsonSerializerSettings = New JsonSerializerSettings()
+        settings.NullValueHandling = NullValueHandling.Ignore
+
+        System.Net.ServicePointManager.SecurityProtocol = 3072
+        Dim myData As String = JsonConvert.SerializeObject(dadosConta, settings)
+
+        Dim client As New WebClient
+        client.Headers("Content-Type") = "application/octet-stream"
+
+        client.Headers("Authorization") = "Bearer tHkvlKuuhpsAAAAAAAAAAQfokQX9OELh3m1-L0uCUxo4PaEGyXMnFAXJG-n7h62v"
+        client.Headers("Dropbox-API-Arg") = myData
+
+        ServicePointManager.Expect100Continue = False
+
+        Dim strURL As String = "https://content.dropboxapi.com/2/files/upload_session/append_v2"
+
+        Try
+            'myData = "{\""path\"": \""/tesstee/math\"",\"": false}"
+            'myData = "{""path"":""/ge/32"",""autorename"":false}"
+
+            ConverteArquivo(strCaminhoArquivoZip)
 
             ' Dim jsonResult As String = Encoding.UTF8.GetString(client.DownloadData(strURL))
 
@@ -294,7 +429,7 @@ Public Class clsDropBoxFuncao
         Dim client As New WebClient
         'client.Headers("Content-Type") = "application/octet-stream"
         client.Headers("Content-Type") = "application/json"
-        client.Headers("Authorization") = "Bearer x6WGvLq6q0EAAAAAAAAAARfyFk1wRSk0YHlvFoAAi6YtG-eqwnGH_qI2HzAlBZHD"
+        client.Headers("Authorization") = "Bearer tHkvlKuuhpsAAAAAAAAAAQfokQX9OELh3m1-L0uCUxo4PaEGyXMnFAXJG-n7h62v"
         ServicePointManager.Expect100Continue = False
 
         Dim strURL As String = "https://api.dropboxapi.com/2/files/list_folder"
@@ -408,6 +543,7 @@ Public Class clsDropBoxFuncao
         compactarArquivo(strCaminhoArquivoBak, strCaminhoArquivoZip)
 
         'UPLOAD 
+        strCaminhoArquivoZip = "C:\Users\Usuario\Downloads\TesteDividirArquivo\dbDiskBrejaSincIndaia.zip.001"
         Dim indexUltimaBarra As String = strCaminhoArquivoZip.LastIndexOf("\")
         Dim NomeArquivo As String = strCaminhoArquivoZip.Substring(indexUltimaBarra + 1, (strCaminhoArquivoZip.Count - 1) - (indexUltimaBarra))
 

@@ -37,6 +37,20 @@
         Public Property path As String
     End Class
 
+    Public Class clsUploadSessionStart
+        Public Property close As Boolean
+    End Class
+
+    Public Class clsUploadSessionAppend
+        Public Property cursor As New Cursor
+        Public Property close As Boolean
+    End Class
+
+    Public Class Cursor
+        Public Property session_id As String
+        Public Property offset As Integer
+    End Class
+
 End Namespace
 
 
